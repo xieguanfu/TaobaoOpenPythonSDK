@@ -16,9 +16,9 @@ from Common import *
 from Settings import *
 
 class DomainParser(object):
-    def __init__(self, root, output):
+    def __init__(self, root, config):
         self.root = root
-        self.output = output
+        self.config = config
         
     def generateFiles(self):
         rootOutput = os.path.join(self.output, domainOutput)
