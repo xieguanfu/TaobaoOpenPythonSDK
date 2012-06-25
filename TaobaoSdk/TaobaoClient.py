@@ -15,7 +15,6 @@
 from Common import *
 from Response import *
 from SdkCommon import *
-from Exceptions import * 
 import logging
 logger = logging.getLogger(__name__)
 
@@ -80,11 +79,7 @@ class TaobaoClient(object):
         logger.debug('start process raw response from api:%s'%(request.method))
         for key, value in content.iteritems():
             key = str().join([x.capitalize() for x in key.split("_")])
-            ResponseClass = None
-            try:
-                ResponseClass = getattr(sys.modules["TaobaoSdk.Response.%s" % key], key)
-            except Exception:
-                raise ErrorResponseException(value) 
+            ResponseClass = getattr(sys.modules["TaobaoSdk.Response.%s" % key], key)
             response = ResponseClass(value)
             response.responseStatus = responseStatus
             response.responseBody = rawContent

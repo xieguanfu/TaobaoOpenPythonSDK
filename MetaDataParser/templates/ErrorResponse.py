@@ -42,8 +42,16 @@ class ErrorResponse(object):
         错误消息
         '''
 
+        self.sub_code = None
+
+        self.sub_msg = None
 
         if kargs.has_key("code"):
             self.code = kargs["code"]
         if kargs.has_key("msg"):
             self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]
+
