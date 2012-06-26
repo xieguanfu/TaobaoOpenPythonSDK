@@ -49,11 +49,11 @@ class ErrorResponse(object):
         if kargs.has_key("code"):
             self.code = kargs["code"]
         if kargs.has_key("msg"):
-            self.msg = kargs["msg"]
+            self.msg = kargs["msg"].encode("utf-8")
         if kargs.has_key("sub_code"):
             self.sub_code = kargs["sub_code"]
         if kargs.has_key("sub_msg"):
-            self.sub_msg = kargs["sub_msg"]
+            self.sub_msg = kargs["sub_msg"].encode("utf-8")
 
     def isSuccess(self):
         return self.code == None and self.sub_code == None
