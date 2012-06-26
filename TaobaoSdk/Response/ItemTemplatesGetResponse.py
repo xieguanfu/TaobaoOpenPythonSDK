@@ -5,7 +5,7 @@
 
 ## @brief 查询当前登录用户的店铺的宝贝详情页的模板名称
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:53
+# @date 2012-06-26 09:21:13
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class ItemTemplatesGetResponse(object):
         
         if kargs.has_key("item_template_list"):
             self.item_template_list = self._newInstance("item_template_list", kargs["item_template_list"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

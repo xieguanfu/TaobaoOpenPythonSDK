@@ -55,3 +55,5 @@ class ErrorResponse(object):
         if kargs.has_key("sub_msg"):
             self.sub_msg = kargs["sub_msg"]
 
+    def isSuccess(self):
+        return self.code == None and self.sub_code == None

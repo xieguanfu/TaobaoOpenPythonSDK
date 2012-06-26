@@ -5,7 +5,7 @@
 
 ## @brief 获取指定用户的权限集合，并不组装成树。如果是主账号，返回所有的权限列表；如果是子账号，返回所有已授权的权限。只能查询属于自己的账号信息 (如果是主账号，则是主账号以及所属子账号，如果是子账号则是对应主账号以及所属子账号)
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:10
+# @date 2012-06-26 09:21:26
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class SellercenterUserPermissionsGetResponse(object):
         
         if kargs.has_key("permissions"):
             self.permissions = self._newInstance("permissions", kargs["permissions"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

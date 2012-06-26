@@ -5,7 +5,7 @@
 
 ## @brief 更新一个创意的信息，可以设置创意标题、创意图片
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:44
+# @date 2012-06-26 09:21:06
 # @version: 0.0.0
 
 import os

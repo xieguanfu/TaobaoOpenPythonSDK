@@ -5,7 +5,7 @@
 
 ## @brief 根据文档商品的ID获取文档目录
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:05
+# @date 2012-06-26 09:21:23
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class TaohuaDirectoryGetResponse(object):
         
         if kargs.has_key("tree_vo"):
             self.tree_vo = self._newInstance("tree_vo", kargs["tree_vo"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

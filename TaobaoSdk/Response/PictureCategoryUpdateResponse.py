@@ -5,7 +5,7 @@
 
 ## @brief 更新图片分类的名字，或者更新图片分类的父分类（即分类移动）。只能移动2级分类到非2级分类，默认分类和1级分类不可移动。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:09
+# @date 2012-06-26 09:21:26
 # @version: 0.0.0
 
 from datetime import datetime
@@ -142,4 +142,11 @@ class PictureCategoryUpdateResponse(object):
         
         if kargs.has_key("done"):
             self.done = self._newInstance("done", kargs["done"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

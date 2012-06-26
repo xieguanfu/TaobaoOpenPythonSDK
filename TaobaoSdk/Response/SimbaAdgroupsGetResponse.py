@@ -5,7 +5,7 @@
 
 ## @brief 取得一个推广计划的所有推广组，或者根据一个推广组Id列表取得一组推广组； 如果同时提供了推广计划Id和推广组id列表，则优先使用推广计划Id，当使用 推广计划ID获取数据时，返回的结果是有分页的。如果是用推广组ID列表作查询 则将一次返回所有查询的结果。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:01
+# @date 2012-06-26 09:21:19
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class SimbaAdgroupsGetResponse(object):
         
         if kargs.has_key("adgroups"):
             self.adgroups = self._newInstance("adgroups", kargs["adgroups"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

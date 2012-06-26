@@ -5,7 +5,7 @@
 
 ## @brief 根据词ID和给定的出价获取词的预估信息
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:03
+# @date 2012-06-26 09:21:21
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class SimbaKeywordKeywordforecastGetResponse(object):
         
         if kargs.has_key("keyword_forecast"):
             self.keyword_forecast = self._newInstance("keyword_forecast", kargs["keyword_forecast"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

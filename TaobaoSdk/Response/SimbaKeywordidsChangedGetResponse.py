@@ -5,7 +5,7 @@
 
 ## @brief 获取修改的词ID
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:03
+# @date 2012-06-26 09:21:21
 # @version: 0.0.0
 
 from datetime import datetime
@@ -142,4 +142,11 @@ class SimbaKeywordidsChangedGetResponse(object):
         
         if kargs.has_key("changed_keyword_ids"):
             self.changed_keyword_ids = self._newInstance("changed_keyword_ids", kargs["changed_keyword_ids"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

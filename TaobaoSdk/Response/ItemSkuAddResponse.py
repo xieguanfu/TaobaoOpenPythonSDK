@@ -5,7 +5,7 @@
 
 ## @brief 新增一个sku到num_iid指定的商品中  传入的iid所对应的商品必须属于当前会话的用户
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:53
+# @date 2012-06-26 09:21:12
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class ItemSkuAddResponse(object):
         
         if kargs.has_key("sku"):
             self.sku = self._newInstance("sku", kargs["sku"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

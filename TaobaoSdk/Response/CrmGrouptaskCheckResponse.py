@@ -5,7 +5,7 @@
 
 ## @brief 检查一个分组上是否有异步任务,异步任务包括1.将一个分组下的所有用户添加到另外一个分组2.将一个分组下的所有用户移动到另外一个分组3.删除某个分组 若分组上有任务则该属性不能被操作。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:08
+# @date 2012-06-26 09:21:25
 # @version: 0.0.0
 
 from datetime import datetime
@@ -142,4 +142,11 @@ class CrmGrouptaskCheckResponse(object):
         
         if kargs.has_key("is_finished"):
             self.is_finished = self._newInstance("is_finished", kargs["is_finished"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

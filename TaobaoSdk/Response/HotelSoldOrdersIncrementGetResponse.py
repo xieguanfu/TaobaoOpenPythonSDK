@@ -5,7 +5,7 @@
 
 ## @brief 1. 搜索当前会话用户作为卖家已卖出的增量交易数据  2. 只能查询时间跨度为一天的增量交易记录：start_modified：2011-7-1 16:00:00 end_modified： 2011-7-2 15:59:59（注意不能写成16:00:00）  3. 返回数据结果为创建订单时间的倒序
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:07
+# @date 2012-06-26 09:21:24
 # @version: 0.0.0
 
 from datetime import datetime
@@ -183,4 +183,11 @@ class HotelSoldOrdersIncrementGetResponse(object):
         
         if kargs.has_key("total_results"):
             self.total_results = self._newInstance("total_results", kargs["total_results"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

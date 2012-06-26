@@ -5,7 +5,7 @@
 
 ## @brief 搭配套餐查询。每个卖家最多创建50个搭配套餐，所以查询不会分页，会将所有的满足状态的搭配套餐全部查出。该接口不会校验商品的下架或库存为0，查询结果的状态表明搭配套餐在数据库中的状态，商品的状态请isv自己验证。在卖家后台页面点击查看会触发数据库状态的修改。 
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:05
+# @date 2012-06-26 09:21:22
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class PromotionMealGetResponse(object):
         
         if kargs.has_key("meal_list"):
             self.meal_list = self._newInstance("meal_list", kargs["meal_list"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

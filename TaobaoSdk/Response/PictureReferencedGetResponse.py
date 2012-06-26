@@ -5,7 +5,7 @@
 
 ## @brief 查询图片被引用的详情，包括引用者，引用者名字，引用者地址
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:10
+# @date 2012-06-26 09:21:26
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class PictureReferencedGetResponse(object):
         
         if kargs.has_key("references"):
             self.references = self._newInstance("references", kargs["references"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

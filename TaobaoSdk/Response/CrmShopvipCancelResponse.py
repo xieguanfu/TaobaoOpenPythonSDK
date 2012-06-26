@@ -5,7 +5,7 @@
 
 ## @brief 此接口用于取消VIP优惠
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:09
+# @date 2012-06-26 09:21:25
 # @version: 0.0.0
 
 from datetime import datetime
@@ -142,4 +142,11 @@ class CrmShopvipCancelResponse(object):
         
         if kargs.has_key("is_success"):
             self.is_success = self._newInstance("is_success", kargs["is_success"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

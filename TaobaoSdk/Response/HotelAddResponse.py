@@ -5,7 +5,7 @@
 
 ## @brief 此接口用于新增一个酒店，酒店的发布者是当前会话的用户。 该接口发出的是一个酒店申请，需要淘宝小二审核。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:06
+# @date 2012-06-26 09:21:23
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class HotelAddResponse(object):
         
         if kargs.has_key("hotel"):
             self.hotel = self._newInstance("hotel", kargs["hotel"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

@@ -5,7 +5,7 @@
 
 ## @brief 用户根据淘宝交易号查询物流流转信息，如2010-8-10 15：23：00到达杭州集散地
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:57
+# @date 2012-06-26 09:21:16
 # @version: 0.0.0
 
 from datetime import datetime
@@ -221,4 +221,11 @@ class LogisticsTraceSearchResponse(object):
         
         if kargs.has_key("trace_list"):
             self.trace_list = self._newInstance("trace_list", kargs["trace_list"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

@@ -5,7 +5,7 @@
 
 ## @brief 通过用户id查询用户自己或者子账户的登录日志： 主账号可以查询自己和店铺子账户的登录日志（查询时需要输入子账号，多个用，隔开） 组管理员可以查询自己和组内子账号的登录日志（查询时需要输入子账号，多个用，隔开） 非组管理员的子账户只能查询自己的登录日志
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:00
+# @date 2012-06-26 09:21:18
 # @version: 0.0.0
 
 from datetime import datetime
@@ -183,4 +183,11 @@ class WangwangEserviceLoginlogsGetResponse(object):
         
         if kargs.has_key("user_id"):
             self.user_id = self._newInstance("user_id", kargs["user_id"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

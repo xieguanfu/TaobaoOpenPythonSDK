@@ -5,7 +5,7 @@
 
 ## @brief 会员列表的高级查询，接口返回符合条件的会员列表.<br> 注：建议获取09年以后的数据，09年之前的数据不是很完整
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:08
+# @date 2012-06-26 09:21:25
 # @version: 0.0.0
 
 from datetime import datetime
@@ -164,4 +164,11 @@ class CrmMembersSearchResponse(object):
         
         if kargs.has_key("total_result"):
             self.total_result = self._newInstance("total_result", kargs["total_result"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

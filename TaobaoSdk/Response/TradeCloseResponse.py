@@ -5,7 +5,7 @@
 
 ## @brief 关闭一笔订单，可以是主订单或子订单。当订单从创建到关闭时间小于10s的时候，会报“CLOSE_TRADE_TOO_FAST”错误。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:55
+# @date 2012-06-26 09:21:14
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class TradeCloseResponse(object):
         
         if kargs.has_key("trade"):
             self.trade = self._newInstance("trade", kargs["trade"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

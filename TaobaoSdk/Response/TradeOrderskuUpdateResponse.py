@@ -5,7 +5,7 @@
 
 ## @brief 只能更新发货前子订单的销售属性  只能更新价格相同的销售属性。对于拍下减库存的交易会同步更新销售属性的库存量。对于旺店的交易，要使用商品扩展信息中的SKU价格来比较。  必须使用sku_id或sku_props中的一个参数来更新，如果两个都传的话，sku_id优先
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:55
+# @date 2012-06-26 09:21:14
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class TradeOrderskuUpdateResponse(object):
         
         if kargs.has_key("order"):
             self.order = self._newInstance("order", kargs["order"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

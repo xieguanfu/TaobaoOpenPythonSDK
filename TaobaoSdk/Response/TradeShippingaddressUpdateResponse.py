@@ -5,7 +5,7 @@
 
 ## @brief 只能更新一笔交易里面的买家收货地址  只能更新发货前（即买家已付款，等待卖家发货状态）的交易的买家收货地址  更新后的发货地址可以通过taobao.trade.fullinfo.get查到  参数中所说的字节为GBK编码的（英文和数字占1字节，中文占2字节）
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:55
+# @date 2012-06-26 09:21:14
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class TradeShippingaddressUpdateResponse(object):
         
         if kargs.has_key("trade"):
             self.trade = self._newInstance("trade", kargs["trade"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

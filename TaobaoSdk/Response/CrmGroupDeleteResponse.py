@@ -5,7 +5,7 @@
 
 ## @brief 将该分组下的所有会员移除出该组，同时删除该分组。注：删除分组为异步任务，必须先调用taobao.crm.grouptask.check 确保涉及属性上没有任务。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:08
+# @date 2012-06-26 09:21:24
 # @version: 0.0.0
 
 from datetime import datetime
@@ -142,4 +142,11 @@ class CrmGroupDeleteResponse(object):
         
         if kargs.has_key("is_success"):
             self.is_success = self._newInstance("is_success", kargs["is_success"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

@@ -5,7 +5,7 @@
 
 ## @brief 判断是否是粉丝返回的结果集
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:33
+# @date 2012-06-26 09:20:57
 # @version: 0.0.0
 
 from copy import deepcopy

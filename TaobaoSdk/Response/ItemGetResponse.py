@@ -5,7 +5,7 @@
 
 ## @brief 获取单个商品的详细信息  卖家未登录时只能获得这个商品的公开数据，卖家登录后可以获取商品的所有数据
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:52
+# @date 2012-06-26 09:21:12
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class ItemGetResponse(object):
         
         if kargs.has_key("item"):
             self.item = self._newInstance("item", kargs["item"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

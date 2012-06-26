@@ -5,7 +5,7 @@
 
 ## @brief 确认发货的目的是让交易流程继承走下去，确认发货后交易状态会由【买家已付款】变为【卖家已发货】，然后买家才可以确认收货，货款打入卖家账号。货到付款的订单除外
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:56
+# @date 2012-06-26 09:21:15
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class LogisticsOnlineConfirmResponse(object):
         
         if kargs.has_key("shipping"):
             self.shipping = self._newInstance("shipping", kargs["shipping"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

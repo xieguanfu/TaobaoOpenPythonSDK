@@ -5,7 +5,7 @@
 
 ## @brief 查询B商家被授权品牌列表、类目列表和 c 商家新品类目列表
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:51
+# @date 2012-06-26 09:21:11
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class ItemcatsAuthorizeGetResponse(object):
         
         if kargs.has_key("seller_authorize"):
             self.seller_authorize = self._newInstance("seller_authorize", kargs["seller_authorize"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

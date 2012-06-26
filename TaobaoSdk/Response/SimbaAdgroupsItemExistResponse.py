@@ -5,7 +5,7 @@
 
 ## @brief 判断在一个推广计划中是否已经推广了一个商品
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:01
+# @date 2012-06-26 09:21:19
 # @version: 0.0.0
 
 from datetime import datetime
@@ -142,4 +142,11 @@ class SimbaAdgroupsItemExistResponse(object):
         
         if kargs.has_key("exist"):
             self.exist = self._newInstance("exist", kargs["exist"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

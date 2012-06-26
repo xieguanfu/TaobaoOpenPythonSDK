@@ -5,7 +5,7 @@
 
 ## @brief * 根据传入的搜索条件，获取商品列表和商品类目信息ItemCategory列表（类似于淘宝页面上的商品搜索功能，与 taobao.items.get的区别在于：这个方法得到的结果既有商品列表，又有类目信息列表）     * 商品列表里只能获得商品的部分信息，商品的详细信息请通过taobao.item.get获取     * 商品类目信息列表里只包含类目id和该类目下商品的数量     * 不能通过设置cid=0来查询
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:54
+# @date 2012-06-26 09:21:13
 # @version: 0.0.0
 
 from datetime import datetime
@@ -164,4 +164,11 @@ class ItemsSearchResponse(object):
         
         if kargs.has_key("total_results"):
             self.total_results = self._newInstance("total_results", kargs["total_results"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

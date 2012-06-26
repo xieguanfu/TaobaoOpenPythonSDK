@@ -5,7 +5,7 @@
 
 ## @brief 更新分销平台产品数据，不传更新数据返回失败<br> 1. 对sku进行增、删操作时，原有的sku_ids字段会被忽略，请使用sku_properties和sku_properties_del。<br>
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:59
+# @date 2012-06-26 09:21:17
 # @version: 0.0.0
 
 from datetime import datetime
@@ -161,4 +161,11 @@ class FenxiaoProductUpdateResponse(object):
         
         if kargs.has_key("pid"):
             self.pid = self._newInstance("pid", kargs["pid"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

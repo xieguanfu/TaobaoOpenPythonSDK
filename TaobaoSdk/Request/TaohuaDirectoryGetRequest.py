@@ -5,7 +5,7 @@
 
 ## @brief 根据文档商品的ID获取文档目录
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:47
+# @date 2012-06-26 09:21:08
 # @version: 0.0.0
 
 import os

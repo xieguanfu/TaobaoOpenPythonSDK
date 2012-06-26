@@ -5,7 +5,7 @@
 
 ## @brief 根据用户信息推荐相关联的宝贝集。仅支持widget入口调用，需要同时校验淘宝cookie登陆情况，以及cookie和session授权的一致性。调用入口为/widget/rest。签名方法简化为Hmac-md5,hmac(secret+‘app_key' ＋app_key +'timestamp' + timestamp+secret)。timestamp为60分钟内有效 此API为组件API，调用方式需要参照：http://open.taobao.com/doc/detail.htm?id=988，以JS-SDK调用
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:11
+# @date 2012-06-26 09:21:27
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class UserrecommendItemsGetResponse(object):
         
         if kargs.has_key("favorite_items"):
             self.favorite_items = self._newInstance("favorite_items", kargs["favorite_items"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

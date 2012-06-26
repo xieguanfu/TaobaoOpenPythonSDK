@@ -5,7 +5,7 @@
 
 ## @brief 卖家查询该笔交易订单的资金帐务相关的数据； 1. 只供卖家使用，买家不可使用 2. 可查询所有的状态的订单，但不同状态时订单的相关数据可能会有不同
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:54
+# @date 2012-06-26 09:21:14
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class TradeAmountGetResponse(object):
         
         if kargs.has_key("trade_amount"):
             self.trade_amount = self._newInstance("trade_amount", kargs["trade_amount"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

@@ -5,7 +5,7 @@
 
 ## @brief 1.传入非主图ID  2.传入产品ID  删除产品非主图
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:54
+# @date 2012-06-26 09:21:13
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class ProductImgDeleteResponse(object):
         
         if kargs.has_key("product_img"):
             self.product_img = self._newInstance("product_img", kargs["product_img"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

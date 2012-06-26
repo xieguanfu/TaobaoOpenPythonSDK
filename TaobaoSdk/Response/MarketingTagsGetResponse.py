@@ -5,7 +5,7 @@
 
 ## @brief 查询人群标签，返回卖家创建的全部人群标签（有效的）
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:05
+# @date 2012-06-26 09:21:22
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class MarketingTagsGetResponse(object):
         
         if kargs.has_key("user_tags"):
             self.user_tags = self._newInstance("user_tags", kargs["user_tags"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

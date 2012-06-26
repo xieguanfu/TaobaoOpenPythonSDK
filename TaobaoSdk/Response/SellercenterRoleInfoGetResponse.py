@@ -5,7 +5,7 @@
 
 ## @brief 获取指定角色的信息。只能查询属于自己的角色信息 (主账号或者某个主账号的子账号登陆，只能查询属于该主账号的角色信息)
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:10
+# @date 2012-06-26 09:21:26
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class SellercenterRoleInfoGetResponse(object):
         
         if kargs.has_key("role"):
             self.role = self._newInstance("role", kargs["role"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

@@ -5,7 +5,7 @@
 
 ## @brief 产品图片删除，只删除图片信息，不真正删除图片
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:58
+# @date 2012-06-26 09:21:17
 # @version: 0.0.0
 
 from datetime import datetime
@@ -161,4 +161,11 @@ class FenxiaoProductImageDeleteResponse(object):
         
         if kargs.has_key("result"):
             self.result = self._newInstance("result", kargs["result"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

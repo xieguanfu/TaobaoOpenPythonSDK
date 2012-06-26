@@ -5,7 +5,7 @@
 
 ## @brief 用户对一个掌柜进行关注. 关注操作失败返回对应的错误码. 已经关注的过再调用时，返回错误信息，提示已经关注过。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:11
+# @date 2012-06-26 09:21:27
 # @version: 0.0.0
 
 from datetime import datetime
@@ -142,4 +142,11 @@ class JianghuFanFollowResponse(object):
         
         if kargs.has_key("follow_result"):
             self.follow_result = self._newInstance("follow_result", kargs["follow_result"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

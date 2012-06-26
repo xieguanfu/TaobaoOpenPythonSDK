@@ -5,7 +5,7 @@
 
 ## @brief 取得推广计划的可设置投放频道列表
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:44
+# @date 2012-06-26 09:21:05
 # @version: 0.0.0
 
 import os

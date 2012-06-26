@@ -5,7 +5,7 @@
 
 ## @brief 淘花类目属性结构
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:34
+# @date 2012-06-26 09:20:59
 # @version: 0.0.0
 
 from copy import deepcopy

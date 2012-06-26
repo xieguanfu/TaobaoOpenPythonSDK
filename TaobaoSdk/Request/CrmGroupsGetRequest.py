@@ -5,7 +5,7 @@
 
 ## @brief 查询卖家的分组，返回查询到的分组列表，分页返回分组
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:49
+# @date 2012-06-26 09:21:09
 # @version: 0.0.0
 
 import os

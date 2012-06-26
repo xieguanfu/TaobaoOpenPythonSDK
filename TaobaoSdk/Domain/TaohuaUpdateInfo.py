@@ -5,7 +5,7 @@
 
 ## @brief 淘花终端软件版本更新信息接口
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:34
+# @date 2012-06-26 09:20:58
 # @version: 0.0.0
 
 from copy import deepcopy

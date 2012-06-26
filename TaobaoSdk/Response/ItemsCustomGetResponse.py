@@ -5,7 +5,7 @@
 
 ## @brief 跟据卖家设定的商品外部id获取商品  这个商品对应卖家从传入的session中获取，需要session绑定
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:53
+# @date 2012-06-26 09:21:13
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class ItemsCustomGetResponse(object):
         
         if kargs.has_key("items"):
             self.items = self._newInstance("items", kargs["items"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

@@ -5,7 +5,7 @@
 
 ## @brief 交易快照查询 目前只支持类型为“旺店标准版(600)”或“旺店入门版(610)”的交易  对于“旺店标准版”类型的交易，返回的snapshot字段为交易快照编号  对于“旺店入门版”类型的交易，返回的snapshot字段为JSON结构的数据(其中的shopPromotion包含了优惠，积分等信息）
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:55
+# @date 2012-06-26 09:21:14
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class TradeSnapshotGetResponse(object):
         
         if kargs.has_key("trade"):
             self.trade = self._newInstance("trade", kargs["trade"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

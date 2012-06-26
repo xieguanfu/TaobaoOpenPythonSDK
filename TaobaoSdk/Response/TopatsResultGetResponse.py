@@ -5,7 +5,7 @@
 
 ## @brief 使用指南：http://open.taobao.com/doc/detail.htm?id=30 1.此接口用于获取异步任务处理的结果，传入的task_id必需属于当前的appKey才可以 2.此接口只返回执行完成的任务结果，未执行完的返回结果里面不包含任务结果，只有任务id，执行状态 3.执行完成的每个task的子任务结果内容与单个任务的结果结构一致。如：taobao.topats.trades.fullinfo.get返回的子任务结果就会是Trade的结构体。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:00
+# @date 2012-06-26 09:21:18
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class TopatsResultGetResponse(object):
         
         if kargs.has_key("task"):
             self.task = self._newInstance("task", kargs["task"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

@@ -5,7 +5,7 @@
 
 ## @brief 查询物流公司信息（可以查询目的地可不可达情况）
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:57
+# @date 2012-06-26 09:21:16
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class LogisticsPartnersGetResponse(object):
         
         if kargs.has_key("logistics_partners"):
             self.logistics_partners = self._newInstance("logistics_partners", kargs["logistics_partners"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

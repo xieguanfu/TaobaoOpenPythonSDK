@@ -5,7 +5,7 @@
 
 ## @brief 获取指定卖家的角色下属员工列表，只能获取属于登陆者自己的信息。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:10
+# @date 2012-06-26 09:21:26
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class SellercenterRolemembersGetResponse(object):
         
         if kargs.has_key("subusers"):
             self.subusers = self._newInstance("subusers", kargs["subusers"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

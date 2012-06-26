@@ -39,7 +39,7 @@ class ResponseParser(object):
             fout = file(filename, "w")
             fout.write(rendered)
             fout.close()
-        #imported.add("ErrorResponse")
+        imported.add("ErrorResponse")
         templateFile = Template(file(initTemplate).read().decode("utf-8"))
         rendered = templateFile.render_unicode(imports=imported).encode("utf-8")
         fout = file(os.path.join(rootOutput, "__init__.py"), "w")

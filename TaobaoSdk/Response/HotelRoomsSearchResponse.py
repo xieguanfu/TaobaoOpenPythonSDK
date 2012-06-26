@@ -5,7 +5,7 @@
 
 ## @brief 此接口用于查询多个酒店商品，根据传入的参数查询商品信息。卖家只能查询自己的商品。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:07
+# @date 2012-06-26 09:21:24
 # @version: 0.0.0
 
 from datetime import datetime
@@ -164,4 +164,11 @@ class HotelRoomsSearchResponse(object):
         
         if kargs.has_key("total_results"):
             self.total_results = self._newInstance("total_results", kargs["total_results"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

@@ -5,7 +5,7 @@
 
 ## @brief Room（酒店商品）结构。各字段详细说明可参考接口定义，如：商品发布接口。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:31
+# @date 2012-06-26 09:20:56
 # @version: 0.0.0
 
 from copy import deepcopy

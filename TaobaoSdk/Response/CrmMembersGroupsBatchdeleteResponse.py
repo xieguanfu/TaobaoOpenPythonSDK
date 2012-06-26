@@ -5,7 +5,7 @@
 
 ## @brief 批量删除多个会员的公共分组，接口返回删除是否成功，该接口只删除多个会员的公共分组，不是公共分组的，不进行删除。如果入参只输入一个会员，则表示删除该会员的某些分组。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:08
+# @date 2012-06-26 09:21:25
 # @version: 0.0.0
 
 from datetime import datetime
@@ -142,4 +142,11 @@ class CrmMembersGroupsBatchdeleteResponse(object):
         
         if kargs.has_key("is_success"):
             self.is_success = self._newInstance("is_success", kargs["is_success"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

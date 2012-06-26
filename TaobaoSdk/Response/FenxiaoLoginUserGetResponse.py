@@ -5,7 +5,7 @@
 
 ## @brief 获取用户登录信息
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:58
+# @date 2012-06-26 09:21:17
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class FenxiaoLoginUserGetResponse(object):
         
         if kargs.has_key("login_user"):
             self.login_user = self._newInstance("login_user", kargs["login_user"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

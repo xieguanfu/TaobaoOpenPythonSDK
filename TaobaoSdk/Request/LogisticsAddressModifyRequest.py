@@ -5,7 +5,7 @@
 
 ## @brief 卖家地址库修改
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:39
+# @date 2012-06-26 09:21:02
 # @version: 0.0.0
 
 import os

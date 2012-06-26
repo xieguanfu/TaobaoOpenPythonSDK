@@ -49,5 +49,5 @@ if __name__ == '__main__':
     responseParser.generateFiles()
     commonParser = SdkCommonParser(root, argument.output)
     commonParser.generateFiles()
-    #shutil.copy(errorResponseTemplate, os.path.join(argument.output, "Response", 
-        #errorResponseOutput))
+    shutil.copy(errorResponseTemplate, os.path.join(argument.output, "Response", 
+        errorResponseOutput))

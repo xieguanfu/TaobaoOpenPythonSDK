@@ -5,7 +5,7 @@
 
 ## @brief 针对父子订单新增批量评价(<font color="red">注：在评价之前需要对订单成功的时间进行判定（end_time）,如果超过15天，不用再通过该接口进行评价</font>)
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:55
+# @date 2012-06-26 09:21:15
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class TraderateListAddResponse(object):
         
         if kargs.has_key("trade_rate"):
             self.trade_rate = self._newInstance("trade_rate", kargs["trade_rate"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

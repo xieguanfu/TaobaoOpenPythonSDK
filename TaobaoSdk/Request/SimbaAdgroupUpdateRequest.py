@@ -5,7 +5,7 @@
 
 ## @brief 更新一个推广组的信息，可以设置默认出价、是否上线、非搜索出价、非搜索是否使用默认出价
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:43
+# @date 2012-06-26 09:21:05
 # @version: 0.0.0
 
 import os

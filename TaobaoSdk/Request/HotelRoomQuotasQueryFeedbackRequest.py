@@ -5,7 +5,7 @@
 
 ## @brief 接入方房态查询结果返回
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:48
+# @date 2012-06-26 09:21:09
 # @version: 0.0.0
 
 import os

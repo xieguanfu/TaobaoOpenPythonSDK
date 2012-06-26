@@ -5,7 +5,7 @@
 
 ## @brief 卖家创建一个新的分组，接口返回一个创建成功的分组的id
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:08
+# @date 2012-06-26 09:21:24
 # @version: 0.0.0
 
 from datetime import datetime
@@ -161,4 +161,11 @@ class CrmGroupAddResponse(object):
         
         if kargs.has_key("is_success"):
             self.is_success = self._newInstance("is_success", kargs["is_success"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

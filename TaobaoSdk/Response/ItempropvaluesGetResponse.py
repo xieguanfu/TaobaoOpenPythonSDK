@@ -5,7 +5,7 @@
 
 ## @brief 传入类目ID,必需是叶子类目，通过taobao.itemcats.get获取类目ID 返回字段目前支持有：cid,pid,prop_name,vid,name,name_alias,status,sort_order 作用:获取标准类目属性值
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:52
+# @date 2012-06-26 09:21:12
 # @version: 0.0.0
 
 from datetime import datetime
@@ -164,4 +164,11 @@ class ItempropvaluesGetResponse(object):
         
         if kargs.has_key("prop_values"):
             self.prop_values = self._newInstance("prop_values", kargs["prop_values"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

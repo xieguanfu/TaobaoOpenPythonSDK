@@ -5,7 +5,7 @@
 
 ## @brief 此接口用于取消VIP优惠
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:49
+# @date 2012-06-26 09:21:10
 # @version: 0.0.0
 
 import os

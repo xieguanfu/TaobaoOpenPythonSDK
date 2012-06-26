@@ -5,7 +5,7 @@
 
 ## @brief 获取类目ID，必需是叶子类目ID；调用taobao.itemcats.get.v2获取  传入关键属性,结构:pid:vid;pid:vid.调用taobao.itemprops.get.v2获取pid, 调用taobao.itempropvalues.get获取vid;如果碰到用户自定义属性,请用customer_props.
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:54
+# @date 2012-06-26 09:21:13
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class ProductAddResponse(object):
         
         if kargs.has_key("product"):
             self.product = self._newInstance("product", kargs["product"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

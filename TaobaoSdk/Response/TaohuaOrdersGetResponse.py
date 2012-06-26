@@ -5,7 +5,7 @@
 
 ## @brief 查询买家订单列表
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:06
+# @date 2012-06-26 09:21:23
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class TaohuaOrdersGetResponse(object):
         
         if kargs.has_key("taohua_order_result"):
             self.taohua_order_result = self._newInstance("taohua_order_result", kargs["taohua_order_result"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

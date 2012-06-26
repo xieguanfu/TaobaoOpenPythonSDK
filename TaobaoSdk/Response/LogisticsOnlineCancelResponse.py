@@ -5,7 +5,7 @@
 
 ## @brief 调此接口取消发货的订单，重新选择物流公司发货。前提是物流公司未揽收货物。对未发货和已经被物流公司揽收的物流订单，是不能取消的。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:56
+# @date 2012-06-26 09:21:15
 # @version: 0.0.0
 
 from datetime import datetime
@@ -180,4 +180,11 @@ class LogisticsOnlineCancelResponse(object):
         
         if kargs.has_key("recreated_order_id"):
             self.recreated_order_id = self._newInstance("recreated_order_id", kargs["recreated_order_id"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

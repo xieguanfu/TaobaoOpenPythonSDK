@@ -5,7 +5,7 @@
 
 ## @brief 产品主图图片空间相对路径或绝对路径添加或更新，或者是图片上传。如果指定位置的图片已存在，则覆盖原有信息。如果位置为1,自动设为主图；如果位置为0，表示属性图片
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:58
+# @date 2012-06-26 09:21:17
 # @version: 0.0.0
 
 from datetime import datetime
@@ -161,4 +161,11 @@ class FenxiaoProductImageUploadResponse(object):
         
         if kargs.has_key("result"):
             self.result = self._newInstance("result", kargs["result"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

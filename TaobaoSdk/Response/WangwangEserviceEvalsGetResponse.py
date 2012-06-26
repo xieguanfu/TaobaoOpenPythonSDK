@@ -5,7 +5,7 @@
 
 ## @brief 根据用户id查询用户对应的评价详细情况， 主账号id可以查询店铺内子账号的评价 组管理员可以查询组内账号的评价 非管理员的子账号可以查自己的评价
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:59
+# @date 2012-06-26 09:21:18
 # @version: 0.0.0
 
 from datetime import datetime
@@ -183,4 +183,11 @@ class WangwangEserviceEvalsGetResponse(object):
         
         if kargs.has_key("staff_eval_details"):
             self.staff_eval_details = self._newInstance("staff_eval_details", kargs["staff_eval_details"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

@@ -5,7 +5,7 @@
 
 ## @brief 此接口用于更新一个酒店的信息，根据用户传入的hid更新酒店数据。如果该酒店在淘宝集市酒店不存在，则会返回错误提示。 该接口发出的是一个更新酒店信息的申请，需要淘宝小二审核。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:07
+# @date 2012-06-26 09:21:24
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class HotelUpdateResponse(object):
         
         if kargs.has_key("hotel"):
             self.hotel = self._newInstance("hotel", kargs["hotel"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

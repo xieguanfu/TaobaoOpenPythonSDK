@@ -5,7 +5,7 @@
 
 ## @brief 用于ISV根据登录进来的淘宝会员名查询该为该会员开通哪些收费项目，ISV只能查询自己名下的应用及收费项目的订购情况
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:10
+# @date 2012-06-26 09:21:27
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class VasSubscribeGetResponse(object):
         
         if kargs.has_key("article_user_subscribes"):
             self.article_user_subscribes = self._newInstance("article_user_subscribes", kargs["article_user_subscribes"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

@@ -5,7 +5,7 @@
 
 ## @brief 添加一张商品图片到num_iid指定的商品中  传入的num_iid所对应的商品必须属于当前会话的用户  如果更新图片需要设置itemimg_id，且该itemimg_id的图片记录需要属于传入的num_iid对应的商品。如果新增图片则不用设置  商品图片有数量和大小上的限制，根据卖家享有的服务（如：卖家订购了多图服务等），商品图片数量限制不同。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:52
+# @date 2012-06-26 09:21:12
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class ItemImgUploadResponse(object):
         
         if kargs.has_key("item_img"):
             self.item_img = self._newInstance("item_img", kargs["item_img"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

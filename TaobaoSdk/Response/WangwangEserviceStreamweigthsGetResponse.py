@@ -5,7 +5,7 @@
 
 ## @brief 获取当前登录用户自己的店铺内的分流权重设置
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:00
+# @date 2012-06-26 09:21:18
 # @version: 0.0.0
 
 from datetime import datetime
@@ -202,4 +202,11 @@ class WangwangEserviceStreamweigthsGetResponse(object):
         
         if kargs.has_key("total_weight"):
             self.total_weight = self._newInstance("total_weight", kargs["total_weight"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

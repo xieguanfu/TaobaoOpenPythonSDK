@@ -5,7 +5,7 @@
 
 ## @brief 酒店图片上传
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:06
+# @date 2012-06-26 09:21:23
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class HotelImageUploadResponse(object):
         
         if kargs.has_key("hotel_image"):
             self.hotel_image = self._newInstance("hotel_image", kargs["hotel_image"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

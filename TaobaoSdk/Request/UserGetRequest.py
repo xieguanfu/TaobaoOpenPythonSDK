@@ -5,7 +5,7 @@
 
 ## @brief 得到单个用户
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:35
+# @date 2012-06-26 09:20:59
 # @version: 0.0.0
 
 import os

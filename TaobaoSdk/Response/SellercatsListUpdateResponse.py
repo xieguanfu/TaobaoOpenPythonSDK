@@ -5,7 +5,7 @@
 
 ## @brief 此API更新卖家店铺内自定义类目  注：因为缓存的关系，添加的新类目需8个小时后才可以在淘宝页面上正常显示，但是不影响在该类目下商品发布
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:57
+# @date 2012-06-26 09:21:16
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class SellercatsListUpdateResponse(object):
         
         if kargs.has_key("seller_cat"):
             self.seller_cat = self._newInstance("seller_cat", kargs["seller_cat"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

@@ -5,7 +5,7 @@
 
 ## @brief 查询供应商的产品数据。      * 入参传入pids将优先查询，即只按这个条件查询。     *入参传入sku_number将优先查询(没有传入pids)，即只按这个条件查询(最多显示50条)     * 入参fields传skus将查询sku的数据，不传该参数默认不查询，返回产品的其它信息。     * 入参fields传入images将查询多图数据，不传只返回主图数据。     * 入参fields仅对传入pids生效（只有按ID查询时，才能查询额外的数据）     * 查询结果按照产品发布时间倒序，即时间近的数据在前。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:59
+# @date 2012-06-26 09:21:17
 # @version: 0.0.0
 
 from datetime import datetime
@@ -164,4 +164,11 @@ class FenxiaoProductsGetResponse(object):
         
         if kargs.has_key("total_results"):
             self.total_results = self._newInstance("total_results", kargs["total_results"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

@@ -5,7 +5,7 @@
 
 ## @brief 查询淘宝网合作的物流公司信息，用于发货接口。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:56
+# @date 2012-06-26 09:21:15
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class LogisticsCompaniesGetResponse(object):
         
         if kargs.has_key("logistics_companies"):
             self.logistics_companies = self._newInstance("logistics_companies", kargs["logistics_companies"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

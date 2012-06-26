@@ -5,7 +5,7 @@
 
 ## @brief 分销商品下载记录
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:32
+# @date 2012-06-26 09:20:57
 # @version: 0.0.0
 
 from copy import deepcopy

@@ -5,7 +5,7 @@
 
 ## @brief 对指定商品发表评论
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:06
+# @date 2012-06-26 09:21:23
 # @version: 0.0.0
 
 from datetime import datetime
@@ -142,4 +142,11 @@ class TaohuaItemcommentAddResponse(object):
         
         if kargs.has_key("add_comment_result"):
             self.add_comment_result = self._newInstance("add_comment_result", kargs["add_comment_result"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

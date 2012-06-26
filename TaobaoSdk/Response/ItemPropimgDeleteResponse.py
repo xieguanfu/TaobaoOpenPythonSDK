@@ -5,7 +5,7 @@
 
 ## @brief 删除propimg_id 所指定的商品属性图片  传入的num_iid所对应的商品必须属于当前会话的用户  propimg_id对应的属性图片需要属于num_iid对应的商品
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:52
+# @date 2012-06-26 09:21:12
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class ItemPropimgDeleteResponse(object):
         
         if kargs.has_key("prop_img"):
             self.prop_img = self._newInstance("prop_img", kargs["prop_img"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

@@ -5,7 +5,7 @@
 
 ## @brief 卖家使用自己的物流公司发货，可以通过本接口将订单的仓内信息推送到淘宝，淘宝保存这些仓内信息，并可在页面展示这些仓内信息。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:57
+# @date 2012-06-26 09:21:16
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class LogisticsOrderstorePushResponse(object):
         
         if kargs.has_key("shipping"):
             self.shipping = self._newInstance("shipping", kargs["shipping"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

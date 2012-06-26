@@ -5,7 +5,7 @@
 
 ## @brief 根据淘宝会员帐号搜索所有产品信息  注意：支持分页，每页最多返回100条,默认值为40,页码从1开始，默认为第一页
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:54
+# @date 2012-06-26 09:21:14
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class ProductsGetResponse(object):
         
         if kargs.has_key("products"):
             self.products = self._newInstance("products", kargs["products"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

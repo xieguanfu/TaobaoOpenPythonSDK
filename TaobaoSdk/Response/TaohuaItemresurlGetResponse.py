@@ -5,7 +5,7 @@
 
 ## @brief 获取商品资源下载链接。 URL调用示例： http://gw.api.taobao.com/router/rest?timestamp=1982-07-27 06:06:06&method=taobao.taohua.itemresurl.get&app_key=2005&session=XXXXX&sign=ERITJKEIJKJHKKKKKKKHJEREEEEEEEEEEE&item_id=3365&position=3652
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:06
+# @date 2012-06-26 09:21:23
 # @version: 0.0.0
 
 from datetime import datetime
@@ -142,4 +142,11 @@ class TaohuaItemresurlGetResponse(object):
         
         if kargs.has_key("url"):
             self.url = self._newInstance("url", kargs["url"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

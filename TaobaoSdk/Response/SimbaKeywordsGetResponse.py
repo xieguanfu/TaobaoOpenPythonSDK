@@ -5,7 +5,7 @@
 
 ## @brief 取得一个推广组的所有关键词或者根据一个关键词Id列表取得一组关键词； 如果同时提供了推广组Id和关键词id列表，则优先使用推广组Id；
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:03
+# @date 2012-06-26 09:21:21
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class SimbaKeywordsGetResponse(object):
         
         if kargs.has_key("keywords"):
             self.keywords = self._newInstance("keywords", kargs["keywords"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

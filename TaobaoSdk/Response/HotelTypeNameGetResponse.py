@@ -5,7 +5,7 @@
 
 ## @brief 此接口用于查询一个房型，根据传入的酒店hid，房型名称/别名查询房型信息。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:07
+# @date 2012-06-26 09:21:24
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class HotelTypeNameGetResponse(object):
         
         if kargs.has_key("room_type"):
             self.room_type = self._newInstance("room_type", kargs["room_type"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

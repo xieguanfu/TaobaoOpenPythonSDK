@@ -5,7 +5,7 @@
 
 ## @brief 通过设置必要的参数，来获取商品后台标准类目属性，以及这些属性里面详细的属性值prop_values。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:52
+# @date 2012-06-26 09:21:11
 # @version: 0.0.0
 
 from datetime import datetime
@@ -164,4 +164,11 @@ class ItempropsGetResponse(object):
         
         if kargs.has_key("last_modified"):
             self.last_modified = self._newInstance("last_modified", kargs["last_modified"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

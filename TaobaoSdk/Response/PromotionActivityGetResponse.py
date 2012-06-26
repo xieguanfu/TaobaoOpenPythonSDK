@@ -5,7 +5,7 @@
 
 ## @brief 查询某个卖家的店铺优惠券领取活动 返回，优惠券领取活动ID，优惠券ID，总领用量，每人限领量，已领取数量 领取活动状态，优惠券领取链接 最多50个优惠券
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:05
+# @date 2012-06-26 09:21:22
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class PromotionActivityGetResponse(object):
         
         if kargs.has_key("activitys"):
             self.activitys = self._newInstance("activitys", kargs["activitys"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

@@ -5,7 +5,7 @@
 
 ## @brief 取得一个推广组的所有创意或者根据一个创意Id列表取得一组创意； 如果同时提供了推广组Id和创意id列表，则优先使用推广组Id；
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:02
+# @date 2012-06-26 09:21:20
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class SimbaCreativesGetResponse(object):
         
         if kargs.has_key("creatives"):
             self.creatives = self._newInstance("creatives", kargs["creatives"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

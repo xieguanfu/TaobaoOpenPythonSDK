@@ -5,7 +5,7 @@
 
 ## @brief 分页查询某个卖家的限时打折信息。每页20条数据，按照结束时间降序排列。也可指定某一个限时打折id查询唯一的限时打折信息。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:18:05
+# @date 2012-06-26 09:21:22
 # @version: 0.0.0
 
 from datetime import datetime
@@ -164,4 +164,11 @@ class PromotionLimitdiscountGetResponse(object):
         
         if kargs.has_key("total_count"):
             self.total_count = self._newInstance("total_count", kargs["total_count"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

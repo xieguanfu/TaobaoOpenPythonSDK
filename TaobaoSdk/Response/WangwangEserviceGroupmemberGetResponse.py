@@ -5,7 +5,7 @@
 
 ## @brief 用某个组管理员账号查询，返回该组组名、和该组所有组成员ID（E客服的分流设置）。  用旺旺主帐号查询，返回所有组的组名和该组所有组成员ID。  返回的组成员ID可以是多个，用 "," 隔开。  被查者ID只能传入一个。  组成员中排名最靠前的ID是组管理员ID
 # @author wuliang@maimiaotech.com
-# @date 2012-06-21 17:17:59
+# @date 2012-06-26 09:21:18
 # @version: 0.0.0
 
 from datetime import datetime
@@ -145,4 +145,11 @@ class WangwangEserviceGroupmemberGetResponse(object):
         
         if kargs.has_key("group_member_list"):
             self.group_member_list = self._newInstance("group_member_list", kargs["group_member_list"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]
