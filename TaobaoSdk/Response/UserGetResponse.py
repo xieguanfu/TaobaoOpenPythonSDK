@@ -5,7 +5,7 @@
 
 ## @brief 得到单个用户
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:18:00
+# @date 2012-06-29 16:54:08
 # @version: 0.0.0
 
 from datetime import datetime

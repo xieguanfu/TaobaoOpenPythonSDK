@@ -5,7 +5,7 @@
 
 ## @brief 批量异步任务的子任务结果
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:17:44
+# @date 2012-06-29 16:53:50
 # @version: 0.0.0
 
 from copy import deepcopy

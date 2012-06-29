@@ -5,7 +5,7 @@
 
 ## @brief 获取用户登录信息
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:18:05
+# @date 2012-06-29 16:54:14
 # @version: 0.0.0
 
 from datetime import datetime

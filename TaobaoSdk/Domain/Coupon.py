@@ -5,7 +5,7 @@
 
 ## @brief 优惠券数据结构
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:17:47
+# @date 2012-06-29 16:53:54
 # @version: 0.0.0
 
 from copy import deepcopy

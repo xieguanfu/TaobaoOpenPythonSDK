@@ -5,7 +5,7 @@
 
 ## @brief 表示会员关系的基本信息字段，用于会员列表的基本查询
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:17:44
+# @date 2012-06-29 16:53:50
 # @version: 0.0.0
 
 from copy import deepcopy

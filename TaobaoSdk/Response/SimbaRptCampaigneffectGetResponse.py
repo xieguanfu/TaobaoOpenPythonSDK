@@ -5,7 +5,7 @@
 
 ## @brief 推广计划效果报表数据对象
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:18:11
+# @date 2012-06-29 16:54:20
 # @version: 0.0.0
 
 from datetime import datetime

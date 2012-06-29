@@ -5,7 +5,7 @@
 
 ## @brief 交易的优惠信息详情
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:17:44
+# @date 2012-06-29 16:53:51
 # @version: 0.0.0
 
 from copy import deepcopy

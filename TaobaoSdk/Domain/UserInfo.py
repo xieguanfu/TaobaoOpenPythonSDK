@@ -5,7 +5,7 @@
 
 ## @brief 图片空间的用户信息获取，包括订购容量等
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:17:41
+# @date 2012-06-29 16:53:46
 # @version: 0.0.0
 
 from copy import deepcopy

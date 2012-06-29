@@ -5,7 +5,7 @@
 
 ## @brief RoomType（房型）结构。各字段详细说明可参考接口定义，如：房型发布接口。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:17:45
+# @date 2012-06-29 16:53:51
 # @version: 0.0.0
 
 from copy import deepcopy

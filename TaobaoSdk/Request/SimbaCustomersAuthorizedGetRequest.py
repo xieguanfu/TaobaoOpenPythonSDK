@@ -5,7 +5,7 @@
 
 ## @brief 取得当前登录用户的授权账户列表
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:17:55
+# @date 2012-06-29 16:54:02
 # @version: 0.0.0
 
 import os

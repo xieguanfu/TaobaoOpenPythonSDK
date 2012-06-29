@@ -5,7 +5,7 @@
 
 ## @brief 获取图片分类信息
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:18:15
+# @date 2012-06-29 16:54:26
 # @version: 0.0.0
 
 from datetime import datetime

@@ -5,7 +5,7 @@
 
 ## @brief 店铺内卖家自定义类目
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:17:41
+# @date 2012-06-29 16:53:47
 # @version: 0.0.0
 
 from copy import deepcopy
