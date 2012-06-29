@@ -5,7 +5,7 @@
 
 ## @brief 供应商修改采购单备注
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:53:59
+# @date 2012-06-29 19:36:24
 # @version: 0.0.0
 
 import os

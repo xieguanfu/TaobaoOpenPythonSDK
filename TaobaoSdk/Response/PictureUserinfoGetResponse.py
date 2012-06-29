@@ -5,7 +5,7 @@
 
 ## @brief 查询用户的图片空间使用信息，包括：订购量，已使用容量，免费容量，总的可使用容量，订购有效期，剩余容量
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:54:26
+# @date 2012-06-29 19:36:53
 # @version: 0.0.0
 
 from datetime import datetime
@@ -81,17 +81,23 @@ class PictureUserinfoGetResponse(object):
         isArray = types[1]
         if propertyType == bool:
             if isArray:
+                if not value:
+                    return []
                 return [x for x in value[value.keys()[0]]]
             else:
                 return value
         elif propertyType == datetime:
             format = "%Y-%m-%d %H:%M:%S"
             if isArray:
+                if not value:
+                    return []
                 return [datetime.strptime(x, format) for x in value[value.keys()[0]]]
             else:
                 return datetime.strptime(value, format)
         elif propertyType == str:
             if isArray:
+                if not value:
+                    return []
                 return [x.encode("utf-8") for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
@@ -101,6 +107,8 @@ class PictureUserinfoGetResponse(object):
                 return value.encode("utf-8")
         else:
             if isArray:
+                if not value:
+                    return []
                 return [propertyType(x) for x in value[value.keys()[0]]]
             else:
                 return propertyType(value)

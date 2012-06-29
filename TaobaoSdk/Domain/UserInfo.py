@@ -5,7 +5,7 @@
 
 ## @brief 图片空间的用户信息获取，包括订购容量等
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:53:46
+# @date 2012-06-29 19:36:10
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -145,17 +145,23 @@ class UserInfo(object):
         isArray = types[1]
         if propertyType == bool:
             if isArray:
+                if not value:
+                    return []
                 return [x for x in value[value.keys()[0]]]
             else:
                 return value
         elif propertyType == datetime:
             format = "%Y-%m-%d %H:%M:%S"
             if isArray:
+                if not value:
+                    return []
                 return [datetime.strptime(x, format) for x in value[value.keys()[0]]]
             else:
                 return datetime.strptime(value, format)
         elif propertyType == str:
             if isArray:
+                if not value:
+                    return []
                 return [x.encode("utf-8") for x in value[value.keys()[0]]]
             else:
                 if not isinstance(value,str):
@@ -164,6 +170,8 @@ class UserInfo(object):
                     return value.encode("utf-8")
         else:
             if isArray:
+                if not value:
+                    return []
                 return [propertyType(x) for x in value[value.keys()[0]]]
             else:
                 return propertyType(value)

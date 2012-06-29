@@ -5,7 +5,7 @@
 
 ## @brief 修改一个已经存在的分组，接口返回分组的修改是否成功
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:54:06
+# @date 2012-06-29 19:36:32
 # @version: 0.0.0
 
 import os

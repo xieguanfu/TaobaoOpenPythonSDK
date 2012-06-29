@@ -5,7 +5,7 @@
 
 ## @brief 上传单张图片
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:54:07
+# @date 2012-06-29 19:36:33
 # @version: 0.0.0
 
 import os

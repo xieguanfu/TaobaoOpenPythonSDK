@@ -5,7 +5,7 @@
 
 ## @brief 判断是否是粉丝
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:54:08
+# @date 2012-06-29 19:36:34
 # @version: 0.0.0
 
 import os

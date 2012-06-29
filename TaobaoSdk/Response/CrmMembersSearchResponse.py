@@ -5,7 +5,7 @@
 
 ## @brief 会员列表的高级查询，接口返回符合条件的会员列表.<br> 注：建议获取09年以后的数据，09年之前的数据不是很完整
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:54:25
+# @date 2012-06-29 19:36:52
 # @version: 0.0.0
 
 from datetime import datetime
@@ -93,17 +93,23 @@ class CrmMembersSearchResponse(object):
         isArray = types[1]
         if propertyType == bool:
             if isArray:
+                if not value:
+                    return []
                 return [x for x in value[value.keys()[0]]]
             else:
                 return value
         elif propertyType == datetime:
             format = "%Y-%m-%d %H:%M:%S"
             if isArray:
+                if not value:
+                    return []
                 return [datetime.strptime(x, format) for x in value[value.keys()[0]]]
             else:
                 return datetime.strptime(value, format)
         elif propertyType == str:
             if isArray:
+                if not value:
+                    return []
                 return [x.encode("utf-8") for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
@@ -113,6 +119,8 @@ class CrmMembersSearchResponse(object):
                 return value.encode("utf-8")
         else:
             if isArray:
+                if not value:
+                    return []
                 return [propertyType(x) for x in value[value.keys()[0]]]
             else:
                 return propertyType(value)

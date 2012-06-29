@@ -5,7 +5,7 @@
 
 ## @brief 通过类目ID获取它的类目列表
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:54:04
+# @date 2012-06-29 19:36:30
 # @version: 0.0.0
 
 import os

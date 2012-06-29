@@ -5,7 +5,7 @@
 
 ## @brief 退订处理结果回传
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:54:05
+# @date 2012-06-29 19:36:31
 # @version: 0.0.0
 
 import os

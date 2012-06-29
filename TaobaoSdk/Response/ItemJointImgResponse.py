@@ -5,7 +5,7 @@
 
 ## @brief * 关联一张商品图片到num_iid指定的商品中     * 传入的num_iid所对应的商品必须属于当前会话的用户     * 商品图片关联在卖家身份和图片来源上的限制，卖家要是B卖家或订购了多图服务才能关联图片，并且图片要来自于卖家自己的图片空间才行     * 商品图片数量有限制。不管是上传的图片还是关联的图片，他们的总数不能超过一定限额
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:54:09
+# @date 2012-06-29 19:36:35
 # @version: 0.0.0
 
 from datetime import datetime
@@ -81,17 +81,23 @@ class ItemJointImgResponse(object):
         isArray = types[1]
         if propertyType == bool:
             if isArray:
+                if not value:
+                    return []
                 return [x for x in value[value.keys()[0]]]
             else:
                 return value
         elif propertyType == datetime:
             format = "%Y-%m-%d %H:%M:%S"
             if isArray:
+                if not value:
+                    return []
                 return [datetime.strptime(x, format) for x in value[value.keys()[0]]]
             else:
                 return datetime.strptime(value, format)
         elif propertyType == str:
             if isArray:
+                if not value:
+                    return []
                 return [x.encode("utf-8") for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
@@ -101,6 +107,8 @@ class ItemJointImgResponse(object):
                 return value.encode("utf-8")
         else:
             if isArray:
+                if not value:
+                    return []
                 return [propertyType(x) for x in value[value.keys()[0]]]
             else:
                 return propertyType(value)

@@ -5,7 +5,7 @@
 
 ## @brief Room（酒店商品）结构。各字段详细说明可参考接口定义，如：商品发布接口。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:53:51
+# @date 2012-06-29 19:36:16
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -349,17 +349,23 @@ class Room(object):
         isArray = types[1]
         if propertyType == bool:
             if isArray:
+                if not value:
+                    return []
                 return [x for x in value[value.keys()[0]]]
             else:
                 return value
         elif propertyType == datetime:
             format = "%Y-%m-%d %H:%M:%S"
             if isArray:
+                if not value:
+                    return []
                 return [datetime.strptime(x, format) for x in value[value.keys()[0]]]
             else:
                 return datetime.strptime(value, format)
         elif propertyType == str:
             if isArray:
+                if not value:
+                    return []
                 return [x.encode("utf-8") for x in value[value.keys()[0]]]
             else:
                 if not isinstance(value,str):
@@ -368,6 +374,8 @@ class Room(object):
                     return value.encode("utf-8")
         else:
             if isArray:
+                if not value:
+                    return []
                 return [propertyType(x) for x in value[value.keys()[0]]]
             else:
                 return propertyType(value)

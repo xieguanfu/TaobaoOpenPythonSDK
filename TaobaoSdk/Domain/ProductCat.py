@@ -5,7 +5,7 @@
 
 ## @brief 产品线
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:53:49
+# @date 2012-06-29 19:36:14
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -145,17 +145,23 @@ class ProductCat(object):
         isArray = types[1]
         if propertyType == bool:
             if isArray:
+                if not value:
+                    return []
                 return [x for x in value[value.keys()[0]]]
             else:
                 return value
         elif propertyType == datetime:
             format = "%Y-%m-%d %H:%M:%S"
             if isArray:
+                if not value:
+                    return []
                 return [datetime.strptime(x, format) for x in value[value.keys()[0]]]
             else:
                 return datetime.strptime(value, format)
         elif propertyType == str:
             if isArray:
+                if not value:
+                    return []
                 return [x.encode("utf-8") for x in value[value.keys()[0]]]
             else:
                 if not isinstance(value,str):
@@ -164,6 +170,8 @@ class ProductCat(object):
                     return value.encode("utf-8")
         else:
             if isArray:
+                if not value:
+                    return []
                 return [propertyType(x) for x in value[value.keys()[0]]]
             else:
                 return propertyType(value)

@@ -5,7 +5,7 @@
 
 ## @brief 更新一个推广计划的分时折扣设置
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:54:02
+# @date 2012-06-29 19:36:27
 # @version: 0.0.0
 
 import os

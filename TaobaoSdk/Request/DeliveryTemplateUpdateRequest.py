@@ -5,7 +5,7 @@
 
 ## @brief 修改运费模板
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:53:58
+# @date 2012-06-29 19:36:23
 # @version: 0.0.0
 
 import os

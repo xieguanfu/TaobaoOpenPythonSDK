@@ -5,7 +5,7 @@
 
 ## @brief 延长交易收货时间
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 16:53:57
+# @date 2012-06-29 19:36:22
 # @version: 0.0.0
 
 import os
