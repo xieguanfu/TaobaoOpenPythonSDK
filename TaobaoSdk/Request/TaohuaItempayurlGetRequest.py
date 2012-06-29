@@ -5,7 +5,7 @@
 
 ## @brief 获取商品支付链接API
 # @author wuliang@maimiaotech.com
-# @date 2012-06-26 09:21:08
+# @date 2012-06-29 16:17:57
 # @version: 0.0.0
 
 import os

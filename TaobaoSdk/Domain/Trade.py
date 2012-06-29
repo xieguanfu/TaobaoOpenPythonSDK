@@ -5,7 +5,7 @@
 
 ## @brief 交易结构
 # @author wuliang@maimiaotech.com
-# @date 2012-06-26 09:20:53
+# @date 2012-06-29 16:17:41
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -985,16 +985,33 @@ class Trade(object):
             return obj
         
     def _newInstance(self, name, value):
-        propertyType = self._getPropertyType(name)
+        types = self._getPropertyType(name)
+        propertyType = types[0]
+        isArray = types[1]
         if propertyType == bool:
-            return value
+            if isArray:
+                return [x for x in value[value.keys()[0]]]
+            else:
+                return value
         elif propertyType == datetime:
             format = "%Y-%m-%d %H:%M:%S"
-            return datetime.strptime(value, format)
+            if isArray:
+                return [datetime.strptime(x, format) for x in value[value.keys()[0]]]
+            else:
+                return datetime.strptime(value, format)
         elif propertyType == str:
-            return value.encode("utf-8")
+            if isArray:
+                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+            else:
+                if not isinstance(value,str):
+                    return value
+                else:
+                    return value.encode("utf-8")
         else:
-            return propertyType(value)
+            if isArray:
+                return [propertyType(x) for x in value[value.keys()[0]]]
+            else:
+                return propertyType(value)
         
     def _getPropertyType(self, name):
         properties = {
@@ -1165,6 +1182,175 @@ class Trade(object):
             
             "yfx_id": "String",
         }
+        levels = {
+            
+            "adjust_fee": "Basic",
+            
+            "alipay_id": "Basic",
+            
+            "alipay_no": "Basic",
+            
+            "alipay_url": "Basic",
+            
+            "alipay_warn_msg": "Basic",
+            
+            "area_id": "Basic",
+            
+            "available_confirm_fee": "Basic",
+            
+            "buyer_alipay_no": "Basic",
+            
+            "buyer_area": "Basic",
+            
+            "buyer_cod_fee": "Basic",
+            
+            "buyer_email": "Basic",
+            
+            "buyer_flag": "Basic",
+            
+            "buyer_memo": "Basic",
+            
+            "buyer_message": "Basic",
+            
+            "buyer_nick": "Basic",
+            
+            "buyer_obtain_point_fee": "Basic",
+            
+            "buyer_rate": "Basic",
+            
+            "can_rate": "Basic",
+            
+            "cod_fee": "Basic",
+            
+            "cod_status": "Basic",
+            
+            "commission_fee": "Basic",
+            
+            "consign_time": "Basic",
+            
+            "created": "Basic",
+            
+            "credit_card_fee": "Basic",
+            
+            "discount_fee": "Basic",
+            
+            "end_time": "Basic",
+            
+            "express_agency_fee": "Basic",
+            
+            "has_buyer_message": "Basic",
+            
+            "has_post_fee": "Basic",
+            
+            "has_yfx": "Basic",
+            
+            "iid": "Basic",
+            
+            "invoice_name": "Basic",
+            
+            "is_3D": "Basic",
+            
+            "is_brand_sale": "Basic",
+            
+            "is_force_wlb": "Basic",
+            
+            "is_lgtype": "Basic",
+            
+            "modified": "Basic",
+            
+            "num": "Basic",
+            
+            "num_iid": "Basic",
+            
+            "nut_feature": "Basic",
+            
+            "orders": "Object Array",
+            
+            "pay_time": "Basic",
+            
+            "payment": "Basic",
+            
+            "pic_path": "Basic",
+            
+            "point_fee": "Basic",
+            
+            "post_fee": "Basic",
+            
+            "price": "Basic",
+            
+            "promotion": "Basic",
+            
+            "promotion_details": "Object Array",
+            
+            "real_point_fee": "Basic",
+            
+            "received_payment": "Basic",
+            
+            "receiver_address": "Basic",
+            
+            "receiver_city": "Basic",
+            
+            "receiver_district": "Basic",
+            
+            "receiver_mobile": "Basic",
+            
+            "receiver_name": "Basic",
+            
+            "receiver_phone": "Basic",
+            
+            "receiver_state": "Basic",
+            
+            "receiver_zip": "Basic",
+            
+            "seller_alipay_no": "Basic",
+            
+            "seller_cod_fee": "Basic",
+            
+            "seller_email": "Basic",
+            
+            "seller_flag": "Basic",
+            
+            "seller_memo": "Basic",
+            
+            "seller_mobile": "Basic",
+            
+            "seller_name": "Basic",
+            
+            "seller_nick": "Basic",
+            
+            "seller_phone": "Basic",
+            
+            "seller_rate": "Basic",
+            
+            "service_orders": "Object Array",
+            
+            "shipping_type": "Basic",
+            
+            "snapshot": "Basic",
+            
+            "snapshot_url": "Basic",
+            
+            "status": "Basic",
+            
+            "tid": "Basic",
+            
+            "timeout_action_time": "Basic",
+            
+            "title": "Basic",
+            
+            "total_fee": "Basic",
+            
+            "trade_from": "Basic",
+            
+            "trade_memo": "Basic",
+            
+            "type": "Basic",
+            
+            "yfx_fee": "Basic",
+            
+            "yfx_id": "Basic",
+
+        }
         nameType = properties[name]
         pythonType = None
         if nameType == "Number":
@@ -1186,7 +1372,12 @@ class Trade(object):
                 sys.modules[os.path.basename(
                 os.path.dirname(os.path.realpath(__file__))) + "." + nameType], 
                 nameType)
-        return pythonType
+
+        level = levels[name]
+        if "Array" in level:
+            return (pythonType, True)
+        else:
+            return (pythonType, False)
         
     def __init(self, kargs):
         

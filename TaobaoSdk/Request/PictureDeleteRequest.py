@@ -5,7 +5,7 @@
 
 ## @brief 删除图片空间图片
 # @author wuliang@maimiaotech.com
-# @date 2012-06-26 09:21:10
+# @date 2012-06-29 16:17:59
 # @version: 0.0.0
 
 import os

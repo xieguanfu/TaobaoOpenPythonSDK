@@ -5,7 +5,7 @@
 
 ## @brief 供应商更新合作的分销商等级
 # @author wuliang@maimiaotech.com
-# @date 2012-06-26 09:21:03
+# @date 2012-06-29 16:17:52
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,7 @@
 
 ## @brief 搜索当前会话用户作为卖家已卖出的交易数据(只能获取到三个月以内的交易信息)
 # @author wuliang@maimiaotech.com
-# @date 2012-06-26 09:21:14
+# @date 2012-06-29 16:18:03
 # @version: 0.0.0
 
 from datetime import datetime

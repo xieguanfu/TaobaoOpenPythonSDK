@@ -5,7 +5,7 @@
 
 ## @brief 此接口用于查询多个酒店商品，根据传入的参数查询商品信息。卖家只能查询自己的商品。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-26 09:21:09
+# @date 2012-06-29 16:17:57
 # @version: 0.0.0
 
 import os

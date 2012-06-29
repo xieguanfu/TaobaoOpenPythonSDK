@@ -5,7 +5,7 @@
 
 ## @brief 查询和当前登录供应商有合作关系的分销商的信息
 # @author wuliang@maimiaotech.com
-# @date 2012-06-26 09:21:03
+# @date 2012-06-29 16:17:52
 # @version: 0.0.0
 
 import os

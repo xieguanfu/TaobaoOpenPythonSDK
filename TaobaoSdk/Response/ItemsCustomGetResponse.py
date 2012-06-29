@@ -5,7 +5,7 @@
 
 ## @brief 跟据卖家设定的商品外部id获取商品  这个商品对应卖家从传入的session中获取，需要session绑定
 # @author wuliang@maimiaotech.com
-# @date 2012-06-26 09:21:13
+# @date 2012-06-29 16:18:02
 # @version: 0.0.0
 
 from datetime import datetime

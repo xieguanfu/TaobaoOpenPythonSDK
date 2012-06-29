@@ -5,7 +5,7 @@
 
 ## @brief 此接口用于查询一个商品，根据传入的gid查询商品信息。卖家只能查询自己的商品。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-26 09:21:24
+# @date 2012-06-29 16:18:12
 # @version: 0.0.0
 
 from datetime import datetime

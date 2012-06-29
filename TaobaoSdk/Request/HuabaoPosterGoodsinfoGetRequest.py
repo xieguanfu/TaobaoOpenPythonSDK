@@ -5,7 +5,7 @@
 
 ## @brief 根据画报ID获得与其相关的商品信息
 # @author wuliang@maimiaotech.com
-# @date 2012-06-26 09:21:10
+# @date 2012-06-29 16:17:58
 # @version: 0.0.0
 
 import os

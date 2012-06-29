@@ -5,7 +5,7 @@
 
 ## @brief Item(商品)结构
 # @author wuliang@maimiaotech.com
-# @date 2012-06-26 09:20:54
+# @date 2012-06-29 16:17:42
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -815,16 +815,33 @@ class Item(object):
             return obj
         
     def _newInstance(self, name, value):
-        propertyType = self._getPropertyType(name)
+        types = self._getPropertyType(name)
+        propertyType = types[0]
+        isArray = types[1]
         if propertyType == bool:
-            return value
+            if isArray:
+                return [x for x in value[value.keys()[0]]]
+            else:
+                return value
         elif propertyType == datetime:
             format = "%Y-%m-%d %H:%M:%S"
-            return datetime.strptime(value, format)
+            if isArray:
+                return [datetime.strptime(x, format) for x in value[value.keys()[0]]]
+            else:
+                return datetime.strptime(value, format)
         elif propertyType == str:
-            return value.encode("utf-8")
+            if isArray:
+                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+            else:
+                if not isinstance(value,str):
+                    return value
+                else:
+                    return value.encode("utf-8")
         else:
-            return propertyType(value)
+            if isArray:
+                return [propertyType(x) for x in value[value.keys()[0]]]
+            else:
+                return propertyType(value)
         
     def _getPropertyType(self, name):
         properties = {
@@ -963,6 +980,143 @@ class Item(object):
             
             "ww_status": "Boolean",
         }
+        levels = {
+            
+            "after_sale_id": "Basic",
+            
+            "approve_status": "Basic",
+            
+            "auction_point": "Basic",
+            
+            "auto_fill": "Basic",
+            
+            "cid": "Basic",
+            
+            "cod_postage_id": "Basic",
+            
+            "created": "Basic",
+            
+            "delist_time": "Basic",
+            
+            "desc": "Basic",
+            
+            "detail_url": "Basic",
+            
+            "ems_fee": "Basic",
+            
+            "express_fee": "Basic",
+            
+            "freight_payer": "Basic",
+            
+            "has_discount": "Basic",
+            
+            "has_invoice": "Basic",
+            
+            "has_showcase": "Basic",
+            
+            "has_warranty": "Basic",
+            
+            "increment": "Basic",
+            
+            "inner_shop_auction_template_id": "Basic",
+            
+            "input_pids": "Basic",
+            
+            "input_str": "Basic",
+            
+            "is_3D": "Basic",
+            
+            "is_ex": "Basic",
+            
+            "is_fenxiao": "Basic",
+            
+            "is_lightning_consignment": "Basic",
+            
+            "is_prepay": "Basic",
+            
+            "is_taobao": "Basic",
+            
+            "is_timing": "Basic",
+            
+            "is_virtual": "Basic",
+            
+            "is_xinpin": "Basic",
+            
+            "item_imgs": "Object Array",
+            
+            "list_time": "Basic",
+            
+            "location": "Object",
+            
+            "modified": "Basic",
+            
+            "nick": "Basic",
+            
+            "num": "Basic",
+            
+            "num_iid": "Basic",
+            
+            "one_station": "Basic",
+            
+            "outer_id": "Basic",
+            
+            "outer_shop_auction_template_id": "Basic",
+            
+            "pic_url": "Basic",
+            
+            "post_fee": "Basic",
+            
+            "postage_id": "Basic",
+            
+            "price": "Basic",
+            
+            "product_id": "Basic",
+            
+            "promoted_service": "Basic",
+            
+            "prop_imgs": "Object Array",
+            
+            "property_alias": "Basic",
+            
+            "props": "Basic",
+            
+            "props_name": "Basic",
+            
+            "score": "Basic",
+            
+            "second_kill": "Basic",
+            
+            "sell_promise": "Basic",
+            
+            "seller_cids": "Basic",
+            
+            "skus": "Object Array",
+            
+            "stuff_status": "Basic",
+            
+            "sub_stock": "Basic",
+            
+            "template_id": "Basic",
+            
+            "title": "Basic",
+            
+            "type": "Basic",
+            
+            "valid_thru": "Basic",
+            
+            "videos": "Object Array",
+            
+            "violation": "Basic",
+            
+            "volume": "Basic",
+            
+            "wap_desc": "Basic",
+            
+            "wap_detail_url": "Basic",
+            
+            "ww_status": "Basic",
+
+        }
         nameType = properties[name]
         pythonType = None
         if nameType == "Number":
@@ -984,7 +1138,12 @@ class Item(object):
                 sys.modules[os.path.basename(
                 os.path.dirname(os.path.realpath(__file__))) + "." + nameType], 
                 nameType)
-        return pythonType
+
+        level = levels[name]
+        if "Array" in level:
+            return (pythonType, True)
+        else:
+            return (pythonType, False)
         
     def __init(self, kargs):
         

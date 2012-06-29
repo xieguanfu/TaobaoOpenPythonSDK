@@ -5,7 +5,7 @@
 
 ## @brief 根据一组推广组id获取推广组类目出价列表,
 # @author wuliang@maimiaotech.com
-# @date 2012-06-26 09:21:05
+# @date 2012-06-29 16:17:53
 # @version: 0.0.0
 
 import os

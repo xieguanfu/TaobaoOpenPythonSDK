@@ -5,7 +5,7 @@
 
 ## @brief 淘花商品数据结构
 # @author wuliang@maimiaotech.com
-# @date 2012-06-26 09:20:57
+# @date 2012-06-29 16:17:46
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -253,16 +253,33 @@ class TaohuaItem(object):
             return obj
         
     def _newInstance(self, name, value):
-        propertyType = self._getPropertyType(name)
+        types = self._getPropertyType(name)
+        propertyType = types[0]
+        isArray = types[1]
         if propertyType == bool:
-            return value
+            if isArray:
+                return [x for x in value[value.keys()[0]]]
+            else:
+                return value
         elif propertyType == datetime:
             format = "%Y-%m-%d %H:%M:%S"
-            return datetime.strptime(value, format)
+            if isArray:
+                return [datetime.strptime(x, format) for x in value[value.keys()[0]]]
+            else:
+                return datetime.strptime(value, format)
         elif propertyType == str:
-            return value.encode("utf-8")
+            if isArray:
+                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+            else:
+                if not isinstance(value,str):
+                    return value
+                else:
+                    return value.encode("utf-8")
         else:
-            return propertyType(value)
+            if isArray:
+                return [propertyType(x) for x in value[value.keys()[0]]]
+            else:
+                return propertyType(value)
         
     def _getPropertyType(self, name):
         properties = {
@@ -301,6 +318,43 @@ class TaohuaItem(object):
             
             "title": "String",
         }
+        levels = {
+            
+            "author": "Basic",
+            
+            "description": "Basic",
+            
+            "favorite": "Basic",
+            
+            "file_type": "Basic",
+            
+            "item_id": "Basic",
+            
+            "leaf_cate_id": "Basic",
+            
+            "leaf_cate_name": "Basic",
+            
+            "pic_url": "Basic",
+            
+            "price": "Basic",
+            
+            "publish_date": "Basic",
+            
+            "publisher": "Basic",
+            
+            "root_cate_id": "Basic",
+            
+            "root_cate_name": "Basic",
+            
+            "size": "Basic",
+            
+            "status_name": "Basic",
+            
+            "taohua_item_pv_pairs": "Object Array",
+            
+            "title": "Basic",
+
+        }
         nameType = properties[name]
         pythonType = None
         if nameType == "Number":
@@ -322,7 +376,12 @@ class TaohuaItem(object):
                 sys.modules[os.path.basename(
                 os.path.dirname(os.path.realpath(__file__))) + "." + nameType], 
                 nameType)
-        return pythonType
+
+        level = levels[name]
+        if "Array" in level:
+            return (pythonType, True)
+        else:
+            return (pythonType, False)
         
     def __init(self, kargs):
         

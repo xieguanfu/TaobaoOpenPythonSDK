@@ -5,7 +5,7 @@
 
 ## @brief 获取供应商的合作关系信息
 # @author wuliang@maimiaotech.com
-# @date 2012-06-26 09:21:03
+# @date 2012-06-29 16:17:51
 # @version: 0.0.0
 
 import os

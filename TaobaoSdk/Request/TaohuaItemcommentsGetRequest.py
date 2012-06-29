@@ -5,7 +5,7 @@
 
 ## @brief 获取淘花指定商品的评论列表
 # @author wuliang@maimiaotech.com
-# @date 2012-06-26 09:21:08
+# @date 2012-06-29 16:17:56
 # @version: 0.0.0
 
 import os

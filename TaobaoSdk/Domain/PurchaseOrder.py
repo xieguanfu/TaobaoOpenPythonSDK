@@ -5,7 +5,7 @@
 
 ## @brief 采购单及子采购单信息
 # @author wuliang@maimiaotech.com
-# @date 2012-06-26 09:20:55
+# @date 2012-06-29 16:17:43
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -410,16 +410,33 @@ class PurchaseOrder(object):
             return obj
         
     def _newInstance(self, name, value):
-        propertyType = self._getPropertyType(name)
+        types = self._getPropertyType(name)
+        propertyType = types[0]
+        isArray = types[1]
         if propertyType == bool:
-            return value
+            if isArray:
+                return [x for x in value[value.keys()[0]]]
+            else:
+                return value
         elif propertyType == datetime:
             format = "%Y-%m-%d %H:%M:%S"
-            return datetime.strptime(value, format)
+            if isArray:
+                return [datetime.strptime(x, format) for x in value[value.keys()[0]]]
+            else:
+                return datetime.strptime(value, format)
         elif propertyType == str:
-            return value.encode("utf-8")
+            if isArray:
+                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+            else:
+                if not isinstance(value,str):
+                    return value
+                else:
+                    return value.encode("utf-8")
         else:
-            return propertyType(value)
+            if isArray:
+                return [propertyType(x) for x in value[value.keys()[0]]]
+            else:
+                return propertyType(value)
         
     def _getPropertyType(self, name):
         properties = {
@@ -486,6 +503,71 @@ class PurchaseOrder(object):
             
             "trade_type": "String",
         }
+        levels = {
+            
+            "alipay_no": "Basic",
+            
+            "buyer_nick": "Basic",
+            
+            "consign_time": "Basic",
+            
+            "created": "Basic",
+            
+            "distributor_from": "Basic",
+            
+            "distributor_payment": "Basic",
+            
+            "distributor_username": "Basic",
+            
+            "end_time": "Basic",
+            
+            "fenxiao_id": "Basic",
+            
+            "id": "Basic",
+            
+            "isv_custom_key": "Basic Array",
+            
+            "isv_custom_value": "Basic Array",
+            
+            "logistics_company_name": "Basic",
+            
+            "logistics_id": "Basic",
+            
+            "memo": "Basic",
+            
+            "modified": "Basic",
+            
+            "pay_time": "Basic",
+            
+            "pay_type": "Basic",
+            
+            "post_fee": "Basic",
+            
+            "receiver": "Object",
+            
+            "shipping": "Basic",
+            
+            "snapshot_url": "Basic",
+            
+            "status": "Basic",
+            
+            "sub_purchase_orders": "Object Array",
+            
+            "supplier_flag": "Basic",
+            
+            "supplier_from": "Basic",
+            
+            "supplier_memo": "Basic",
+            
+            "supplier_username": "Basic",
+            
+            "tc_order_id": "Basic",
+            
+            "total_fee": "Basic",
+            
+            "trade_type": "Basic",
+
+        }
         nameType = properties[name]
         pythonType = None
         if nameType == "Number":
@@ -507,7 +589,12 @@ class PurchaseOrder(object):
                 sys.modules[os.path.basename(
                 os.path.dirname(os.path.realpath(__file__))) + "." + nameType], 
                 nameType)
-        return pythonType
+
+        level = levels[name]
+        if "Array" in level:
+            return (pythonType, True)
+        else:
+            return (pythonType, False)
         
     def __init(self, kargs):
         
