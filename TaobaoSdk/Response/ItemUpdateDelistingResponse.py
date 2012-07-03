@@ -5,7 +5,7 @@
 
 ## @brief * 单个商品下架     * 输入的num_iid必须属于当前会话用户
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:56
+# @date 2012-07-03 10:25:21
 # @version: 0.0.0
 
 from datetime import datetime
@@ -118,7 +118,7 @@ class ItemUpdateDelistingResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

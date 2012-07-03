@@ -5,7 +5,7 @@
 
 ## @brief 获取指定用户的权限集合，并不组装成树。如果是主账号，返回所有的权限列表；如果是子账号，返回所有已授权的权限。只能查询属于自己的账号信息 (如果是主账号，则是主账号以及所属子账号，如果是子账号则是对应主账号以及所属子账号)
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:10
+# @date 2012-07-03 10:25:38
 # @version: 0.0.0
 
 from datetime import datetime
@@ -118,7 +118,7 @@ class SellercenterUserPermissionsGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

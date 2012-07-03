@@ -5,7 +5,7 @@
 
 ## @brief 为一批会员添加分组，接口返回添加是否成功,如至少有一个会员的分组添加成功，接口就返回成功，否则返回失败，如果当前会员已经拥有当前分组，则直接跳过
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:08
+# @date 2012-07-03 10:25:36
 # @version: 0.0.0
 
 from datetime import datetime
@@ -115,7 +115,7 @@ class CrmMembersGroupBatchaddResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

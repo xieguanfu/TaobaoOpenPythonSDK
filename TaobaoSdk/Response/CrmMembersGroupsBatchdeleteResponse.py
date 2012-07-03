@@ -5,7 +5,7 @@
 
 ## @brief 批量删除多个会员的公共分组，接口返回删除是否成功，该接口只删除多个会员的公共分组，不是公共分组的，不进行删除。如果入参只输入一个会员，则表示删除该会员的某些分组。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:08
+# @date 2012-07-03 10:25:36
 # @version: 0.0.0
 
 from datetime import datetime
@@ -115,7 +115,7 @@ class CrmMembersGroupsBatchdeleteResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

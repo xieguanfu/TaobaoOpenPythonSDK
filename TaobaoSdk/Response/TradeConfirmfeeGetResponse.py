@@ -5,7 +5,7 @@
 
 ## @brief 获取交易确认收货费用 可以获取主订单或子订单的确认收货费用
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:58
+# @date 2012-07-03 10:25:22
 # @version: 0.0.0
 
 from datetime import datetime
@@ -118,7 +118,7 @@ class TradeConfirmfeeGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

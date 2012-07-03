@@ -5,7 +5,7 @@
 
 ## @brief 只能更新一笔交易里面的买家收货地址  只能更新发货前（即买家已付款，等待卖家发货状态）的交易的买家收货地址  更新后的发货地址可以通过taobao.trade.fullinfo.get查到  参数中所说的字节为GBK编码的（英文和数字占1字节，中文占2字节）
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:58
+# @date 2012-07-03 10:25:23
 # @version: 0.0.0
 
 from datetime import datetime
@@ -118,7 +118,7 @@ class TradeShippingaddressUpdateResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

@@ -5,7 +5,7 @@
 
 ## @brief 分销商或供应商均可用此接口查询采购单信息. (发货处理请调用物流API中的发货接口)
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:00
+# @date 2012-07-03 10:25:26
 # @version: 0.0.0
 
 from datetime import datetime
@@ -130,7 +130,7 @@ class FenxiaoOrdersGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

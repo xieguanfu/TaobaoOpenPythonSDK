@@ -5,7 +5,7 @@
 
 ## @brief 卖家创建一个新的分组，接口返回一个创建成功的分组的id
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:08
+# @date 2012-07-03 10:25:35
 # @version: 0.0.0
 
 from datetime import datetime
@@ -127,7 +127,7 @@ class CrmGroupAddResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

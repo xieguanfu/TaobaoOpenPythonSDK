@@ -5,7 +5,7 @@
 
 ## @brief 取得一个推广组的所有创意或者根据一个创意Id列表取得一组创意； 如果同时提供了推广组Id和创意id列表，则优先使用推广组Id；
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:04
+# @date 2012-07-03 10:25:30
 # @version: 0.0.0
 
 from datetime import datetime
@@ -118,7 +118,7 @@ class SimbaCreativesGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

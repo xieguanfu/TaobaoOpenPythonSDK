@@ -5,7 +5,7 @@
 
 ## @brief 词数据分析对象
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:37
+# @date 2012-07-03 10:24:57
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -106,22 +106,7 @@ class INWordAnalysis(object):
                     continue
             else:
                 result[key] = value
-        result = self.__unicodeToUtf8(result)
         return result
-
-    def __unicodeToUtf8(self, obj):
-        if isinstance(obj, types.UnicodeType):
-            return obj
-        elif isinstance(obj, types.DictType):
-            results = dict()
-            for key, value in obj.iteritems():
-                results[self.__unicodeToUtf8(key)] = self.__unicodeToUtf8(value)
-            return results
-        elif isinstance(obj, types.ListType):
-            results = [self.__unicodeToUtf8(x) for x in obj]
-            return results
-        else:
-            return obj
         
     def _newInstance(self, name, value):
         types = self._getPropertyType(name)
@@ -148,7 +133,7 @@ class INWordAnalysis(object):
                     return []
                 return [x for x in value[value.keys()[0]]]
             else:
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     return _jsonEnode(value)
                 else:
                     return value

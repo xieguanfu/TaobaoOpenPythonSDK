@@ -5,7 +5,7 @@
 
 ## @brief 可用于取消已经创建的ATS任务。</br> 条件限制：1)一次只可以取消一个任务</br>          2）只能取消自己创建的任务</br>
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:02
+# @date 2012-07-03 10:25:28
 # @version: 0.0.0
 
 from datetime import datetime
@@ -115,7 +115,7 @@ class TopatsTaskDeleteResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

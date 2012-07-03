@@ -5,7 +5,7 @@
 
 ## @brief 通过此接口查询卖家地址库，
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:46
+# @date 2012-07-03 10:25:07
 # @version: 0.0.0
 
 import os

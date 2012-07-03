@@ -5,7 +5,7 @@
 
 ## @brief 1. 搜索当前会话用户作为卖家已卖出的增量交易数据  2. 只能查询时间跨度为一天的增量交易记录：start_modified：2011-7-1 16:00:00 end_modified： 2011-7-2 15:59:59（注意不能写成16:00:00）  3. 返回数据结果为创建订单时间的倒序
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:08
+# @date 2012-07-03 10:25:35
 # @version: 0.0.0
 
 from datetime import datetime
@@ -142,7 +142,7 @@ class HotelSoldOrdersIncrementGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

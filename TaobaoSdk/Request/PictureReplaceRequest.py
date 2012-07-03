@@ -5,7 +5,7 @@
 
 ## @brief 替换一张图片，只替换图片数据，图片名称，图片分类等保持不变。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:54
+# @date 2012-07-03 10:25:18
 # @version: 0.0.0
 
 import os

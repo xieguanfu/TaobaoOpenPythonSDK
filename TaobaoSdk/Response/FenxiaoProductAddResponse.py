@@ -5,7 +5,7 @@
 
 ## @brief 添加分销平台产品数据。业务逻辑与分销系统前台页面一致。      * 产品图片默认为空     * 产品发布后默认为下架状态
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:00
+# @date 2012-07-03 10:25:26
 # @version: 0.0.0
 
 from datetime import datetime
@@ -127,7 +127,7 @@ class FenxiaoProductAddResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

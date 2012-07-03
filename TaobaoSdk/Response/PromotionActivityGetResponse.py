@@ -5,7 +5,7 @@
 
 ## @brief 查询某个卖家的店铺优惠券领取活动 返回，优惠券领取活动ID，优惠券ID，总领用量，每人限领量，已领取数量 领取活动状态，优惠券领取链接 最多50个优惠券
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:06
+# @date 2012-07-03 10:25:33
 # @version: 0.0.0
 
 from datetime import datetime
@@ -118,7 +118,7 @@ class PromotionActivityGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

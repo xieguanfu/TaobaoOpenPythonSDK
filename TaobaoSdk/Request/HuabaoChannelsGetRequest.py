@@ -5,7 +5,7 @@
 
 ## @brief 取画报所有频道
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:53
+# @date 2012-07-03 10:25:17
 # @version: 0.0.0
 
 import os

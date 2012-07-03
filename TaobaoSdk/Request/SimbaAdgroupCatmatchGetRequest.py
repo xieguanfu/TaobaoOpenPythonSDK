@@ -5,7 +5,7 @@
 
 ## @brief 取得一个推广组的类目出价
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:48
+# @date 2012-07-03 10:25:11
 # @version: 0.0.0
 
 import os

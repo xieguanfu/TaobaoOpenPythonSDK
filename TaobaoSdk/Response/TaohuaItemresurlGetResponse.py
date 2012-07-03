@@ -5,7 +5,7 @@
 
 ## @brief 获取商品资源下载链接。 URL调用示例： http://gw.api.taobao.com/router/rest?timestamp=1982-07-27 06:06:06&method=taobao.taohua.itemresurl.get&app_key=2005&session=XXXXX&sign=ERITJKEIJKJHKKKKKKKHJEREEEEEEEEEEE&item_id=3365&position=3652
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:06
+# @date 2012-07-03 10:25:34
 # @version: 0.0.0
 
 from datetime import datetime
@@ -115,7 +115,7 @@ class TaohuaItemresurlGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

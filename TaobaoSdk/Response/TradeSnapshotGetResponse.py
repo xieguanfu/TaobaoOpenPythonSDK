@@ -5,7 +5,7 @@
 
 ## @brief 交易快照查询 目前只支持类型为“旺店标准版(600)”或“旺店入门版(610)”的交易  对于“旺店标准版”类型的交易，返回的snapshot字段为交易快照编号  对于“旺店入门版”类型的交易，返回的snapshot字段为JSON结构的数据(其中的shopPromotion包含了优惠，积分等信息）
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:58
+# @date 2012-07-03 10:25:23
 # @version: 0.0.0
 
 from datetime import datetime
@@ -118,7 +118,7 @@ class TradeSnapshotGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

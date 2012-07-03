@@ -5,7 +5,7 @@
 
 ## @brief 此API获取当前卖家店铺在淘宝前端被展示的浏览导航类目（面向买家）
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:00
+# @date 2012-07-03 10:25:25
 # @version: 0.0.0
 
 from datetime import datetime
@@ -118,7 +118,7 @@ class SellercatsListGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

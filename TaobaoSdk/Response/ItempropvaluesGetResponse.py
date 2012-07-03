@@ -5,7 +5,7 @@
 
 ## @brief 传入类目ID,必需是叶子类目，通过taobao.itemcats.get获取类目ID 返回字段目前支持有：cid,pid,prop_name,vid,name,name_alias,status,sort_order 作用:获取标准类目属性值
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:55
+# @date 2012-07-03 10:25:19
 # @version: 0.0.0
 
 from datetime import datetime
@@ -130,7 +130,7 @@ class ItempropvaluesGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

@@ -5,7 +5,7 @@
 
 ## @brief 用于ISV查询自己名下的应用及收费项目的订单记录（已付款订单）。 目前所有应用调用此接口的频率限制为200次/分钟，即每分钟内，所有应用调用此接口的次数加起来最多为200次。 建议用于查询前一日的历史记录。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:10
+# @date 2012-07-03 10:25:38
 # @version: 0.0.0
 
 from datetime import datetime
@@ -130,7 +130,7 @@ class VasOrderSearchResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

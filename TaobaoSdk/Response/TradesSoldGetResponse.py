@@ -5,7 +5,7 @@
 
 ## @brief 搜索当前会话用户作为卖家已卖出的交易数据(只能获取到三个月以内的交易信息)
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:58
+# @date 2012-07-03 10:25:23
 # @version: 0.0.0
 
 from datetime import datetime
@@ -142,7 +142,7 @@ class TradesSoldGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

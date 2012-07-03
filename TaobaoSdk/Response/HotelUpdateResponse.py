@@ -5,7 +5,7 @@
 
 ## @brief 此接口用于更新一个酒店的信息，根据用户传入的hid更新酒店数据。如果该酒店在淘宝集市酒店不存在，则会返回错误提示。 该接口发出的是一个更新酒店信息的申请，需要淘宝小二审核。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:08
+# @date 2012-07-03 10:25:35
 # @version: 0.0.0
 
 from datetime import datetime
@@ -118,7 +118,7 @@ class HotelUpdateResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

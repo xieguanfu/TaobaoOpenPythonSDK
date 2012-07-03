@@ -5,7 +5,7 @@
 
 ## @brief 通过用户id查询用户自己或者子账户的登录日志： 主账号可以查询自己和店铺子账户的登录日志（查询时需要输入子账号，多个用，隔开） 组管理员可以查询自己和组内子账号的登录日志（查询时需要输入子账号，多个用，隔开） 非组管理员的子账户只能查询自己的登录日志
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:01
+# @date 2012-07-03 10:25:27
 # @version: 0.0.0
 
 from datetime import datetime
@@ -142,7 +142,7 @@ class WangwangEserviceLoginlogsGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

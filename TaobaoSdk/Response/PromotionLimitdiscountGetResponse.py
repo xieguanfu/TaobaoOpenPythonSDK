@@ -5,7 +5,7 @@
 
 ## @brief 分页查询某个卖家的限时打折信息。每页20条数据，按照结束时间降序排列。也可指定某一个限时打折id查询唯一的限时打折信息。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:06
+# @date 2012-07-03 10:25:33
 # @version: 0.0.0
 
 from datetime import datetime
@@ -130,7 +130,7 @@ class PromotionLimitdiscountGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

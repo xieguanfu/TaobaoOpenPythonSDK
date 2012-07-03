@@ -5,7 +5,7 @@
 
 ## @brief 使用指南：http://open.taobao.com/doc/detail.htm?id=30 1.此接口用于获取异步任务处理的结果，传入的task_id必需属于当前的appKey才可以 2.此接口只返回执行完成的任务结果，未执行完的返回结果里面不包含任务结果，只有任务id，执行状态 3.执行完成的每个task的子任务结果内容与单个任务的结果结构一致。如：taobao.topats.trades.fullinfo.get返回的子任务结果就会是Trade的结构体。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:02
+# @date 2012-07-03 10:25:27
 # @version: 0.0.0
 
 from datetime import datetime
@@ -118,7 +118,7 @@ class TopatsResultGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

@@ -5,7 +5,7 @@
 
 ## @brief 查询折扣信息
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:47
+# @date 2012-07-03 10:25:08
 # @version: 0.0.0
 
 import os

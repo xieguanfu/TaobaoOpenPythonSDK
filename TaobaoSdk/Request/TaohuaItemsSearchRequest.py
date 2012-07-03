@@ -5,7 +5,7 @@
 
 ## @brief 商品搜索列表接口
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:52
+# @date 2012-07-03 10:25:14
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,7 @@
 
 ## @brief 通过此接口新增卖家地址库,卖家最多可添加5条地址库,新增第一条卖家地址，将会自动设为默认地址库
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:59
+# @date 2012-07-03 10:25:24
 # @version: 0.0.0
 
 from datetime import datetime
@@ -118,7 +118,7 @@ class LogisticsAddressAddResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

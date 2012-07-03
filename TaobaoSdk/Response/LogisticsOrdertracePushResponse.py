@@ -5,7 +5,7 @@
 
 ## @brief 卖家使用自己的物流公司发货，可以通过本接口将订单的流转信息推送到淘宝，淘宝保存这些流转信息，并可在页面展示这些流转信息。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:59
+# @date 2012-07-03 10:25:24
 # @version: 0.0.0
 
 from datetime import datetime
@@ -118,7 +118,7 @@ class LogisticsOrdertracePushResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

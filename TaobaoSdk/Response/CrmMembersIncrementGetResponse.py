@@ -5,7 +5,7 @@
 
 ## @brief 增量获取会员列表，接口返回符合查询条件的所有会员。任何状态更改都会返回
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:09
+# @date 2012-07-03 10:25:36
 # @version: 0.0.0
 
 from datetime import datetime
@@ -130,7 +130,7 @@ class CrmMembersIncrementGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

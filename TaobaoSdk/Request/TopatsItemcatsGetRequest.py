@@ -5,7 +5,7 @@
 
 ## @brief 下载全量类目（在每天6点钟左右会获取今日的全量后台类目）
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:43
+# @date 2012-07-03 10:25:04
 # @version: 0.0.0
 
 import os

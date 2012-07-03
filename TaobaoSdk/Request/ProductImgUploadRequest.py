@@ -5,7 +5,7 @@
 
 ## @brief 1.传入产品ID  2.传入图片内容  注意：图片最大为500K,只支持JPG,GIF格式,如果需要传多张，可调多次
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:45
+# @date 2012-07-03 10:25:05
 # @version: 0.0.0
 
 import os

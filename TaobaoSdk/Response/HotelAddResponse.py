@@ -5,7 +5,7 @@
 
 ## @brief 此接口用于新增一个酒店，酒店的发布者是当前会话的用户。 该接口发出的是一个酒店申请，需要淘宝小二审核。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:11:07
+# @date 2012-07-03 10:25:34
 # @version: 0.0.0
 
 from datetime import datetime
@@ -118,7 +118,7 @@ class HotelAddResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value

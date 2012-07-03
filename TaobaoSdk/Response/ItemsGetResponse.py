@@ -5,7 +5,7 @@
 
 ## @brief 根据传入的搜索条件，获取商品列表（类似于淘宝页面上的商品搜索功能，但是只有搜索到的商品列表，不包含商品的ItemCategory列表）  只能获得商品的部分信息，商品的详细信息请通过taobao.item.get获取  如果只输入fields其他条件都不输入，系统会因为搜索条件不足而报错。 不能通过设置cid=0来查询。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 09:10:57
+# @date 2012-07-03 10:25:21
 # @version: 0.0.0
 
 from datetime import datetime
@@ -130,7 +130,7 @@ class ItemsGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value
