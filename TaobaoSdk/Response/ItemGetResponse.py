@@ -5,7 +5,7 @@
 
 ## @brief 获取单个商品的详细信息  卖家未登录时只能获得这个商品的公开数据，卖家登录后可以获取商品的所有数据
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:35
+# @date 2012-07-03 08:48:18
 # @version: 0.0.0
 
 from datetime import datetime
@@ -98,13 +98,13 @@ class ItemGetResponse(object):
             if isArray:
                 if not value:
                     return []
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
                 if not isinstance(value,str):
                     #the value should be a json string 
                     return value
-                return value.encode("utf-8")
+                return value
         else:
             if isArray:
                 if not value:

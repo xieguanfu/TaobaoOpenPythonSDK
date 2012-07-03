@@ -5,7 +5,7 @@
 
 ## @brief 根据用户id查询用户对应的评价详细情况， 主账号id可以查询店铺内子账号的评价 组管理员可以查询组内账号的评价 非管理员的子账号可以查自己的评价
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:43
+# @date 2012-07-03 08:48:24
 # @version: 0.0.0
 
 from datetime import datetime
@@ -122,13 +122,13 @@ class WangwangEserviceEvalsGetResponse(object):
             if isArray:
                 if not value:
                     return []
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
                 if not isinstance(value,str):
                     #the value should be a json string 
                     return value
-                return value.encode("utf-8")
+                return value
         else:
             if isArray:
                 if not value:

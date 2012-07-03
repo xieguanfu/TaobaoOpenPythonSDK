@@ -5,7 +5,7 @@
 
 ## @brief 新增单个评价(<font color="red">注：在评价之前需要对订单成功的时间进行判定（end_time）,如果超过15天，不能再通过该接口进行评价</font>)
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:38
+# @date 2012-07-03 08:48:21
 # @version: 0.0.0
 
 from datetime import datetime
@@ -98,13 +98,13 @@ class TraderateAddResponse(object):
             if isArray:
                 if not value:
                     return []
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
                 if not isinstance(value,str):
                     #the value should be a json string 
                     return value
-                return value.encode("utf-8")
+                return value
         else:
             if isArray:
                 if not value:

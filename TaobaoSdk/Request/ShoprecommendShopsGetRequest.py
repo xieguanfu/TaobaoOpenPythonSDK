@@ -5,7 +5,7 @@
 
 ## @brief 根据店铺信息推荐相关联的店铺集
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:34
+# @date 2012-07-03 08:48:17
 # @version: 0.0.0
 
 import os

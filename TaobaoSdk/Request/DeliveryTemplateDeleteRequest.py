@@ -5,7 +5,7 @@
 
 ## @brief 根据用户指定的模板ID删除指定的模板
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:23
+# @date 2012-07-03 08:48:08
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,7 @@
 
 ## @brief 卖家使用自己的物流公司发货，可以通过本接口将订单的仓内信息推送到淘宝，淘宝保存这些仓内信息，并可在页面展示这些仓内信息。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:40
+# @date 2012-07-03 08:48:22
 # @version: 0.0.0
 
 from datetime import datetime
@@ -98,13 +98,13 @@ class LogisticsOrderstorePushResponse(object):
             if isArray:
                 if not value:
                     return []
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
                 if not isinstance(value,str):
                     #the value should be a json string 
                     return value
-                return value.encode("utf-8")
+                return value
         else:
             if isArray:
                 if not value:

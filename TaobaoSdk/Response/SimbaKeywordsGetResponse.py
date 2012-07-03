@@ -5,7 +5,7 @@
 
 ## @brief 取得一个推广组的所有关键词或者根据一个关键词Id列表取得一组关键词； 如果同时提供了推广组Id和关键词id列表，则优先使用推广组Id；
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:47
+# @date 2012-07-03 08:48:27
 # @version: 0.0.0
 
 from datetime import datetime
@@ -98,13 +98,13 @@ class SimbaKeywordsGetResponse(object):
             if isArray:
                 if not value:
                     return []
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
                 if not isinstance(value,str):
                     #the value should be a json string 
                     return value
-                return value.encode("utf-8")
+                return value
         else:
             if isArray:
                 if not value:

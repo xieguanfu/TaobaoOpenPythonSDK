@@ -5,7 +5,7 @@
 
 ## @brief 查询用户的图片空间使用信息，包括：订购量，已使用容量，免费容量，总的可使用容量，订购有效期，剩余容量
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:53
+# @date 2012-07-03 08:48:32
 # @version: 0.0.0
 
 from datetime import datetime
@@ -98,13 +98,13 @@ class PictureUserinfoGetResponse(object):
             if isArray:
                 if not value:
                     return []
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
                 if not isinstance(value,str):
                     #the value should be a json string 
                     return value
-                return value.encode("utf-8")
+                return value
         else:
             if isArray:
                 if not value:

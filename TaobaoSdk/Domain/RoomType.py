@@ -5,7 +5,7 @@
 
 ## @brief RoomType（房型）结构。各字段详细说明可参考接口定义，如：房型发布接口。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:16
+# @date 2012-07-03 08:48:03
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -127,7 +127,7 @@ class RoomType(object):
 
     def __unicodeToUtf8(self, obj):
         if isinstance(obj, types.UnicodeType):
-            return obj.encode("utf-8")
+            return obj
         elif isinstance(obj, types.DictType):
             results = dict()
             for key, value in obj.iteritems():
@@ -162,12 +162,12 @@ class RoomType(object):
             if isArray:
                 if not value:
                     return []
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                return [x for x in value[value.keys()[0]]]
             else:
-                if not isinstance(value,str):
+                if not isinstance(value, str):
                     return value
                 else:
-                    return value.encode("utf-8")
+                    return value
         else:
             if isArray:
                 if not value:

@@ -143,7 +143,7 @@ class ${struct.getElementsByTagName("name")[0].firstChild.data}(object):
 
     def __unicodeToUtf8(self, obj):
         if isinstance(obj, types.UnicodeType):
-            return obj.encode("utf-8")
+            return obj
         elif isinstance(obj, types.DictType):
             results = dict()
             for key, value in obj.iteritems():
@@ -178,12 +178,12 @@ class ${struct.getElementsByTagName("name")[0].firstChild.data}(object):
             if isArray:
                 if not value:
                     return []
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                return [x for x in value[value.keys()[0]]]
             else:
-                if not isinstance(value,str):
+                if not isinstance(value, str):
                     return value
                 else:
-                    return value.encode("utf-8")
+                    return value
         else:
             if isArray:
                 if not value:

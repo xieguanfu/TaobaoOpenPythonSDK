@@ -5,7 +5,7 @@
 
 ## @brief 判断用户是否购买过该商品
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:30
+# @date 2012-07-03 08:48:14
 # @version: 0.0.0
 
 import os

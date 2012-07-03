@@ -5,7 +5,7 @@
 
 ## @brief 获取一级类目
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:28
+# @date 2012-07-03 08:48:12
 # @version: 0.0.0
 
 import os

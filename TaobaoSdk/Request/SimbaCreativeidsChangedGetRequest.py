@@ -5,7 +5,7 @@
 
 ## @brief 获取修改的创意ID
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:27
+# @date 2012-07-03 08:48:12
 # @version: 0.0.0
 
 import os

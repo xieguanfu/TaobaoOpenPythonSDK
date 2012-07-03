@@ -5,7 +5,7 @@
 
 ## @brief 此接口用于更新一个集市酒店商品，根据传入的gid更新商品信息，该商品必须为对应的发布者才能执行更新操作。如果对应的商品在淘宝集市酒店系统中不存在，则会返回错误提示。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:50
+# @date 2012-07-03 08:48:30
 # @version: 0.0.0
 
 from datetime import datetime
@@ -98,13 +98,13 @@ class HotelRoomUpdateResponse(object):
             if isArray:
                 if not value:
                     return []
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
                 if not isinstance(value,str):
                     #the value should be a json string 
                     return value
-                return value.encode("utf-8")
+                return value
         else:
             if isArray:
                 if not value:

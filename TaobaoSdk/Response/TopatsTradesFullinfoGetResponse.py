@@ -5,7 +5,7 @@
 
 ## @brief 提供异步批量获取订单详情功能<br/> 1. 一次可以查询的订单数量为1~100笔，强烈建议一次请求尽可能多的订单<br/> 2. 提交任务后会生成task_id，后继通过此task_id调用taobao.topats.result.get接口获取任务的结果<br/> 3. 如果订阅了Comet长连接推送方式，则直接通过Comet推送到长连接客户端<br/> 4. 这个任务ID有效时间为2天。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:37
+# @date 2012-07-03 08:48:20
 # @version: 0.0.0
 
 from datetime import datetime
@@ -98,13 +98,13 @@ class TopatsTradesFullinfoGetResponse(object):
             if isArray:
                 if not value:
                     return []
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
                 if not isinstance(value,str):
                     #the value should be a json string 
                     return value
-                return value.encode("utf-8")
+                return value
         else:
             if isArray:
                 if not value:

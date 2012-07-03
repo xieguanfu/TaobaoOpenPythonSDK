@@ -5,7 +5,7 @@
 
 ## @brief 检查一个分组上是否有异步任务,异步任务包括1.将一个分组下的所有用户添加到另外一个分组2.将一个分组下的所有用户移动到另外一个分组3.删除某个分组 若分组上有任务则该属性不能被操作。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:51
+# @date 2012-07-03 08:48:31
 # @version: 0.0.0
 
 from datetime import datetime
@@ -95,13 +95,13 @@ class CrmGrouptaskCheckResponse(object):
             if isArray:
                 if not value:
                     return []
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
                 if not isinstance(value,str):
                     #the value should be a json string 
                     return value
-                return value.encode("utf-8")
+                return value
         else:
             if isArray:
                 if not value:

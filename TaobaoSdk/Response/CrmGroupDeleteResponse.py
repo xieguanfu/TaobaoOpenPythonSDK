@@ -5,7 +5,7 @@
 
 ## @brief 将该分组下的所有会员移除出该组，同时删除该分组。注：删除分组为异步任务，必须先调用taobao.crm.grouptask.check 确保涉及属性上没有任务。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:51
+# @date 2012-07-03 08:48:31
 # @version: 0.0.0
 
 from datetime import datetime
@@ -95,13 +95,13 @@ class CrmGroupDeleteResponse(object):
             if isArray:
                 if not value:
                     return []
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
                 if not isinstance(value,str):
                     #the value should be a json string 
                     return value
-                return value.encode("utf-8")
+                return value
         else:
             if isArray:
                 if not value:

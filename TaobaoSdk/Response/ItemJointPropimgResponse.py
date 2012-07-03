@@ -5,7 +5,7 @@
 
 ## @brief * 关联一张商品属性图片到num_iid指定的商品中     * 传入的num_iid所对应的商品必须属于当前会话的用户     * 图片的属性必须要是颜色的属性，这个在前台显示的时候需要和sku进行关联的     * 商品图片关联在卖家身份和图片来源上的限制，卖家要是B卖家或订购了多图服务才能关联图片，并且图片要来自于卖家自己的图片空间才行     * 商品图片数量有限制。不管是上传的图片还是关联的图片，他们的总数不能超过一定限额，最多不能超过24张（每个颜色属性都有一张）
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:35
+# @date 2012-07-03 08:48:18
 # @version: 0.0.0
 
 from datetime import datetime
@@ -98,13 +98,13 @@ class ItemJointPropimgResponse(object):
             if isArray:
                 if not value:
                     return []
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
                 if not isinstance(value,str):
                     #the value should be a json string 
                     return value
-                return value.encode("utf-8")
+                return value
         else:
             if isArray:
                 if not value:

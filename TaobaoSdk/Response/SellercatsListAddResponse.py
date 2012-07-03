@@ -5,7 +5,7 @@
 
 ## @brief 此API添加卖家店铺内自定义类目  父类目parent_cid值等于0：表示此类目为店铺下的一级类目，值不等于0：表示此类目有父类目  注：因为缓存的关系,添加的新类目需8个小时后才可以在淘宝页面上正常显示，但是不影响在该类目下商品发布
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:40
+# @date 2012-07-03 08:48:22
 # @version: 0.0.0
 
 from datetime import datetime
@@ -98,13 +98,13 @@ class SellercatsListAddResponse(object):
             if isArray:
                 if not value:
                     return []
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
                 if not isinstance(value,str):
                     #the value should be a json string 
                     return value
-                return value.encode("utf-8")
+                return value
         else:
             if isArray:
                 if not value:

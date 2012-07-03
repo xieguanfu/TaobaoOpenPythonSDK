@@ -5,7 +5,7 @@
 
 ## @brief 获取卖家店铺剩余橱窗数量，已用橱窗数量，总橱窗数量（对于B卖家，后两个参数返回-1）
 # @author wuliang@maimiaotech.com
-# @date 2012-06-29 19:36:41
+# @date 2012-07-03 08:48:22
 # @version: 0.0.0
 
 from datetime import datetime
@@ -98,13 +98,13 @@ class ShopRemainshowcaseGetResponse(object):
             if isArray:
                 if not value:
                     return []
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
                 if not isinstance(value,str):
                     #the value should be a json string 
                     return value
-                return value.encode("utf-8")
+                return value
         else:
             if isArray:
                 if not value:
