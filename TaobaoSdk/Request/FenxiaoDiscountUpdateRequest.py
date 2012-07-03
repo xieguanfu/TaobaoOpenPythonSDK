@@ -5,7 +5,7 @@
 
 ## @brief 修改等级折扣
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:09
+# @date 2012-07-03 09:10:47
 # @version: 0.0.0
 
 import os

@@ -5,13 +5,30 @@
 
 ## @brief 使用指南：http://open.taobao.com/dev/index.php/ATS%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97 1.提供异步批量物流发货功能 2.一次最多发货40个订单 3.提交任务会进行初步任务校验，如果成功会返回任务号和创建时间，如果失败就报错 4.可以接收淘宝发出的任务完成消息，也可以过一段时间来取结果。获取结果接口为taobao.topats.result.get 5.此api执行完成发送的通知消息格式为{"task":{"task_id":123456,"created":"2010-8-19"}}
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:22
+# @date 2012-07-03 09:10:59
 # @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -101,9 +118,9 @@ class TopatsDeliverySendResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value,str):
+                if not isinstance(value, str):
                     #the value should be a json string 
-                    return value
+                    return _jsonEnode(value)
                 return value
         else:
             if isArray:

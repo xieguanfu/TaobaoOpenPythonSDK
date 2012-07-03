@@ -5,13 +5,30 @@
 
 ## @brief 只能更新发货前子订单的销售属性  只能更新价格相同的销售属性。对于拍下减库存的交易会同步更新销售属性的库存量。对于旺店的交易，要使用商品扩展信息中的SKU价格来比较。  必须使用sku_id或sku_props中的一个参数来更新，如果两个都传的话，sku_id优先
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:20
+# @date 2012-07-03 09:10:58
 # @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -101,9 +118,9 @@ class TradeOrderskuUpdateResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value,str):
+                if not isinstance(value, str):
                     #the value should be a json string 
-                    return value
+                    return _jsonEnode(value)
                 return value
         else:
             if isArray:

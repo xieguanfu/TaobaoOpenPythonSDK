@@ -5,13 +5,30 @@
 
 ## @brief 用户调用该接口可实现在线订单发货（支持货到付款） 调用该接口实现在线下单发货，有两种情况：<br> <font color='red'>如果不输入运单号的情况：交易状态不会改变，需要调用taobao.logistics.online.confirm确认发货后交易状态才会变成卖家已发货。<br> 如果输入运单号的情况发货：交易订单状态会直接变成卖家已发货 。</font>
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:22
+# @date 2012-07-03 09:10:59
 # @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -101,9 +118,9 @@ class LogisticsOnlineSendResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value,str):
+                if not isinstance(value, str):
                     #the value should be a json string 
-                    return value
+                    return _jsonEnode(value)
                 return value
         else:
             if isArray:

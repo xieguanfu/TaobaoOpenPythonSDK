@@ -5,13 +5,30 @@
 
 ## @brief 两种方式搜索所有产品信息(二种至少传一种):  传入关键字q搜索  传入cid和props搜索  返回值支持:product_id,name,pic_path,cid,props,price,tsc 当用户指定了cid并且cid为垂直市场（3C电器城、鞋城）的类目id时，默认只返回小二确认的产品。如果用户没有指定cid，或cid为普通的类目，默认返回商家确认或小二确认的产品。如果用户自定了status字段，以指定的status类型为准
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:20
+# @date 2012-07-03 09:10:57
 # @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -113,9 +130,9 @@ class ProductsSearchResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value,str):
+                if not isinstance(value, str):
                     #the value should be a json string 
-                    return value
+                    return _jsonEnode(value)
                 return value
         else:
             if isArray:

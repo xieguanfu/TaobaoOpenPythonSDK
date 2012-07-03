@@ -5,13 +5,30 @@
 
 ## @brief 根据传入的num_iid更新对应的商品的数据  传入的num_iid所对应的商品必须属于当前会话的用户  商品的属性和sku的属性有包含的关系，商品的价格要位于sku的价格区间之中（例如，sku价格有5元、10元两种，那么商品的价格就需要大于等于5元，小于等于10元，否则更新商品会失败）  商品的类目和商品的价格、sku的价格都有一定的相关性（具体的关系要通过类目属性查询接口获得）  当关键属性值更新为“其他”的时候，需要输入input_pids和input_str商品才能更新成功。该接口不支持产品属性修改。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:19
+# @date 2012-07-03 09:10:56
 # @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -101,9 +118,9 @@ class ItemUpdateResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value,str):
+                if not isinstance(value, str):
                     #the value should be a json string 
-                    return value
+                    return _jsonEnode(value)
                 return value
         else:
             if isArray:

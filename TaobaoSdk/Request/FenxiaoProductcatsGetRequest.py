@@ -5,7 +5,7 @@
 
 ## @brief 查询供应商的所有产品线数据。根据登陆用户来查询，不需要其他入参
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:10
+# @date 2012-07-03 09:10:47
 # @version: 0.0.0
 
 import os

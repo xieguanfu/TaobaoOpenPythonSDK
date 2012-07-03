@@ -5,7 +5,7 @@
 
 ## @brief 可用于取消已经创建的ATS任务。</br> 条件限制：1)一次只可以取消一个任务</br>          2）只能取消自己创建的任务</br>
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:11
+# @date 2012-07-03 09:10:48
 # @version: 0.0.0
 
 import os

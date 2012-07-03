@@ -5,7 +5,7 @@
 
 ## @brief 创建一批关键词
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:13
+# @date 2012-07-03 09:10:50
 # @version: 0.0.0
 
 import os

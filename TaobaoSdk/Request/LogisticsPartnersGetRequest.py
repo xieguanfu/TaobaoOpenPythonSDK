@@ -5,7 +5,7 @@
 
 ## @brief 查询物流公司信息（可以查询目的地可不可达情况）
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:09
+# @date 2012-07-03 09:10:46
 # @version: 0.0.0
 
 import os

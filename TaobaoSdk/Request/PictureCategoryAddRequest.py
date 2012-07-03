@@ -5,7 +5,7 @@
 
 ## @brief 同一卖家最多添加500个图片分类，图片分类名称长度最大为20个字符
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:16
+# @date 2012-07-03 09:10:54
 # @version: 0.0.0
 
 import os

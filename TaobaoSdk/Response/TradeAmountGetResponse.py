@@ -5,13 +5,30 @@
 
 ## @brief 卖家查询该笔交易订单的资金帐务相关的数据； 1. 只供卖家使用，买家不可使用 2. 可查询所有的状态的订单，但不同状态时订单的相关数据可能会有不同
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:20
+# @date 2012-07-03 09:10:57
 # @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -101,9 +118,9 @@ class TradeAmountGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value,str):
+                if not isinstance(value, str):
                     #the value should be a json string 
-                    return value
+                    return _jsonEnode(value)
                 return value
         else:
             if isArray:

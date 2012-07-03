@@ -5,7 +5,7 @@
 
 ## @brief 查询B商家被授权品牌列表、类目列表和 c 商家新品类目列表
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:06
+# @date 2012-07-03 09:10:43
 # @version: 0.0.0
 
 import os

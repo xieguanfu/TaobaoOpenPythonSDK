@@ -5,7 +5,7 @@
 
 ## @brief 与对应画报相关联的商品的信息
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:02
+# @date 2012-07-03 09:10:40
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -14,6 +14,23 @@ import os
 import sys
 import time
 import types
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -176,7 +193,7 @@ class PosterGoodsInfo(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 if not isinstance(value, str):
-                    return value
+                    return _jsonEnode(value)
                 else:
                     return value
         else:

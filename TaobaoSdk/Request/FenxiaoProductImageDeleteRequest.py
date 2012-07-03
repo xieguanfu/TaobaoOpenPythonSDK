@@ -5,7 +5,7 @@
 
 ## @brief 产品图片删除，只删除图片信息，不真正删除图片
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:10
+# @date 2012-07-03 09:10:47
 # @version: 0.0.0
 
 import os

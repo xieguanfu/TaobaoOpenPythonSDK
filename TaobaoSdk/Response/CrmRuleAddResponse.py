@@ -5,13 +5,30 @@
 
 ## @brief 添加分组规则，规则可用于筛选一定条件的会员。过滤条件可以选择客户来源、会员级别 、交易笔数、交易额、上次交易时间、平均客单价、宝贝件数、省份、关闭交易数等，新建规则时必须至少选择一个以上筛选条件。如果输入的规则的筛选条件不正确则不会进行处理，可以将某些分组挂在这个规则下，对被挂在该规则下的分组，系统对现有满足规则的客户都划分到这个分组（异步任务）。每个规则可以应用到多个分组，一个用户的规则上限为5个。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:31
+# @date 2012-07-03 09:11:09
 # @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -110,9 +127,9 @@ class CrmRuleAddResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value,str):
+                if not isinstance(value, str):
                     #the value should be a json string 
-                    return value
+                    return _jsonEnode(value)
                 return value
         else:
             if isArray:

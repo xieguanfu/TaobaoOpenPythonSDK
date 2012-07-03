@@ -5,13 +5,30 @@
 
 ## @brief 传入产品ID  传入props,目前仅支持颜色属性.调用taobao.itemprops.get.v2取得颜色属性pid, 再用taobao.itempropvalues.get取得vid;格式:pid:vid,只能传入一个颜色pid:vid串;  传入图片内容  注意：图片最大为2M,只支持JPG,GIF,如果需要传多张，可调多次
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:20
+# @date 2012-07-03 09:10:57
 # @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -101,9 +118,9 @@ class ProductPropimgUploadResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value,str):
+                if not isinstance(value, str):
                     #the value should be a json string 
-                    return value
+                    return _jsonEnode(value)
                 return value
         else:
             if isArray:

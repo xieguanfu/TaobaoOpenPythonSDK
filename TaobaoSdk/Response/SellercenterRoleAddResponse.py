@@ -5,13 +5,30 @@
 
 ## @brief 给指定的卖家创建新的子账号角色<br/> 如果需要授权的权限点有下级权限点或上级权限点，把该权限点的父权限点和该权限点的所有子权限都一并做赋权操作，并递归处理<br/>例如：权限点列表如下<br/> code=sell 宝贝管理<br/> ---------|code=sm 店铺管理<br/> ---------|---------|code=sm-design 如店铺装修<br/> ---------|---------|---------|code=sm-tbd-visit内店装修入口<br/> ---------|---------|---------|code=sm-tbd-publish内店装修发布<br/> ---------|---------|code=phone 手机淘宝店铺<br/> 调用改接口给code=sm-design店铺装修赋权时，同时会将下列权限点都赋予默认角色<br/> code=sell 宝贝管理<br/> ---------|code=sm 店铺管理<br/> ---------|---------|code=sm-design 如店铺装修<br/> ---------|---------|---------|code=sm-tbd-visit内店装修入口<br/> ---------|---------|---------|code=sm-tbd-publish内店装修发布<br/>
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:32
+# @date 2012-07-03 09:11:10
 # @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -101,9 +118,9 @@ class SellercenterRoleAddResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value,str):
+                if not isinstance(value, str):
                     #the value should be a json string 
-                    return value
+                    return _jsonEnode(value)
                 return value
         else:
             if isArray:

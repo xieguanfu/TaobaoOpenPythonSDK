@@ -5,13 +5,30 @@
 
 ## @brief * 根据传入的搜索条件，获取商品列表和商品类目信息ItemCategory列表（类似于淘宝页面上的商品搜索功能，与 taobao.items.get的区别在于：这个方法得到的结果既有商品列表，又有类目信息列表）     * 商品列表里只能获得商品的部分信息，商品的详细信息请通过taobao.item.get获取     * 商品类目信息列表里只包含类目id和该类目下商品的数量     * 不能通过设置cid=0来查询
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:19
+# @date 2012-07-03 09:10:57
 # @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -113,9 +130,9 @@ class ItemsSearchResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value,str):
+                if not isinstance(value, str):
                     #the value should be a json string 
-                    return value
+                    return _jsonEnode(value)
                 return value
         else:
             if isArray:

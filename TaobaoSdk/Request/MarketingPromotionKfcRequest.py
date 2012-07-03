@@ -5,7 +5,7 @@
 
 ## @brief 活动名称与描述违禁词检查
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:13
+# @date 2012-07-03 09:10:51
 # @version: 0.0.0
 
 import os

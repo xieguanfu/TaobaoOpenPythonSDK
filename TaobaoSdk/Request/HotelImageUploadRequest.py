@@ -5,7 +5,7 @@
 
 ## @brief 酒店图片上传
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:14
+# @date 2012-07-03 09:10:52
 # @version: 0.0.0
 
 import os

@@ -5,13 +5,30 @@
 
 ## @brief 取得一个推广计划的所有推广组，或者根据一个推广组Id列表取得一组推广组； 如果同时提供了推广计划Id和推广组id列表，则优先使用推广计划Id，当使用 推广计划ID获取数据时，返回的结果是有分页的。如果是用推广组ID列表作查询 则将一次返回所有查询的结果。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:25
+# @date 2012-07-03 09:11:03
 # @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -101,9 +118,9 @@ class SimbaAdgroupsGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value,str):
+                if not isinstance(value, str):
                     #the value should be a json string 
-                    return value
+                    return _jsonEnode(value)
                 return value
         else:
             if isArray:

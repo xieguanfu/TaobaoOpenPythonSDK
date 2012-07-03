@@ -5,7 +5,7 @@
 
 ## @brief 获取修改的推广组ID
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:11
+# @date 2012-07-03 09:10:49
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,7 @@
 
 ## @brief 客户账户报表基础数据对象
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:13
+# @date 2012-07-03 09:10:51
 # @version: 0.0.0
 
 import os

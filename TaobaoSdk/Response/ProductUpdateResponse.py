@@ -5,13 +5,30 @@
 
 ## @brief 传入产品ID  可修改字段：outer_id,binds,sale_props,name,price,desc,image  注意：1.可以修改主图,不能修改子图片,主图最大500K,目前仅支持GIF,JPG       2.商城卖家产品发布24小时后不能作删除或修改操作
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:20
+# @date 2012-07-03 09:10:57
 # @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -101,9 +118,9 @@ class ProductUpdateResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value,str):
+                if not isinstance(value, str):
                     #the value should be a json string 
-                    return value
+                    return _jsonEnode(value)
                 return value
         else:
             if isArray:

@@ -5,13 +5,30 @@
 
 ## @brief 获取单笔交易的详细信息 1.只有在交易成功的状态下才能取到交易佣金，其它状态下取到的都是零或空值  2.只有单笔订单的情况下Trade数据结构中才包含商品相关的信息  3.获取到的Order中的payment字段在单笔子订单时包含物流费用，多笔子订单时不包含物流费用  注：包含以下字段的返回会增加TOP的后台压力，请仅在确实需要的情况下才去获取：commission_fee, buyer_alipay_no, seller_alipay_no, buyer_email, seller_mobile, seller_phone, seller_name, seller_email, timeout_action_time, item_memo, trade_memo, title, available_confirm_fee
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:20
+# @date 2012-07-03 09:10:58
 # @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -101,9 +118,9 @@ class TradeFullinfoGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value,str):
+                if not isinstance(value, str):
                     #the value should be a json string 
-                    return value
+                    return _jsonEnode(value)
                 return value
         else:
             if isArray:

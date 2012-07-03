@@ -5,7 +5,7 @@
 
 ## @brief 用户调本接口后，对应的商品喜欢值加1
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:14
+# @date 2012-07-03 09:10:51
 # @version: 0.0.0
 
 import os

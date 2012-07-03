@@ -5,7 +5,7 @@
 
 ## @brief 根据供应商ID，查询他的分销商等级信息
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:09
+# @date 2012-07-03 09:10:47
 # @version: 0.0.0
 
 import os

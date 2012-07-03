@@ -5,7 +5,7 @@
 
 ## @brief 推广组效果报表数据对象
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:13
+# @date 2012-07-03 09:10:50
 # @version: 0.0.0
 
 import os

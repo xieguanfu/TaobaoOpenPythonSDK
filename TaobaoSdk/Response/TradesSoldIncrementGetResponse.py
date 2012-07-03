@@ -5,13 +5,30 @@
 
 ## @brief 1. 搜索当前会话用户作为卖家已卖出的增量交易数据 2. 只能查询时间跨度为一天的增量交易记录：start_modified：2011-7-1 16:00:00 end_modified： 2011-7-2 15:59:59（注意不能写成16:00:00） 3. 返回数据结果为创建订单时间的倒序 4. 只能查询3个月内修改过的数据，超过这个时间的数据无法通过taobao.trade.fullinfo.get获取详情。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 08:48:21
+# @date 2012-07-03 09:10:58
 # @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -125,9 +142,9 @@ class TradesSoldIncrementGetResponse(object):
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value,str):
+                if not isinstance(value, str):
                     #the value should be a json string 
-                    return value
+                    return _jsonEnode(value)
                 return value
         else:
             if isArray:
