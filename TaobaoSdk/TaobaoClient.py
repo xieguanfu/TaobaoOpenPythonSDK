@@ -12,12 +12,15 @@
 @copyright:
 """
 
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
+
 from Common import *
 from Response import *
 from SdkCommon import *
 import logging
 logger = logging.getLogger(__name__)
-
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
 
@@ -108,7 +111,8 @@ class TaobaoClient(object):
         query = "%s%s%s" % (self.appSecret,
             str().join('%s%s' % (key, parameters[key]) for key in keys), 
             self.appSecret)
-        return hashlib.md5(query).hexdigest()
+        hash = hashlib.md5(query)
+        return hash.hexdigest()
         
     def getRequestParameters(self, request):
         '''
@@ -121,6 +125,6 @@ class TaobaoClient(object):
             # TODO 不必须的参数是否需要参与hash的计算
             if value == None:
                 continue
-            parameters[key] = str(value)
+            parameters[key] = unicode(value)
         return parameters
             

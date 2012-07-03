@@ -219,7 +219,7 @@ class ${str().join([x.capitalize() for x in api.getElementsByTagName("name")[0].
                 return [x for x in value[value.keys()[0]]]
             else:
                 #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
-                if not isinstance(value, str):
+                if not isinstance(value, basestring):
                     #the value should be a json string 
                     return _jsonEnode(value)
                 return value
