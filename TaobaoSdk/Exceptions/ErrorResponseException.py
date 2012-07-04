@@ -8,7 +8,7 @@
 """
 
 class ErrorResponseException(Exception):
-    def __init__(self, kargs=dict()):
+    def __init__(self, **kargs):
         super(self.__class__, self).__init__()
 
         self.code = None
