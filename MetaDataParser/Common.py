@@ -18,16 +18,18 @@ import warnings
 warnings.filterwarnings("ignore")
 
 def __getCurrentPath():
-    return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
-sys.path.insert(0, os.path.join(__getCurrentPath(), "libs", 'pytoolkit.zip'))
+    return os.path.normpath(os.path.join(os.path.realpath(__file__),
+        os.path.pardir))
+
+__libraryPath = os.path.normpath(
+    os.path.join(__getCurrentPath(), os.path.pardir, "libs", 'pytoolkit.zip'))
+if not os.path.exists(__libraryPath):
+    raise Exception("%s 不存在, 请检查" % __libraryPath)
 
 from ArgumentParser import ArgumentParser
-from BaseClass import BaseClass
 import chardet
-from ConfigParser import ConfigParser
 from Colorful import *
 import copy
-from Decoder import Decoder
 import hashlib
 import httplib2
 import JSONLib
@@ -45,6 +47,4 @@ import urllib
 import urllib2
 import urlparse
 import yaml
-from Utility import *
-import unittest
-import xml.dom.minidom 
+import xml.dom.minidom

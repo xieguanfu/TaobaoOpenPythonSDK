@@ -10,6 +10,8 @@
 @deprecated:
 @license:
 @copyright:
+
+用于解析templates/domain.mako,以生成针对domain下的数据结构
 """
 
 from Common import *
@@ -21,23 +23,29 @@ class DomainParser(object):
         self.config = config
         
     def generateFiles(self):
-        rootOutput = os.path.join(self.output, domainOutput)
+        rootOutput = os.path.join(self.config.output, domainOutput)
         if not os.path.exists(rootOutput):
             os.makedirs(rootOutput)
         imported = set()
+        templateFileHandler = open(domainTemplate)
+
+        templateFile = Template(templateFileHandler.read().decode("utf-8"))
         for struct in self.root.getElementsByTagName("struct"):
-            templateFile = Template(file(domainTemplate).read().decode("utf-8"))
-            rendered = templateFile.render_unicode(struct=struct).encode("utf-8")
+            rendered = templateFile.render_unicode(
+                struct=struct, config=self.config).encode("utf-8")
             rendered = rendered.replace("\\#\\#", "##")
             filename = struct.getElementsByTagName("name")[0].firstChild.data.encode("utf-8")
             imported.add(filename)
             filename += ".py"
             filename = os.path.join(rootOutput, filename)
-            print "Generating %s" % (filename)
-            fout = file(filename, "w")
+            printColorful("green", "Generating %s" % (filename))
+            fout = open(filename, "w")
             fout.write(rendered)
             fout.close()
-        templateFile = Template(file(initTemplate).read().decode("utf-8"))
+        templateFileHandler.close()
+
+        # 生成Domain下的__init__.py文件
+        templateFile = Template(open(initTemplate).read().decode("utf-8"))
         rendered = templateFile.render_unicode(imports=imported).encode("utf-8")
         fout = file(os.path.join(rootOutput, "__init__.py"), "w")
         fout.write(rendered)

@@ -21,7 +21,7 @@ def __getCurrentPath():
 pyTemplatePath = os.path.join(__getCurrentPath(), "templates")
 
 # domain的模板
-domainTemplate = os.path.join(pyTemplatePath, "domain.template")
+domainTemplate = os.path.join(pyTemplatePath, "domain.mako")
 domainOutput = "Domain"
 
 # __init__.py的模板
