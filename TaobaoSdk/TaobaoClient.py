@@ -75,7 +75,6 @@ class TaobaoClient(object):
         if responseStatus["status"] != '200':
             print >> sys.stderr, rawContent
             return None
-        logger.debug('end sending a request on api:%s'%(request.method))
         content = JSONLib.decode(rawContent)
         responses = list()
         for key, value in content.iteritems():
