@@ -5,7 +5,7 @@
 
 ## @brief 获取现有的规则列表
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:17
+# @date 2012-08-01 17:13:46
 # @version: 0.0.0
 
 import os

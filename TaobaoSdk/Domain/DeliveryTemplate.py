@@ -5,7 +5,7 @@
 
 ## @brief 运费模板对象
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:24:56
+# @date 2012-08-01 17:13:18
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                        
+                                        
 from TopFee import TopFee
 
                                         
@@ -51,6 +51,17 @@ class DeliveryTemplate(object):
         self.__kargs = deepcopy(kargs)
         
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">运费模板上设置的发货地址</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.address = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">可选值：0,1  说明 0:表示买家承担服务费; 1:表示卖家承担服务费</SPAN>
         # <UL>
         # <LI>
@@ -61,6 +72,17 @@ class DeliveryTemplate(object):
         # </LI>
         # </UL>
         self.assumer = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">该模板上设置的卖家发货地址区域ID，如：address为浙江省杭州市西湖去文三路XX号那么这个consign_area_id的值就是西湖区的ID</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.consign_area_id = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">模板创建时间</SPAN>
         # <UL>
@@ -128,7 +150,7 @@ class DeliveryTemplate(object):
         # </UL>
         self.template_id = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">可选值：0说明：0:表示按宝贝件数计算运费</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">可选值：0 说明： 0:表示按宝贝件数计算运费 <br/><br/> 1:表示按宝贝重量计算运费 <br/><br/> 3:表示按宝贝体积计算运费</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -195,7 +217,11 @@ class DeliveryTemplate(object):
     def _getPropertyType(self, name):
         properties = {
             
+            "address": "String",
+            
             "assumer": "Number",
+            
+            "consign_area_id": "Number",
             
             "created": "Date",
             
@@ -213,7 +239,11 @@ class DeliveryTemplate(object):
         }
         levels = {
             
+            "address": "Basic",
+            
             "assumer": "Basic",
+            
+            "consign_area_id": "Basic",
             
             "created": "Basic",
             
@@ -260,8 +290,14 @@ class DeliveryTemplate(object):
         
     def __init(self, kargs):
         
+        if kargs.has_key("address"):
+            self.address = self._newInstance("address", kargs["address"])
+        
         if kargs.has_key("assumer"):
             self.assumer = self._newInstance("assumer", kargs["assumer"])
+        
+        if kargs.has_key("consign_area_id"):
+            self.consign_area_id = self._newInstance("consign_area_id", kargs["consign_area_id"])
         
         if kargs.has_key("created"):
             self.created = self._newInstance("created", kargs["created"])

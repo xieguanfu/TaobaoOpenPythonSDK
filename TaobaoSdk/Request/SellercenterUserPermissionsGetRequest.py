@@ -5,7 +5,7 @@
 
 ## @brief 获取指定用户的权限集合，并不组装成树。如果是主账号，返回所有的权限列表；如果是子账号，返回所有已授权的权限。只能查询属于自己的账号信息 (如果是主账号，则是主账号以及所属子账号，如果是子账号则是对应主账号以及所属子账号)
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:18
+# @date 2012-08-01 17:13:48
 # @version: 0.0.0
 
 import os
@@ -47,7 +47,7 @@ class SellercenterUserPermissionsGetRequest(object):
         self.timestamp = int(time.time())
 
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">用户标识</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">用户标识，次入参必须为子账号比如zhangsan:cool。如果只输入主账号zhangsan，将报错。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

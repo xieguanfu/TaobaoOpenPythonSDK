@@ -5,7 +5,7 @@
 
 ## @brief 修改指定图片的图片名
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:37
+# @date 2012-08-01 17:14:13
 # @version: 0.0.0
 
 from datetime import datetime

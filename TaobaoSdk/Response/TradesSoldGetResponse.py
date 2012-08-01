@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 搜索当前会话用户作为卖家已卖出的交易数据(只能获取到三个月以内的交易信息)
+## @brief 搜索当前会话用户作为卖家已卖出的交易数据（只能获取到三个月以内的交易信息） <br/>1. 返回的数据结果是以订单的创建时间倒序排列的。 <br/>2. 返回的数据结果只包含了订单的部分数据，可通过taobao.trade.fullinfo.get获取订单详情。 <br/>3. <span style="color:red">通过异步接口<a href="http://api.taobao.com/apidoc/api.htm?path=cid:5-apiId:11117">taobao.topats.trades.sold.get</a>可以一次性获取卖家3个月内的订单详情数据。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:23
+# @date 2012-08-01 17:13:55
 # @version: 0.0.0
 
 from datetime import datetime
@@ -43,7 +43,7 @@ from Domain.Trade import Trade
 
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 搜索当前会话用户作为卖家已卖出的交易数据(只能获取到三个月以内的交易信息)</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 搜索当前会话用户作为卖家已卖出的交易数据（只能获取到三个月以内的交易信息） <br/>1. 返回的数据结果是以订单的创建时间倒序排列的。 <br/>2. 返回的数据结果只包含了订单的部分数据，可通过taobao.trade.fullinfo.get获取订单详情。 <br/>3. <span style="color:red">通过异步接口<a href="http://api.taobao.com/apidoc/api.htm?path=cid:5-apiId:11117">taobao.topats.trades.sold.get</a>可以一次性获取卖家3个月内的订单详情数据。</SPAN>
 # <UL>
 # </UL>
 class TradesSoldGetResponse(object):

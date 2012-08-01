@@ -5,7 +5,7 @@
 
 ## @brief 用户
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:24:55
+# @date 2012-08-01 17:13:17
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                        
+                                        
 from UserCredit import UserCredit
 
                                                                                                         
@@ -54,17 +54,6 @@ class User(object):
         self.__kargs = deepcopy(kargs)
         
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">支付宝账户</SPAN>
-        # <UL>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
-        # </LI>
-        # </UL>
-        self.alipay_account = None
-        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">有无绑定。可选值:bind(绑定),notbind(未绑定)</SPAN>
         # <UL>
         # <LI>
@@ -75,17 +64,6 @@ class User(object):
         # </LI>
         # </UL>
         self.alipay_bind = None
-        
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">支付宝ID</SPAN>
-        # <UL>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
-        # </LI>
-        # </UL>
-        self.alipay_no = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是否受限制。可选值:limited(受限制),unlimited(不受限)</SPAN>
         # <UL>
@@ -495,11 +473,7 @@ class User(object):
     def _getPropertyType(self, name):
         properties = {
             
-            "alipay_account": "String",
-            
             "alipay_bind": "String",
-            
-            "alipay_no": "String",
             
             "auto_repost": "String",
             
@@ -567,11 +541,7 @@ class User(object):
         }
         levels = {
             
-            "alipay_account": "Basic",
-            
             "alipay_bind": "Basic",
-            
-            "alipay_no": "Basic",
             
             "auto_repost": "Basic",
             
@@ -668,14 +638,8 @@ class User(object):
         
     def __init(self, kargs):
         
-        if kargs.has_key("alipay_account"):
-            self.alipay_account = self._newInstance("alipay_account", kargs["alipay_account"])
-        
         if kargs.has_key("alipay_bind"):
             self.alipay_bind = self._newInstance("alipay_bind", kargs["alipay_bind"])
-        
-        if kargs.has_key("alipay_no"):
-            self.alipay_no = self._newInstance("alipay_no", kargs["alipay_no"])
         
         if kargs.has_key("auto_repost"):
             self.auto_repost = self._newInstance("auto_repost", kargs["auto_repost"])

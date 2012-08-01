@@ -5,7 +5,7 @@
 
 ## @brief 修改订单邮费接口，通过传入订单编号和邮费价格，修改订单的邮费，返回修改时间modified,邮费post_fee,总费用total_fee。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:23
+# @date 2012-08-01 17:13:55
 # @version: 0.0.0
 
 from datetime import datetime

@@ -5,7 +5,7 @@
 
 ## @brief 运费模板中运费信息对象
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:24:56
+# @date 2012-08-01 17:13:18
 # @version: 0.0.0
 
 from copy import deepcopy

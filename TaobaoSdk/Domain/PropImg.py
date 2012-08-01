@@ -5,7 +5,7 @@
 
 ## @brief 商品属性图片结构
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:24:57
+# @date 2012-08-01 17:13:20
 # @version: 0.0.0
 
 from copy import deepcopy

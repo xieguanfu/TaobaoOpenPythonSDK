@@ -15,4 +15,4 @@
 
 
 # SDK的版本
-SdkVersion = "20120611"
+SdkVersion = "20120801"

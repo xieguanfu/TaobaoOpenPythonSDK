@@ -5,7 +5,7 @@
 
 ## @brief 卖家使用自己的物流公司发货，可以通过本接口将订单的仓内信息推送到淘宝，淘宝保存这些仓内信息，并可在页面展示这些仓内信息。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:24
+# @date 2012-08-01 17:13:57
 # @version: 0.0.0
 
 from datetime import datetime

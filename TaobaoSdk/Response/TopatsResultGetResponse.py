@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 使用指南：http://open.taobao.com/doc/detail.htm?id=30 1.此接口用于获取异步任务处理的结果，传入的task_id必需属于当前的appKey才可以 2.此接口只返回执行完成的任务结果，未执行完的返回结果里面不包含任务结果，只有任务id，执行状态 3.执行完成的每个task的子任务结果内容与单个任务的结果结构一致。如：taobao.topats.trades.fullinfo.get返回的子任务结果就会是Trade的结构体。
+## @brief 获取异步任务结果。 <br/>异步API使用方法，请查看：<a href="http://open.taobao.com/doc/detail.htm?id=30">异步API使用说明</a> <br/>1. 只能获取AppKey自身创建的异步任务结果 <br/>2. 如果任务状态为done，则返回任务结果（如taobao.topats.trades.fullinfo.get）或下载地址（如taobao.topats.trades.sold.get） <br/>3. 任务结果下载地址只能使用一次，需要重复下载可重新调用此接口获取下载地址 <br/>4. 任务结果中的check_code字段为待下载文件的md5 sum，可通过此校验码验证文件下载的完整性
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:27
+# @date 2012-08-01 17:14:00
 # @version: 0.0.0
 
 from datetime import datetime
@@ -43,7 +43,7 @@ from Domain.Task import Task
 
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 使用指南：http://open.taobao.com/doc/detail.htm?id=30 1.此接口用于获取异步任务处理的结果，传入的task_id必需属于当前的appKey才可以 2.此接口只返回执行完成的任务结果，未执行完的返回结果里面不包含任务结果，只有任务id，执行状态 3.执行完成的每个task的子任务结果内容与单个任务的结果结构一致。如：taobao.topats.trades.fullinfo.get返回的子任务结果就会是Trade的结构体。</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 获取异步任务结果。 <br/>异步API使用方法，请查看：<a href="http://open.taobao.com/doc/detail.htm?id=30">异步API使用说明</a> <br/>1. 只能获取AppKey自身创建的异步任务结果 <br/>2. 如果任务状态为done，则返回任务结果（如taobao.topats.trades.fullinfo.get）或下载地址（如taobao.topats.trades.sold.get） <br/>3. 任务结果下载地址只能使用一次，需要重复下载可重新调用此接口获取下载地址 <br/>4. 任务结果中的check_code字段为待下载文件的md5 sum，可通过此校验码验证文件下载的完整性</SPAN>
 # <UL>
 # </UL>
 class TopatsResultGetResponse(object):

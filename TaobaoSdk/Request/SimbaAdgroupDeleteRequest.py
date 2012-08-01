@@ -5,7 +5,7 @@
 
 ## @brief 删除一个推广组
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:11
+# @date 2012-08-01 17:13:39
 # @version: 0.0.0
 
 import os

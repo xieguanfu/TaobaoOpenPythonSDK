@@ -5,7 +5,7 @@
 
 ## @brief 交易快照查询 目前只支持类型为“旺店标准版(600)”或“旺店入门版(610)”的交易  对于“旺店标准版”类型的交易，返回的snapshot字段为交易快照编号  对于“旺店入门版”类型的交易，返回的snapshot字段为JSON结构的数据(其中的shopPromotion包含了优惠，积分等信息）
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:06
+# @date 2012-08-01 17:13:34
 # @version: 0.0.0
 
 import os

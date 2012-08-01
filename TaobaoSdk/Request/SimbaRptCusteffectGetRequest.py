@@ -5,7 +5,7 @@
 
 ## @brief 用户账户报表效果数据查询（只有汇总数据，无分类数据）
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:13
+# @date 2012-08-01 17:13:44
 # @version: 0.0.0
 
 import os

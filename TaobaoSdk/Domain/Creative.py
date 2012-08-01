@@ -5,7 +5,7 @@
 
 ## @brief 创意
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:02
+# @date 2012-08-01 17:13:27
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -103,7 +103,7 @@ class Creative(object):
         # </UL>
         self.create_time = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">关键词id</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">创意id</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>

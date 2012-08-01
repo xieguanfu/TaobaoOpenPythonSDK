@@ -5,7 +5,7 @@
 
 ## @brief 退款结构
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:24:56
+# @date 2012-08-01 17:13:18
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,10 +39,10 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                                                        
+                                                                                                                                                                                        
 from RefundRemindTimeout import RefundRemindTimeout
 
-                                                        
+                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">退款结构</SPAN>
 class Refund(object):
     def __init__(self, kargs=dict()):
@@ -61,6 +61,17 @@ class Refund(object):
         # </LI>
         # </UL>
         self.address = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">退款先行垫付默认的未申请状态 0; 退款先行垫付申请中  1; 退款先行垫付，垫付完成 2; 退款先行垫付，卖家拒绝收货 3; 退款先行垫付，垫付关闭 4; 退款先行垫付，垫付分账成功 5;</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.advance_status = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">支付宝交易号</SPAN>
         # <UL>
@@ -105,6 +116,17 @@ class Refund(object):
         # </LI>
         # </UL>
         self.created = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">不需客服介入1; 需要客服介入2; 客服已经介入3; 客服初审完成 4; 客服主管复审失败5; 客服处理完成6;</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.cs_status = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">退款说明</SPAN>
         # <UL>
@@ -315,6 +337,28 @@ class Refund(object):
         # </UL>
         self.sid = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分账给卖家的钱</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.split_seller_fee = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分账给淘宝的钱</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.split_taobao_fee = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">退款状态。 可选值 WAIT_SELLER_AGREE(买家已经申请退款，等待卖家同意)  WAIT_BUYER_RETURN_GOODS(卖家已经同意退款，等待买家退货)  WAIT_SELLER_CONFIRM_GOODS(买家已经退货，等待卖家确认收货)  SELLER_REFUSE_BUYER(卖家拒绝退款)  CLOSED(退款关闭)  SUCCESS(退款成功)</SPAN>
         # <UL>
         # <LI>
@@ -417,6 +461,8 @@ class Refund(object):
             
             "address": "String",
             
+            "advance_status": "Number",
+            
             "alipay_no": "String",
             
             "buyer_nick": "String",
@@ -424,6 +470,8 @@ class Refund(object):
             "company_name": "String",
             
             "created": "Date",
+            
+            "cs_status": "Number",
             
             "desc": "String",
             
@@ -463,6 +511,10 @@ class Refund(object):
             
             "sid": "String",
             
+            "split_seller_fee": "String",
+            
+            "split_taobao_fee": "String",
+            
             "status": "String",
             
             "tid": "Number",
@@ -475,6 +527,8 @@ class Refund(object):
             
             "address": "Basic",
             
+            "advance_status": "Basic",
+            
             "alipay_no": "Basic",
             
             "buyer_nick": "Basic",
@@ -482,6 +536,8 @@ class Refund(object):
             "company_name": "Basic",
             
             "created": "Basic",
+            
+            "cs_status": "Basic",
             
             "desc": "Basic",
             
@@ -520,6 +576,10 @@ class Refund(object):
             "shipping_type": "Basic",
             
             "sid": "Basic",
+            
+            "split_seller_fee": "Basic",
+            
+            "split_taobao_fee": "Basic",
             
             "status": "Basic",
             
@@ -563,6 +623,9 @@ class Refund(object):
         if kargs.has_key("address"):
             self.address = self._newInstance("address", kargs["address"])
         
+        if kargs.has_key("advance_status"):
+            self.advance_status = self._newInstance("advance_status", kargs["advance_status"])
+        
         if kargs.has_key("alipay_no"):
             self.alipay_no = self._newInstance("alipay_no", kargs["alipay_no"])
         
@@ -574,6 +637,9 @@ class Refund(object):
         
         if kargs.has_key("created"):
             self.created = self._newInstance("created", kargs["created"])
+        
+        if kargs.has_key("cs_status"):
+            self.cs_status = self._newInstance("cs_status", kargs["cs_status"])
         
         if kargs.has_key("desc"):
             self.desc = self._newInstance("desc", kargs["desc"])
@@ -631,6 +697,12 @@ class Refund(object):
         
         if kargs.has_key("sid"):
             self.sid = self._newInstance("sid", kargs["sid"])
+        
+        if kargs.has_key("split_seller_fee"):
+            self.split_seller_fee = self._newInstance("split_seller_fee", kargs["split_seller_fee"])
+        
+        if kargs.has_key("split_taobao_fee"):
+            self.split_taobao_fee = self._newInstance("split_taobao_fee", kargs["split_taobao_fee"])
         
         if kargs.has_key("status"):
             self.status = self._newInstance("status", kargs["status"])

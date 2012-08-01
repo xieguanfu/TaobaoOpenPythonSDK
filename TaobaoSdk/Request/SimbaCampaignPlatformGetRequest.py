@@ -5,7 +5,7 @@
 
 ## @brief 取得一个推广计划的投放平台设置
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:11
+# @date 2012-08-01 17:13:40
 # @version: 0.0.0
 
 import os

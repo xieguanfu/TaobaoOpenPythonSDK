@@ -5,7 +5,7 @@
 
 ## @brief 用于获取指定时间段内的定时API任务信息。</br> 条件：1）必须是本APPKEY创建的任务。</br>      2)起始时间不能早于3天前的当前时刻。</br>      3）结束时间不能晚于一天以后的当前时刻。</br>
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:10
+# @date 2012-08-01 17:13:38
 # @version: 0.0.0
 
 import os

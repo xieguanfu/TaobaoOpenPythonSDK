@@ -5,7 +5,7 @@
 
 ## @brief Item(商品)结构
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:24:57
+# @date 2012-08-01 17:13:21
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,10 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                                                                                                                                        
+                                                                                                                
+from FoodSecurity import FoodSecurity
+
+                                                                                                                                                        
 from ItemImg import ItemImg
 
                 
@@ -194,6 +197,28 @@ class Item(object):
         # </LI>
         # </UL>
         self.express_fee = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">宝贝特征值， 只有在Top支持的特征值才能保存到宝贝上</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.features = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">食品安全信息，包括：生产许可证编号、产品标准号、厂名、厂址等</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">FoodSecurity</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object</SPAN>
+        # </LI>
+        # </UL>
+        self.food_security = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">运费承担方式,seller（卖家承担），buyer(买家承担）</SPAN>
         # <UL>
@@ -880,6 +905,10 @@ class Item(object):
             
             "express_fee": "Price",
             
+            "features": "String",
+            
+            "food_security": "FoodSecurity",
+            
             "freight_payer": "String",
             
             "has_discount": "Boolean",
@@ -1015,6 +1044,10 @@ class Item(object):
             "ems_fee": "Basic",
             
             "express_fee": "Basic",
+            
+            "features": "Basic",
+            
+            "food_security": "Object",
             
             "freight_payer": "Basic",
             
@@ -1192,6 +1225,12 @@ class Item(object):
         
         if kargs.has_key("express_fee"):
             self.express_fee = self._newInstance("express_fee", kargs["express_fee"])
+        
+        if kargs.has_key("features"):
+            self.features = self._newInstance("features", kargs["features"])
+        
+        if kargs.has_key("food_security"):
+            self.food_security = self._newInstance("food_security", kargs["food_security"])
         
         if kargs.has_key("freight_payer"):
             self.freight_payer = self._newInstance("freight_payer", kargs["freight_payer"])

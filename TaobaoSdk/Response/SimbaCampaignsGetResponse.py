@@ -5,7 +5,7 @@
 
 ## @brief 取得一个客户的推广计划；
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:29
+# @date 2012-08-01 17:14:05
 # @version: 0.0.0
 
 from datetime import datetime

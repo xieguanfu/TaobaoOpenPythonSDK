@@ -5,7 +5,7 @@
 
 ## @brief 交易订单的帐务信息详情
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:01
+# @date 2012-08-01 17:13:26
 # @version: 0.0.0
 
 from copy import deepcopy

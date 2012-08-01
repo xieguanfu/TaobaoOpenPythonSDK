@@ -5,7 +5,7 @@
 
 ## @brief 根据推荐类型获取推荐的关联关系商品
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:38
+# @date 2012-08-01 17:14:15
 # @version: 0.0.0
 
 from datetime import datetime

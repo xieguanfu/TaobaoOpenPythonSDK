@@ -5,7 +5,7 @@
 
 ## @brief 传入多个淘宝会员帐号返回多个用户公开信息
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:19
+# @date 2012-08-01 17:13:49
 # @version: 0.0.0
 
 from datetime import datetime

@@ -5,7 +5,7 @@
 
 ## @brief 推荐的关联商品
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:01
+# @date 2012-08-01 17:13:26
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -47,17 +47,6 @@ class FavoriteItem(object):
 
         self.__kargs = deepcopy(kargs)
         
-        
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品ID</SPAN>
-        # <UL>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
-        # </LI>
-        # </UL>
-        self.item_id = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品名称</SPAN>
         # <UL>
@@ -125,6 +114,17 @@ class FavoriteItem(object):
         # </UL>
         self.sell_count = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品id（具有跟踪效果）代替原来的item_id  <a href="http://dev.open.taobao.com/bbs/read.php?tid=24323">详细说明</a></SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.track_iid = None
+        
         self.__init(kargs)
 
     def toDict(self, **kargs):
@@ -181,8 +181,6 @@ class FavoriteItem(object):
     def _getPropertyType(self, name):
         properties = {
             
-            "item_id": "Number",
-            
             "item_name": "String",
             
             "item_pictrue": "String",
@@ -194,10 +192,10 @@ class FavoriteItem(object):
             "promotion_price": "Price",
             
             "sell_count": "Number",
+            
+            "track_iid": "String",
         }
         levels = {
-            
-            "item_id": "Basic",
             
             "item_name": "Basic",
             
@@ -210,6 +208,8 @@ class FavoriteItem(object):
             "promotion_price": "Basic",
             
             "sell_count": "Basic",
+            
+            "track_iid": "Basic",
 
         }
         nameType = properties[name]
@@ -242,9 +242,6 @@ class FavoriteItem(object):
         
     def __init(self, kargs):
         
-        if kargs.has_key("item_id"):
-            self.item_id = self._newInstance("item_id", kargs["item_id"])
-        
         if kargs.has_key("item_name"):
             self.item_name = self._newInstance("item_name", kargs["item_name"])
         
@@ -262,3 +259,6 @@ class FavoriteItem(object):
         
         if kargs.has_key("sell_count"):
             self.sell_count = self._newInstance("sell_count", kargs["sell_count"])
+        
+        if kargs.has_key("track_iid"):
+            self.track_iid = self._newInstance("track_iid", kargs["track_iid"])

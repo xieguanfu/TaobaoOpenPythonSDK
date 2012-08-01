@@ -5,7 +5,7 @@
 
 ## @brief 查询人群标签，返回卖家创建的全部人群标签（有效的）
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:14
+# @date 2012-08-01 17:13:45
 # @version: 0.0.0
 
 import os

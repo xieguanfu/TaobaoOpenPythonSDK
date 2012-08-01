@@ -5,7 +5,7 @@
 
 ## @brief 物流数据结构
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:24:58
+# @date 2012-08-01 17:13:22
 # @version: 0.0.0
 
 from copy import deepcopy

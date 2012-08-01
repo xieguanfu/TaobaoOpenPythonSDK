@@ -5,7 +5,7 @@
 
 ## @brief 获取指定卖家的角色下属员工列表，只能获取属于登陆者自己的信息。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:37
+# @date 2012-08-01 17:14:14
 # @version: 0.0.0
 
 from datetime import datetime

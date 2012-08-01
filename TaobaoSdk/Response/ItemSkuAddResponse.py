@@ -5,7 +5,7 @@
 
 ## @brief 新增一个sku到num_iid指定的商品中  传入的iid所对应的商品必须属于当前会话的用户
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:21
+# @date 2012-08-01 17:13:52
 # @version: 0.0.0
 
 from datetime import datetime

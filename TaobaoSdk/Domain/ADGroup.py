@@ -5,7 +5,7 @@
 
 ## @brief 推广组
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:02
+# @date 2012-08-01 17:13:28
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                        
+                                                                                                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">推广组</SPAN>
 class ADGroup(object):
     def __init__(self, kargs=dict()):
@@ -146,6 +146,17 @@ class ADGroup(object):
         # </LI>
         # </UL>
         self.nonsearch_max_price = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">通投状态,1：开启；0：暂停；默认为1</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.nonsearch_status = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品数字id</SPAN>
         # <UL>
@@ -265,6 +276,8 @@ class ADGroup(object):
             
             "nonsearch_max_price": "Number",
             
+            "nonsearch_status": "Number",
+            
             "num_iid": "Number",
             
             "offline_type": "String",
@@ -292,6 +305,8 @@ class ADGroup(object):
             "nick": "Basic",
             
             "nonsearch_max_price": "Basic",
+            
+            "nonsearch_status": "Basic",
             
             "num_iid": "Basic",
             
@@ -358,6 +373,9 @@ class ADGroup(object):
         
         if kargs.has_key("nonsearch_max_price"):
             self.nonsearch_max_price = self._newInstance("nonsearch_max_price", kargs["nonsearch_max_price"])
+        
+        if kargs.has_key("nonsearch_status"):
+            self.nonsearch_status = self._newInstance("nonsearch_status", kargs["nonsearch_status"])
         
         if kargs.has_key("num_iid"):
             self.num_iid = self._newInstance("num_iid", kargs["num_iid"])

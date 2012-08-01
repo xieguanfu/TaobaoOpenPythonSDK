@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 获得更改过的推广组类目出价列表,此类表中只存类目出价ID和推广组ID
+## @brief 分页获取修改过的推广组类目出价ID , 推广组ID，修改时间
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:11
+# @date 2012-08-01 17:13:39
 # @version: 0.0.0
 
 import os
@@ -23,7 +23,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">获得更改过的推广组类目出价列表,此类表中只存类目出价ID和推广组ID</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分页获取修改过的推广组类目出价ID , 推广组ID，修改时间</SPAN>
 # <UL>
 # </UL>
 class SimbaAdgroupChangedcatmatchsGetRequest(object):

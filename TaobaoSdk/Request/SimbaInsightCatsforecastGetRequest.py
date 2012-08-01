@@ -5,7 +5,7 @@
 
 ## @brief 类目属性预测
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:12
+# @date 2012-08-01 17:13:42
 # @version: 0.0.0
 
 import os

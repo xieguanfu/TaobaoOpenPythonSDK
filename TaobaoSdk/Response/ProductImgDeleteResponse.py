@@ -5,7 +5,7 @@
 
 ## @brief 1.传入非主图ID  2.传入产品ID  删除产品非主图
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:22
+# @date 2012-08-01 17:13:53
 # @version: 0.0.0
 
 from datetime import datetime

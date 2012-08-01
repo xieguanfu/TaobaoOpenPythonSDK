@@ -5,7 +5,7 @@
 
 ## @brief 传入产品ID  传入props,目前仅支持颜色属性.调用taobao.itemprops.get.v2取得颜色属性pid, 再用taobao.itempropvalues.get取得vid;格式:pid:vid,只能传入一个颜色pid:vid串;  传入图片内容  注意：图片最大为2M,只支持JPG,GIF,如果需要传多张，可调多次
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:06
+# @date 2012-08-01 17:13:33
 # @version: 0.0.0
 
 import os

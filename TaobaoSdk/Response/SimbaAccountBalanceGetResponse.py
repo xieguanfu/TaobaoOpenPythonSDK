@@ -5,7 +5,7 @@
 
 ## @brief 获取实时余额，”元”为单位
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:28
+# @date 2012-08-01 17:14:01
 # @version: 0.0.0
 
 from datetime import datetime

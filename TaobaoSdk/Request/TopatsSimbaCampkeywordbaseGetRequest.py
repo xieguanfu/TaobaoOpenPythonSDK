@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 直通车推广计划下的词报表基础数据查询
+## @brief 直通车推广计划下的词报表基础数据查询<br/> 异步API使用方法，请查看：<a href="http://open.taobao.com/doc/detail.htm?id=30">异步API使用说明</a><br/>
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:14
+# @date 2012-08-01 17:13:44
 # @version: 0.0.0
 
 import os
@@ -23,7 +23,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">直通车推广计划下的词报表基础数据查询</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">直通车推广计划下的词报表基础数据查询<br/> 异步API使用方法，请查看：<a href="http://open.taobao.com/doc/detail.htm?id=30">异步API使用说明</a><br/></SPAN>
 # <UL>
 # </UL>
 class TopatsSimbaCampkeywordbaseGetRequest(object):

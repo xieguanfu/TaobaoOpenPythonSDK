@@ -5,7 +5,7 @@
 
 ## @brief 限时打折
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:00
+# @date 2012-08-01 17:13:25
 # @version: 0.0.0
 
 from copy import deepcopy

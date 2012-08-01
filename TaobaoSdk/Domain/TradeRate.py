@@ -5,7 +5,7 @@
 
 ## @brief 评价列表
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:24:58
+# @date 2012-08-01 17:13:22
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                
+                                                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">评价列表</SPAN>
 class TradeRate(object):
     def __init__(self, kargs=dict()):
@@ -102,6 +102,17 @@ class TradeRate(object):
         # </LI>
         # </UL>
         self.nick = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品的数字ID</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.num_iid = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子订单ID</SPAN>
         # <UL>
@@ -246,6 +257,8 @@ class TradeRate(object):
             
             "nick": "String",
             
+            "num_iid": "Number",
+            
             "oid": "Number",
             
             "rated_nick": "String",
@@ -271,6 +284,8 @@ class TradeRate(object):
             "item_title": "Basic",
             
             "nick": "Basic",
+            
+            "num_iid": "Basic",
             
             "oid": "Basic",
             
@@ -331,6 +346,9 @@ class TradeRate(object):
         
         if kargs.has_key("nick"):
             self.nick = self._newInstance("nick", kargs["nick"])
+        
+        if kargs.has_key("num_iid"):
+            self.num_iid = self._newInstance("num_iid", kargs["num_iid"])
         
         if kargs.has_key("oid"):
             self.oid = self._newInstance("oid", kargs["oid"])

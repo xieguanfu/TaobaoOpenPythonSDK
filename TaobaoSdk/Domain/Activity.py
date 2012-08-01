@@ -5,7 +5,7 @@
 
 ## @brief 活动数据结构
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:03
+# @date 2012-08-01 17:13:28
 # @version: 0.0.0
 
 from copy import deepcopy

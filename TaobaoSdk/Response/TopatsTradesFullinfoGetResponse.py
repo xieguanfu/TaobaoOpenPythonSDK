@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 提供异步批量获取订单详情功能<br/> 1. 一次可以查询的订单数量为1~100笔，强烈建议一次请求尽可能多的订单<br/> 2. 提交任务后会生成task_id，后继通过此task_id调用taobao.topats.result.get接口获取任务的结果<br/> 3. 如果订阅了Comet长连接推送方式，则直接通过Comet推送到长连接客户端<br/> 4. 这个任务ID有效时间为2天。
+## @brief 提供异步批量获取订单详情功能<br/> 异步API使用方法，请查看：<a href="http://open.taobao.com/doc/detail.htm?id=30">异步API使用说明</a><br/> 1. 一次可以查询的订单数量为1~100笔，强烈建议一次请求尽可能多的订单<br/> 2. 提交任务后会生成task_id，后继通过此task_id调用taobao.topats.result.get接口获取任务的结果<br/> 3. 如果订阅了主动通知服务，任务完成后TOP会通过HTTP长连接推送消息，通知的消息格式请参考异步API使用文档<br/> 4. 这个任务ID有效时间为2天，2天后任务被删除。<br/> 5. 每个应用每天最多可以调用3万次，超过限制今天无法调用。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:22
+# @date 2012-08-01 17:13:54
 # @version: 0.0.0
 
 from datetime import datetime
@@ -43,7 +43,7 @@ from Domain.Task import Task
 
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 提供异步批量获取订单详情功能<br/> 1. 一次可以查询的订单数量为1~100笔，强烈建议一次请求尽可能多的订单<br/> 2. 提交任务后会生成task_id，后继通过此task_id调用taobao.topats.result.get接口获取任务的结果<br/> 3. 如果订阅了Comet长连接推送方式，则直接通过Comet推送到长连接客户端<br/> 4. 这个任务ID有效时间为2天。</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 提供异步批量获取订单详情功能<br/> 异步API使用方法，请查看：<a href="http://open.taobao.com/doc/detail.htm?id=30">异步API使用说明</a><br/> 1. 一次可以查询的订单数量为1~100笔，强烈建议一次请求尽可能多的订单<br/> 2. 提交任务后会生成task_id，后继通过此task_id调用taobao.topats.result.get接口获取任务的结果<br/> 3. 如果订阅了主动通知服务，任务完成后TOP会通过HTTP长连接推送消息，通知的消息格式请参考异步API使用文档<br/> 4. 这个任务ID有效时间为2天，2天后任务被删除。<br/> 5. 每个应用每天最多可以调用3万次，超过限制今天无法调用。</SPAN>
 # <UL>
 # </UL>
 class TopatsTradesFullinfoGetResponse(object):

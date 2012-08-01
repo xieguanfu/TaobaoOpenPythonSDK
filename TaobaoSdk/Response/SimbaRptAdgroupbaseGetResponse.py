@@ -5,7 +5,7 @@
 
 ## @brief 推广组基础报表数据对象
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:31
+# @date 2012-08-01 17:14:08
 # @version: 0.0.0
 
 from datetime import datetime
