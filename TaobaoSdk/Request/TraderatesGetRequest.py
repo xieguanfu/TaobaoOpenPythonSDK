@@ -5,7 +5,7 @@
 
 ## @brief 搜索评价信息，只能获取距今180天内的评价记录(只支持查询卖家给出或得到的评价)
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:35
+# @date 2012-08-09 12:36:44
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,7 @@
 
 ## @brief 更新一个推广计划的投放地域
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:40
+# @date 2012-08-09 12:36:50
 # @version: 0.0.0
 
 import os

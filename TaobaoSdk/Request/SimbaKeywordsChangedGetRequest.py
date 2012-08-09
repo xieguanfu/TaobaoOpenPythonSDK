@@ -5,7 +5,7 @@
 
 ## @brief 分页获取修改过的关键词ID和修改时间
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:42
+# @date 2012-08-09 12:36:52
 # @version: 0.0.0
 
 import os

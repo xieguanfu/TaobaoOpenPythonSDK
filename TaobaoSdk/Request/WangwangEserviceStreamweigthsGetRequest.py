@@ -5,7 +5,7 @@
 
 ## @brief 获取当前登录用户自己的店铺内的分流权重设置
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:38
+# @date 2012-08-09 12:36:48
 # @version: 0.0.0
 
 import os

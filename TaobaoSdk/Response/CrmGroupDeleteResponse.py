@@ -5,7 +5,7 @@
 
 ## @brief 将该分组下的所有会员移除出该组，同时删除该分组。注：删除分组为异步任务，必须先调用taobao.crm.grouptask.check 确保涉及属性上没有任务。
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:14:11
+# @date 2012-08-09 12:37:17
 # @version: 0.0.0
 
 from datetime import datetime

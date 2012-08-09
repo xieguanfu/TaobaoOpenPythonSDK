@@ -5,7 +5,7 @@
 
 ## @brief 权限信息
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:23
+# @date 2012-08-09 12:36:33
 # @version: 0.0.0
 
 from copy import deepcopy

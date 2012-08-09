@@ -5,7 +5,7 @@
 
 ## @brief 直通车推广计划下的词报表基础数据查询<br/> 异步API使用方法，请查看：<a href="http://open.taobao.com/doc/detail.htm?id=30">异步API使用说明</a><br/>
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:44
+# @date 2012-08-09 12:36:54
 # @version: 0.0.0
 
 import os

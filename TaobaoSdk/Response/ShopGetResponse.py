@@ -5,7 +5,7 @@
 
 ## @brief 获取卖家店铺的基本信息
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:58
+# @date 2012-08-09 12:37:06
 # @version: 0.0.0
 
 from datetime import datetime

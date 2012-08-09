@@ -5,7 +5,7 @@
 
 ## @brief 获取单独出价投放位置列表
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:14:08
+# @date 2012-08-09 12:37:15
 # @version: 0.0.0
 
 from datetime import datetime

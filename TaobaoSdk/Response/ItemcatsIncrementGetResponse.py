@@ -5,7 +5,7 @@
 
 ## @brief 增量获取后台类目、类目属性、类目属性值数据 <br/>1. 每天6点左右会产生今天的增量数据，在6点之前获取增量类目数据将会报错，在6点之后获取增量类目数据可以实时返回。 <br/>2. 最长可以获取最近7天的增量类目数据，如果超过7天没有同步类目数据，建议走<a href="http://api.taobao.com/apidoc/api.htm?path=cid:3-apiId:11078">全量类目</a>接口获取。
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:50
+# @date 2012-08-09 12:36:59
 # @version: 0.0.0
 
 from datetime import datetime

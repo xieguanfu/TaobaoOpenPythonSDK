@@ -5,7 +5,7 @@
 
 ## @brief 推广组下的词效果报表数据查询(明细数据不分类型查询)
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:14:09
+# @date 2012-08-09 12:37:15
 # @version: 0.0.0
 
 from datetime import datetime

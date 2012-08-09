@@ -5,7 +5,7 @@
 
 ## @brief 推广计划的投放平台
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:29
+# @date 2012-08-09 12:36:40
 # @version: 0.0.0
 
 from copy import deepcopy

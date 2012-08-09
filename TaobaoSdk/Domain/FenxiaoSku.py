@@ -5,7 +5,7 @@
 
 ## @brief 分销产品SKU
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:24:58
+# @date 2012-08-09 12:36:33
 # @version: 0.0.0
 
 from copy import deepcopy

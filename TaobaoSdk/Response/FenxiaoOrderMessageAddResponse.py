@@ -5,7 +5,7 @@
 
 ## @brief 添加采购单留言，最多20条（供应商分销商都可添加）
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:26
+# @date 2012-08-09 12:37:07
 # @version: 0.0.0
 
 from datetime import datetime

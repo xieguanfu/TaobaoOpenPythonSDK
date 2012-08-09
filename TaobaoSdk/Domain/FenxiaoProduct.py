@@ -5,7 +5,7 @@
 
 ## @brief 分销产品
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:24:58
+# @date 2012-08-09 12:36:34
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,10 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                                                                                                                                                                
+                                                                                                                                                                
+from FenxiaoPdu import FenxiaoPdu
+
+                                                                                                                        
 from FenxiaoSku import FenxiaoSku
 
                                 
@@ -259,6 +262,17 @@ class FenxiaoProduct(object):
         # </LI>
         # </UL>
         self.outer_id = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品分销商信息</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">FenxiaoPdu</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object Array</SPAN>
+        # </LI>
+        # </UL>
+        self.pdus = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品图片路径</SPAN>
         # <UL>
@@ -563,6 +577,8 @@ class FenxiaoProduct(object):
             
             "outer_id": "String",
             
+            "pdus": "FenxiaoPdu",
+            
             "pictures": "String",
             
             "pid": "Number",
@@ -640,6 +656,8 @@ class FenxiaoProduct(object):
             "orders_count": "Basic",
             
             "outer_id": "Basic",
+            
+            "pdus": "Object Array",
             
             "pictures": "Basic",
             
@@ -766,6 +784,9 @@ class FenxiaoProduct(object):
         
         if kargs.has_key("outer_id"):
             self.outer_id = self._newInstance("outer_id", kargs["outer_id"])
+        
+        if kargs.has_key("pdus"):
+            self.pdus = self._newInstance("pdus", kargs["pdus"])
         
         if kargs.has_key("pictures"):
             self.pictures = self._newInstance("pictures", kargs["pictures"])

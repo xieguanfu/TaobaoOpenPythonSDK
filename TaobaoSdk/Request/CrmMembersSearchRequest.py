@@ -5,7 +5,7 @@
 
 ## @brief 会员列表的高级查询，接口返回符合条件的会员列表.<br> 注：建议获取09年以后的数据，09年之前的数据不是很完整
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:46
+# @date 2012-08-09 12:36:56
 # @version: 0.0.0
 
 import os

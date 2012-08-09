@@ -5,7 +5,7 @@
 
 ## @brief 删除一个sku的数据 需要删除的sku通过属性properties进行匹配查找
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:31
+# @date 2012-08-09 12:36:42
 # @version: 0.0.0
 
 import os

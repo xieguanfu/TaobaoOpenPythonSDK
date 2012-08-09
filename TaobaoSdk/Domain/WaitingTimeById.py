@@ -5,7 +5,7 @@
 
 ## @brief 平均等待时长
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:29
+# @date 2012-08-09 12:36:39
 # @version: 0.0.0
 
 from copy import deepcopy

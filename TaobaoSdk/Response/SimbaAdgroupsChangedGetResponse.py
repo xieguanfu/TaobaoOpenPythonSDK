@@ -5,7 +5,7 @@
 
 ## @brief 分页获取修改的推广组ID和修改时间
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:14:03
+# @date 2012-08-09 12:37:11
 # @version: 0.0.0
 
 from datetime import datetime

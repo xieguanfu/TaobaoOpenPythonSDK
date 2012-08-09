@@ -5,7 +5,7 @@
 
 ## @brief ItemImg结构
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:19
+# @date 2012-08-09 12:36:31
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -59,7 +59,7 @@ class ItemImg(object):
         # </UL>
         self.created = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品图片的id，和商品相对应</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品图片的id，和商品相对应（主图id默认为0）</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>

@@ -5,7 +5,7 @@
 
 ## @brief 获取指定角色的信息。只能查询属于自己的角色信息 (主账号或者某个主账号的子账号登陆，只能查询属于该主账号的角色信息)
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:14:14
+# @date 2012-08-09 12:37:19
 # @version: 0.0.0
 
 from datetime import datetime

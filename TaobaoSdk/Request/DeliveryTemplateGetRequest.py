@@ -5,7 +5,7 @@
 
 ## @brief 获取用户指定运费模板信息
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:35
+# @date 2012-08-09 12:36:44
 # @version: 0.0.0
 
 import os

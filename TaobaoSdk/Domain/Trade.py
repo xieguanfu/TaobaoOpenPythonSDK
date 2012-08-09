@@ -5,7 +5,7 @@
 
 ## @brief 交易结构
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:18
+# @date 2012-08-09 12:36:30
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -233,7 +233,7 @@ class Trade(object):
         # </UL>
         self.buyer_obtain_point_fee = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">买家是否已评价。可选值:true(已评价),false(未评价)</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">买家是否已评价。可选值:true(已评价),false(未评价)。如买家只评价未打分，此字段仍返回false</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>

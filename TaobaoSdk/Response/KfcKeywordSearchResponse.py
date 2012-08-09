@@ -5,7 +5,7 @@
 
 ## @brief 对输入的文本信息进行禁忌关键词匹配，返回匹配的结果
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:14:00
+# @date 2012-08-09 12:37:10
 # @version: 0.0.0
 
 from datetime import datetime

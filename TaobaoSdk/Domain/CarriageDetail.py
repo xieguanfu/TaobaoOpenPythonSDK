@@ -5,7 +5,7 @@
 
 ## @brief 物流公司资费相关信息
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:19
+# @date 2012-08-09 12:36:31
 # @version: 0.0.0
 
 from copy import deepcopy

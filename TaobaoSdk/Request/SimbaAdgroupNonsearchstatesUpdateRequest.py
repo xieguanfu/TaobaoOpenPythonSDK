@@ -5,7 +5,7 @@
 
 ## @brief 更改通投状态（暂停或启动）
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:39
+# @date 2012-08-09 12:36:49
 # @version: 0.0.0
 
 import os

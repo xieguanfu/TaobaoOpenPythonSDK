@@ -5,7 +5,7 @@
 
 ## @brief 合作分销关系
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:00
+# @date 2012-08-09 12:36:36
 # @version: 0.0.0
 
 from copy import deepcopy
