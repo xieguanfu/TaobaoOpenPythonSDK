@@ -28,14 +28,14 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 class TaobaoClient(object):
-    def __init__(self, serverUrl, appKey, appSecret):
+    def __init__(self, serverUrl, appKey, appSecret, timeout=30):
         self.serverUrl = serverUrl
         self.appKey = appKey
         self.appSecret = appSecret
         # TODO 目前暂时只支持JSON格式
         self.format = 'json'
         self.signMethod = "md5"
-        self.timeout = None
+        self.timeout = timeout
         
     def execute(self, request, session=None):
         '''
