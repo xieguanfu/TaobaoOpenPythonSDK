@@ -5,7 +5,7 @@
 
 ## @brief 根据类目信息推荐相关联的宝贝集
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:20
+# @date 2013-03-07 19:54:40
 # @version: 0.0.0
 
 import os

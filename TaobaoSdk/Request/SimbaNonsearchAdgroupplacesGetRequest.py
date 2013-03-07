@@ -5,7 +5,7 @@
 
 ## @brief 根据指定推广计划下推广组列表获取相应推广组投放位置包括通投位置和单独出价位置
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:18
+# @date 2013-03-07 19:54:39
 # @version: 0.0.0
 
 import os

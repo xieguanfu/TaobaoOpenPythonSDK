@@ -5,7 +5,7 @@
 
 ## @brief 查询卖家用户信息（只能查询有店铺的用户）
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:12
+# @date 2013-03-07 19:54:32
 # @version: 0.0.0
 
 import os

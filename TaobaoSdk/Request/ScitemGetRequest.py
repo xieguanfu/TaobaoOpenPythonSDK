@@ -5,7 +5,7 @@
 
 ## @brief 根据id查询商品
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:16
+# @date 2013-03-07 19:54:36
 # @version: 0.0.0
 
 import os

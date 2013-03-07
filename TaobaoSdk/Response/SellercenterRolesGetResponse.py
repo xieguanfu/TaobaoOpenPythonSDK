@@ -5,7 +5,7 @@
 
 ## @brief 获取指定卖家的角色列表，只能获取属于登陆者自己的信息。
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:30
+# @date 2013-03-07 19:54:51
 # @version: 0.0.0
 
 from datetime import datetime

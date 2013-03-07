@@ -5,7 +5,7 @@
 
 ## @brief 通用的用于获取用户授权的消息数据
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:16
+# @date 2013-03-07 19:54:36
 # @version: 0.0.0
 
 import os

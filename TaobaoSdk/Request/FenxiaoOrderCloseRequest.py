@@ -5,7 +5,7 @@
 
 ## @brief 供应商关闭未付款采购单.可传入一个主单号或是多个子单号，多个子单号之间以‘，’隔开
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:15
+# @date 2013-03-07 19:54:35
 # @version: 0.0.0
 
 import os

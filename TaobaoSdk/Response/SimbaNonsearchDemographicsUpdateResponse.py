@@ -5,7 +5,7 @@
 
 ## @brief 设置投放人群维度加价，如果给定的campagin没有设置给定的人群维度则添加给定的人群维度，如果给定的campaign已存在给定的人群维度则修改加价
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:28
+# @date 2013-03-07 19:54:50
 # @version: 0.0.0
 
 from datetime import datetime

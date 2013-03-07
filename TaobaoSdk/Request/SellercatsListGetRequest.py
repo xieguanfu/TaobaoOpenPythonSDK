@@ -5,7 +5,7 @@
 
 ## @brief 此API获取当前卖家店铺在淘宝前端被展示的浏览导航类目（面向买家）
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:14
+# @date 2013-03-07 19:54:34
 # @version: 0.0.0
 
 import os

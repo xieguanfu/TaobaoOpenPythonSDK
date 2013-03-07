@@ -5,7 +5,7 @@
 
 ## @brief 只有天猫商家发布商品时才需要用到； 两种方式搜索所有产品信息(二种至少传一种):  传入关键字q搜索  传入cid和props搜索  返回值支持:product_id,name,pic_path,cid,props,price,tsc 当用户指定了cid并且cid为垂直市场（3C电器城、鞋城）的类目id时，默认只返回小二确认的产品。如果用户没有指定cid，或cid为普通的类目，默认返回商家确认或小二确认的产品。如果用户自定了status字段，以指定的status类型为准
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:13
+# @date 2013-03-07 19:54:33
 # @version: 0.0.0
 
 import os

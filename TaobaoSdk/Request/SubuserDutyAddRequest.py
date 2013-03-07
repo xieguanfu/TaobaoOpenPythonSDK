@@ -5,7 +5,7 @@
 
 ## @brief 通过主账号ID来增加指定账户的职务信息，职务信息中包括职务名称以及职务级别（通过主账号登陆只能新建属于该主账号的职务信息）
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:19
+# @date 2013-03-07 19:54:40
 # @version: 0.0.0
 
 import os

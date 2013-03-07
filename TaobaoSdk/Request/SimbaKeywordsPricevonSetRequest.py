@@ -5,7 +5,7 @@
 
 ## @brief 设置一批关键词的出价
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:18
+# @date 2013-03-07 19:54:38
 # @version: 0.0.0
 
 import os

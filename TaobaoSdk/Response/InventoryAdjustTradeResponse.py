@@ -5,7 +5,7 @@
 
 ## @brief 商家交易调整库存，淘宝交易、B2B经销等
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:25
+# @date 2013-03-07 19:54:46
 # @version: 0.0.0
 
 from datetime import datetime
