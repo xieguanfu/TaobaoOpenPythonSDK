@@ -5,7 +5,7 @@
 
 ## @brief 获取淘宝面向买家的浏览导航类目（跟后台卖家商品管理的类目有差异）
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:40
+# @date 2013-03-07 14:05:14
 # @version: 0.0.0
 
 import os

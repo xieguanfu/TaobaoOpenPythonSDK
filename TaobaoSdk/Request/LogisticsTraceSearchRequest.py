@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 用户根据淘宝交易号查询物流流转信息，如2010-8-10 15：23：00到达杭州集散地
+## @brief 用户根据淘宝交易号查询物流流转信息，如2010-8-10 15：23：00到达杭州集散地。 此接口的返回信息都由物流公司提供。
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:45
+# @date 2013-03-07 14:05:14
 # @version: 0.0.0
 
 import os
@@ -23,7 +23,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">用户根据淘宝交易号查询物流流转信息，如2010-8-10 15：23：00到达杭州集散地</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">用户根据淘宝交易号查询物流流转信息，如2010-8-10 15：23：00到达杭州集散地。 此接口的返回信息都由物流公司提供。</SPAN>
 # <UL>
 # </UL>
 class LogisticsTraceSearchRequest(object):

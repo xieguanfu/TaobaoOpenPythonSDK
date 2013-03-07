@@ -5,7 +5,7 @@
 
 ## @brief 获取当前用户作为卖家的出售中的商品列表，并能根据传入的搜索条件对出售中的商品列表进行过滤  只能获得商品的部分信息，商品的详细信息请通过taobao.item.get获取
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:42
+# @date 2013-03-07 14:05:13
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,7 @@
 
 ## @brief 推广组下创意报表基础数据查询(汇总数据，不分类型)
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:53
+# @date 2013-03-07 14:05:18
 # @version: 0.0.0
 
 import os
@@ -69,7 +69,7 @@ class SimbaRptAdgroupcreativebaseGetRequest(object):
         # </UL>
         self.campaign_id = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">结束日期</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">结束日期，格式yyyy-mm-dd</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -135,7 +135,7 @@ class SimbaRptAdgroupcreativebaseGetRequest(object):
         # </UL>
         self.source = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">开始日期</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">开始日期，格式yyyy-mm-dd</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

@@ -5,7 +5,7 @@
 
 ## @brief 获取类目ID，必需是叶子类目ID；调用taobao.itemcats.get.v2获取  传入关键属性,结构:pid:vid;pid:vid.调用taobao.itemprops.get.v2获取pid, 调用taobao.itempropvalues.get获取vid;如果碰到用户自定义属性,请用customer_props.
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:42
+# @date 2013-03-07 14:05:13
 # @version: 0.0.0
 
 import os
@@ -145,6 +145,17 @@ class ProductAddRequest(object):
         # </LI>
         # </UL>
         self.outer_id = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">包装清单。注意，在管控类目下，包装清单不能为空，同时保证清单的格式为： 名称:数字;名称:数字; 其中，名称不能违禁、不能超过60字符，数字不能超过999</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.packing_list = None
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品市场价.精确到2位小数;单位为元.如：200.07</SPAN>
         # <UL>

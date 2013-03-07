@@ -5,7 +5,7 @@
 
 ## @brief 创建一个创意
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:50
+# @date 2013-03-07 14:05:17
 # @version: 0.0.0
 
 import os

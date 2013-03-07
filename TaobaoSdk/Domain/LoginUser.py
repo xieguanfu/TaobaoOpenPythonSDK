@@ -5,7 +5,7 @@
 
 ## @brief 登录分销用户信息
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:34
+# @date 2013-03-07 14:05:08
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -81,7 +81,7 @@ class LoginUser(object):
         # </UL>
         self.user_id = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分销用户类型(1:分销商，2:供应商)</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分销用户类型(1:分销商，2:供应商，3:非分销平台用户)</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

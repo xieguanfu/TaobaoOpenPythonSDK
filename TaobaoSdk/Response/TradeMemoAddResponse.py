@@ -5,7 +5,7 @@
 
 ## @brief 根据登录用户的身份（买家或卖家），自动添加相应的交易备注,不能重复调用些接口添加备注，需要更新备注请用taobao.trade.memo.update
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:37:03
+# @date 2013-03-07 14:05:22
 # @version: 0.0.0
 
 from datetime import datetime

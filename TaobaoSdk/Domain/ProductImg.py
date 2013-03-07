@@ -5,7 +5,7 @@
 
 ## @brief 产品图片
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:29
+# @date 2013-03-07 14:05:07
 # @version: 0.0.0
 
 from copy import deepcopy

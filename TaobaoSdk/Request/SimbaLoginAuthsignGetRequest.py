@@ -5,7 +5,7 @@
 
 ## @brief 获取登陆权限签名
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:52
+# @date 2013-03-07 14:05:18
 # @version: 0.0.0
 
 import os

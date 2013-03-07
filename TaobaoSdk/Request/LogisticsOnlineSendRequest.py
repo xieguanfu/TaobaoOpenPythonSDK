@@ -5,7 +5,7 @@
 
 ## @brief 用户调用该接口可实现在线订单发货（支持货到付款） 调用该接口实现在线下单发货，有两种情况：<br> <font color='red'>如果不输入运单号的情况：交易状态不会改变，需要调用taobao.logistics.online.confirm确认发货后交易状态才会变成卖家已发货。<br> 如果输入运单号的情况发货：交易订单状态会直接变成卖家已发货 。</font>
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:45
+# @date 2013-03-07 14:05:14
 # @version: 0.0.0
 
 import os
@@ -69,7 +69,7 @@ class LogisticsOnlineSendRequest(object):
         # </UL>
         self.company_code = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">feature参数格式<br> 范例: mobileCode=tid1:手机串号1,手机串号2|tid2:手机串号3;machineCode=tid3:3C机器号A,3C机器号B<br> mobileCode无忧购的KEY,machineCode为3C的KEY,多个key之间用”;”分隔<br> “tid1:手机串号1,手机串号2|tid2:手机串号3”为mobileCode对应的value。 "|"不同商品间的分隔符。<br> 例A商品和B商品都属于无忧购商品，之间就用"|"分开。<br> TID就是商品代表的子订单号，对应taobao.trade.fullinfo.get 接口获得的oid字段。(通过OID可以唯一定位到当前商品上)<br> ":"TID和具体传入参数间的分隔符。冒号前表示TID,之后代表该商品的参数属性。<br> "," 属性间分隔符。（对应商品数量，当存在一个商品的数量超过1个时，用逗号分开）。<br> 具体:当订单中A商品的数量为2个，其中手机串号分别为"12345","67890"。<br> 参数格式：mobileCode=TIDA:12345,67890。 TIDA对应了A宝贝，冒号后用逗号分隔的"12345","67890".说明本订单A宝贝的数量为2，值分别为"12345","67890"。<br> 当存在"|"时，就说明订单中存在多个无忧购的商品，商品间用"|"分隔了开来。|"之后的内容含义同上。</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">feature参数格式<br> 范例: identCode=tid1:识别码1,识别码2|tid2:识别码3;machineCode=tid3:3C机器号A,3C机器号B<br> identCode为识别码的KEY,machineCode为3C的KEY,多个key之间用”;”分隔<br> “tid1:识别码1,识别码2|tid2:识别码3”为identCode对应的value。 "|"不同商品间的分隔符。<br> 例1商品和2商品，之间就用"|"分开。<br> TID就是商品代表的子订单号，对应taobao.trade.fullinfo.get 接口获得的oid字段。(通过OID可以唯一定位到当前商品上)<br> ":"TID和具体传入参数间的分隔符。冒号前表示TID,之后代表该商品的参数属性。<br> "," 属性间分隔符。（对应商品数量，当存在一个商品的数量超过1个时，用逗号分开）。<br> 具体:当订单中A商品的数量为2个，其中手机串号分别为"12345","67890"。<br> 参数格式：identCode=TIDA:12345,67890。 TIDA对应了A宝贝，冒号后用逗号分隔的"12345","67890".说明本订单A宝贝的数量为2，值分别为"12345","67890"。<br> 当存在"|"时，就说明订单中存在多个商品，商品间用"|"分隔了开来。|"之后的内容含义同上。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

@@ -5,7 +5,7 @@
 
 ## @brief 用户调用该接口可实现自己联系发货（线下物流），使用该接口发货，交易订单状态会直接变成卖家已发货。不支持货到付款、在线下单类型的订单。
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:37:05
+# @date 2013-03-07 14:05:23
 # @version: 0.0.0
 
 from datetime import datetime

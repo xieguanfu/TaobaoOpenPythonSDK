@@ -5,7 +5,7 @@
 
 ## @brief 交易结构
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:30
+# @date 2013-03-07 14:05:07
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,16 +39,16 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                        
 from Order import Order
 
                                                                 
 from PromotionDetail import PromotionDetail
 
-                                                                                                                                                                        
+                                                                                                                                                                                
 from ServiceOrder import ServiceOrder
 
-                                                                                                        
+                                                                                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易结构</SPAN>
 class Trade(object):
     def __init__(self, kargs=dict()):
@@ -343,6 +343,17 @@ class Trade(object):
         # </UL>
         self.end_time = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">电子凭证的垂直信息</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.eticket_ext = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">快递代收款。精确到2位小数;单位:元。如:212.07，表示:212元7分</SPAN>
         # <UL>
         # <LI>
@@ -420,7 +431,7 @@ class Trade(object):
         # </UL>
         self.is_3D = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">表示是否是品牌特卖订单，如果是返回true，如果不是返回false</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">表示是否是品牌特卖（常规特卖，不包括特卖惠和特实惠）订单，如果是返回true，如果不是返回false。当此字段与is_force_wlb均为true时，订单强制物流宝发货。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>
@@ -431,7 +442,7 @@ class Trade(object):
         # </UL>
         self.is_brand_sale = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">代表订单是否是强制使用物流宝发货，如果是返回true,如果不是返回false</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">订单是否强制使用物流宝发货。当此字段与is_brand_sale均为true时，订单强制物流宝发货。此字段为false时，该订单根据流转规则设置可以使用物流宝或者常规方式发货</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>
@@ -442,7 +453,7 @@ class Trade(object):
         # </UL>
         self.is_force_wlb = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是否需要物流宝发货的标识，如果为true，则需要可以用物流宝来发货，如果未false，则该订单不能用物流宝发货。</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是否保障速递，如果为true，则为保障速递订单，强制流转到物流宝发货，如果未false，则该订单非保障速递，根据卖家设置的订单流转规则可使用物流宝或者常规物流发货。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>
@@ -452,6 +463,39 @@ class Trade(object):
         # </LI>
         # </UL>
         self.is_lgtype = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">次日达订单送达时间</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.lg_aging = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">次日达，三日达等送达类型</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.lg_aging_type = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">订单出现异常问题的时候，给予用户的描述,没有异常的时候，此值为空</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.mark_desc = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易修改时间(用户对订单的任何修改都会更新此字段)。格式:yyyy-MM-dd HH:mm:ss</SPAN>
         # <UL>
@@ -464,7 +508,7 @@ class Trade(object):
         # </UL>
         self.modified = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品购买数量。取值范围：大于零的整数</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品购买数量。取值范围：大于零的整数,对于一个trade对应多个order的时候（一笔主订单，对应多笔子订单），num=0，num是一个跟商品关联的属性，一笔订单对应多比子订单的时候，主订单上的num无意义。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -816,6 +860,17 @@ class Trade(object):
         # </UL>
         self.seller_rate = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">订单将在此时间前发出，主要用于预售订单</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.send_time = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">服务子订单列表</SPAN>
         # <UL>
         # <LI>
@@ -871,6 +926,28 @@ class Trade(object):
         # </UL>
         self.status = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分阶段付款的已付金额（万人团订单已付金额）</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.step_paid_fee = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分阶段付款的订单状态（例如万人团订单等），目前有三返回状态 FRONT_NOPAID_FINAL_NOPAID(定金未付尾款未付)，FRONT_PAID_FINAL_NOPAID(定金已付尾款未付)，FRONT_PAID_FINAL_PAID(定金和尾款都付)</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.step_trade_status = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易编号 (父订单的交易编号)</SPAN>
         # <UL>
         # <LI>
@@ -915,7 +992,7 @@ class Trade(object):
         # </UL>
         self.total_fee = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易来源。 WAP(手机);HITAO(嗨淘);TOP(TOP平台);TAOBAO(普通淘宝);JHS(聚划算) 一笔订单可能同时有以上多个标记，则以逗号分隔</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易内部来源。 WAP(手机);HITAO(嗨淘);TOP(TOP平台);TAOBAO(普通淘宝);JHS(聚划算) 一笔订单可能同时有以上多个标记，则以逗号分隔</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -937,7 +1014,18 @@ class Trade(object):
         # </UL>
         self.trade_memo = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易类型列表，同时查询多种交易类型可用逗号分隔。默认同时查询guarantee_trade, auto_delivery, ec, cod的4种交易类型的数据  可选值  fixed(一口价)  auction(拍卖)  guarantee_trade(一口价、拍卖)  auto_delivery(自动发货)  independent_simple_trade(旺店入门版交易)  independent_shop_trade(旺店标准版交易)  ec(直冲)  cod(货到付款)  fenxiao(分销)  game_equipment(游戏装备)  shopex_trade(ShopEX交易)  netcn_trade(万网交易)  external_trade(统一外部交易)</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易外部来源：ownshop(商家官网)</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.trade_source = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易类型列表，同时查询多种交易类型可用逗号分隔。默认同时查询guarantee_trade, auto_delivery, ec, cod的4种交易类型的数据 可选值 fixed(一口价) auction(拍卖) guarantee_trade(一口价、拍卖) auto_delivery(自动发货) independent_simple_trade(旺店入门版交易) independent_shop_trade(旺店标准版交易) ec(直冲) cod(货到付款) fenxiao(分销) game_equipment(游戏装备) shopex_trade(ShopEX交易) netcn_trade(万网交易) external_trade(统一外部交易)step (万人团)</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -959,7 +1047,7 @@ class Trade(object):
         # </UL>
         self.yfx_fee = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">运费险订单号</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">运费险支付号</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -969,6 +1057,17 @@ class Trade(object):
         # </LI>
         # </UL>
         self.yfx_id = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">运费险类型：1表示卖家运费险；2表示买家运费险</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.yfx_type = None
         
         self.__init(kargs)
 
@@ -1078,6 +1177,8 @@ class Trade(object):
             
             "end_time": "Date",
             
+            "eticket_ext": "String",
+            
             "express_agency_fee": "String",
             
             "has_buyer_message": "Boolean",
@@ -1097,6 +1198,12 @@ class Trade(object):
             "is_force_wlb": "Boolean",
             
             "is_lgtype": "Boolean",
+            
+            "lg_aging": "String",
+            
+            "lg_aging_type": "String",
+            
+            "mark_desc": "String",
             
             "modified": "Date",
             
@@ -1164,6 +1271,8 @@ class Trade(object):
             
             "seller_rate": "Boolean",
             
+            "send_time": "String",
+            
             "service_orders": "ServiceOrder",
             
             "shipping_type": "String",
@@ -1173,6 +1282,10 @@ class Trade(object):
             "snapshot_url": "String",
             
             "status": "String",
+            
+            "step_paid_fee": "String",
+            
+            "step_trade_status": "String",
             
             "tid": "Number",
             
@@ -1186,11 +1299,15 @@ class Trade(object):
             
             "trade_memo": "String",
             
+            "trade_source": "String",
+            
             "type": "String",
             
             "yfx_fee": "String",
             
             "yfx_id": "String",
+            
+            "yfx_type": "Number",
         }
         levels = {
             
@@ -1246,6 +1363,8 @@ class Trade(object):
             
             "end_time": "Basic",
             
+            "eticket_ext": "Basic",
+            
             "express_agency_fee": "Basic",
             
             "has_buyer_message": "Basic",
@@ -1265,6 +1384,12 @@ class Trade(object):
             "is_force_wlb": "Basic",
             
             "is_lgtype": "Basic",
+            
+            "lg_aging": "Basic",
+            
+            "lg_aging_type": "Basic",
+            
+            "mark_desc": "Basic",
             
             "modified": "Basic",
             
@@ -1332,6 +1457,8 @@ class Trade(object):
             
             "seller_rate": "Basic",
             
+            "send_time": "Basic",
+            
             "service_orders": "Object Array",
             
             "shipping_type": "Basic",
@@ -1341,6 +1468,10 @@ class Trade(object):
             "snapshot_url": "Basic",
             
             "status": "Basic",
+            
+            "step_paid_fee": "Basic",
+            
+            "step_trade_status": "Basic",
             
             "tid": "Basic",
             
@@ -1354,11 +1485,15 @@ class Trade(object):
             
             "trade_memo": "Basic",
             
+            "trade_source": "Basic",
+            
             "type": "Basic",
             
             "yfx_fee": "Basic",
             
             "yfx_id": "Basic",
+            
+            "yfx_type": "Basic",
 
         }
         nameType = properties[name]
@@ -1469,6 +1604,9 @@ class Trade(object):
         if kargs.has_key("end_time"):
             self.end_time = self._newInstance("end_time", kargs["end_time"])
         
+        if kargs.has_key("eticket_ext"):
+            self.eticket_ext = self._newInstance("eticket_ext", kargs["eticket_ext"])
+        
         if kargs.has_key("express_agency_fee"):
             self.express_agency_fee = self._newInstance("express_agency_fee", kargs["express_agency_fee"])
         
@@ -1498,6 +1636,15 @@ class Trade(object):
         
         if kargs.has_key("is_lgtype"):
             self.is_lgtype = self._newInstance("is_lgtype", kargs["is_lgtype"])
+        
+        if kargs.has_key("lg_aging"):
+            self.lg_aging = self._newInstance("lg_aging", kargs["lg_aging"])
+        
+        if kargs.has_key("lg_aging_type"):
+            self.lg_aging_type = self._newInstance("lg_aging_type", kargs["lg_aging_type"])
+        
+        if kargs.has_key("mark_desc"):
+            self.mark_desc = self._newInstance("mark_desc", kargs["mark_desc"])
         
         if kargs.has_key("modified"):
             self.modified = self._newInstance("modified", kargs["modified"])
@@ -1598,6 +1745,9 @@ class Trade(object):
         if kargs.has_key("seller_rate"):
             self.seller_rate = self._newInstance("seller_rate", kargs["seller_rate"])
         
+        if kargs.has_key("send_time"):
+            self.send_time = self._newInstance("send_time", kargs["send_time"])
+        
         if kargs.has_key("service_orders"):
             self.service_orders = self._newInstance("service_orders", kargs["service_orders"])
         
@@ -1612,6 +1762,12 @@ class Trade(object):
         
         if kargs.has_key("status"):
             self.status = self._newInstance("status", kargs["status"])
+        
+        if kargs.has_key("step_paid_fee"):
+            self.step_paid_fee = self._newInstance("step_paid_fee", kargs["step_paid_fee"])
+        
+        if kargs.has_key("step_trade_status"):
+            self.step_trade_status = self._newInstance("step_trade_status", kargs["step_trade_status"])
         
         if kargs.has_key("tid"):
             self.tid = self._newInstance("tid", kargs["tid"])
@@ -1631,6 +1787,9 @@ class Trade(object):
         if kargs.has_key("trade_memo"):
             self.trade_memo = self._newInstance("trade_memo", kargs["trade_memo"])
         
+        if kargs.has_key("trade_source"):
+            self.trade_source = self._newInstance("trade_source", kargs["trade_source"])
+        
         if kargs.has_key("type"):
             self.type = self._newInstance("type", kargs["type"])
         
@@ -1639,3 +1798,6 @@ class Trade(object):
         
         if kargs.has_key("yfx_id"):
             self.yfx_id = self._newInstance("yfx_id", kargs["yfx_id"])
+        
+        if kargs.has_key("yfx_type"):
+            self.yfx_type = self._newInstance("yfx_type", kargs["yfx_type"])

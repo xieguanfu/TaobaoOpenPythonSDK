@@ -5,7 +5,7 @@
 
 ## @brief 更新分销平台产品数据，不传更新数据返回失败<br> 1. 对sku进行增、删操作时，原有的sku_ids字段会被忽略，请使用sku_properties和sku_properties_del。<br>
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:47
+# @date 2013-03-07 14:05:15
 # @version: 0.0.0
 
 import os
@@ -421,7 +421,7 @@ class FenxiaoProductUpdateRequest(object):
         # </UL>
         self.sku_quantitys = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">sku市场价，单位元，例："10.50,11.00,20.50"，字段必须和上面的sku_ids或sku_properties保持一致。</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">sku采购基准价，单位元，例："10.50,11.00,20.50"，字段必须和上面的sku_ids或sku_properties保持一致。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -432,7 +432,7 @@ class FenxiaoProductUpdateRequest(object):
         # </UL>
         self.sku_standard_prices = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">标准价格，单位：元。例：“10.56”。必须在0.01元到10000000元之间。</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">采购基准价，单位：元。例：“10.56”。必须在0.01元到10000000元之间。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

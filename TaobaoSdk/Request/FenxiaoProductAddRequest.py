@@ -5,7 +5,7 @@
 
 ## @brief 添加分销平台产品数据。业务逻辑与分销系统前台页面一致。      * 产品图片默认为空     * 产品发布后默认为下架状态
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:46
+# @date 2013-03-07 14:05:15
 # @version: 0.0.0
 
 import os
@@ -410,7 +410,7 @@ class FenxiaoProductAddRequest(object):
         # </UL>
         self.sku_quantitys = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">sku的市场价。如果多个，用逗号分隔，并与其他sku信息保持相同顺序</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">sku的采购基准价。如果多个，用逗号分隔，并与其他sku信息保持相同顺序</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

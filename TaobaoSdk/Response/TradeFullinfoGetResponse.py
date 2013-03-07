@@ -5,7 +5,7 @@
 
 ## @brief 获取单笔交易的详细信息 <br/>1. 只有在交易成功的状态下才能取到交易佣金，其它状态下取到的都是零或空值  <br/>2. 只有单笔订单的情况下Trade数据结构中才包含商品相关的信息  <br/>3. 获取到的Order中的payment字段在单笔子订单时包含物流费用，多笔子订单时不包含物流费用 <br/>4. 请按需获取字段，减少TOP系统的压力 <br/>5. <span style="color:red">通过异步接口<a href="http://api.taobao.com/apidoc/api.htm?path=cid:5-apiId:10417">taobao.topats.trades.fullinfo.get</a>可以一次性获取多达100笔订单详情</span>
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:37:03
+# @date 2013-03-07 14:05:22
 # @version: 0.0.0
 
 from datetime import datetime

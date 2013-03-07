@@ -5,7 +5,7 @@
 
 ## @brief 商品属性
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:32
+# @date 2013-03-07 14:05:08
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,10 +39,10 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                        
+                                                                                                                                                
 from PropValue import PropValue
 
-                        
+                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品属性</SPAN>
 class ItemProp(object):
     def __init__(self, kargs=dict()):
@@ -61,6 +61,17 @@ class ItemProp(object):
         # </LI>
         # </UL>
         self.child_template = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">类目ID</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.cid = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是否允许别名。可选值：true（是），false（否）</SPAN>
         # <UL>
@@ -238,6 +249,17 @@ class ItemProp(object):
         # </UL>
         self.prop_values = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">发布产品或商品时是否为必选属性(与must相同)。可选值:true(是),false(否)</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.required = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">排列序号。取值范围:大于零的整排列序号。取值范围:大于零的整数</SPAN>
         # <UL>
         # <LI>
@@ -260,7 +282,7 @@ class ItemProp(object):
         # </UL>
         self.status = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">属性值类型。可选值：input(输入)、optional（枚举）multiCheck （多选）</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">属性值类型。可选值： multiCheck(枚举多选) optional(枚举单选) multiCheckText(枚举可输入多选) optionalText(枚举可输入单选) text(非枚举可输入)</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -329,6 +351,8 @@ class ItemProp(object):
             
             "child_template": "String",
             
+            "cid": "Number",
+            
             "is_allow_alias": "Boolean",
             
             "is_color_prop": "Boolean",
@@ -361,6 +385,8 @@ class ItemProp(object):
             
             "prop_values": "PropValue",
             
+            "required": "Boolean",
+            
             "sort_order": "Number",
             
             "status": "String",
@@ -370,6 +396,8 @@ class ItemProp(object):
         levels = {
             
             "child_template": "Basic",
+            
+            "cid": "Basic",
             
             "is_allow_alias": "Basic",
             
@@ -402,6 +430,8 @@ class ItemProp(object):
             "pid": "Basic",
             
             "prop_values": "Object Array",
+            
+            "required": "Basic",
             
             "sort_order": "Basic",
             
@@ -442,6 +472,9 @@ class ItemProp(object):
         
         if kargs.has_key("child_template"):
             self.child_template = self._newInstance("child_template", kargs["child_template"])
+        
+        if kargs.has_key("cid"):
+            self.cid = self._newInstance("cid", kargs["cid"])
         
         if kargs.has_key("is_allow_alias"):
             self.is_allow_alias = self._newInstance("is_allow_alias", kargs["is_allow_alias"])
@@ -490,6 +523,9 @@ class ItemProp(object):
         
         if kargs.has_key("prop_values"):
             self.prop_values = self._newInstance("prop_values", kargs["prop_values"])
+        
+        if kargs.has_key("required"):
+            self.required = self._newInstance("required", kargs["required"])
         
         if kargs.has_key("sort_order"):
             self.sort_order = self._newInstance("sort_order", kargs["sort_order"])

@@ -5,7 +5,7 @@
 
 ## @brief 传入产品ID  可修改字段：outer_id,binds,sale_props,name,price,desc,image  注意：1.可以修改主图,不能修改子图片,主图最大500K,目前仅支持GIF,JPG       2.商城卖家产品发布24小时后不能作删除或修改操作
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:43
+# @date 2013-03-07 14:05:13
 # @version: 0.0.0
 
 import os
@@ -123,6 +123,17 @@ class ProductUpdateRequest(object):
         # </LI>
         # </UL>
         self.outer_id = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">保证清单。</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.packing_list = None
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品市场价.精确到2位小数;单位为元.如:200.07</SPAN>
         # <UL>

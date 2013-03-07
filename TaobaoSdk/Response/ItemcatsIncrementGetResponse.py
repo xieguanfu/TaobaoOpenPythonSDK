@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 增量获取后台类目、类目属性、类目属性值数据 <br/>1. 每天6点左右会产生今天的增量数据，在6点之前获取增量类目数据将会报错，在6点之后获取增量类目数据可以实时返回。 <br/>2. 最长可以获取最近7天的增量类目数据，如果超过7天没有同步类目数据，建议走<a href="http://api.taobao.com/apidoc/api.htm?path=cid:3-apiId:11078">全量类目</a>接口获取。
+## @brief 增量获取后台类目、类目属性、类目属性值数据 <br/>1. 每天7点左右会产生今天的增量数据，在7点之前获取增量类目数据将会报错，在7点之后获取增量类目数据可以实时返回。 <br/>2. 最长可以获取最近7天的增量类目数据，如果超过7天没有同步类目数据，建议走<a href="http://api.taobao.com/apidoc/api.htm?path=cid:3-apiId:11078">全量类目</a>接口获取。 <br/>3. 在增量接口的基础上，建议5天做一次全量同步最新数据，防止数据丢失
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:59
+# @date 2013-03-07 14:05:20
 # @version: 0.0.0
 
 from datetime import datetime
@@ -49,7 +49,7 @@ from Domain.PropValue import PropValue
 
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 增量获取后台类目、类目属性、类目属性值数据 <br/>1. 每天6点左右会产生今天的增量数据，在6点之前获取增量类目数据将会报错，在6点之后获取增量类目数据可以实时返回。 <br/>2. 最长可以获取最近7天的增量类目数据，如果超过7天没有同步类目数据，建议走<a href="http://api.taobao.com/apidoc/api.htm?path=cid:3-apiId:11078">全量类目</a>接口获取。</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 增量获取后台类目、类目属性、类目属性值数据 <br/>1. 每天7点左右会产生今天的增量数据，在7点之前获取增量类目数据将会报错，在7点之后获取增量类目数据可以实时返回。 <br/>2. 最长可以获取最近7天的增量类目数据，如果超过7天没有同步类目数据，建议走<a href="http://api.taobao.com/apidoc/api.htm?path=cid:3-apiId:11078">全量类目</a>接口获取。 <br/>3. 在增量接口的基础上，建议5天做一次全量同步最新数据，防止数据丢失</SPAN>
 # <UL>
 # </UL>
 class ItemcatsIncrementGetResponse(object):

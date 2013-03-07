@@ -5,7 +5,7 @@
 
 ## @brief 添加分销平台产品数据。业务逻辑与分销系统前台页面一致。      * 产品图片默认为空     * 产品发布后默认为下架状态
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:37:07
+# @date 2013-03-07 14:05:24
 # @version: 0.0.0
 
 from datetime import datetime

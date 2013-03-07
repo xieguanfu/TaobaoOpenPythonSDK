@@ -5,7 +5,7 @@
 
 ## @brief Sku结构
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:30
+# @date 2013-03-07 14:05:07
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                        
+                                                                                                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Sku结构</SPAN>
 class Sku(object):
     def __init__(self, kargs=dict()):
@@ -147,6 +147,17 @@ class Sku(object):
         # </UL>
         self.quantity = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">sku级别发货时间</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.sku_delivery_time = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">sku的id</SPAN>
         # <UL>
         # <LI>
@@ -158,6 +169,17 @@ class Sku(object):
         # </UL>
         self.sku_id = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">表示SKu上的产品规格信息</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.sku_spec_id = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">sku状态。 normal:正常 ；delete:删除</SPAN>
         # <UL>
         # <LI>
@@ -168,6 +190,17 @@ class Sku(object):
         # </LI>
         # </UL>
         self.status = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品在付款减库存的状态下，该sku上未付款的订单数量</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.with_hold_quantity = None
         
         self.__init(kargs)
 
@@ -243,9 +276,15 @@ class Sku(object):
             
             "quantity": "Number",
             
+            "sku_delivery_time": "String",
+            
             "sku_id": "Number",
             
+            "sku_spec_id": "Number",
+            
             "status": "String",
+            
+            "with_hold_quantity": "Number",
         }
         levels = {
             
@@ -267,9 +306,15 @@ class Sku(object):
             
             "quantity": "Basic",
             
+            "sku_delivery_time": "Basic",
+            
             "sku_id": "Basic",
             
+            "sku_spec_id": "Basic",
+            
             "status": "Basic",
+            
+            "with_hold_quantity": "Basic",
 
         }
         nameType = properties[name]
@@ -329,8 +374,17 @@ class Sku(object):
         if kargs.has_key("quantity"):
             self.quantity = self._newInstance("quantity", kargs["quantity"])
         
+        if kargs.has_key("sku_delivery_time"):
+            self.sku_delivery_time = self._newInstance("sku_delivery_time", kargs["sku_delivery_time"])
+        
         if kargs.has_key("sku_id"):
             self.sku_id = self._newInstance("sku_id", kargs["sku_id"])
         
+        if kargs.has_key("sku_spec_id"):
+            self.sku_spec_id = self._newInstance("sku_spec_id", kargs["sku_spec_id"])
+        
         if kargs.has_key("status"):
             self.status = self._newInstance("status", kargs["status"])
+        
+        if kargs.has_key("with_hold_quantity"):
+            self.with_hold_quantity = self._newInstance("with_hold_quantity", kargs["with_hold_quantity"])

@@ -5,7 +5,7 @@
 
 ## @brief 获取删除的类目出价列表（只存类目出价ID和推广组ID）
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:49
+# @date 2013-03-07 14:05:16
 # @version: 0.0.0
 
 import os

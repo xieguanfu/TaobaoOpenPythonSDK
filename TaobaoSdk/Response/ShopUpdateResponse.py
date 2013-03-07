@@ -5,7 +5,7 @@
 
 ## @brief 目前只支持标题、公告和描述的更新
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:37:06
+# @date 2013-03-07 14:05:23
 # @version: 0.0.0
 
 from datetime import datetime

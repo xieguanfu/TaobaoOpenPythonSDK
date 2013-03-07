@@ -5,7 +5,7 @@
 
 ## @brief 订单结构
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:30
+# @date 2013-03-07 14:05:07
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">订单结构</SPAN>
 class Order(object):
     def __init__(self, kargs=dict()):
@@ -212,6 +212,17 @@ class Order(object):
         # </LI>
         # </UL>
         self.oid = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子订单来源,如jhs(聚划算)、taobao(淘宝)、wap(无线)</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.order_from = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商家外部编码(可与商家外部系统对接)。外部商家自己定义的商品Item的id，可以通过taobao.items.custom.get获取商品的Item的信息</SPAN>
         # <UL>
@@ -497,6 +508,8 @@ class Order(object):
             
             "oid": "Number",
             
+            "order_from": "String",
+            
             "outer_iid": "String",
             
             "outer_sku_id": "String",
@@ -564,6 +577,8 @@ class Order(object):
             "num_iid": "Basic",
             
             "oid": "Basic",
+            
+            "order_from": "Basic",
             
             "outer_iid": "Basic",
             
@@ -676,6 +691,9 @@ class Order(object):
         
         if kargs.has_key("oid"):
             self.oid = self._newInstance("oid", kargs["oid"])
+        
+        if kargs.has_key("order_from"):
+            self.order_from = self._newInstance("order_from", kargs["order_from"])
         
         if kargs.has_key("outer_iid"):
             self.outer_iid = self._newInstance("outer_iid", kargs["outer_iid"])

@@ -5,7 +5,7 @@
 
 ## @brief 分页获取修改过的广告创意ID和修改时间
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:37:13
+# @date 2013-03-07 14:05:27
 # @version: 0.0.0
 
 from datetime import datetime

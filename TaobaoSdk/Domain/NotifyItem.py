@@ -5,7 +5,7 @@
 
 ## @brief 商品通知消息
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:32
+# @date 2013-03-07 14:05:08
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                
+                                                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品通知消息</SPAN>
 class NotifyItem(object):
     def __init__(self, kargs=dict()):
@@ -180,6 +180,17 @@ class NotifyItem(object):
         # </UL>
         self.title = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">消息所属的用户编号</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.user_id = None
+        
         self.__init(kargs)
 
     def toDict(self, **kargs):
@@ -259,6 +270,8 @@ class NotifyItem(object):
             "status": "String",
             
             "title": "String",
+            
+            "user_id": "Number",
         }
         levels = {
             
@@ -285,6 +298,8 @@ class NotifyItem(object):
             "status": "Basic",
             
             "title": "Basic",
+            
+            "user_id": "Basic",
 
         }
         nameType = properties[name]
@@ -352,3 +367,6 @@ class NotifyItem(object):
         
         if kargs.has_key("title"):
             self.title = self._newInstance("title", kargs["title"])
+        
+        if kargs.has_key("user_id"):
+            self.user_id = self._newInstance("user_id", kargs["user_id"])

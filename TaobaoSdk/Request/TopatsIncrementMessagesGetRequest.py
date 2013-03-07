@@ -5,7 +5,7 @@
 
 ## @brief 异步获取增量消息数据
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:48
+# @date 2013-03-07 14:05:16
 # @version: 0.0.0
 
 import os
@@ -58,7 +58,7 @@ class TopatsIncrementMessagesGetRequest(object):
         # </UL>
         self.end = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">消息开始时间，格式：yyyy-MM-dd HH:mm:ss，其中start >= 昨天零点</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">消息开始时间，格式：yyyy-MM-dd HH:mm:ss，其中start >= 前天零点</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Date</SPAN>

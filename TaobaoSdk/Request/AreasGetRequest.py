@@ -5,7 +5,7 @@
 
 ## @brief 查询标准地址区域代码信息 参考：http://www.stats.gov.cn/tjbz/xzqhdm/t20100623_402652267.htm
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:44
+# @date 2013-03-07 14:05:14
 # @version: 0.0.0
 
 import os

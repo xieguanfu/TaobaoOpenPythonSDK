@@ -5,7 +5,7 @@
 
 ## @brief 推广计划下的推广组报表基础数据查询(只有汇总数据，无分类类型)
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:37:15
+# @date 2013-03-07 14:05:29
 # @version: 0.0.0
 
 from datetime import datetime

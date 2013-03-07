@@ -5,7 +5,7 @@
 
 ## @brief 分销产品SKU
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:33
+# @date 2013-03-07 14:05:08
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                
+                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分销产品SKU</SPAN>
 class FenxiaoSku(object):
     def __init__(self, kargs=dict()):
@@ -125,6 +125,17 @@ class FenxiaoSku(object):
         # </UL>
         self.quantity = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">关联的后端商品id</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.scitem_id = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">市场价</SPAN>
         # <UL>
         # <LI>
@@ -206,6 +217,8 @@ class FenxiaoSku(object):
             
             "quantity": "Number",
             
+            "scitem_id": "Number",
+            
             "standard_price": "String",
         }
         levels = {
@@ -223,6 +236,8 @@ class FenxiaoSku(object):
             "properties": "Basic",
             
             "quantity": "Basic",
+            
+            "scitem_id": "Basic",
             
             "standard_price": "Basic",
 
@@ -277,6 +292,9 @@ class FenxiaoSku(object):
         
         if kargs.has_key("quantity"):
             self.quantity = self._newInstance("quantity", kargs["quantity"])
+        
+        if kargs.has_key("scitem_id"):
+            self.scitem_id = self._newInstance("scitem_id", kargs["scitem_id"])
         
         if kargs.has_key("standard_price"):
             self.standard_price = self._newInstance("standard_price", kargs["standard_price"])

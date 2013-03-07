@@ -5,7 +5,7 @@
 
 ## @brief 用户丢失消息的数据结构
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:30
+# @date 2013-03-07 14:05:07
 # @version: 0.0.0
 
 from copy import deepcopy

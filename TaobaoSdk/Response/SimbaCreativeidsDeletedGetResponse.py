@@ -5,7 +5,7 @@
 
 ## @brief 获取删除的创意ID
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:37:13
+# @date 2013-03-07 14:05:27
 # @version: 0.0.0
 
 from datetime import datetime

@@ -5,7 +5,7 @@
 
 ## @brief 传入类目ID,必需是叶子类目，通过taobao.itemcats.get获取类目ID 返回字段目前支持有：cid,pid,prop_name,vid,name,name_alias,status,sort_order 作用:获取标准类目属性值
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:40
+# @date 2013-03-07 14:05:12
 # @version: 0.0.0
 
 import os
@@ -79,3 +79,14 @@ class ItempropvaluesGetRequest(object):
         # </LI>
         # </UL>
         self.pvs = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">获取类目的类型：1代表集市、2代表天猫</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.type = None

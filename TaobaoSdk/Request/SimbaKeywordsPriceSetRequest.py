@@ -5,7 +5,7 @@
 
 ## @brief 设置一批关键词的出价和匹配模式（目前设置关键词出价和匹配模式不仅限制在一个宝贝下，入参keword_price中的keywordid可以是不同宝贝下的，adgroup_id暂时无用可不传）
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:52
+# @date 2013-03-07 14:05:18
 # @version: 0.0.0
 
 import os
@@ -58,7 +58,7 @@ class SimbaKeywordsPriceSetRequest(object):
         # </UL>
         self.adgroup_id = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">关键词Id出价字符串和匹配方式字符串数组，最多200个; 每个字符串：keywordId+  ”^^”+price+”^^”+matchscope； Price是整数，以“分”为单位，不能小于5，不能大于日限额; 如果该词为无展现词，出价需要大于原来出价，才会生效。 price为0则设置为使用默认出价； matchscope只能是1,2,4 (1代表精确匹配，2代表子串匹配，4代表广泛匹配) 可不传 例如102232^^85，102231^^82^^4</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">关键词Id出价字符串和匹配方式字符串数组，最多100个; 每个字符串：keywordId+  ”^^”+price+”^^”+matchscope； Price是整数，以“分”为单位，不能小于5，不能大于日限额; 如果该词为无展现词，出价需要大于原来出价，才会生效。 price为0则设置为使用默认出价； matchscope只能是1,2,4 (1代表精确匹配，2代表子串匹配，4代表广泛匹配) 可不传 例如102232^^85，102231^^82^^4</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

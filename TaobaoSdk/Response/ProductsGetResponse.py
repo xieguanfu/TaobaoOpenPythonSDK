@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 根据淘宝会员帐号搜索所有产品信息  注意：支持分页，每页最多返回100条,默认值为40,页码从1开始，默认为第一页
+## @brief 根据淘宝会员帐号搜索所有产品信息，只有天猫商家发布商品时才需要用到。  注意：支持分页，每页最多返回100条,默认值为40,页码从1开始，默认为第一页
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:37:03
+# @date 2013-03-07 14:05:21
 # @version: 0.0.0
 
 from datetime import datetime
@@ -43,7 +43,7 @@ from Domain.Product import Product
 
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 根据淘宝会员帐号搜索所有产品信息  注意：支持分页，每页最多返回100条,默认值为40,页码从1开始，默认为第一页</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 根据淘宝会员帐号搜索所有产品信息，只有天猫商家发布商品时才需要用到。  注意：支持分页，每页最多返回100条,默认值为40,页码从1开始，默认为第一页</SPAN>
 # <UL>
 # </UL>
 class ProductsGetResponse(object):

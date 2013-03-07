@@ -5,7 +5,7 @@
 
 ## @brief 新增运费模板
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:44
+# @date 2013-03-07 14:05:14
 # @version: 0.0.0
 
 import os
@@ -135,7 +135,7 @@ class DeliveryTemplateAddRequest(object):
         # </UL>
         self.template_start_standards = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">运费方式:平邮 (post),快递公司(express),EMS (ems),货到付款(cod),物流宝保障速递(wlb),快递保障速递(bzsd),家装物流(furniture)结构:value1;value2;value3;value4  如: post;express;ems;cod  <br/><br/> <br/><font color=red> 注意:在添加多个运费方式时,字符串中使用 ";" 分号区分 。template_dests(指定地区) template_start_standards(首费标准)、template_start_fees(首费)、template_add_standards(增费标准)、template_add_fees(增费)必须与template_types的分号数量相同. </font> <br><br/><br/>  <font color=blue> 注意：<br/> 1、post,ems,express三种运费方式必须填写一个<br/> 2、只有订购了货到付款用户可以填cod;只有家装物流用户可以填写furniture 只有订购了保障速递的用户可以填写bzsd,只有物流宝用户可以填写wlb<br/> 3、如果是货到付款用户当没有填写cod运送方式的时候运费模板会默认继承express的费用为cod的费用<br/> 4、如果是保障速递户当没有填写bzsd运送方式的时候运费模板会默认继承express的费用为bzsd的费用<br/> 5、由于3和4的原因所以当是货到付款用户或保障速递用户时如果没填写对应的运送方式express是必须填写的 </font></SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">运费方式:平邮 (post),快递公司(express),EMS (ems),货到付款(cod),物流宝保障速递(wlb),家装物流(furniture)结构:value1;value2;value3;value4 如: post;express;ems;cod <br/><br/><br/><font color=red>注意:在添加多个运费方式时,字符串中使用 ";" 分号区分。template_dests(指定地区)template_start_standards(首费标准)、template_start_fees(首费)、template_add_standards(增费标准)、template_add_fees(增费)必须与template_types的分号数量相同. </font><br><br/><br/><font color=blue>注意：<br/>1、post,ems,express三种运费方式必须填写一个<br/>2、只有订购了货到付款用户可以填cod;只有家装物流用户可以填写furniture只有订购了保障速递的用户可以填写bzsd,只有物流宝用户可以填写wlb<br/>3、如果是货到付款用户当没有填写cod运送方式的时候运费模板会默认继承express的费用为cod的费用<br/>4、如果是保障速递户当没有填写bzsd运送方式的时候运费模板会默认继承express的费用为bzsd的费用<br/>5、由于3和4的原因所以当是货到付款用户或保障速递用户时如果没填写对应的运送方式express是必须填写的</font></SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

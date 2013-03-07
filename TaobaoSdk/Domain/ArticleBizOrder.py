@@ -5,7 +5,7 @@
 
 ## @brief 应用订单信息
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:36
+# @date 2013-03-07 14:05:09
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                
+                                                                                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">应用订单信息</SPAN>
 class ArticleBizOrder(object):
     def __init__(self, kargs=dict()):
@@ -58,6 +58,17 @@ class ArticleBizOrder(object):
         # </LI>
         # </UL>
         self.article_code = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品模型名称</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.article_item_name = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">应用名称</SPAN>
         # <UL>
@@ -282,6 +293,8 @@ class ArticleBizOrder(object):
             
             "article_code": "String",
             
+            "article_item_name": "String",
+            
             "article_name": "String",
             
             "biz_order_id": "Number",
@@ -315,6 +328,8 @@ class ArticleBizOrder(object):
         levels = {
             
             "article_code": "Basic",
+            
+            "article_item_name": "Basic",
             
             "article_name": "Basic",
             
@@ -379,6 +394,9 @@ class ArticleBizOrder(object):
         
         if kargs.has_key("article_code"):
             self.article_code = self._newInstance("article_code", kargs["article_code"])
+        
+        if kargs.has_key("article_item_name"):
+            self.article_item_name = self._newInstance("article_item_name", kargs["article_item_name"])
         
         if kargs.has_key("article_name"):
             self.article_name = self._newInstance("article_name", kargs["article_name"])

@@ -5,7 +5,7 @@
 
 ## @brief 删除一批关键词
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:52
+# @date 2013-03-07 14:05:18
 # @version: 0.0.0
 
 import os
@@ -58,7 +58,7 @@ class SimbaKeywordsDeleteRequest(object):
         # </UL>
         self.campaign_id = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">关键词Id数组，最多200个</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">关键词Id数组，最多100个</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>

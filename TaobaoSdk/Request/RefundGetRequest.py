@@ -5,7 +5,7 @@
 
 ## @brief 获取单笔退款详情
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:58
+# @date 2013-03-07 14:05:19
 # @version: 0.0.0
 
 import os

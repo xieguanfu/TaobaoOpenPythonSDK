@@ -5,7 +5,7 @@
 
 ## @brief 创建一批关键词
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:52
+# @date 2013-03-07 14:05:18
 # @version: 0.0.0
 
 import os
@@ -58,7 +58,7 @@ class SimbaKeywordsAddRequest(object):
         # </UL>
         self.adgroup_id = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">关键词，出价字符串和匹配方式字符串数组，最多200个;每个字符串：word+  ”^^”+price+”^^”+matchscope, Price是整数，以“分”为单位，不能小于5，不能大于日限额;  price为0则设置为使用默认出价； matchscope只能是1,2,4（1代表精确匹配，2代表子串匹配，4代表广泛匹配）可不传。 关键词不能包含字符”^^”和 ”,”</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">关键词，出价字符串和匹配方式字符串数组，最多100个;每个字符串：word+  ”^^”+price+”^^”+matchscope, Price是整数，以“分”为单位，不能小于5，不能大于日限额;  price为0则设置为使用默认出价； matchscope只能是1,2,4（1代表精确匹配，2代表子串匹配，4代表广泛匹配）可不传。 关键词不能包含字符”^^”和 ”,”</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

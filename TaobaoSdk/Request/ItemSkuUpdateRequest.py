@@ -5,7 +5,7 @@
 
 ## @brief *更新一个sku的数据  *需要更新的sku通过属性properties进行匹配查找  *商品的数量和价格必须大于等于0  *sku记录会更新到指定的num_iid对应的商品中  *num_iid对应的商品必须属于当前的会话用户
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:42
+# @date 2013-03-07 14:05:12
 # @version: 0.0.0
 
 import os
@@ -123,3 +123,14 @@ class ItemSkuUpdateRequest(object):
         # </LI>
         # </UL>
         self.quantity = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品的规格信息。</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.spec_id = None

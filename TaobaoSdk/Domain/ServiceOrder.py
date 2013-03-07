@@ -5,7 +5,7 @@
 
 ## @brief 商城虚拟服务子订单数据结构
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:31
+# @date 2013-03-07 14:05:07
 # @version: 0.0.0
 
 from copy import deepcopy

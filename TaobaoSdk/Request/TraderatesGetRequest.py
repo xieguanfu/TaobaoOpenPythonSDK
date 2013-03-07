@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 搜索评价信息，只能获取距今180天内的评价记录(只支持查询卖家给出或得到的评价)
+## @brief 搜索评价信息，只能获取距今180天内的评价记录(只支持查询卖家给出或得到的评价)。 需要买卖家双方都评价，才能获取到。
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:44
+# @date 2013-03-07 14:05:13
 # @version: 0.0.0
 
 import os
@@ -23,7 +23,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">搜索评价信息，只能获取距今180天内的评价记录(只支持查询卖家给出或得到的评价)</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">搜索评价信息，只能获取距今180天内的评价记录(只支持查询卖家给出或得到的评价)。 需要买卖家双方都评价，才能获取到。</SPAN>
 # <UL>
 # </UL>
 class TraderatesGetRequest(object):

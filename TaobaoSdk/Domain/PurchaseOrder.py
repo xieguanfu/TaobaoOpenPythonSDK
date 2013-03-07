@@ -5,7 +5,7 @@
 
 ## @brief 采购单及子采购单信息
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:34
+# @date 2013-03-07 14:05:08
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                                                
+                                                                                                                                                                        
 from Receiver import Receiver
 
                                 
@@ -75,6 +75,17 @@ class PurchaseOrder(object):
         # </LI>
         # </UL>
         self.buyer_nick = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">买家支付给分销商的总金额。注意买家购买的商品可能不是全部来自同一供货商，请同时参考子单上的相关金额。（精确到2位小数;单位:元。如:200.07，表示:200元7分）</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Price</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.buyer_payment = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">物流发货时间。格式:yyyy-MM-dd HH:mm:ss</SPAN>
         # <UL>
@@ -208,7 +219,7 @@ class PurchaseOrder(object):
         # </UL>
         self.logistics_id = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">采购单留言。</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">采购单留言。（代销模式下信息包括买家留言和分销商留言）</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -241,7 +252,7 @@ class PurchaseOrder(object):
         # </UL>
         self.pay_time = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">支付方式：ALIPAY_SURETY（支付宝担保交易）、ALIPAY_CHAIN（分账交易）、TRANSFER（线下转账）、PREPAY（预存款）、IMMEDIATELY（即时到账）</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">支付方式：ALIPAY_SURETY（支付宝担保交易）、ALIPAY_CHAIN（分账交易）、TRANSFER（线下转账）、PREPAY（预存款）、IMMEDIATELY（即时到账）、CASHGOODS（先款后货）</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -455,6 +466,8 @@ class PurchaseOrder(object):
             
             "buyer_nick": "String",
             
+            "buyer_payment": "Price",
+            
             "consign_time": "Date",
             
             "created": "Date",
@@ -518,6 +531,8 @@ class PurchaseOrder(object):
             "alipay_no": "Basic",
             
             "buyer_nick": "Basic",
+            
+            "buyer_payment": "Basic",
             
             "consign_time": "Basic",
             
@@ -613,6 +628,9 @@ class PurchaseOrder(object):
         
         if kargs.has_key("buyer_nick"):
             self.buyer_nick = self._newInstance("buyer_nick", kargs["buyer_nick"])
+        
+        if kargs.has_key("buyer_payment"):
+            self.buyer_payment = self._newInstance("buyer_payment", kargs["buyer_payment"])
         
         if kargs.has_key("consign_time"):
             self.consign_time = self._newInstance("consign_time", kargs["consign_time"])

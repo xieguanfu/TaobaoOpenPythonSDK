@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 产品分销商属性新增、修改、删除
+## @brief 产品分销商配额库存新增、修改、删除
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:47
+# @date 2013-03-07 14:05:15
 # @version: 0.0.0
 
 import os
@@ -23,7 +23,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品分销商属性新增、修改、删除</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品分销商配额库存新增、修改、删除</SPAN>
 # <UL>
 # </UL>
 class FenxiaoProductPduUpdateRequest(object):

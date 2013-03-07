@@ -5,7 +5,7 @@
 
 ## @brief Item(商品)结构
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:32
+# @date 2013-03-07 14:05:08
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,16 +39,28 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                
-from FoodSecurity import FoodSecurity
-
-                                                                                                                                                        
-from ItemImg import ItemImg
+                                                                                
+from DeliveryTime import DeliveryTime
 
                 
+from DescModuleInfo import DescModuleInfo
+
+                                        
+from FoodSecurity import FoodSecurity
+
+                                                                                                                                                                
+from ItemImg import ItemImg
+
+                                
+from LocalityLife import LocalityLife
+
+        
 from Location import Location
 
-                                                                                                                
+                                                                
+from PaimaiInfo import PaimaiInfo
+
+                                                        
 from PropImg import PropImg
 
                                                                 
@@ -57,7 +69,7 @@ from Sku import Sku
                                                         
 from Video import Video
 
-                                        
+                                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Item(商品)结构</SPAN>
 class Item(object):
     def __init__(self, kargs=dict()):
@@ -110,6 +122,17 @@ class Item(object):
         # </UL>
         self.auto_fill = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">基础色数据</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.change_prop = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品所属的叶子类目 id</SPAN>
         # <UL>
         # <LI>
@@ -154,6 +177,17 @@ class Item(object):
         # </UL>
         self.delist_time = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">发货时间信息</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">DeliveryTime</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object</SPAN>
+        # </LI>
+        # </UL>
+        self.delivery_time = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品描述, 字数要大于5个字符，小于25000个字符</SPAN>
         # <UL>
         # <LI>
@@ -164,6 +198,17 @@ class Item(object):
         # </LI>
         # </UL>
         self.desc = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">宝贝描述规范化模块锚点信息</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">DescModuleInfo</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object</SPAN>
+        # </LI>
+        # </UL>
+        self.desc_module_info = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品url</SPAN>
         # <UL>
@@ -230,6 +275,17 @@ class Item(object):
         # </LI>
         # </UL>
         self.freight_payer = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">针对全球购卖家的库存类型业务，有两种库存类型：现货和代购; 参数值为1时代表现货，值为2时代表代购</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.global_stock_type = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">支持会员打折,true/false</SPAN>
         # <UL>
@@ -429,6 +485,28 @@ class Item(object):
         # </UL>
         self.item_imgs = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">表示商品的体积，用于按体积计费的运费模板。该值的单位为立方米（m3）。 该值支持两种格式的设置：格式1：bulk:3,单位为立方米(m3),表示直接设置为商品的体积。格式2：weight:10;breadth:10;height:10，单位为米（m）</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.item_size = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品的重量，用于按重量计费的运费模板。注意：单位为kg</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.item_weight = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">上架时间（格式：yyyy-MM-dd HH:mm:ss）</SPAN>
         # <UL>
         # <LI>
@@ -439,6 +517,17 @@ class Item(object):
         # </LI>
         # </UL>
         self.list_time = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">本地生活电子交易凭证业务，目前此字段只涉及到的信息为有效期: 如果有效期为起止日期类型，此值为2012-08-06,2012-08-16 如果有效期为【购买成功日 至】类型则格式为2012-08-16 如果有效期为天数类型则格式为3</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">LocalityLife</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object</SPAN>
+        # </LI>
+        # </UL>
+        self.locality_life = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品所在地</SPAN>
         # <UL>
@@ -527,6 +616,17 @@ class Item(object):
         # </LI>
         # </UL>
         self.outer_shop_auction_template_id = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">用于保存拍卖有关的信息</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">PaimaiInfo</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object</SPAN>
+        # </LI>
+        # </UL>
+        self.paimai_info = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品主图片地址</SPAN>
         # <UL>
@@ -704,7 +804,7 @@ class Item(object):
         # </UL>
         self.stuff_status = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">标识商品减库存的方式 值含义：1-拍下减库存，2-付款减库存。</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品是否支持拍下减库存:1支持;2取消支持(付款减库存);0(默认)不更改 集市卖家默认拍下减库存; 商城卖家默认付款减库存</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -814,6 +914,17 @@ class Item(object):
         # </UL>
         self.wap_detail_url = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">预扣库存，即付款减库存的商品现在有多少处于未付款状态的订单</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.with_hold_quantity = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品所属的商家的旺旺在线状况， taobao.items.search和taobao.items.vip.search专用</SPAN>
         # <UL>
         # <LI>
@@ -889,6 +1000,8 @@ class Item(object):
             
             "auto_fill": "String",
             
+            "change_prop": "String",
+            
             "cid": "Number",
             
             "cod_postage_id": "Number",
@@ -897,7 +1010,11 @@ class Item(object):
             
             "delist_time": "Date",
             
+            "delivery_time": "DeliveryTime",
+            
             "desc": "String",
+            
+            "desc_module_info": "DescModuleInfo",
             
             "detail_url": "String",
             
@@ -910,6 +1027,8 @@ class Item(object):
             "food_security": "FoodSecurity",
             
             "freight_payer": "String",
+            
+            "global_stock_type": "String",
             
             "has_discount": "Boolean",
             
@@ -947,7 +1066,13 @@ class Item(object):
             
             "item_imgs": "ItemImg",
             
+            "item_size": "String",
+            
+            "item_weight": "String",
+            
             "list_time": "Date",
+            
+            "locality_life": "LocalityLife",
             
             "location": "Location",
             
@@ -964,6 +1089,8 @@ class Item(object):
             "outer_id": "String",
             
             "outer_shop_auction_template_id": "Number",
+            
+            "paimai_info": "PaimaiInfo",
             
             "pic_url": "String",
             
@@ -1017,6 +1144,8 @@ class Item(object):
             
             "wap_detail_url": "String",
             
+            "with_hold_quantity": "Number",
+            
             "ww_status": "Boolean",
         }
         levels = {
@@ -1029,6 +1158,8 @@ class Item(object):
             
             "auto_fill": "Basic",
             
+            "change_prop": "Basic",
+            
             "cid": "Basic",
             
             "cod_postage_id": "Basic",
@@ -1037,7 +1168,11 @@ class Item(object):
             
             "delist_time": "Basic",
             
+            "delivery_time": "Object",
+            
             "desc": "Basic",
+            
+            "desc_module_info": "Object",
             
             "detail_url": "Basic",
             
@@ -1050,6 +1185,8 @@ class Item(object):
             "food_security": "Object",
             
             "freight_payer": "Basic",
+            
+            "global_stock_type": "Basic",
             
             "has_discount": "Basic",
             
@@ -1087,7 +1224,13 @@ class Item(object):
             
             "item_imgs": "Object Array",
             
+            "item_size": "Basic",
+            
+            "item_weight": "Basic",
+            
             "list_time": "Basic",
+            
+            "locality_life": "Object",
             
             "location": "Object",
             
@@ -1104,6 +1247,8 @@ class Item(object):
             "outer_id": "Basic",
             
             "outer_shop_auction_template_id": "Basic",
+            
+            "paimai_info": "Object",
             
             "pic_url": "Basic",
             
@@ -1157,6 +1302,8 @@ class Item(object):
             
             "wap_detail_url": "Basic",
             
+            "with_hold_quantity": "Basic",
+            
             "ww_status": "Basic",
 
         }
@@ -1202,6 +1349,9 @@ class Item(object):
         if kargs.has_key("auto_fill"):
             self.auto_fill = self._newInstance("auto_fill", kargs["auto_fill"])
         
+        if kargs.has_key("change_prop"):
+            self.change_prop = self._newInstance("change_prop", kargs["change_prop"])
+        
         if kargs.has_key("cid"):
             self.cid = self._newInstance("cid", kargs["cid"])
         
@@ -1214,8 +1364,14 @@ class Item(object):
         if kargs.has_key("delist_time"):
             self.delist_time = self._newInstance("delist_time", kargs["delist_time"])
         
+        if kargs.has_key("delivery_time"):
+            self.delivery_time = self._newInstance("delivery_time", kargs["delivery_time"])
+        
         if kargs.has_key("desc"):
             self.desc = self._newInstance("desc", kargs["desc"])
+        
+        if kargs.has_key("desc_module_info"):
+            self.desc_module_info = self._newInstance("desc_module_info", kargs["desc_module_info"])
         
         if kargs.has_key("detail_url"):
             self.detail_url = self._newInstance("detail_url", kargs["detail_url"])
@@ -1234,6 +1390,9 @@ class Item(object):
         
         if kargs.has_key("freight_payer"):
             self.freight_payer = self._newInstance("freight_payer", kargs["freight_payer"])
+        
+        if kargs.has_key("global_stock_type"):
+            self.global_stock_type = self._newInstance("global_stock_type", kargs["global_stock_type"])
         
         if kargs.has_key("has_discount"):
             self.has_discount = self._newInstance("has_discount", kargs["has_discount"])
@@ -1289,8 +1448,17 @@ class Item(object):
         if kargs.has_key("item_imgs"):
             self.item_imgs = self._newInstance("item_imgs", kargs["item_imgs"])
         
+        if kargs.has_key("item_size"):
+            self.item_size = self._newInstance("item_size", kargs["item_size"])
+        
+        if kargs.has_key("item_weight"):
+            self.item_weight = self._newInstance("item_weight", kargs["item_weight"])
+        
         if kargs.has_key("list_time"):
             self.list_time = self._newInstance("list_time", kargs["list_time"])
+        
+        if kargs.has_key("locality_life"):
+            self.locality_life = self._newInstance("locality_life", kargs["locality_life"])
         
         if kargs.has_key("location"):
             self.location = self._newInstance("location", kargs["location"])
@@ -1315,6 +1483,9 @@ class Item(object):
         
         if kargs.has_key("outer_shop_auction_template_id"):
             self.outer_shop_auction_template_id = self._newInstance("outer_shop_auction_template_id", kargs["outer_shop_auction_template_id"])
+        
+        if kargs.has_key("paimai_info"):
+            self.paimai_info = self._newInstance("paimai_info", kargs["paimai_info"])
         
         if kargs.has_key("pic_url"):
             self.pic_url = self._newInstance("pic_url", kargs["pic_url"])
@@ -1393,6 +1564,9 @@ class Item(object):
         
         if kargs.has_key("wap_detail_url"):
             self.wap_detail_url = self._newInstance("wap_detail_url", kargs["wap_detail_url"])
+        
+        if kargs.has_key("with_hold_quantity"):
+            self.with_hold_quantity = self._newInstance("with_hold_quantity", kargs["with_hold_quantity"])
         
         if kargs.has_key("ww_status"):
             self.ww_status = self._newInstance("ww_status", kargs["ww_status"])

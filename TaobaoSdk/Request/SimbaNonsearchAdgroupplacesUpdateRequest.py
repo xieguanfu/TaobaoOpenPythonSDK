@@ -5,7 +5,7 @@
 
 ## @brief 批量修改推广组定向推广投放位置价格
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:53
+# @date 2013-03-07 14:05:18
 # @version: 0.0.0
 
 import os

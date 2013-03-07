@@ -5,7 +5,7 @@
 
 ## @brief 查询卖家收到的退款列表，查询外店的退款列表时需要指定交易类型
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:37:20
+# @date 2013-03-07 14:05:30
 # @version: 0.0.0
 
 from datetime import datetime
@@ -38,7 +38,7 @@ if __parentPath not in sys.path:
     sys.path.insert(0, __parentPath)
 
 
-    
+        
 from Domain.Refund import Refund
 
     
@@ -76,6 +76,18 @@ class RefundsReceiveGetResponse(object):
 
         
         
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是否存在下一页</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.has_next = None
+        
+        
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">搜索到的退款信息列表</SPAN>
         # <UL>
         # <LI>
@@ -88,7 +100,7 @@ class RefundsReceiveGetResponse(object):
         self.refunds = None
         
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">搜索到的交易信息总数</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">搜索到的退款信息总数</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -145,11 +157,15 @@ class RefundsReceiveGetResponse(object):
     def _getPropertyType(self, name):
         properties = {
             
+            "has_next": "Boolean",
+            
             "refunds": "Refund",
             
             "total_results": "Number",
         }
         levels = {
+            
+            "has_next": "Basic",
             
             "refunds": "Object Array",
             
@@ -183,6 +199,9 @@ class RefundsReceiveGetResponse(object):
             return (pythonType, False)
 
     def __init(self, kargs):
+        
+        if kargs.has_key("has_next"):
+            self.has_next = self._newInstance("has_next", kargs["has_next"])
         
         if kargs.has_key("refunds"):
             self.refunds = self._newInstance("refunds", kargs["refunds"])

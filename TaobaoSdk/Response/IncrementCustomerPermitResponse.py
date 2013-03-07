@@ -5,7 +5,7 @@
 
 ## @brief 提供app为自己的用户开通增量消息服务功能
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:37:09
+# @date 2013-03-07 14:05:26
 # @version: 0.0.0
 
 from datetime import datetime

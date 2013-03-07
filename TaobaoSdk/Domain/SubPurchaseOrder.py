@@ -5,7 +5,7 @@
 
 ## @brief 子采购单详细信息
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:34
+# @date 2013-03-07 14:05:09
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                                                        
+                                                                                                                                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子采购单详细信息</SPAN>
 class SubPurchaseOrder(object):
     def __init__(self, kargs=dict()):
@@ -48,7 +48,7 @@ class SubPurchaseOrder(object):
         self.__kargs = deepcopy(kargs)
         
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">代销采购单对应下游200订单的商品零售价（单位是元）</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分销商店铺中宝贝一口价</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Price</SPAN>
@@ -59,7 +59,18 @@ class SubPurchaseOrder(object):
         # </UL>
         self.auction_price = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">买家实付金额。（精确到2位小数;单位:元。如:200.07，表示:200元7分）</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">发票应开金额。根据买家实际付款去除邮费后，按各个子单(商品)金额比例进行分摊后的金额，仅供开发票时做票面金额参考。</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Price</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.bill_fee = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">买家订单上对应的子单零售金额，除以num（数量）后等于最终宝贝的零售价格（精确到2位小数;单位:元。如:200.07，表示:200元7分）</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Price</SPAN>
@@ -81,7 +92,7 @@ class SubPurchaseOrder(object):
         # </UL>
         self.created = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分销商实付金额。（精确到2位小数;单位:元。如:200.07，表示:200元7分）</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分销商实付金额=total_fee（分销商应付金额）+改价-优惠。（精确到2位小数;单位:元。如:200.07，表示:200元7分）</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Price</SPAN>
@@ -114,7 +125,7 @@ class SubPurchaseOrder(object):
         # </UL>
         self.id = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分销平台上商品id</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分销平台上的产品id，同FenxiaoProduct 的pid</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -136,7 +147,7 @@ class SubPurchaseOrder(object):
         # </UL>
         self.item_outer_id = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品购买数量。取值范围:大于零的整数</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品的采购数量。取值范围:大于零的整数</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -169,7 +180,7 @@ class SubPurchaseOrder(object):
         # </UL>
         self.order_200_status = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">单个商品价格。（精确到2位小数;单位:元。如:200.07，表示:200元7分）</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品的采购价格。（精确到2位小数;单位:元。如:200.07，表示:200元7分）</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Price</SPAN>
@@ -191,7 +202,18 @@ class SubPurchaseOrder(object):
         # </UL>
         self.refund_fee = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品的SKU id。该字段即将被废弃，所以值可能不准确，建议使用sku_outer_id，sku_properties这两个值</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">后端商品id</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.sc_item_id = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品的SKU id。当存在时才会有值，建议使用sku_outer_id，sku_properties这两个值</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -257,7 +279,7 @@ class SubPurchaseOrder(object):
         # </UL>
         self.tc_order_id = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品标题。</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">采购的产品标题。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -268,7 +290,7 @@ class SubPurchaseOrder(object):
         # </UL>
         self.title = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分销商应付金额。（精确到2位小数;单位:元。如:200.07，表示:200元7分）</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分销商应付金额=num(采购数量)*price(采购价)。（精确到2位小数;单位:元。如:200.07，表示:200元7分）</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Price</SPAN>
@@ -337,6 +359,8 @@ class SubPurchaseOrder(object):
             
             "auction_price": "Price",
             
+            "bill_fee": "Price",
+            
             "buyer_payment": "Price",
             
             "created": "Date",
@@ -361,6 +385,8 @@ class SubPurchaseOrder(object):
             
             "refund_fee": "Price",
             
+            "sc_item_id": "Number",
+            
             "sku_id": "Number",
             
             "sku_outer_id": "String",
@@ -380,6 +406,8 @@ class SubPurchaseOrder(object):
         levels = {
             
             "auction_price": "Basic",
+            
+            "bill_fee": "Basic",
             
             "buyer_payment": "Basic",
             
@@ -404,6 +432,8 @@ class SubPurchaseOrder(object):
             "price": "Basic",
             
             "refund_fee": "Basic",
+            
+            "sc_item_id": "Basic",
             
             "sku_id": "Basic",
             
@@ -455,6 +485,9 @@ class SubPurchaseOrder(object):
         if kargs.has_key("auction_price"):
             self.auction_price = self._newInstance("auction_price", kargs["auction_price"])
         
+        if kargs.has_key("bill_fee"):
+            self.bill_fee = self._newInstance("bill_fee", kargs["bill_fee"])
+        
         if kargs.has_key("buyer_payment"):
             self.buyer_payment = self._newInstance("buyer_payment", kargs["buyer_payment"])
         
@@ -490,6 +523,9 @@ class SubPurchaseOrder(object):
         
         if kargs.has_key("refund_fee"):
             self.refund_fee = self._newInstance("refund_fee", kargs["refund_fee"])
+        
+        if kargs.has_key("sc_item_id"):
+            self.sc_item_id = self._newInstance("sc_item_id", kargs["sc_item_id"])
         
         if kargs.has_key("sku_id"):
             self.sku_id = self._newInstance("sku_id", kargs["sku_id"])

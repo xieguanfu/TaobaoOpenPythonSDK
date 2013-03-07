@@ -5,7 +5,7 @@
 
 ## @brief 分销产品
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:34
+# @date 2013-03-07 14:05:09
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -42,7 +42,7 @@ if __getCurrentPath() not in sys.path:
                                                                                                                                                                 
 from FenxiaoPdu import FenxiaoPdu
 
-                                                                                                                        
+                                                                                                                                
 from FenxiaoSku import FenxiaoSku
 
                                 
@@ -428,6 +428,17 @@ class FenxiaoProduct(object):
         # </UL>
         self.retail_price_low = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">关联的后端商品id</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.scitem_id = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">sku列表</SPAN>
         # <UL>
         # <LI>
@@ -439,7 +450,7 @@ class FenxiaoProduct(object):
         # </UL>
         self.skus = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">市场价格，单位：元。</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">采购基准价，单位：元。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Price</SPAN>
@@ -607,6 +618,8 @@ class FenxiaoProduct(object):
             
             "retail_price_low": "Price",
             
+            "scitem_id": "Number",
+            
             "skus": "FenxiaoSku",
             
             "standard_price": "Price",
@@ -686,6 +699,8 @@ class FenxiaoProduct(object):
             "retail_price_high": "Basic",
             
             "retail_price_low": "Basic",
+            
+            "scitem_id": "Basic",
             
             "skus": "Object Array",
             
@@ -829,6 +844,9 @@ class FenxiaoProduct(object):
         
         if kargs.has_key("retail_price_low"):
             self.retail_price_low = self._newInstance("retail_price_low", kargs["retail_price_low"])
+        
+        if kargs.has_key("scitem_id"):
+            self.scitem_id = self._newInstance("scitem_id", kargs["scitem_id"])
         
         if kargs.has_key("skus"):
             self.skus = self._newInstance("skus", kargs["skus"])

@@ -5,7 +5,7 @@
 
 ## @brief 查询淘宝网合作的物流公司信息，用于发货接口。
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:37:05
+# @date 2013-03-07 14:05:23
 # @version: 0.0.0
 
 from datetime import datetime

@@ -5,7 +5,7 @@
 
 ## @brief 创建一个推广组
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:37:10
+# @date 2013-03-07 14:05:26
 # @version: 0.0.0
 
 from datetime import datetime

@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 商城卖家给评价做出解释
+## @brief 商城卖家给评价做出解释（买家追加评论后、评价超过30天的，都不能再做评价解释）
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:37:04
+# @date 2013-03-07 14:05:22
 # @version: 0.0.0
 
 from datetime import datetime
@@ -40,7 +40,7 @@ if __parentPath not in sys.path:
 
     
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 商城卖家给评价做出解释</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 商城卖家给评价做出解释（买家追加评论后、评价超过30天的，都不能再做评价解释）</SPAN>
 # <UL>
 # </UL>
 class TraderateExplainAddResponse(object):

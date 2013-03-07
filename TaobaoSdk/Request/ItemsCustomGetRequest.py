@@ -5,7 +5,7 @@
 
 ## @brief 跟据卖家设定的商品外部id获取商品  这个商品对应卖家从传入的session中获取，需要session绑定
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:42
+# @date 2013-03-07 14:05:12
 # @version: 0.0.0
 
 import os
@@ -58,7 +58,7 @@ class ItemsCustomGetRequest(object):
         # </UL>
         self.fields = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品的外部商品ID</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品的外部商品ID，支持批量，最多不超过40个。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

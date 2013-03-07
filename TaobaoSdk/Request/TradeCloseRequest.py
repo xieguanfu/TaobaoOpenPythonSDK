@@ -5,7 +5,7 @@
 
 ## @brief 关闭一笔订单，可以是主订单或子订单。当订单从创建到关闭时间小于10s的时候，会报“CLOSE_TRADE_TOO_FAST”错误。
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:43
+# @date 2013-03-07 14:05:13
 # @version: 0.0.0
 
 import os
@@ -47,7 +47,7 @@ class TradeCloseRequest(object):
         self.timestamp = int(time.time())
 
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易关闭原因。可以选择的理由有：1、买家不想买了2、信息填写错误，重新拍3、卖家缺货4、同城见面交易5、其他原因注：尽量不要传入自定义的关闭理由</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易关闭原因。可以选择的理由有：1.未及时付款2.买家联系不上3.谢绝还价4.商品瑕疵5.协商不一致6.买家不想买7.与买家协商一致</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

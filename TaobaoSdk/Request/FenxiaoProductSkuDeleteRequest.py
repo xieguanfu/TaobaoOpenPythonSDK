@@ -5,7 +5,7 @@
 
 ## @brief 根据sku properties删除sku数据
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:47
+# @date 2013-03-07 14:05:15
 # @version: 0.0.0
 
 import os
