@@ -5,7 +5,7 @@
 
 ## @brief 广告创意分页对象
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:08
+# @date 2013-03-07 19:54:27
 # @version: 0.0.0
 
 from copy import deepcopy

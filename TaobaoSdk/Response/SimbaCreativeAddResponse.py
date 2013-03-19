@@ -5,7 +5,7 @@
 
 ## @brief 创建一个创意
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:27
+# @date 2013-03-07 19:54:49
 # @version: 0.0.0
 
 from datetime import datetime

@@ -5,7 +5,7 @@
 
 ## @brief 获取后台供卖家发布商品的标准商品类目。 <br/>1. 增量获取类目数据可用<a href="http://api.taobao.com/apidoc/api.htm?path=cid:3-apiId:11072">taobao.itemcats.increment.get</a>接口。 <br/>2. 全量获取类目数据可用<a href="http://api.taobao.com/apidoc/api.htm?path=cid:3-apiId:11078">taobao.topats.itemcats.get</a>接口。
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:12
+# @date 2013-03-07 19:54:32
 # @version: 0.0.0
 
 import os

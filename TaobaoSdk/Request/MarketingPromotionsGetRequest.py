@@ -5,7 +5,7 @@
 
 ## @brief 根据商品ID查询卖家使用该第三方工具对商品设置的所有优惠策略
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:19
+# @date 2013-03-07 19:54:39
 # @version: 0.0.0
 
 import os

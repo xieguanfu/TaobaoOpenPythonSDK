@@ -5,7 +5,7 @@
 
 ## @brief 食品安全信息，包括： 生产许可证号、产品标准号、厂名、厂址等
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:11
+# @date 2013-03-07 19:54:31
 # @version: 0.0.0
 
 from copy import deepcopy

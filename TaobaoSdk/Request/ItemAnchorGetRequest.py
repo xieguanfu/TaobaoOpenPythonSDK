@@ -5,7 +5,7 @@
 
 ## @brief 根据类目id和宝贝描述规范化打标类型获取该类目可用的宝贝描述模块中的锚点
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:12
+# @date 2013-03-07 19:54:32
 # @version: 0.0.0
 
 import os

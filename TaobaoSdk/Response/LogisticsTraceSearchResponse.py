@@ -5,7 +5,7 @@
 
 ## @brief 用户根据淘宝交易号查询物流流转信息，如2010-8-10 15：23：00到达杭州集散地。 此接口的返回信息都由物流公司提供。
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:23
+# @date 2013-03-07 19:54:44
 # @version: 0.0.0
 
 from datetime import datetime

@@ -5,7 +5,7 @@
 
 ## @brief 更新一个推广组的类目出价，可以设置类目出价、是否使用默认出价、是否打开类目出价
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:16
+# @date 2013-03-07 19:54:37
 # @version: 0.0.0
 
 import os

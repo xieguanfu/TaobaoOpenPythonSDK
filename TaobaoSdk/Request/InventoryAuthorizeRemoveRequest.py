@@ -5,7 +5,7 @@
 
 ## @brief 根据库存授权结果码移除该授权下的用户库存授权
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:15
+# @date 2013-03-07 19:54:36
 # @version: 0.0.0
 
 import os

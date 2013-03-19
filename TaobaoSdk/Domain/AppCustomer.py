@@ -5,7 +5,7 @@
 
 ## @brief 开通增量消息服务的应用用户
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:09
+# @date 2013-03-07 19:54:29
 # @version: 0.0.0
 
 from copy import deepcopy

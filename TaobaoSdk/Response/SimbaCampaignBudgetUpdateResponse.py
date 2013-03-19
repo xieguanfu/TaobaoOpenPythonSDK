@@ -5,7 +5,7 @@
 
 ## @brief 更新一个推广计划的日限额
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:27
+# @date 2013-03-07 19:54:48
 # @version: 0.0.0
 
 from datetime import datetime

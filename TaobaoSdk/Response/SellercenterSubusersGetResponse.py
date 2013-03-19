@@ -5,7 +5,7 @@
 
 ## @brief 根据主账号nick查询该账号下所有的子账号列表，只能查询属于自己的账号信息 (主账号以及所属子账号)
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:30
+# @date 2013-03-07 19:54:52
 # @version: 0.0.0
 
 from datetime import datetime

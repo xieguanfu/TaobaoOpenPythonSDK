@@ -5,7 +5,7 @@
 
 ## @brief 取得一个推广组的推荐关键词列表
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 14:05:18
+# @date 2013-03-07 19:54:38
 # @version: 0.0.0
 
 import os
