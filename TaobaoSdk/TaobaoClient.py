@@ -78,7 +78,7 @@ class TaobaoClient(object):
         try:
             content = JSONLib.decode(rawContent)
         except Exception,e:
-            file_object = open('/home/wulingping/TaobaoOpenPythonSDK/TaobaoSdk/error_api.txt','a')
+            file_object = open('/home/ops/TaobaoOpenPythonSDK/TaobaoSdk/error_api.txt','a')
             file_object.write('parameters:%s\nEXCEPTION:%s\n---------'%(parameters,e))
             file_object.close()
             raise e
