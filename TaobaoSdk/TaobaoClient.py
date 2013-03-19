@@ -75,7 +75,13 @@ class TaobaoClient(object):
         if responseStatus["status"] != '200':
             print >> sys.stderr, rawContent
             return None
-        content = JSONLib.decode(rawContent)
+        try:
+            content = JSONLib.decode(rawContent)
+        except Exception,e:
+            file_object = open('/home/wulingping/TaobaoOpenPythonSDK/TaobaoSdk/error_api.txt','a')
+            file_object.write('parameters:%s\nEXCEPTION:%s\n---------'%(parameters,e))
+            file_object.close()
+            raise e
         responses = list()
         for key, value in content.iteritems():
             key = str().join([x.capitalize() for x in key.split("_")])

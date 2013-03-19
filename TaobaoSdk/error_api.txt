@@ -1,0 +1,3 @@
+parameters:{'format': 'json', 'timestamp': u'2013-03-19 18:23:48', 'app_key': '21065688', 'sign': '0694B77C932F37089E46B4CD97D3A21F', 'nick': u'\u7f8e\u6377\u661f', 'session': '6201e25d8259d95c8f9e9a56ae4b44579ZZb5afec8f34d3384441724', 'sign_method': 'md5', 'v': '2.0', 'partner_id': 'top-sdk-java-20130307', 'method': u'taobao.simba.keywordsbyadgroupid.get', 'adgroup_id': u'46523245'}
+EXCEPTION:No module named event
+---------
