@@ -9,7 +9,6 @@ import urllib
 import time
 import hashlib
 import json
-import top
 import itertools
 import mimetypes
 
@@ -175,9 +174,8 @@ class RestApi(object):
         self.__domain = domain
         self.__port = port
         self.__httpmethod = "POST"
-        if(top.getDefaultAppInfo()):
-            self.__app_key = top.getDefaultAppInfo().appkey
-            self.__secret = top.getDefaultAppInfo().secret
+        self.__app_key = '' 
+        self.__secret = ''
         
     def get_request_header(self):
         return {
@@ -192,8 +190,8 @@ class RestApi(object):
         # @param appinfo: import top
         #                 appinfo top.appinfo(appkey,secret)
         #=======================================================================
-        self.__app_key = appinfo.appkey
-        self.__secret = appinfo.secret
+        self.__app_key = appinfo['appkey']
+        self.__secret = appinfo['secret']
         
     def getapiname(self):
         return ""
