@@ -115,7 +115,12 @@ class ExtraAttributes(object):
                     return []
                 return [datetime.strptime(x, format) for x in value[value.keys()[0]]]
             else:
-                return datetime.strptime(value, format)
+                try: 
+                    the_date = datetime.strptime(value,format)
+                    return the_date
+                except ValueError,e:
+                    return datetime(2004,12,20)
+
         elif propertyType == str:
             if isArray:
                 if not value:
