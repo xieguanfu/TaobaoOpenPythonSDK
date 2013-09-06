@@ -83,14 +83,20 @@ class TaobaoClient(object):
             file_object.close()
             raise e
         responses = list()
-        for key, value in content.iteritems():
-            key = str().join([x.capitalize() for x in key.split("_")])
-            ResponseClass = getattr(sys.modules["TaobaoSdk.Response.%s" % key], key)
-            response = ResponseClass(value)
-            response.responseStatus = responseStatus
-            response.responseBody = rawContent
-            responses.append(response)
-        return tuple(responses)
+        try:
+            for key, value in content.iteritems():
+                key = str().join([x.capitalize() for x in key.split("_")])
+                ResponseClass = getattr(sys.modules["TaobaoSdk.Response.%s" % key], key)
+                response = ResponseClass(value)
+                response.responseStatus = responseStatus
+                response.responseBody = rawContent
+                responses.append(response)
+            return tuple(responses)
+        except Exception,e:
+            file_object = open('/home/ops/TaobaoOpenPythonSDK/TaobaoSdk/error_api.txt','a')
+            file_object.write('parameters:%s\nrawContent:%s\nEXCEPTION:%s\n---------'%(parameters,rawContent,e))
+            file_object.close()
+            raise e
     
     def buildSign(self, request, session=None):
         '''
