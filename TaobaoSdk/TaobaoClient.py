@@ -76,6 +76,8 @@ class TaobaoClient(object):
             print >> sys.stderr, rawContent
             return None
         try:
+            if ",," in rawContent:
+                rawContent=rawContent.replace(",,",",")
             content = JSONLib.decode(rawContent)
         except Exception,e:
             file_object = open('/home/ops/TaobaoOpenPythonSDK/TaobaoSdk/error_api.txt','a')
