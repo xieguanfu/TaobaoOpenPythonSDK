@@ -28,7 +28,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 class TaobaoClient(object):
-    def __init__(self, serverUrl, appKey, appSecret, timeout=60):
+    def __init__(self, serverUrl, appKey, appSecret, timeout=180):
         self.serverUrl = serverUrl
         self.appKey = appKey
         self.appSecret = appSecret
