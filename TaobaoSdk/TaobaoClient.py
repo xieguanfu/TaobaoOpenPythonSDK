@@ -28,7 +28,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 class TaobaoClient(object):
-    def __init__(self, serverUrl, appKey, appSecret, timeout=30):
+    def __init__(self, serverUrl, appKey, appSecret, timeout=60):
         self.serverUrl = serverUrl
         self.appKey = appKey
         self.appSecret = appSecret
@@ -96,7 +96,7 @@ class TaobaoClient(object):
             return tuple(responses)
         except Exception,e:
             file_object = open('/home/ops/TaobaoOpenPythonSDK/TaobaoSdk/error_api.txt','a')
-            file_object.write('parameters:%s\nrawContent:%s\nEXCEPTION:%s\n---------'%(parameters,rawContent,e))
+            file_object.write('parameters:%s\nrawContent:%s\nEXCEPTION:%s\n--------->>>>>>>>>'%(parameters,rawContent,e))
             file_object.close()
             raise e
     
