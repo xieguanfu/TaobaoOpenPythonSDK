@@ -3,16 +3,32 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-
-## @brief 通过接口批量发放店铺优惠券。（每次只能发送100张）
+## @brief 通过接口批量发放店铺优惠券（每次只能发送100张，只能发给当前授权卖家店铺的会员），发送成功则返回为空，发送失败则返回失败的买家列表和发送成功的买家和优惠券的number。注：如果所有买家都发放失败的话，is_success也为true，建议调用者根据返回的集合判断是否送入的买家都发放成功了
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:56:05
-# @version: 0.0.16
+# @date 2013-09-22 16:52:51
+# @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -22,25 +38,21 @@ if __parentPath not in sys.path:
     sys.path.insert(0, __parentPath)
 
 
-        
+    
+from Domain.CouponResult import CouponResult
+
+    
 from Domain.ErrorMessage import ErrorMessage
 
+    
 
-
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 通过接口批量发放店铺优惠券。（每次只能发送100张）</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 通过接口批量发放店铺优惠券（每次只能发送100张，只能发给当前授权卖家店铺的会员），发送成功则返回为空，发送失败则返回失败的买家列表和发送成功的买家和优惠券的number。注：如果所有买家都发放失败的话，is_success也为true，建议调用者根据返回的集合判断是否送入的买家都发放成功了</SPAN>
 # <UL>
-# <LI>
-# <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">CName</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">店铺优惠券发放接口</SPAN>
-# </LI>
-# <LI>
-# <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Authorize</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">必须用户授权</SPAN>
-# </LI>
 # </UL>
 class PromotionCouponSendResponse(object):
     def __init__(self, kargs=dict()):
         super(self.__class__, self).__init__()
-        
-        
+
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">请求的返回信息,包含状态等</SPAN>
         # <UL>
         # <LI>
@@ -57,28 +69,26 @@ class PromotionCouponSendResponse(object):
         # </UL>        
         self.responseBody = None
 
+        self.code = None
+
+        self.msg = None
+
+        self.sub_code = None
+
+        self.sub_msg = None
+
         
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">true 成功，false失败</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">发送成功的买家的昵称和优惠券的number</SPAN>
         # <UL>
         # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">CouponResult</SPAN>
         # </LI>
         # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">true</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Sample</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">true</SPAN>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object Array</SPAN>
         # </LI>
         # </UL>
-        self.is_success = None
-        ''' 
-        @ivar is_success: true 成功，false失败; B{Level}: C{Basic}; B{Required}: C{true}; B{Sample}: C{true};
-        @type is_success: Boolean
-        '''
+        self.coupon_results = None
         
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">没有发送成功的买家</SPAN>
@@ -89,20 +99,25 @@ class PromotionCouponSendResponse(object):
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object Array</SPAN>
         # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">false</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Sample</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;"></SPAN>
-        # </LI>
         # </UL>
         self.failure_buyers = None
-        ''' 
-        @ivar failure_buyers: 没有发送成功的买家; B{Level}: C{Object Array}; B{Required}: C{false}; B{Sample}: C{};
-        @type failure_buyers: ErrorMessage
-        '''
+        
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">true 成功，false失败</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.is_success = None
     
         self.__init(kargs)
+
+    def isSuccess(self):
+        return self.code == None and self.sub_code == None
     
     def _newInstance(self, name, value):
         types = self._getPropertyType(name)
@@ -110,22 +125,34 @@ class PromotionCouponSendResponse(object):
         isArray = types[1]
         if propertyType == bool:
             if isArray:
+                if not value:
+                    return []
                 return [x for x in value[value.keys()[0]]]
             else:
                 return value
         elif propertyType == datetime:
             format = "%Y-%m-%d %H:%M:%S"
             if isArray:
+                if not value:
+                    return []
                 return [datetime.strptime(x, format) for x in value[value.keys()[0]]]
             else:
                 return datetime.strptime(value, format)
         elif propertyType == str:
             if isArray:
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                if not value:
+                    return []
+                return [x for x in value[value.keys()[0]]]
             else:
-                return value.encode("utf-8")
+                #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
+                if not isinstance(value, basestring):
+                    #the value should be a json string 
+                    return _jsonEnode(value)
+                return value
         else:
             if isArray:
+                if not value:
+                    return []
                 return [propertyType(x) for x in value[value.keys()[0]]]
             else:
                 return propertyType(value)
@@ -133,15 +160,19 @@ class PromotionCouponSendResponse(object):
     def _getPropertyType(self, name):
         properties = {
             
-            "is_success": "Boolean",
+            "coupon_results": "CouponResult",
             
             "failure_buyers": "ErrorMessage",
+            
+            "is_success": "Boolean",
         }
         levels = {
             
-            "is_success": "Basic",
+            "coupon_results": "Object Array",
             
             "failure_buyers": "Object Array",
+            
+            "is_success": "Basic",
         }
         
         nameType = properties[name]
@@ -172,9 +203,19 @@ class PromotionCouponSendResponse(object):
 
     def __init(self, kargs):
         
-        if kargs.has_key("is_success"):
-            self.is_success = self._newInstance("is_success", kargs["is_success"])
+        if kargs.has_key("coupon_results"):
+            self.coupon_results = self._newInstance("coupon_results", kargs["coupon_results"])
         
         if kargs.has_key("failure_buyers"):
             self.failure_buyers = self._newInstance("failure_buyers", kargs["failure_buyers"])
-        pass
+        
+        if kargs.has_key("is_success"):
+            self.is_success = self._newInstance("is_success", kargs["is_success"])
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

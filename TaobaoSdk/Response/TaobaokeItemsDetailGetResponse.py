@@ -3,16 +3,32 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-
-## @brief 查询淘宝客推广商品详细信息
+## @brief 查询淘宝客推广商品详细信息。 <p>淘宝客应用、网站接入的过程中，难免会遇到问题，这里对从接入到线上运营的各个环节最常碰到的问题，做了汇总，帮助开发者提高接入的效率。 </p> <p>一、淘宝客网站应用创建流程：<a href="http://open.taobao.com/doc/detail.htm?spm=0.0.0.34.b1f9de&id=1028">http://open.taobao.com/doc/detail.htm?spm=0.0.0.34.b1f9de&id=1028</a></p> <p>二、淘宝客API结合实际使用场景的介绍：<a href="http://open.taobao.com/doc/detail.htm?id=1014">http://open.taobao.com/doc/detail.htm?id=1014</a></p> <p>三、淘宝客网站官方推荐的架构：<a href="http://open.taobao.com/doc/detail.htm?id=1011">http://open.taobao.com/doc/detail.htm?id=1011</a></p> <p>四、淘宝客最常见的几个问题以及解决方案汇总：<a href="http://open.taobao.com/doc/detail.htm?id=1005">http://open.taobao.com/doc/detail.htm?id=1005</a></p>
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:56:03
-# @version: 0.0.16
+# @date 2013-09-22 16:52:47
+# @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -22,25 +38,18 @@ if __parentPath not in sys.path:
     sys.path.insert(0, __parentPath)
 
 
-        
+    
 from Domain.TaobaokeItemDetail import TaobaokeItemDetail
 
+    
 
-
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 查询淘宝客推广商品详细信息</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 查询淘宝客推广商品详细信息。 <p>淘宝客应用、网站接入的过程中，难免会遇到问题，这里对从接入到线上运营的各个环节最常碰到的问题，做了汇总，帮助开发者提高接入的效率。 </p> <p>一、淘宝客网站应用创建流程：<a href="http://open.taobao.com/doc/detail.htm?spm=0.0.0.34.b1f9de&id=1028">http://open.taobao.com/doc/detail.htm?spm=0.0.0.34.b1f9de&id=1028</a></p> <p>二、淘宝客API结合实际使用场景的介绍：<a href="http://open.taobao.com/doc/detail.htm?id=1014">http://open.taobao.com/doc/detail.htm?id=1014</a></p> <p>三、淘宝客网站官方推荐的架构：<a href="http://open.taobao.com/doc/detail.htm?id=1011">http://open.taobao.com/doc/detail.htm?id=1011</a></p> <p>四、淘宝客最常见的几个问题以及解决方案汇总：<a href="http://open.taobao.com/doc/detail.htm?id=1005">http://open.taobao.com/doc/detail.htm?id=1005</a></p></SPAN>
 # <UL>
-# <LI>
-# <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">CName</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">查询淘宝客推广商品详细信息</SPAN>
-# </LI>
-# <LI>
-# <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Authorize</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">不需用户授权</SPAN>
-# </LI>
 # </UL>
 class TaobaokeItemsDetailGetResponse(object):
     def __init__(self, kargs=dict()):
         super(self.__class__, self).__init__()
-        
-        
+
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">请求的返回信息,包含状态等</SPAN>
         # <UL>
         # <LI>
@@ -57,28 +66,14 @@ class TaobaokeItemsDetailGetResponse(object):
         # </UL>        
         self.responseBody = None
 
-        
-        
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">搜索到符合条件的结果总数</SPAN>
-        # <UL>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">true</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Sample</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">1</SPAN>
-        # </LI>
-        # </UL>
-        self.total_results = None
-        ''' 
-        @ivar total_results: 搜索到符合条件的结果总数; B{Level}: C{Basic}; B{Required}: C{true}; B{Sample}: C{1};
-        @type total_results: Number
-        '''
+        self.code = None
+
+        self.msg = None
+
+        self.sub_code = None
+
+        self.sub_msg = None
+
         
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">淘宝客商品对象列表</SPAN>
@@ -89,20 +84,25 @@ class TaobaokeItemsDetailGetResponse(object):
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object Array</SPAN>
         # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">true</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Sample</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;"></SPAN>
-        # </LI>
         # </UL>
         self.taobaoke_item_details = None
-        ''' 
-        @ivar taobaoke_item_details: 淘宝客商品对象列表; B{Level}: C{Object Array}; B{Required}: C{true}; B{Sample}: C{};
-        @type taobaoke_item_details: TaobaokeItemDetail
-        '''
+        
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">搜索到符合条件的结果总数</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.total_results = None
     
         self.__init(kargs)
+
+    def isSuccess(self):
+        return self.code == None and self.sub_code == None
     
     def _newInstance(self, name, value):
         types = self._getPropertyType(name)
@@ -110,22 +110,34 @@ class TaobaokeItemsDetailGetResponse(object):
         isArray = types[1]
         if propertyType == bool:
             if isArray:
+                if not value:
+                    return []
                 return [x for x in value[value.keys()[0]]]
             else:
                 return value
         elif propertyType == datetime:
             format = "%Y-%m-%d %H:%M:%S"
             if isArray:
+                if not value:
+                    return []
                 return [datetime.strptime(x, format) for x in value[value.keys()[0]]]
             else:
                 return datetime.strptime(value, format)
         elif propertyType == str:
             if isArray:
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                if not value:
+                    return []
+                return [x for x in value[value.keys()[0]]]
             else:
-                return value.encode("utf-8")
+                #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
+                if not isinstance(value, basestring):
+                    #the value should be a json string 
+                    return _jsonEnode(value)
+                return value
         else:
             if isArray:
+                if not value:
+                    return []
                 return [propertyType(x) for x in value[value.keys()[0]]]
             else:
                 return propertyType(value)
@@ -133,15 +145,15 @@ class TaobaokeItemsDetailGetResponse(object):
     def _getPropertyType(self, name):
         properties = {
             
-            "total_results": "Number",
-            
             "taobaoke_item_details": "TaobaokeItemDetail",
+            
+            "total_results": "Number",
         }
         levels = {
             
-            "total_results": "Basic",
-            
             "taobaoke_item_details": "Object Array",
+            
+            "total_results": "Basic",
         }
         
         nameType = properties[name]
@@ -172,9 +184,16 @@ class TaobaokeItemsDetailGetResponse(object):
 
     def __init(self, kargs):
         
-        if kargs.has_key("total_results"):
-            self.total_results = self._newInstance("total_results", kargs["total_results"])
-        
         if kargs.has_key("taobaoke_item_details"):
             self.taobaoke_item_details = self._newInstance("taobaoke_item_details", kargs["taobaoke_item_details"])
-        pass
+        
+        if kargs.has_key("total_results"):
+            self.total_results = self._newInstance("total_results", kargs["total_results"])
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

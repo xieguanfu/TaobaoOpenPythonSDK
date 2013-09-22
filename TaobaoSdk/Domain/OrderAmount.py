@@ -5,7 +5,7 @@
 
 ## @brief 子订单的帐务数据结构
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:30
+# @date 2013-09-22 16:52:30
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                        
+                                                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子订单的帐务数据结构</SPAN>
 class OrderAmount(object):
     def __init__(self, kargs=dict()):
@@ -69,6 +69,17 @@ class OrderAmount(object):
         # </LI>
         # </UL>
         self.discount_fee = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分摊之后的实付金额</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.divide_order_fee = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子交易订单中购买商品的数量</SPAN>
         # <UL>
@@ -102,6 +113,17 @@ class OrderAmount(object):
         # </LI>
         # </UL>
         self.oid = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">优惠分摊</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.part_mjz_discount = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子订单实付金额。精确到2位小数，单位:元。如:200.07，表示:200元7分。计算公式如下：payment = price * num + adjust_fee - discount_fee + post_fee(邮费，单笔子订单时子订单实付金额包含邮费，多笔子订单时不包含邮费)；对于退款成功的子订单，由于主订单的优惠分摊金额，会造成该字段可能不为0.00元。建议使用退款前的实付金额减去退款单中的实际退款金额计算。</SPAN>
         # <UL>
@@ -229,11 +251,15 @@ class OrderAmount(object):
             
             "discount_fee": "String",
             
+            "divide_order_fee": "String",
+            
             "num": "Number",
             
             "num_iid": "Number",
             
             "oid": "Number",
+            
+            "part_mjz_discount": "String",
             
             "payment": "String",
             
@@ -253,11 +279,15 @@ class OrderAmount(object):
             
             "discount_fee": "Basic",
             
+            "divide_order_fee": "Basic",
+            
             "num": "Basic",
             
             "num_iid": "Basic",
             
             "oid": "Basic",
+            
+            "part_mjz_discount": "Basic",
             
             "payment": "Basic",
             
@@ -308,6 +338,9 @@ class OrderAmount(object):
         if kargs.has_key("discount_fee"):
             self.discount_fee = self._newInstance("discount_fee", kargs["discount_fee"])
         
+        if kargs.has_key("divide_order_fee"):
+            self.divide_order_fee = self._newInstance("divide_order_fee", kargs["divide_order_fee"])
+        
         if kargs.has_key("num"):
             self.num = self._newInstance("num", kargs["num"])
         
@@ -316,6 +349,9 @@ class OrderAmount(object):
         
         if kargs.has_key("oid"):
             self.oid = self._newInstance("oid", kargs["oid"])
+        
+        if kargs.has_key("part_mjz_discount"):
+            self.part_mjz_discount = self._newInstance("part_mjz_discount", kargs["part_mjz_discount"])
         
         if kargs.has_key("payment"):
             self.payment = self._newInstance("payment", kargs["payment"])

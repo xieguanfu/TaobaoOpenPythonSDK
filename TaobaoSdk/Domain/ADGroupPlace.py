@@ -5,7 +5,7 @@
 
 ## @brief 推广组与定向推广位置关系
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:28
+# @date 2013-09-22 16:52:29
 # @version: 0.0.0
 
 from copy import deepcopy

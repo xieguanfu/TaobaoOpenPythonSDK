@@ -5,7 +5,7 @@
 
 ## @brief 等级折扣数据结构
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:29
+# @date 2013-09-22 16:52:28
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -59,7 +59,7 @@ class GradeDiscount(object):
         # </UL>
         self.discount_id = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">折扣类型（是等级还是分销商折扣）</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">折扣类型：1-等级、2-分销商折扣</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -92,7 +92,7 @@ class GradeDiscount(object):
         # </UL>
         self.sku_id = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">经/代销模式</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">模式：1-代销、2-经销</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>

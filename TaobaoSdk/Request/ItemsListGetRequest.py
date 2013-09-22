@@ -5,7 +5,7 @@
 
 ## @brief 查看非公开属性时需要用户登录
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:33
+# @date 2013-09-22 16:52:32
 # @version: 0.0.0
 
 import os
@@ -47,7 +47,7 @@ class ItemsListGetRequest(object):
         self.timestamp = int(time.time())
 
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">需要返回的商品对象字段。可选值：Item商品结构体中所有字段均可返回；多个字段用“,”分隔。如果想返回整个子对象，那字段为itemimg，如果是想返回子对象里面的字段，那字段为itemimg.url。</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">需要返回的商品对象字段。可选值：Item商品结构体中字段均可返回(除item_weight,item_size)；多个字段用“,”分隔。如果想返回整个子对象，那字段为itemimg，如果是想返回子对象里面的字段，那字段为itemimg.url。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Field List</SPAN>

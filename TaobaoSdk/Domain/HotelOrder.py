@@ -5,7 +5,7 @@
 
 ## @brief HotelOrder（酒店订单）结构。各字段详细说明可参考接口定义。注意：trade_status，refund_status，logistics_status不是严格准确的，请以交易API，物流API等得到的订单状态、物流状态为准确依据。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:00
+# @date 2013-09-22 16:52:28
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,10 +39,10 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                        
+                                                                                                        
 from OrderGuest import OrderGuest
 
-                                                                                                                                
+                                                                                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">HotelOrder（酒店订单）结构。各字段详细说明可参考接口定义。注意：trade_status，refund_status，logistics_status不是严格准确的，请以交易API，物流API等得到的订单状态、物流状态为准确依据。</SPAN>
 class HotelOrder(object):
     def __init__(self, kargs=dict()):
@@ -61,6 +61,28 @@ class HotelOrder(object):
         # </LI>
         # </UL>
         self.alipay_trade_no = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">买家最早到达时间</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Date</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.arrive_early = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">买家最晚到达时间</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Date</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.arrive_late = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">买家淘宝账号</SPAN>
         # <UL>
@@ -238,6 +260,17 @@ class HotelOrder(object):
         # </UL>
         self.oid = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">合作方订单号,最长250个字符</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.out_oid = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">付款时间</SPAN>
         # <UL>
         # <LI>
@@ -260,7 +293,7 @@ class HotelOrder(object):
         # </UL>
         self.payment = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">退款状态。STATUS_WAIT_SELLER_AGREE：买家已经申请退款，等待卖家同意。STATUS_WAIT_BUYER_RETURN_GOODS：卖家已经同意退款，等待买家退货。STATUS_WAIT_SELLER_CONFIRM_GOODS：买家已经退货，等待卖家确认收货。STATUS_CLOSED：退款关闭。STATUS_SUCCESS：退款成功。STATUS_SELLER_REFUSE_BUYER：卖家拒绝退款。STATUS_WAIT_OUT_PAY_SYSTEM_REFUND：等待外部交易系统退款。STATUS_NO_REFUND：没有申请退款。STATUS_ACTIVE_REFUND：有活动退款。STATUS_END_REFUND：退款结束。</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">退款状态。STATUS_WAIT_SELLER_AGREE：买家已经申请退款，等待卖家同意。STATUS_WAIT_BUYER_RETURN_GOODS：卖家已经同意退款，等待买家退货。STATUS_WAIT_SELLER_CONFIRM_GOODS：买家已经退货，等待卖家确认收货。STATUS_CLOSED：退款关闭。STATUS_SUCCESS：退款成功->买家取消预定。STATUS_SELLER_REFUSE_BUYER：卖家拒绝退款。STATUS_WAIT_OUT_PAY_SYSTEM_REFUND：等待外部交易系统退款。STATUS_NO_REFUND：没有申请退款。STATUS_ACTIVE_REFUND：有活动退款。STATUS_END_REFUND：退款结束。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -326,7 +359,7 @@ class HotelOrder(object):
         # </UL>
         self.total_room_price = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易状态。WAIT_BUYER_PAY：未冻结/未付款 -> 等待买家付款。WAIT_SELLER_SEND_GOODS：已冻结/已付款 -> 等待卖家发货。TRADE_CLOSED：已退款 -> 交易关闭。TRADE_FINISHED：已转交易 -> 交易成功。TRADE_NO_CREATE_PAY：没有创建支付宝交易。TRADE_CLOSED_BY_TAOBAO：交易被淘宝关闭</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易状态。WAIT_BUYER_PAY：未冻结/未付款 -> 等待买家付款。WAIT_SELLER_SEND_GOODS：已冻结/已付款 -> 等待卖家发货 -> 等待卖家确认。TRADE_CLOSED：已退款 -> 交易关闭。TRADE_FINISHED：已转交易 -> 交易成功。TRADE_NO_CREATE_PAY：没有创建支付宝交易。TRADE_CLOSED_BY_TAOBAO：交易被淘宝关闭->卖家关闭交易或卖家核实未入住。TRADE_SUCCESS：预定成功（等待卖家核实入住）</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -406,6 +439,10 @@ class HotelOrder(object):
             
             "alipay_trade_no": "String",
             
+            "arrive_early": "Date",
+            
+            "arrive_late": "Date",
+            
             "buyer_nick": "String",
             
             "checkin_date": "Date",
@@ -438,6 +475,8 @@ class HotelOrder(object):
             
             "oid": "Number",
             
+            "out_oid": "String",
+            
             "pay_time": "Date",
             
             "payment": "Number",
@@ -461,6 +500,10 @@ class HotelOrder(object):
         levels = {
             
             "alipay_trade_no": "Basic",
+            
+            "arrive_early": "Basic",
+            
+            "arrive_late": "Basic",
             
             "buyer_nick": "Basic",
             
@@ -493,6 +536,8 @@ class HotelOrder(object):
             "nights": "Basic",
             
             "oid": "Basic",
+            
+            "out_oid": "Basic",
             
             "pay_time": "Basic",
             
@@ -548,6 +593,12 @@ class HotelOrder(object):
         if kargs.has_key("alipay_trade_no"):
             self.alipay_trade_no = self._newInstance("alipay_trade_no", kargs["alipay_trade_no"])
         
+        if kargs.has_key("arrive_early"):
+            self.arrive_early = self._newInstance("arrive_early", kargs["arrive_early"])
+        
+        if kargs.has_key("arrive_late"):
+            self.arrive_late = self._newInstance("arrive_late", kargs["arrive_late"])
+        
         if kargs.has_key("buyer_nick"):
             self.buyer_nick = self._newInstance("buyer_nick", kargs["buyer_nick"])
         
@@ -595,6 +646,9 @@ class HotelOrder(object):
         
         if kargs.has_key("oid"):
             self.oid = self._newInstance("oid", kargs["oid"])
+        
+        if kargs.has_key("out_oid"):
+            self.out_oid = self._newInstance("out_oid", kargs["out_oid"])
         
         if kargs.has_key("pay_time"):
             self.pay_time = self._newInstance("pay_time", kargs["pay_time"])

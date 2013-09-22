@@ -5,7 +5,7 @@
 
 ## @brief 仅限供应商调用此接口查询经销商品监控信息
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:46
+# @date 2013-09-22 16:52:46
 # @version: 0.0.0
 
 from datetime import datetime

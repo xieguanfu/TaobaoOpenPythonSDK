@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 卖家查询等级规则，包括普通会员、高级会员、VIP会员、至尊VIP会员四个等级的信息
+## @brief 卖家查询等级规则，包括店铺客户、普通会员、高级会员、VIP会员、至尊VIP会员四个等级的信息
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:55
+# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os
@@ -23,7 +23,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">卖家查询等级规则，包括普通会员、高级会员、VIP会员、至尊VIP会员四个等级的信息</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">卖家查询等级规则，包括店铺客户、普通会员、高级会员、VIP会员、至尊VIP会员四个等级的信息</SPAN>
 # <UL>
 # </UL>
 class CrmGradeGetRequest(object):

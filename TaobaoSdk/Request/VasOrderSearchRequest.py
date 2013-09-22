@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 用于ISV查询自己名下的应用及收费项目的订单记录（已付款订单）。 目前所有应用调用此接口的频率限制为200次/分钟，即每分钟内，所有应用调用此接口的次数加起来最多为200次。 建议用于查询前一日的历史记录。
+## @brief 用于ISV查询自己名下的应用及收费项目的订单记录（已付款订单）。 建议用于查询前一日的历史记录，不适合用作实时数据查询。 该接口限制每分钟所有appkey调用总和只能有800次。
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:40
+# @date 2013-09-22 16:52:40
 # @version: 0.0.0
 
 import os
@@ -23,7 +23,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">用于ISV查询自己名下的应用及收费项目的订单记录（已付款订单）。 目前所有应用调用此接口的频率限制为200次/分钟，即每分钟内，所有应用调用此接口的次数加起来最多为200次。 建议用于查询前一日的历史记录。</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">用于ISV查询自己名下的应用及收费项目的订单记录（已付款订单）。 建议用于查询前一日的历史记录，不适合用作实时数据查询。 该接口限制每分钟所有appkey调用总和只能有800次。</SPAN>
 # <UL>
 # </UL>
 class VasOrderSearchRequest(object):

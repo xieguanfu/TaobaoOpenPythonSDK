@@ -5,7 +5,7 @@
 
 ## @brief 收货人详细信息
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:28
+# @date 2013-09-22 16:52:27
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                
+                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">收货人详细信息</SPAN>
 class Receiver(object):
     def __init__(self, kargs=dict()):
@@ -58,6 +58,17 @@ class Receiver(object):
         # </LI>
         # </UL>
         self.address = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">证件号</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.card_id = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">收货人的城市</SPAN>
         # <UL>
@@ -194,6 +205,8 @@ class Receiver(object):
             
             "address": "String",
             
+            "card_id": "String",
+            
             "city": "String",
             
             "district": "String",
@@ -211,6 +224,8 @@ class Receiver(object):
         levels = {
             
             "address": "Basic",
+            
+            "card_id": "Basic",
             
             "city": "Basic",
             
@@ -259,6 +274,9 @@ class Receiver(object):
         
         if kargs.has_key("address"):
             self.address = self._newInstance("address", kargs["address"])
+        
+        if kargs.has_key("card_id"):
+            self.card_id = self._newInstance("card_id", kargs["card_id"])
         
         if kargs.has_key("city"):
             self.city = self._newInstance("city", kargs["city"])

@@ -5,7 +5,7 @@
 
 ## @brief 支持卖家发货后修改物流公司和运单号。支持订单类型支持在线下单和自己联系。 自己联系只能切换为自己联系的公司，在线下单也只能切换为在线下单的物流公司。  调用时订单状态是卖家已发货，自己联系在发货后24小时内在线下单未揽收成功才可使用
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:34
+# @date 2013-09-22 16:52:33
 # @version: 0.0.0
 
 import os
@@ -69,6 +69,17 @@ class LogisticsConsignResendRequest(object):
         # </UL>
         self.feature = None
         
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">表明是否是拆单，默认值0，1表示拆单</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.is_split = None
+        
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">运单号.具体一个物流公司的真实运单号码。淘宝官方物流会校验，请谨慎传入；</SPAN>
         # <UL>
         # <LI>
@@ -79,6 +90,28 @@ class LogisticsConsignResendRequest(object):
         # </LI>
         # </UL>
         self.out_sid = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商家的IP地址</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.seller_ip = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">拆单子订单列表，对应的数据是：子订单号的列表。可以不传，但是如果传了则必须符合传递的规则。子订单必须是操作的物流订单的子订单的真子集！</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.sub_tid = None
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">淘宝交易ID</SPAN>
         # <UL>

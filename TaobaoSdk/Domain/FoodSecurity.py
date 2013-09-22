@@ -5,7 +5,7 @@
 
 ## @brief 食品安全信息，包括： 生产许可证号、产品标准号、厂名、厂址等
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:31
+# @date 2013-09-22 16:52:30
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                
+                                                                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">食品安全信息，包括： 生产许可证号、产品标准号、厂名、厂址等</SPAN>
 class FoodSecurity(object):
     def __init__(self, kargs=dict()):
@@ -102,6 +102,17 @@ class FoodSecurity(object):
         # </LI>
         # </UL>
         self.food_additive = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">健字号，保健品/膳食营养补充剂 这个类目下特有的信息，此类目下无需填写生产许可证编号（QS），如果填写了生产许可证编号（QS）将被忽略不保存；保存宝贝时，标题前会自动加上健字号产品名称一起作为宝贝标题；</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.health_product_no = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">配料表</SPAN>
         # <UL>
@@ -268,6 +279,8 @@ class FoodSecurity(object):
             
             "food_additive": "String",
             
+            "health_product_no": "String",
+            
             "mix": "String",
             
             "period": "String",
@@ -297,6 +310,8 @@ class FoodSecurity(object):
             "factory_site": "Basic",
             
             "food_additive": "Basic",
+            
+            "health_product_no": "Basic",
             
             "mix": "Basic",
             
@@ -361,6 +376,9 @@ class FoodSecurity(object):
         
         if kargs.has_key("food_additive"):
             self.food_additive = self._newInstance("food_additive", kargs["food_additive"])
+        
+        if kargs.has_key("health_product_no"):
+            self.health_product_no = self._newInstance("health_product_no", kargs["health_product_no"])
         
         if kargs.has_key("mix"):
             self.mix = self._newInstance("mix", kargs["mix"])

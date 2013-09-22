@@ -5,7 +5,7 @@
 
 ## @brief 传入类目ID,必需是叶子类目，通过taobao.itemcats.get获取类目ID 返回字段目前支持有：cid,pid,prop_name,vid,name,name_alias,status,sort_order 作用:获取标准类目属性值
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:32
+# @date 2013-09-22 16:52:31
 # @version: 0.0.0
 
 import os
@@ -46,6 +46,17 @@ class ItempropvaluesGetRequest(object):
         # </UL>
         self.timestamp = int(time.time())
 
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">属性的Key，支持多条，以“,”分隔</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.attr_keys = None
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">叶子类目ID ,通过taobao.itemcats.get获得叶子类目ID</SPAN>
         # <UL>

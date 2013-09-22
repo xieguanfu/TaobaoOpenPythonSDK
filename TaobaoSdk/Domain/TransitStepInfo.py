@@ -5,7 +5,7 @@
 
 ## @brief 物流跟踪信息的一条
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:30
+# @date 2013-09-22 16:52:30
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                
+                                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">物流跟踪信息的一条</SPAN>
 class TransitStepInfo(object):
     def __init__(self, kargs=dict()):
@@ -47,6 +47,39 @@ class TransitStepInfo(object):
 
         self.__kargs = deepcopy(kargs)
         
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">节点说明 ，指明当前节点揽收、派送，签收。</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.action = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">描述</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.desc = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">地址地一</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.node_description = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">状态描述</SPAN>
         # <UL>
@@ -69,6 +102,17 @@ class TransitStepInfo(object):
         # </LI>
         # </UL>
         self.status_time = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">时间。。</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.time = None
         
         self.__init(kargs)
 
@@ -126,15 +170,31 @@ class TransitStepInfo(object):
     def _getPropertyType(self, name):
         properties = {
             
+            "action": "String",
+            
+            "desc": "String",
+            
+            "node_description": "String",
+            
             "status_desc": "String",
             
             "status_time": "String",
+            
+            "time": "String",
         }
         levels = {
+            
+            "action": "Basic",
+            
+            "desc": "Basic",
+            
+            "node_description": "Basic",
             
             "status_desc": "Basic",
             
             "status_time": "Basic",
+            
+            "time": "Basic",
 
         }
         nameType = properties[name]
@@ -167,8 +227,20 @@ class TransitStepInfo(object):
         
     def __init(self, kargs):
         
+        if kargs.has_key("action"):
+            self.action = self._newInstance("action", kargs["action"])
+        
+        if kargs.has_key("desc"):
+            self.desc = self._newInstance("desc", kargs["desc"])
+        
+        if kargs.has_key("node_description"):
+            self.node_description = self._newInstance("node_description", kargs["node_description"])
+        
         if kargs.has_key("status_desc"):
             self.status_desc = self._newInstance("status_desc", kargs["status_desc"])
         
         if kargs.has_key("status_time"):
             self.status_time = self._newInstance("status_time", kargs["status_time"])
+        
+        if kargs.has_key("time"):
+            self.time = self._newInstance("time", kargs["time"])

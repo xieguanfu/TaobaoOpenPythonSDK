@@ -5,7 +5,7 @@
 
 ## @brief 经销订单监控记录信息
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:29
+# @date 2013-09-22 16:52:29
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                                                                        
+                                                                                                                                                                                                                                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">经销订单监控记录信息</SPAN>
 class TradeMonitor(object):
     def __init__(self, kargs=dict()):
@@ -47,6 +47,17 @@ class TradeMonitor(object):
 
         self.__kargs = deepcopy(kargs)
         
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">地区</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.area = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易订单的商品购买数量</SPAN>
         # <UL>
@@ -59,6 +70,17 @@ class TradeMonitor(object):
         # </UL>
         self.buy_amount = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">收货人姓名</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.buyer_full_name = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">买家的淘宝账号昵称</SPAN>
         # <UL>
         # <LI>
@@ -69,6 +91,17 @@ class TradeMonitor(object):
         # </LI>
         # </UL>
         self.buyer_nick = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">城市</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.city = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">经销商的淘宝账号昵称</SPAN>
         # <UL>
@@ -213,6 +246,17 @@ class TradeMonitor(object):
         # </UL>
         self.product_title = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">省份</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.provence = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易订单的商品最高零售价</SPAN>
         # <UL>
         # <LI>
@@ -279,6 +323,28 @@ class TradeMonitor(object):
         # </UL>
         self.supplier_nick = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品的卖出金额调整，金额增加时为正数，金额减少时为负数，单位是分，不带小数</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.tc_adjust_fee = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">优惠金额，始终为正数，单位是分，不带小数</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.tc_discount_fee = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易订单号</SPAN>
         # <UL>
         # <LI>
@@ -289,6 +355,17 @@ class TradeMonitor(object):
         # </LI>
         # </UL>
         self.tc_order_id = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品优惠类型：聚划算、秒杀或其他</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.tc_preferential_type = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">主键id</SPAN>
         # <UL>
@@ -357,9 +434,15 @@ class TradeMonitor(object):
     def _getPropertyType(self, name):
         properties = {
             
+            "area": "String",
+            
             "buy_amount": "Number",
             
+            "buyer_full_name": "String",
+            
             "buyer_nick": "String",
+            
+            "city": "String",
             
             "distributor_nick": "String",
             
@@ -387,6 +470,8 @@ class TradeMonitor(object):
             
             "product_title": "String",
             
+            "provence": "String",
+            
             "retail_price_high": "Number",
             
             "retail_price_low": "Number",
@@ -399,15 +484,27 @@ class TradeMonitor(object):
             
             "supplier_nick": "String",
             
+            "tc_adjust_fee": "Number",
+            
+            "tc_discount_fee": "Number",
+            
             "tc_order_id": "Number",
+            
+            "tc_preferential_type": "String",
             
             "trade_monitor_id": "Number",
         }
         levels = {
             
+            "area": "Basic",
+            
             "buy_amount": "Basic",
             
+            "buyer_full_name": "Basic",
+            
             "buyer_nick": "Basic",
+            
+            "city": "Basic",
             
             "distributor_nick": "Basic",
             
@@ -435,6 +532,8 @@ class TradeMonitor(object):
             
             "product_title": "Basic",
             
+            "provence": "Basic",
+            
             "retail_price_high": "Basic",
             
             "retail_price_low": "Basic",
@@ -447,7 +546,13 @@ class TradeMonitor(object):
             
             "supplier_nick": "Basic",
             
+            "tc_adjust_fee": "Basic",
+            
+            "tc_discount_fee": "Basic",
+            
             "tc_order_id": "Basic",
+            
+            "tc_preferential_type": "Basic",
             
             "trade_monitor_id": "Basic",
 
@@ -482,11 +587,20 @@ class TradeMonitor(object):
         
     def __init(self, kargs):
         
+        if kargs.has_key("area"):
+            self.area = self._newInstance("area", kargs["area"])
+        
         if kargs.has_key("buy_amount"):
             self.buy_amount = self._newInstance("buy_amount", kargs["buy_amount"])
         
+        if kargs.has_key("buyer_full_name"):
+            self.buyer_full_name = self._newInstance("buyer_full_name", kargs["buyer_full_name"])
+        
         if kargs.has_key("buyer_nick"):
             self.buyer_nick = self._newInstance("buyer_nick", kargs["buyer_nick"])
+        
+        if kargs.has_key("city"):
+            self.city = self._newInstance("city", kargs["city"])
         
         if kargs.has_key("distributor_nick"):
             self.distributor_nick = self._newInstance("distributor_nick", kargs["distributor_nick"])
@@ -527,6 +641,9 @@ class TradeMonitor(object):
         if kargs.has_key("product_title"):
             self.product_title = self._newInstance("product_title", kargs["product_title"])
         
+        if kargs.has_key("provence"):
+            self.provence = self._newInstance("provence", kargs["provence"])
+        
         if kargs.has_key("retail_price_high"):
             self.retail_price_high = self._newInstance("retail_price_high", kargs["retail_price_high"])
         
@@ -545,8 +662,17 @@ class TradeMonitor(object):
         if kargs.has_key("supplier_nick"):
             self.supplier_nick = self._newInstance("supplier_nick", kargs["supplier_nick"])
         
+        if kargs.has_key("tc_adjust_fee"):
+            self.tc_adjust_fee = self._newInstance("tc_adjust_fee", kargs["tc_adjust_fee"])
+        
+        if kargs.has_key("tc_discount_fee"):
+            self.tc_discount_fee = self._newInstance("tc_discount_fee", kargs["tc_discount_fee"])
+        
         if kargs.has_key("tc_order_id"):
             self.tc_order_id = self._newInstance("tc_order_id", kargs["tc_order_id"])
+        
+        if kargs.has_key("tc_preferential_type"):
+            self.tc_preferential_type = self._newInstance("tc_preferential_type", kargs["tc_preferential_type"])
         
         if kargs.has_key("trade_monitor_id"):
             self.trade_monitor_id = self._newInstance("trade_monitor_id", kargs["trade_monitor_id"])

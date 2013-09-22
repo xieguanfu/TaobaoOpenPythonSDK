@@ -5,7 +5,7 @@
 
 ## @brief 店铺级优惠信息
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:30
+# @date 2013-09-22 16:52:30
 # @version: 0.0.0
 
 from copy import deepcopy

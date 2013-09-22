@@ -5,7 +5,7 @@
 
 ## @brief 授权信息数据结构
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:29
+# @date 2013-09-22 16:52:28
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                
+                                                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">授权信息数据结构</SPAN>
 class InventoryAuthorizeInfo(object):
     def __init__(self, kargs=dict()):
@@ -92,7 +92,7 @@ class InventoryAuthorizeInfo(object):
         # </UL>
         self.inventory_type = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">独享时授权信息的用户昵称</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">授权信息的用户昵称</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -103,7 +103,7 @@ class InventoryAuthorizeInfo(object):
         # </UL>
         self.nick_name = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">共享时授权对象的淘宝昵称列表，用;分割</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">共享时授权对象的淘宝昵称列表，用;分割[此字段暂时保留，没有用到]</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -125,7 +125,7 @@ class InventoryAuthorizeInfo(object):
         # </UL>
         self.occupy_quantity = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">当前还剩下库存数量</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">总物理库存</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -146,6 +146,17 @@ class InventoryAuthorizeInfo(object):
         # </LI>
         # </UL>
         self.quota_quantity = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">预扣数量</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.reserve_quantity = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品编码</SPAN>
         # <UL>
@@ -254,6 +265,8 @@ class InventoryAuthorizeInfo(object):
             
             "quota_quantity": "Number",
             
+            "reserve_quantity": "Number",
+            
             "sc_item_code": "String",
             
             "sc_item_id": "Number",
@@ -279,6 +292,8 @@ class InventoryAuthorizeInfo(object):
             "quantity": "Basic",
             
             "quota_quantity": "Basic",
+            
+            "reserve_quantity": "Basic",
             
             "sc_item_code": "Basic",
             
@@ -343,6 +358,9 @@ class InventoryAuthorizeInfo(object):
         
         if kargs.has_key("quota_quantity"):
             self.quota_quantity = self._newInstance("quota_quantity", kargs["quota_quantity"])
+        
+        if kargs.has_key("reserve_quantity"):
+            self.reserve_quantity = self._newInstance("reserve_quantity", kargs["reserve_quantity"])
         
         if kargs.has_key("sc_item_code"):
             self.sc_item_code = self._newInstance("sc_item_code", kargs["sc_item_code"])

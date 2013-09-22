@@ -5,7 +5,7 @@
 
 ## @brief 产品结构
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:26
+# @date 2013-09-22 16:52:25
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -40,12 +40,15 @@ if __getCurrentPath() not in sys.path:
 
 
                                                                                                                                         
+from ProductExtraInfo import ProductExtraInfo
+
+                
 from ProductImg import ProductImg
 
         
 from ProductPropImg import ProductPropImg
 
-                                                                
+                                                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品结构</SPAN>
 class Product(object):
     def __init__(self, kargs=dict()):
@@ -119,6 +122,17 @@ class Product(object):
         # </LI>
         # </UL>
         self.created = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">标识是否为达尔文体系下的产品 。 如果为空表示是非达尔文体系下的产品 如果cspu:0 表示是达尔文体系下的产品，有cspu正在待小二审核，但不能发布商品。 如果cspu:1 表示是达尔文体系下的产品，且有小二确认的cspu，能发布商品</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.cspu_feature = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">用户自定义属性,结构：pid1:value1;pid2:value2 例如：“20000:优衣库”，表示“品牌:优衣库”</SPAN>
         # <UL>
@@ -219,6 +233,17 @@ class Product(object):
         # </UL>
         self.price = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品扩展信息</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">ProductExtraInfo</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object Array</SPAN>
+        # </LI>
+        # </UL>
+        self.product_extra_infos = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品ID</SPAN>
         # <UL>
         # <LI>
@@ -285,6 +310,28 @@ class Product(object):
         # </UL>
         self.props_str = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品的评分次数</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.rate_num = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品的销售量</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.sale_num = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品的销售属性列表.格式:pid:vid;pid:vid</SPAN>
         # <UL>
         # <LI>
@@ -306,6 +353,39 @@ class Product(object):
         # </LI>
         # </UL>
         self.sale_props_str = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品卖点描述，长度限制20个汉字</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.sell_pt = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品的店内价格</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.shop_price = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品的标准价格</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.standard_price = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">当前状态(0 商家确认 1 屏蔽 3 小二确认 2 未确认 -1 删除)</SPAN>
         # <UL>
@@ -408,6 +488,8 @@ class Product(object):
             
             "created": "Date",
             
+            "cspu_feature": "String",
+            
             "customer_props": "String",
             
             "desc": "String",
@@ -426,6 +508,8 @@ class Product(object):
             
             "price": "Price",
             
+            "product_extra_infos": "ProductExtraInfo",
+            
             "product_id": "Number",
             
             "product_imgs": "ProductImg",
@@ -438,9 +522,19 @@ class Product(object):
             
             "props_str": "String",
             
+            "rate_num": "Number",
+            
+            "sale_num": "Number",
+            
             "sale_props": "String",
             
             "sale_props_str": "String",
+            
+            "sell_pt": "String",
+            
+            "shop_price": "String",
+            
+            "standard_price": "String",
             
             "status": "Number",
             
@@ -462,6 +556,8 @@ class Product(object):
             
             "created": "Basic",
             
+            "cspu_feature": "Basic",
+            
             "customer_props": "Basic",
             
             "desc": "Basic",
@@ -480,6 +576,8 @@ class Product(object):
             
             "price": "Basic",
             
+            "product_extra_infos": "Object Array",
+            
             "product_id": "Basic",
             
             "product_imgs": "Object Array",
@@ -492,9 +590,19 @@ class Product(object):
             
             "props_str": "Basic",
             
+            "rate_num": "Basic",
+            
+            "sale_num": "Basic",
+            
             "sale_props": "Basic",
             
             "sale_props_str": "Basic",
+            
+            "sell_pt": "Basic",
+            
+            "shop_price": "Basic",
+            
+            "standard_price": "Basic",
             
             "status": "Basic",
             
@@ -551,6 +659,9 @@ class Product(object):
         if kargs.has_key("created"):
             self.created = self._newInstance("created", kargs["created"])
         
+        if kargs.has_key("cspu_feature"):
+            self.cspu_feature = self._newInstance("cspu_feature", kargs["cspu_feature"])
+        
         if kargs.has_key("customer_props"):
             self.customer_props = self._newInstance("customer_props", kargs["customer_props"])
         
@@ -578,6 +689,9 @@ class Product(object):
         if kargs.has_key("price"):
             self.price = self._newInstance("price", kargs["price"])
         
+        if kargs.has_key("product_extra_infos"):
+            self.product_extra_infos = self._newInstance("product_extra_infos", kargs["product_extra_infos"])
+        
         if kargs.has_key("product_id"):
             self.product_id = self._newInstance("product_id", kargs["product_id"])
         
@@ -596,11 +710,26 @@ class Product(object):
         if kargs.has_key("props_str"):
             self.props_str = self._newInstance("props_str", kargs["props_str"])
         
+        if kargs.has_key("rate_num"):
+            self.rate_num = self._newInstance("rate_num", kargs["rate_num"])
+        
+        if kargs.has_key("sale_num"):
+            self.sale_num = self._newInstance("sale_num", kargs["sale_num"])
+        
         if kargs.has_key("sale_props"):
             self.sale_props = self._newInstance("sale_props", kargs["sale_props"])
         
         if kargs.has_key("sale_props_str"):
             self.sale_props_str = self._newInstance("sale_props_str", kargs["sale_props_str"])
+        
+        if kargs.has_key("sell_pt"):
+            self.sell_pt = self._newInstance("sell_pt", kargs["sell_pt"])
+        
+        if kargs.has_key("shop_price"):
+            self.shop_price = self._newInstance("shop_price", kargs["shop_price"])
+        
+        if kargs.has_key("standard_price"):
+            self.standard_price = self._newInstance("standard_price", kargs["standard_price"])
         
         if kargs.has_key("status"):
             self.status = self._newInstance("status", kargs["status"])

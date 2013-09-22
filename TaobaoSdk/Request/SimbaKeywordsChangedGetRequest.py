@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 分页获取修改过的关键词ID和修改时间
+## @brief 分页获取修改过的关键词ID、宝贝id、修改时间
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:38
+# @date 2013-09-22 16:52:37
 # @version: 0.0.0
 
 import os
@@ -23,7 +23,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分页获取修改过的关键词ID和修改时间</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分页获取修改过的关键词ID、宝贝id、修改时间</SPAN>
 # <UL>
 # </UL>
 class SimbaKeywordsChangedGetRequest(object):

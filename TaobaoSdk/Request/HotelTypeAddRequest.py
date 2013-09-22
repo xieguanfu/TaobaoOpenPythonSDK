@@ -5,7 +5,7 @@
 
 ## @brief 此接口用于发布一个房型，房型的发布者是当前会话的用户。如果该房型在淘宝集市酒店下已经存在，则会返回错误提示。 该接口发布的是一个新增房型申请，需要淘宝小二审核
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:16
+# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os
@@ -69,7 +69,7 @@ class HotelTypeAddRequest(object):
         # </UL>
         self.name = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">接入卖家数据主键</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">接入卖家数据主键,格式为“接入方酒店id-接入方房型id”</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

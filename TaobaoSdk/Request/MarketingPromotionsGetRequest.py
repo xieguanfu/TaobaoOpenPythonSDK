@@ -5,7 +5,7 @@
 
 ## @brief 根据商品ID查询卖家使用该第三方工具对商品设置的所有优惠策略
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:39
+# @date 2013-09-22 16:52:37
 # @version: 0.0.0
 
 import os
@@ -57,6 +57,17 @@ class MarketingPromotionsGetRequest(object):
         # </LI>
         # </UL>
         self.fields = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是否新标签标识</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.is_new_tag = None
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品数字ID。根据该ID查询商品下通过第三方工具设置的所有优惠策略</SPAN>
         # <UL>

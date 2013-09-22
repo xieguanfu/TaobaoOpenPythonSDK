@@ -5,7 +5,7 @@
 
 ## @brief 分销产品
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:28
+# @date 2013-09-22 16:52:27
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,13 +39,16 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                                                
+                                                                                                
+from FenxiaoImage import FenxiaoImage
+
+                                                                        
 from FenxiaoPdu import FenxiaoPdu
 
-                                                                                                                                
+                                                                                                                                        
 from FenxiaoSku import FenxiaoSku
 
-                                
+                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分销产品</SPAN>
 class FenxiaoProduct(object):
     def __init__(self, kargs=dict()):
@@ -174,6 +177,17 @@ class FenxiaoProduct(object):
         # </LI>
         # </UL>
         self.have_invoice = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品图片</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">FenxiaoImage</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object Array</SPAN>
+        # </LI>
+        # </UL>
+        self.images = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">自定义属性，格式为pid:value;pid:value</SPAN>
         # <UL>
@@ -406,6 +420,17 @@ class FenxiaoProduct(object):
         # </UL>
         self.quantity = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">根据商品ID查询时，返回这个产品对应的商品ID，只对分销商查询接口有效</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.query_item_id = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">最高零售价，单位：分。</SPAN>
         # <UL>
         # <LI>
@@ -460,6 +485,17 @@ class FenxiaoProduct(object):
         # </LI>
         # </UL>
         self.standard_price = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">零售基准价，单位：元</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Price</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.standard_retail_price = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">发布状态，可选值：up（上架）、down（下架）</SPAN>
         # <UL>
@@ -572,6 +608,8 @@ class FenxiaoProduct(object):
             
             "have_invoice": "Boolean",
             
+            "images": "FenxiaoImage",
+            
             "input_properties": "String",
             
             "is_authz": "String",
@@ -614,6 +652,8 @@ class FenxiaoProduct(object):
             
             "quantity": "Number",
             
+            "query_item_id": "Number",
+            
             "retail_price_high": "Price",
             
             "retail_price_low": "Price",
@@ -623,6 +663,8 @@ class FenxiaoProduct(object):
             "skus": "FenxiaoSku",
             
             "standard_price": "Price",
+            
+            "standard_retail_price": "Price",
             
             "status": "String",
             
@@ -653,6 +695,8 @@ class FenxiaoProduct(object):
             "have_guarantee": "Basic",
             
             "have_invoice": "Basic",
+            
+            "images": "Object Array",
             
             "input_properties": "Basic",
             
@@ -696,6 +740,8 @@ class FenxiaoProduct(object):
             
             "quantity": "Basic",
             
+            "query_item_id": "Basic",
+            
             "retail_price_high": "Basic",
             
             "retail_price_low": "Basic",
@@ -705,6 +751,8 @@ class FenxiaoProduct(object):
             "skus": "Object Array",
             
             "standard_price": "Basic",
+            
+            "standard_retail_price": "Basic",
             
             "status": "Basic",
             
@@ -776,6 +824,9 @@ class FenxiaoProduct(object):
         if kargs.has_key("have_invoice"):
             self.have_invoice = self._newInstance("have_invoice", kargs["have_invoice"])
         
+        if kargs.has_key("images"):
+            self.images = self._newInstance("images", kargs["images"])
+        
         if kargs.has_key("input_properties"):
             self.input_properties = self._newInstance("input_properties", kargs["input_properties"])
         
@@ -839,6 +890,9 @@ class FenxiaoProduct(object):
         if kargs.has_key("quantity"):
             self.quantity = self._newInstance("quantity", kargs["quantity"])
         
+        if kargs.has_key("query_item_id"):
+            self.query_item_id = self._newInstance("query_item_id", kargs["query_item_id"])
+        
         if kargs.has_key("retail_price_high"):
             self.retail_price_high = self._newInstance("retail_price_high", kargs["retail_price_high"])
         
@@ -853,6 +907,9 @@ class FenxiaoProduct(object):
         
         if kargs.has_key("standard_price"):
             self.standard_price = self._newInstance("standard_price", kargs["standard_price"])
+        
+        if kargs.has_key("standard_retail_price"):
+            self.standard_retail_price = self._newInstance("standard_retail_price", kargs["standard_retail_price"])
         
         if kargs.has_key("status"):
             self.status = self._newInstance("status", kargs["status"])

@@ -5,7 +5,7 @@
 
 ## @brief 类目对象
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:28
+# @date 2013-09-22 16:52:26
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -45,7 +45,7 @@ from INCategoryChildTop import INCategoryChildTop
                                 
 from INCategoryProperties import INCategoryProperties
 
-
+        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">类目对象</SPAN>
 class INCategoryTop(object):
     def __init__(self, kargs=dict()):
@@ -108,6 +108,17 @@ class INCategoryTop(object):
         # </LI>
         # </UL>
         self.category_properties_list = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">用户输入的词</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.categroy_word = None
         
         self.__init(kargs)
 
@@ -174,6 +185,8 @@ class INCategoryTop(object):
             "category_name": "String",
             
             "category_properties_list": "INCategoryProperties",
+            
+            "categroy_word": "String",
         }
         levels = {
             
@@ -186,6 +199,8 @@ class INCategoryTop(object):
             "category_name": "Basic",
             
             "category_properties_list": "Object Array",
+            
+            "categroy_word": "Basic",
 
         }
         nameType = properties[name]
@@ -232,3 +247,6 @@ class INCategoryTop(object):
         
         if kargs.has_key("category_properties_list"):
             self.category_properties_list = self._newInstance("category_properties_list", kargs["category_properties_list"])
+        
+        if kargs.has_key("categroy_word"):
+            self.categroy_word = self._newInstance("categroy_word", kargs["categroy_word"])

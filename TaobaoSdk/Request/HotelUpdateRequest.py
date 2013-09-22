@@ -5,7 +5,7 @@
 
 ## @brief 此接口用于更新一个酒店的信息，根据用户传入的hid更新酒店数据。如果该酒店在淘宝集市酒店不存在，则会返回错误提示。 该接口发出的是一个更新酒店信息的申请，需要淘宝小二审核。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:16
+# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os
@@ -58,7 +58,7 @@ class HotelUpdateRequest(object):
         # </UL>
         self.address = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">城市编码。参见：http://kezhan.trip.taobao.com/area.html，domestic为false时默认为0</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">城市编码。参见：http://kezhan.trip.taobao.com/area.html，domestic为false时，输入对应国家的海外城市编码，可调用海外城市查询接口获取</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -69,7 +69,7 @@ class HotelUpdateRequest(object):
         # </UL>
         self.city = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">domestic为true时，固定China； domestic为false时，必须传定义的酒店。参见：http://kezhan.trip.taobao.com/countrys.html</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">domestic为true时，固定China； domestic为false时，传海外国家编码。参见：http://kezhan.trip.taobao.com/countrys.html</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

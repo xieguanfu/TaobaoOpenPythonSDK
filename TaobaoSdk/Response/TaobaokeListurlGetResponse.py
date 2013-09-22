@@ -3,16 +3,32 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-
-## @brief 淘宝客关键词搜索URL
+## @brief 淘宝客关键词搜索URL. <p>由于受到<a href="http://club.alimama.com/read-htm-tid-3133847.html">淘宝联盟pid升级规则</a>影响，该接口后续可能会下线。建议直接使用拼链接的方式（塞入完整的pid）来获取搜索结果，而不是调用该接口来获取结果</p> <p>拼接的格式为：http://s8.taobao.com/browse/search_auction.htm?q=$url_encode($keywords)&pid=mm_xxx_xxx_xxx&search_type=auction&commend=all&at_topsearch=1&unid=$outer_code&spm=2014.$appkey.$apmc.$spmd</p> <p>q指关键字，url_encode是编码方法（具体根据不同编程语言而定）</p> <p>pid是你自己淘宝账号的完整的pid，登录alimama.com去获取</p> <p>unid是推广渠道。跟调用api设置outer_code效果相同</p> <p>spm可以到文档搜索“spm”了解下</p> <p></p> <p></p> <p></p>
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:56:03
-# @version: 0.0.16
+# @date 2013-09-22 16:52:47
+# @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -27,20 +43,13 @@ from Domain.TaobaokeItem import TaobaokeItem
 
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 淘宝客关键词搜索URL</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 淘宝客关键词搜索URL. <p>由于受到<a href="http://club.alimama.com/read-htm-tid-3133847.html">淘宝联盟pid升级规则</a>影响，该接口后续可能会下线。建议直接使用拼链接的方式（塞入完整的pid）来获取搜索结果，而不是调用该接口来获取结果</p> <p>拼接的格式为：http://s8.taobao.com/browse/search_auction.htm?q=$url_encode($keywords)&pid=mm_xxx_xxx_xxx&search_type=auction&commend=all&at_topsearch=1&unid=$outer_code&spm=2014.$appkey.$apmc.$spmd</p> <p>q指关键字，url_encode是编码方法（具体根据不同编程语言而定）</p> <p>pid是你自己淘宝账号的完整的pid，登录alimama.com去获取</p> <p>unid是推广渠道。跟调用api设置outer_code效果相同</p> <p>spm可以到文档搜索“spm”了解下</p> <p></p> <p></p> <p></p></SPAN>
 # <UL>
-# <LI>
-# <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">CName</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">淘宝客关键词搜索URL</SPAN>
-# </LI>
-# <LI>
-# <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Authorize</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">不需用户授权</SPAN>
-# </LI>
 # </UL>
 class TaobaokeListurlGetResponse(object):
     def __init__(self, kargs=dict()):
         super(self.__class__, self).__init__()
-        
-        
+
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">请求的返回信息,包含状态等</SPAN>
         # <UL>
         # <LI>
@@ -57,6 +66,14 @@ class TaobaokeListurlGetResponse(object):
         # </UL>        
         self.responseBody = None
 
+        self.code = None
+
+        self.msg = None
+
+        self.sub_code = None
+
+        self.sub_msg = None
+
         
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">只返回keyword_click_url</SPAN>
@@ -67,20 +84,13 @@ class TaobaokeListurlGetResponse(object):
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object</SPAN>
         # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">true</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Sample</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;"></SPAN>
-        # </LI>
         # </UL>
         self.taobaoke_item = None
-        ''' 
-        @ivar taobaoke_item: 只返回keyword_click_url; B{Level}: C{Object}; B{Required}: C{true}; B{Sample}: C{};
-        @type taobaoke_item: TaobaokeItem
-        '''
     
         self.__init(kargs)
+
+    def isSuccess(self):
+        return self.code == None and self.sub_code == None
     
     def _newInstance(self, name, value):
         types = self._getPropertyType(name)
@@ -88,22 +98,34 @@ class TaobaokeListurlGetResponse(object):
         isArray = types[1]
         if propertyType == bool:
             if isArray:
+                if not value:
+                    return []
                 return [x for x in value[value.keys()[0]]]
             else:
                 return value
         elif propertyType == datetime:
             format = "%Y-%m-%d %H:%M:%S"
             if isArray:
+                if not value:
+                    return []
                 return [datetime.strptime(x, format) for x in value[value.keys()[0]]]
             else:
                 return datetime.strptime(value, format)
         elif propertyType == str:
             if isArray:
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                if not value:
+                    return []
+                return [x for x in value[value.keys()[0]]]
             else:
-                return value.encode("utf-8")
+                #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
+                if not isinstance(value, basestring):
+                    #the value should be a json string 
+                    return _jsonEnode(value)
+                return value
         else:
             if isArray:
+                if not value:
+                    return []
                 return [propertyType(x) for x in value[value.keys()[0]]]
             else:
                 return propertyType(value)
@@ -148,4 +170,11 @@ class TaobaokeListurlGetResponse(object):
         
         if kargs.has_key("taobaoke_item"):
             self.taobaoke_item = self._newInstance("taobaoke_item", kargs["taobaoke_item"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 用户根据淘宝交易号查询物流流转信息，如2010-8-10 15：23：00到达杭州集散地。 此接口的返回信息都由物流公司提供。
+## @brief 用户根据淘宝交易号查询物流流转信息，如2010-8-10 15：23：00到达杭州集散地。 此接口的返回信息都由物流公司提供。（备注：使用线下发货（offline.send）的运单，不支持运单状态的实时跟踪，只要一发货，状态就会变为<status>对方已签收</status>，该字段仅对线上发货（online.send）的运单有效。）
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:44
+# @date 2013-09-22 16:52:44
 # @version: 0.0.0
 
 from datetime import datetime
@@ -43,7 +43,7 @@ from Domain.TransitStepInfo import TransitStepInfo
 
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 用户根据淘宝交易号查询物流流转信息，如2010-8-10 15：23：00到达杭州集散地。 此接口的返回信息都由物流公司提供。</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 用户根据淘宝交易号查询物流流转信息，如2010-8-10 15：23：00到达杭州集散地。 此接口的返回信息都由物流公司提供。（备注：使用线下发货（offline.send）的运单，不支持运单状态的实时跟踪，只要一发货，状态就会变为<status>对方已签收</status>，该字段仅对线上发货（online.send）的运单有效。）</SPAN>
 # <UL>
 # </UL>
 class LogisticsTraceSearchResponse(object):
@@ -100,7 +100,7 @@ class LogisticsTraceSearchResponse(object):
         self.out_sid = None
         
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">订单的物流状态* 等候发送给物流公司*已提交给物流公司,等待物流公司接单*已经确认消息接收，等待物流公司接单*物流公司已接单*物流公司不接单*物流公司揽收失败*物流公司揽收成功*签收失败*对方已签收*对方拒绝签收</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">订单的物流状态（仅支持线上发货online订单，线下发货offline发出后直接变为已签收）* 等候发送给物流公司*已提交给物流公司,等待物流公司接单*已经确认消息接收，等待物流公司接单*物流公司已接单*物流公司不接单*物流公司揽收失败*物流公司揽收成功*签收失败*对方已签收*对方拒绝签收</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

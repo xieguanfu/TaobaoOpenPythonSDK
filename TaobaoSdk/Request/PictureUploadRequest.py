@@ -5,7 +5,7 @@
 
 ## @brief 上传单张图片
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:40
+# @date 2013-09-22 16:52:40
 # @version: 0.0.0
 
 import os
@@ -58,7 +58,7 @@ class PictureUploadRequest(object):
         # </UL>
         self.image_input_title = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">图片二进制文件流,不能为空,允许png、jpg、gif图片格式</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">图片二进制文件流,不能为空,允许png、jpg、gif图片格式,2M以内。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">byte[]</SPAN>

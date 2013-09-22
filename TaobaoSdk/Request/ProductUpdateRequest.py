@@ -5,7 +5,7 @@
 
 ## @brief 传入产品ID  可修改字段：outer_id,binds,sale_props,name,price,desc,image  注意：1.可以修改主图,不能修改子图片,主图最大500K,目前仅支持GIF,JPG       2.商城卖家产品发布24小时后不能作删除或修改操作
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:33
+# @date 2013-09-22 16:52:32
 # @version: 0.0.0
 
 import os
@@ -69,6 +69,17 @@ class ProductUpdateRequest(object):
         # </UL>
         self.desc = None
         
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">存放产品扩展信息，由List(ProductExtraInfo)转化成jsonArray存入.</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.extra_info = None
+        
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品主图.最大500K,目前仅支持GIF,JPG</SPAN>
         # <UL>
         # <LI>
@@ -90,6 +101,17 @@ class ProductUpdateRequest(object):
         # </LI>
         # </UL>
         self.major = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">市场ID，1为更新C2C市场的产品信息， 2为更新B2C市场的产品信息。 不填写此值则C用户更新B2C市场的产品信息，B用户更新B2C市场的产品信息。</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.market_id = None
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品名称.最大60个字节</SPAN>
         # <UL>
@@ -167,3 +189,14 @@ class ProductUpdateRequest(object):
         # </LI>
         # </UL>
         self.sale_props = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品卖点描述，最长40个字节</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.sell_pt = None

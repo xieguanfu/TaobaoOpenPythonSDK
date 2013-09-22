@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 查询卖家用户信息（只能查询有店铺的用户）
+## @brief 查询卖家用户信息（只能查询有店铺的用户） 只能卖家类应用调用。
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:41
+# @date 2013-09-22 16:52:42
 # @version: 0.0.0
 
 from datetime import datetime
@@ -43,7 +43,7 @@ from Domain.User import User
 
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 查询卖家用户信息（只能查询有店铺的用户）</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 查询卖家用户信息（只能查询有店铺的用户） 只能卖家类应用调用。</SPAN>
 # <UL>
 # </UL>
 class UserSellerGetResponse(object):

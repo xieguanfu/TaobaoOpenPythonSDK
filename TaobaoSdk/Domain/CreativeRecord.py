@@ -5,7 +5,7 @@
 
 ## @brief 创意修改记录，只记录最后一次修改
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:31
+# @date 2013-09-22 16:52:28
 # @version: 0.0.0
 
 from copy import deepcopy

@@ -5,7 +5,7 @@
 
 ## @brief 通过接口可以查询某个店铺优惠券的买家详细信息返回的信息，买家昵称， 使用渠道，使用状态，总数量
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:51
+# @date 2013-09-22 16:52:51
 # @version: 0.0.0
 
 from datetime import datetime
@@ -41,7 +41,7 @@ if __parentPath not in sys.path:
     
 from Domain.CouponDetail import CouponDetail
 
-    
+        
 
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 通过接口可以查询某个店铺优惠券的买家详细信息返回的信息，买家昵称， 使用渠道，使用状态，总数量</SPAN>
 # <UL>
@@ -86,6 +86,18 @@ class PromotionCoupondetailGetResponse(object):
         # </LI>
         # </UL>
         self.coupon_details = None
+        
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是否还有下一页  true表示当前查询的结果还有下一页，false表示当前查询的结果已经是最后一页</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.is_have_next_page = None
         
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">查询数量总数</SPAN>
@@ -147,11 +159,15 @@ class PromotionCoupondetailGetResponse(object):
             
             "coupon_details": "CouponDetail",
             
+            "is_have_next_page": "Boolean",
+            
             "total_results": "Number",
         }
         levels = {
             
             "coupon_details": "Object Array",
+            
+            "is_have_next_page": "Basic",
             
             "total_results": "Basic",
         }
@@ -186,6 +202,9 @@ class PromotionCoupondetailGetResponse(object):
         
         if kargs.has_key("coupon_details"):
             self.coupon_details = self._newInstance("coupon_details", kargs["coupon_details"])
+        
+        if kargs.has_key("is_have_next_page"):
+            self.is_have_next_page = self._newInstance("is_have_next_page", kargs["is_have_next_page"])
         
         if kargs.has_key("total_results"):
             self.total_results = self._newInstance("total_results", kargs["total_results"])

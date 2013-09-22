@@ -5,7 +5,7 @@
 
 ## @brief 采购单及子采购单信息
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:28
+# @date 2013-09-22 16:52:27
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,10 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                                                        
+                                                                                                                                                        
+from OrderMessage import OrderMessage
+
+                                
 from Receiver import Receiver
 
                                 
@@ -86,6 +89,17 @@ class PurchaseOrder(object):
         # </LI>
         # </UL>
         self.buyer_payment = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">加密后的买家淘宝ID，长度为32位</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.buyer_taobao_id = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">物流发货时间。格式:yyyy-MM-dd HH:mm:ss</SPAN>
         # <UL>
@@ -241,6 +255,17 @@ class PurchaseOrder(object):
         # </UL>
         self.modified = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">采购单留言列表</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">OrderMessage</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object Array</SPAN>
+        # </LI>
+        # </UL>
+        self.order_messages = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">付款时间。格式:yyyy-MM-dd HH:mm:ss</SPAN>
         # <UL>
         # <LI>
@@ -307,7 +332,7 @@ class PurchaseOrder(object):
         # </UL>
         self.snapshot_url = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">采购单交易状态。可选值：<br> WAIT_BUYER_PAY(等待付款)<br> WAIT_SELLER_SEND_GOODS(已付款，待发货）<br> WAIT_BUYER_CONFIRM_GOODS(已付款，已发货)<br> TRADE_FINISHED(交易成功)<br> TRADE_CLOSED(交易关闭)<br> WAIT_BUYER_CONFIRM_GOODS_ACOUNTED(已付款（已分账），已发货。只对代销分账支持)<br> WAIT_SELLER_SEND_GOODS_ACOUNTED(已付款（已分账），待发货。只对代销分账支持)</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">采购单交易状态。可选值：<br>WAIT_BUYER_PAY(等待付款)<br>WAIT_SELLER_SEND_GOODS(已付款，待发货）<br>WAIT_BUYER_CONFIRM_GOODS(已付款，已发货)<br>TRADE_FINISHED(交易成功)<br>TRADE_CLOSED(交易关闭)<br>WAIT_BUYER_CONFIRM_GOODS_ACOUNTED(已付款（已分账），已发货。只对代销分账支持)<br>WAIT_SELLER_SEND_GOODS_ACOUNTED(已付款（已分账），待发货。只对代销分账支持)<br>PAY_ACOUNTED_GOODS_CONFIRM （已分账发货成功）<br>PAY_WAIT_ACOUNT_GOODS_CONFIRM（已付款，确认收货）</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -468,6 +493,8 @@ class PurchaseOrder(object):
             
             "buyer_payment": "Price",
             
+            "buyer_taobao_id": "String",
+            
             "consign_time": "Date",
             
             "created": "Date",
@@ -495,6 +522,8 @@ class PurchaseOrder(object):
             "memo": "String",
             
             "modified": "Date",
+            
+            "order_messages": "OrderMessage",
             
             "pay_time": "Date",
             
@@ -534,6 +563,8 @@ class PurchaseOrder(object):
             
             "buyer_payment": "Basic",
             
+            "buyer_taobao_id": "Basic",
+            
             "consign_time": "Basic",
             
             "created": "Basic",
@@ -561,6 +592,8 @@ class PurchaseOrder(object):
             "memo": "Basic",
             
             "modified": "Basic",
+            
+            "order_messages": "Object Array",
             
             "pay_time": "Basic",
             
@@ -632,6 +665,9 @@ class PurchaseOrder(object):
         if kargs.has_key("buyer_payment"):
             self.buyer_payment = self._newInstance("buyer_payment", kargs["buyer_payment"])
         
+        if kargs.has_key("buyer_taobao_id"):
+            self.buyer_taobao_id = self._newInstance("buyer_taobao_id", kargs["buyer_taobao_id"])
+        
         if kargs.has_key("consign_time"):
             self.consign_time = self._newInstance("consign_time", kargs["consign_time"])
         
@@ -673,6 +709,9 @@ class PurchaseOrder(object):
         
         if kargs.has_key("modified"):
             self.modified = self._newInstance("modified", kargs["modified"])
+        
+        if kargs.has_key("order_messages"):
+            self.order_messages = self._newInstance("order_messages", kargs["order_messages"])
         
         if kargs.has_key("pay_time"):
             self.pay_time = self._newInstance("pay_time", kargs["pay_time"])

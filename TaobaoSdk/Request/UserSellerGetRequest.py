@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 查询卖家用户信息（只能查询有店铺的用户）
+## @brief 查询卖家用户信息（只能查询有店铺的用户） 只能卖家类应用调用。
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:32
+# @date 2013-09-22 16:52:31
 # @version: 0.0.0
 
 import os
@@ -23,7 +23,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">查询卖家用户信息（只能查询有店铺的用户）</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">查询卖家用户信息（只能查询有店铺的用户） 只能卖家类应用调用。</SPAN>
 # <UL>
 # </UL>
 class UserSellerGetRequest(object):

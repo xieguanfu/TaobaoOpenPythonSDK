@@ -5,7 +5,7 @@
 
 ## @brief 订单结构
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:26
+# @date 2013-09-22 16:52:25
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">订单结构</SPAN>
 class Order(object):
     def __init__(self, kargs=dict()):
@@ -58,6 +58,17 @@ class Order(object):
         # </LI>
         # </UL>
         self.adjust_fee = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">捆绑的子订单号，表示该子订单要和捆绑的子订单一起发货，用于卖家子订单捆绑发货</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.bind_oid = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">买家昵称</SPAN>
         # <UL>
@@ -92,6 +103,17 @@ class Order(object):
         # </UL>
         self.cid = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子订单发货时间，当卖家对订单进行了多次发货，子订单的发货时间和主订单的发货时间可能不一样了，那么就需要以子订单的时间为准。（没有进行多次发货的订单，主订单的发货时间和子订单的发货时间都一样）</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.consign_time = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">订单优惠金额。精确到2位小数;单位:元。如:200.07，表示:200元7分</SPAN>
         # <UL>
         # <LI>
@@ -102,6 +124,17 @@ class Order(object):
         # </LI>
         # </UL>
         self.discount_fee = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分摊之后的实付金额</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.divide_order_fee = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子订单的交易结束时间 说明：子订单有单独的结束时间，与主订单的结束时间可能有所不同，在有退款发起的时候或者是主订单分阶段付款的时候，子订单的结束时间会早于主订单的结束时间，所以开放这个字段便于订单结束状态的判断</SPAN>
         # <UL>
@@ -124,6 +157,28 @@ class Order(object):
         # </LI>
         # </UL>
         self.iid = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子订单所在包裹的运单号</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.invoice_no = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">表示订单交易是否含有对应的代销采购单。 如果该订单中存在一个对应的代销采购单，那么该值为true；反之，该值为false。</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.is_daixiao = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是否超卖</SPAN>
         # <UL>
@@ -168,6 +223,17 @@ class Order(object):
         # </LI>
         # </UL>
         self.item_meal_name = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子订单发货的快递公司名称</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.logistics_company = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">订单修改时间，目前只有taobao.trade.ordersku.update会返回此字段。</SPAN>
         # <UL>
@@ -245,6 +311,17 @@ class Order(object):
         # </LI>
         # </UL>
         self.outer_sku_id = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">优惠分摊</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.part_mjz_discount = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子订单实付金额。精确到2位小数，单位:元。如:200.07，表示:200元7分。计算公式如下：payment = price * num + adjust_fee - discount_fee + post_fee(邮费，单笔子订单时子订单实付金额包含邮费，多笔子订单时不包含邮费)；对于退款成功的子订单，由于主订单的优惠分摊金额，会造成该字段可能不为0.00元。建议使用退款前的实付金额减去退款单中的实际退款金额计算。</SPAN>
         # <UL>
@@ -333,6 +410,17 @@ class Order(object):
         # </LI>
         # </UL>
         self.seller_type = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子订单的运送方式（卖家对订单进行多次发货之后，一个主订单下的子订单的运送方式可能不同，用order.shipping_type来区分子订单的运送方式）</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.shipping_type = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品的最小库存单位Sku的id.可以通过taobao.item.sku.get获取详细的Sku信息</SPAN>
         # <UL>
@@ -480,17 +568,27 @@ class Order(object):
             
             "adjust_fee": "String",
             
+            "bind_oid": "Number",
+            
             "buyer_nick": "String",
             
             "buyer_rate": "Boolean",
             
             "cid": "Number",
             
+            "consign_time": "String",
+            
             "discount_fee": "String",
+            
+            "divide_order_fee": "String",
             
             "end_time": "Date",
             
             "iid": "String",
+            
+            "invoice_no": "String",
+            
+            "is_daixiao": "Boolean",
             
             "is_oversold": "Boolean",
             
@@ -499,6 +597,8 @@ class Order(object):
             "item_meal_id": "Number",
             
             "item_meal_name": "String",
+            
+            "logistics_company": "String",
             
             "modified": "Date",
             
@@ -513,6 +613,8 @@ class Order(object):
             "outer_iid": "String",
             
             "outer_sku_id": "String",
+            
+            "part_mjz_discount": "String",
             
             "payment": "String",
             
@@ -529,6 +631,8 @@ class Order(object):
             "seller_rate": "Boolean",
             
             "seller_type": "String",
+            
+            "shipping_type": "String",
             
             "sku_id": "String",
             
@@ -550,17 +654,27 @@ class Order(object):
             
             "adjust_fee": "Basic",
             
+            "bind_oid": "Basic",
+            
             "buyer_nick": "Basic",
             
             "buyer_rate": "Basic",
             
             "cid": "Basic",
             
+            "consign_time": "Basic",
+            
             "discount_fee": "Basic",
+            
+            "divide_order_fee": "Basic",
             
             "end_time": "Basic",
             
             "iid": "Basic",
+            
+            "invoice_no": "Basic",
+            
+            "is_daixiao": "Basic",
             
             "is_oversold": "Basic",
             
@@ -569,6 +683,8 @@ class Order(object):
             "item_meal_id": "Basic",
             
             "item_meal_name": "Basic",
+            
+            "logistics_company": "Basic",
             
             "modified": "Basic",
             
@@ -583,6 +699,8 @@ class Order(object):
             "outer_iid": "Basic",
             
             "outer_sku_id": "Basic",
+            
+            "part_mjz_discount": "Basic",
             
             "payment": "Basic",
             
@@ -599,6 +717,8 @@ class Order(object):
             "seller_rate": "Basic",
             
             "seller_type": "Basic",
+            
+            "shipping_type": "Basic",
             
             "sku_id": "Basic",
             
@@ -650,6 +770,9 @@ class Order(object):
         if kargs.has_key("adjust_fee"):
             self.adjust_fee = self._newInstance("adjust_fee", kargs["adjust_fee"])
         
+        if kargs.has_key("bind_oid"):
+            self.bind_oid = self._newInstance("bind_oid", kargs["bind_oid"])
+        
         if kargs.has_key("buyer_nick"):
             self.buyer_nick = self._newInstance("buyer_nick", kargs["buyer_nick"])
         
@@ -659,14 +782,26 @@ class Order(object):
         if kargs.has_key("cid"):
             self.cid = self._newInstance("cid", kargs["cid"])
         
+        if kargs.has_key("consign_time"):
+            self.consign_time = self._newInstance("consign_time", kargs["consign_time"])
+        
         if kargs.has_key("discount_fee"):
             self.discount_fee = self._newInstance("discount_fee", kargs["discount_fee"])
+        
+        if kargs.has_key("divide_order_fee"):
+            self.divide_order_fee = self._newInstance("divide_order_fee", kargs["divide_order_fee"])
         
         if kargs.has_key("end_time"):
             self.end_time = self._newInstance("end_time", kargs["end_time"])
         
         if kargs.has_key("iid"):
             self.iid = self._newInstance("iid", kargs["iid"])
+        
+        if kargs.has_key("invoice_no"):
+            self.invoice_no = self._newInstance("invoice_no", kargs["invoice_no"])
+        
+        if kargs.has_key("is_daixiao"):
+            self.is_daixiao = self._newInstance("is_daixiao", kargs["is_daixiao"])
         
         if kargs.has_key("is_oversold"):
             self.is_oversold = self._newInstance("is_oversold", kargs["is_oversold"])
@@ -679,6 +814,9 @@ class Order(object):
         
         if kargs.has_key("item_meal_name"):
             self.item_meal_name = self._newInstance("item_meal_name", kargs["item_meal_name"])
+        
+        if kargs.has_key("logistics_company"):
+            self.logistics_company = self._newInstance("logistics_company", kargs["logistics_company"])
         
         if kargs.has_key("modified"):
             self.modified = self._newInstance("modified", kargs["modified"])
@@ -700,6 +838,9 @@ class Order(object):
         
         if kargs.has_key("outer_sku_id"):
             self.outer_sku_id = self._newInstance("outer_sku_id", kargs["outer_sku_id"])
+        
+        if kargs.has_key("part_mjz_discount"):
+            self.part_mjz_discount = self._newInstance("part_mjz_discount", kargs["part_mjz_discount"])
         
         if kargs.has_key("payment"):
             self.payment = self._newInstance("payment", kargs["payment"])
@@ -724,6 +865,9 @@ class Order(object):
         
         if kargs.has_key("seller_type"):
             self.seller_type = self._newInstance("seller_type", kargs["seller_type"])
+        
+        if kargs.has_key("shipping_type"):
+            self.shipping_type = self._newInstance("shipping_type", kargs["shipping_type"])
         
         if kargs.has_key("sku_id"):
             self.sku_id = self._newInstance("sku_id", kargs["sku_id"])

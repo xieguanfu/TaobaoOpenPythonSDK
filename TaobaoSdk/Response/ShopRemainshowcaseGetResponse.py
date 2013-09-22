@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 获取卖家店铺剩余橱窗数量，已用橱窗数量，总橱窗数量（对于B卖家，后两个参数返回-1）
+## @brief 获取卖家店铺剩余橱窗数量，已用橱窗数量，总橱窗数量
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:44
+# @date 2013-09-22 16:52:44
 # @version: 0.0.0
 
 from datetime import datetime
@@ -43,7 +43,7 @@ from Domain.Shop import Shop
 
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 获取卖家店铺剩余橱窗数量，已用橱窗数量，总橱窗数量（对于B卖家，后两个参数返回-1）</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 获取卖家店铺剩余橱窗数量，已用橱窗数量，总橱窗数量</SPAN>
 # <UL>
 # </UL>
 class ShopRemainshowcaseGetResponse(object):

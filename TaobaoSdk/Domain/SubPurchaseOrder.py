@@ -5,7 +5,7 @@
 
 ## @brief 子采购单详细信息
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:29
+# @date 2013-09-22 16:52:27
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                                                                        
+                                                                                                                                                                                                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子采购单详细信息</SPAN>
 class SubPurchaseOrder(object):
     def __init__(self, kargs=dict()):
@@ -114,7 +114,7 @@ class SubPurchaseOrder(object):
         # </UL>
         self.fenxiao_id = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子采购单id，淘宝交易主键，采购单未付款时为0.</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子采购单id，淘宝交易主键，采购单未付款时为0.（只有支付宝 付款才有这个id，其余付款形式该字段为0）</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -257,7 +257,7 @@ class SubPurchaseOrder(object):
         # </UL>
         self.snapshot_url = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易状态。可选值：<br> WAIT_BUYER_PAY(等待付款)<br> WAIT_CONFIRM(付款信息待确认)<br> WAIT_CONFIRM_WAIT_SEND_GOODS(付款信息待确认，待发货)<br> WAIT_CONFIRM_SEND_GOODS(付款信息待确认，已发货)<br> WAIT_CONFIRM_GOODS_CONFIRM(付款信息待确认，已收货)<br> WAIT_SELLER_SEND_GOODS(已付款，待发货)<br> WAIT_BUYER_CONFIRM_GOODS(已付款，已发货)<br> CONFIRM_WAIT_SEND_GOODS(付款信息已确认，待发货)<br> CONFIRM_SEND_GOODS(付款信息已确认，已发货)<br> TRADE_REFUNDED(已退款)<br> TRADE_REFUNDING(退款中)<br> TRADE_FINISHED(交易成功)<br> TRADE_CLOSED(交易关闭)<br></SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易状态。可选值：<br>WAIT_BUYER_PAY(等待付款)<br>WAIT_CONFIRM(付款信息待确认)<br>WAIT_CONFIRM_WAIT_SEND_GOODS(付款信息待确认，待发货)<br>WAIT_CONFIRM_SEND_GOODS(付款信息待确认，已发货)<br>WAIT_CONFIRM_GOODS_CONFIRM(付款信息待确认，已收货)<br>WAIT_SELLER_SEND_GOODS(已付款，待发货)<br>WAIT_BUYER_CONFIRM_GOODS(已付款，已发货)<br>WAIT_BUYER_CONFIRM_GOODS_ACOUNTED(已付款（已分账），已发货。只对代销分账支持)<br>CONFIRM_WAIT_SEND_GOODS(付款信息已确认，待发货)<br>CONFIRM_SEND_GOODS(付款信息已确认，已发货)<br>TRADE_REFUNDED(已退款)<br>TRADE_REFUNDING(退款中)<br>TRADE_FINISHED(交易成功)<br>TRADE_CLOSED(交易关闭)<br>PAY_ACOUNTED_GOODS_CONFIRM （已分账发货成功）<br>PAY_WAIT_ACOUNT_GOODS_CONFIRM（已付款，确认收货）</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -268,7 +268,29 @@ class SubPurchaseOrder(object):
         # </UL>
         self.status = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">TC订单ID（经销不显示）</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品的卖出金额调整，金额增加时为正数，金额减少时为负数，单位是分，不带小数</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.tc_adjust_fee = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">优惠金额，始终为正数，单位是分，不带小数</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.tc_discount_fee = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">TC子订单ID（经销不显示）</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -278,6 +300,17 @@ class SubPurchaseOrder(object):
         # </LI>
         # </UL>
         self.tc_order_id = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品优惠类型：聚划算、秒杀或其他</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.tc_preferential_type = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">采购的产品标题。</SPAN>
         # <UL>
@@ -397,7 +430,13 @@ class SubPurchaseOrder(object):
             
             "status": "String",
             
+            "tc_adjust_fee": "Number",
+            
+            "tc_discount_fee": "Number",
+            
             "tc_order_id": "Number",
+            
+            "tc_preferential_type": "String",
             
             "title": "String",
             
@@ -445,7 +484,13 @@ class SubPurchaseOrder(object):
             
             "status": "Basic",
             
+            "tc_adjust_fee": "Basic",
+            
+            "tc_discount_fee": "Basic",
+            
             "tc_order_id": "Basic",
+            
+            "tc_preferential_type": "Basic",
             
             "title": "Basic",
             
@@ -542,8 +587,17 @@ class SubPurchaseOrder(object):
         if kargs.has_key("status"):
             self.status = self._newInstance("status", kargs["status"])
         
+        if kargs.has_key("tc_adjust_fee"):
+            self.tc_adjust_fee = self._newInstance("tc_adjust_fee", kargs["tc_adjust_fee"])
+        
+        if kargs.has_key("tc_discount_fee"):
+            self.tc_discount_fee = self._newInstance("tc_discount_fee", kargs["tc_discount_fee"])
+        
         if kargs.has_key("tc_order_id"):
             self.tc_order_id = self._newInstance("tc_order_id", kargs["tc_order_id"])
+        
+        if kargs.has_key("tc_preferential_type"):
+            self.tc_preferential_type = self._newInstance("tc_preferential_type", kargs["tc_preferential_type"])
         
         if kargs.has_key("title"):
             self.title = self._newInstance("title", kargs["title"])

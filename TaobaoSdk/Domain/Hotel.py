@@ -5,7 +5,7 @@
 
 ## @brief Hotel（酒店）结构。各字段详细说明可参考接口定义，如：酒店发布接口。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:00
+# @date 2013-09-22 16:52:28
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                                                        
+                                                                                                                                                                                
 from RoomType import RoomType
 
                                         
@@ -62,7 +62,7 @@ class Hotel(object):
         # </UL>
         self.address = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">某个卖家发布的酒店的别名</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">某个卖家发布的酒店的别名(注：该字段将要废弃)</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -72,6 +72,17 @@ class Hotel(object):
         # </LI>
         # </UL>
         self.alias_name = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">酒店审核被否决的原因</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.audit_deny_reason = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">城市编码</SPAN>
         # <UL>
@@ -397,6 +408,8 @@ class Hotel(object):
             
             "alias_name": "String",
             
+            "audit_deny_reason": "String",
+            
             "city": "Number",
             
             "city_str": "String",
@@ -450,6 +463,8 @@ class Hotel(object):
             "address": "Basic",
             
             "alias_name": "Basic",
+            
+            "audit_deny_reason": "Basic",
             
             "city": "Basic",
             
@@ -535,6 +550,9 @@ class Hotel(object):
         
         if kargs.has_key("alias_name"):
             self.alias_name = self._newInstance("alias_name", kargs["alias_name"])
+        
+        if kargs.has_key("audit_deny_reason"):
+            self.audit_deny_reason = self._newInstance("audit_deny_reason", kargs["audit_deny_reason"])
         
         if kargs.has_key("city"):
             self.city = self._newInstance("city", kargs["city"])

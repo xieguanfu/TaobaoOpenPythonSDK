@@ -5,7 +5,7 @@
 
 ## @brief 此接口用于为商品上传商品图片。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:15
+# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os

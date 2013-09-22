@@ -5,7 +5,7 @@
 
 ## @brief 根据授权结果码获取授权状况
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:36
+# @date 2013-09-22 16:52:34
 # @version: 0.0.0
 
 import os
@@ -57,6 +57,17 @@ class InventoryAuthorizeGetRequest(object):
         # </LI>
         # </UL>
         self.authorize_code = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">sc_item_id商品后端id</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">required</SPAN>
+        # </LI>
+        # </UL>
+        self.sc_item_id = None
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分配用户列表，多个用户使用“,“分割开</SPAN>
         # <UL>

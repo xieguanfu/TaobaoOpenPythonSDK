@@ -5,7 +5,7 @@
 
 ## @brief Room（酒店商品）结构。各字段详细说明可参考接口定义，如：商品发布接口。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:00
+# @date 2013-09-22 16:52:28
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -42,7 +42,7 @@ if __getCurrentPath() not in sys.path:
                                                                                                 
 from Hotel import Hotel
 
-                                                                
+                                                                        
 from RoomType import RoomType
 
                                         
@@ -207,6 +207,17 @@ class Room(object):
         # </LI>
         # </UL>
         self.modified = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">为到店支付卖家特殊使用，代表多种支付类型的房态</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.multi_room_quotas = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">支付类型</SPAN>
         # <UL>
@@ -413,6 +424,8 @@ class Room(object):
             
             "modified": "Date",
             
+            "multi_room_quotas": "String",
+            
             "payment_type": "String",
             
             "pic_url": "String",
@@ -464,6 +477,8 @@ class Room(object):
             "iid": "Basic",
             
             "modified": "Basic",
+            
+            "multi_room_quotas": "Basic",
             
             "payment_type": "Basic",
             
@@ -559,6 +574,9 @@ class Room(object):
         
         if kargs.has_key("modified"):
             self.modified = self._newInstance("modified", kargs["modified"])
+        
+        if kargs.has_key("multi_room_quotas"):
+            self.multi_room_quotas = self._newInstance("multi_room_quotas", kargs["multi_room_quotas"])
         
         if kargs.has_key("payment_type"):
             self.payment_type = self._newInstance("payment_type", kargs["payment_type"])

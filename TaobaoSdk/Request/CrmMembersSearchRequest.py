@@ -5,7 +5,7 @@
 
 ## @brief 会员列表的高级查询，接口返回符合条件的会员列表.<br> 注：建议获取09年以后的数据，09年之前的数据不是很完整
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:56
+# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os
@@ -69,7 +69,7 @@ class CrmMembersSearchRequest(object):
         # </UL>
         self.city = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">显示第几页的会员，如果输入的页码大于总共的页码数，例如总共10页，但是current_page的值为11，则返回空白页，最小页数为1</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">显示第几页的会员，如果输入的页码大于总共的页码数，例如总共10页，但是current_page的值为11，则返回空白页，最小页数为1.最大1000页</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -80,7 +80,7 @@ class CrmMembersSearchRequest(object):
         # </UL>
         self.current_page = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">会员等级，1：普通客户，2：高级会员，3：VIP会员, 4：至尊VIP会员           注：grade=0通过relation_source=2查询</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">会员等级，0：店铺客户，1：普通客户，2：高级会员，3：VIP会员, 4：至尊VIP会员</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -234,17 +234,6 @@ class CrmMembersSearchRequest(object):
         # </UL>
         self.min_trade_count = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">指定按哪个字段排序，目前可排序的字段为：relation，trade_count，trade_amount，avg_price，lastest_time</SPAN>
-        # <UL>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
-        # </LI>
-        # </UL>
-        self.order = None
-        
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">每页显示的会员数量，page_size的最大值不能超过100，最小值不能小于1</SPAN>
         # <UL>
         # <LI>
@@ -267,7 +256,7 @@ class CrmMembersSearchRequest(object):
         # </UL>
         self.province = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">关系来源，1交易成功，2未成交(grade=0)</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">关系来源，1交易成功，2未成交，3卖家手动吸纳</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -277,14 +266,3 @@ class CrmMembersSearchRequest(object):
         # </LI>
         # </UL>
         self.relation_source = None
-        
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">用于描述是按升序还是降序排列结果</SPAN>
-        # <UL>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
-        # </LI>
-        # </UL>
-        self.sort = None

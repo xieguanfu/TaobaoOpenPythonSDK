@@ -5,7 +5,7 @@
 
 ## @brief 卖家拒绝单笔退款交易，要求如下： 1. 传入的refund_id和相应的tid, oid必须匹配 2. 如果一笔订单只有一笔子订单，则tid必须与oid相同 3. 只有卖家才能执行拒绝退款操作 4. 以下三种情况不能退款：卖家未发货；7天无理由退换货；网游订单
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:40
+# @date 2013-09-22 16:52:41
 # @version: 0.0.0
 
 import os
@@ -53,7 +53,7 @@ class RefundRefuseRequest(object):
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
         # </LI>
         # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">required</SPAN>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
         # </LI>
         # </UL>
         self.oid = None
@@ -97,7 +97,7 @@ class RefundRefuseRequest(object):
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
         # </LI>
         # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">required</SPAN>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
         # </LI>
         # </UL>
         self.tid = None

@@ -5,7 +5,7 @@
 
 ## @brief 分销商或供应商均可用此接口查询采购单信息. (发货处理请调用物流API中的发货接口)
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:35
+# @date 2013-09-22 16:52:33
 # @version: 0.0.0
 
 import os
@@ -123,6 +123,17 @@ class FenxiaoOrdersGetRequest(object):
         # </LI>
         # </UL>
         self.status = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">采购单下游买家订单id</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.tc_order_id = None
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">可选值：trade_time_type(采购单按照成交时间范围查询),update_time_type(采购单按照更新时间范围查询)</SPAN>
         # <UL>

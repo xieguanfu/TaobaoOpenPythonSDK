@@ -5,7 +5,7 @@
 
 ## @brief 商家向其他用户设置配额库存的共享或者独享，支持到渠道，商家自定义库存类别
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:36
+# @date 2013-09-22 16:52:34
 # @version: 0.0.0
 
 import os
@@ -58,7 +58,7 @@ class InventoryAuthorizeSetRequest(object):
         # </UL>
         self.authorize_type = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">授权明细 [{“index”:0,“scItemId”:232323,”scItemCode”:”A232”,”storeCode”:”Kj11”,”inventoryType”:1,”channelFlag”:0,”quotaQuantity”:1000,”nickNameList”:”s108,TY000”，“nickName":"ca11"}] 每次请求的列表数据量不超过50条，如果authorize_type是PUBLIC,使用nickNameList，否则请用nickName</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">授权明细 [{“index”:0,“scItemId”:232323,”scItemCode”:”A232”,”storeCode”:”Kj11”,”inventoryType”:1,”channelFlag”:0,”quotaQuantity”:1000,”nickNameList”:”s108,TY000”，“nickName":"ca11"}] 每次请求的列表数据量是1条，如果authorize_type是PUBLIC,使用nickNameList，否则请用nickName</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

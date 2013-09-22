@@ -5,7 +5,7 @@
 
 ## @brief 通过接口可以查询某个店铺优惠券的买家详细信息返回的信息，买家昵称， 使用渠道，使用状态，总数量
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:39
+# @date 2013-09-22 16:52:38
 # @version: 0.0.0
 
 import os
@@ -69,7 +69,7 @@ class PromotionCoupondetailGetRequest(object):
         # </UL>
         self.coupon_id = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">优惠券截至时间 如果截至日期不输入的话，查询当前日期向前15天的数据，否则，查询输入的截至日期向前15天的数据。</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">传入优惠券截止时间，即失效时间。查询输入日期向前15天的数据；不传则查询当前日期向前15天的数据。比如查询明天才失效的优惠卷，要传入明天之后15天内的日期，才能查询到该优惠卷。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Date</SPAN>
@@ -79,6 +79,17 @@ class PromotionCoupondetailGetRequest(object):
         # </LI>
         # </UL>
         self.end_time = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">这是一个扩展字段 供版本升级用 当前如果新版本的话 可以传入new字符串</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.extend_params = None
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">查询的页号，结果集是分页返回的，每页20条</SPAN>
         # <UL>

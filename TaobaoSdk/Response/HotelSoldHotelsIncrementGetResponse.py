@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 1. 此接口用于查询该会话用户作为酒店发布者发布的酒店被审核通过的增量酒店信息。 2. 只能查询时间跨度为一天的增量酒店记录：start_modified：2011-7-1 16:00:00 end_modified： 2011-7-2 15:59:59（注意不能写成16:00:00）  3. 返回数据结果为发布酒店时间的倒序
+## @brief 1. 此接口用于查询该会话用户作为酒店发布者发布的酒店被审核通过的增量酒店信息。 2. 查询提交的起始时间至今的增量酒店记录：start_modified：2011-7-1 16:00:00 3. 返回数据结果为发布酒店时间的正序排列
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:35
+# @date 2013-09-22 16:52:52
 # @version: 0.0.0
 
 from datetime import datetime
@@ -43,7 +43,7 @@ from Domain.Hotel import Hotel
 
     
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 1. 此接口用于查询该会话用户作为酒店发布者发布的酒店被审核通过的增量酒店信息。 2. 只能查询时间跨度为一天的增量酒店记录：start_modified：2011-7-1 16:00:00 end_modified： 2011-7-2 15:59:59（注意不能写成16:00:00）  3. 返回数据结果为发布酒店时间的倒序</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 1. 此接口用于查询该会话用户作为酒店发布者发布的酒店被审核通过的增量酒店信息。 2. 查询提交的起始时间至今的增量酒店记录：start_modified：2011-7-1 16:00:00 3. 返回数据结果为发布酒店时间的正序排列</SPAN>
 # <UL>
 # </UL>
 class HotelSoldHotelsIncrementGetResponse(object):

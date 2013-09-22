@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 1. 此接口用于查询该会话用户作为房型发布者发布的房型被审核通过的增量房型信息。 2. 只能查询时间跨度为一天的增量酒店记录：start_modified：2011-7-1 16:00:00 end_modified： 2011-7-2 15:59:59（注意不能写成16:00:00）  3. 返回数据结果为发布房型时间的倒序
+## @brief 1. 此接口用于查询该会话用户作为房型发布者发布的房型的审核情况。 2. 查询提交的起始时间至今的增量房型记录：start_modified：2011-7-1 16:00:00 3. 返回数据结果为发布房型时间正序排列
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:16
+# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os
@@ -23,7 +23,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">1. 此接口用于查询该会话用户作为房型发布者发布的房型被审核通过的增量房型信息。 2. 只能查询时间跨度为一天的增量酒店记录：start_modified：2011-7-1 16:00:00 end_modified： 2011-7-2 15:59:59（注意不能写成16:00:00）  3. 返回数据结果为发布房型时间的倒序</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">1. 此接口用于查询该会话用户作为房型发布者发布的房型的审核情况。 2. 查询提交的起始时间至今的增量房型记录：start_modified：2011-7-1 16:00:00 3. 返回数据结果为发布房型时间正序排列</SPAN>
 # <UL>
 # </UL>
 class HotelSoldTypesIncrementGetRequest(object):
@@ -47,13 +47,13 @@ class HotelSoldTypesIncrementGetRequest(object):
         self.timestamp = int(time.time())
 
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">查询修改结束时间，必须大于修改开始时间（修改时间跨度不能大于1天）。格式：yyyy-MM-dd HH:mm:ss</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">【不推荐使用，现在总是返回从修改开始时间到目前为止的所有记录，与修改结束时间不再相关】查询修改结束时间，必须大于修改开始时间（修改时间跨度不能大于1天）。格式：yyyy-MM-dd HH:mm:ss。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Date</SPAN>
         # </LI>
         # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">required</SPAN>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
         # </LI>
         # </UL>
         self.end_modified = None
@@ -91,7 +91,7 @@ class HotelSoldTypesIncrementGetRequest(object):
         # </UL>
         self.start_modified = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是否使用has_next的分页方式，如果指定true，则返回的结果中不包含总记录数，但是会新增一个是否存在下一页的字段，效率比总记录数高</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">【不推荐使用，现在返回结果总会包含总记录数和是否存在下一页】是否使用has_next的分页方式，如果指定true，则返回的结果中不包含总记录数，但是会新增一个是否存在下一页的字段，效率比总记录数高</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>

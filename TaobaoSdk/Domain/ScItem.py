@@ -5,7 +5,7 @@
 
 ## @brief 后端商品
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:30
+# @date 2013-09-22 16:52:28
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                                                        
+                                                                                                                                                                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">后端商品</SPAN>
 class ScItem(object):
     def __init__(self, kargs=dict()):
@@ -91,6 +91,17 @@ class ScItem(object):
         # </LI>
         # </UL>
         self.height = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">1表示区域销售，0或是空是非区域销售</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.is_area_sale = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">贵重品:false:不是 true：是</SPAN>
         # <UL>
@@ -343,6 +354,8 @@ class ScItem(object):
             
             "height": "Number",
             
+            "is_area_sale": "Number",
+            
             "is_costly": "Boolean",
             
             "is_dangerous": "Boolean",
@@ -386,6 +399,8 @@ class ScItem(object):
             "brand_name": "Basic",
             
             "height": "Basic",
+            
+            "is_area_sale": "Basic",
             
             "is_costly": "Basic",
             
@@ -463,6 +478,9 @@ class ScItem(object):
         
         if kargs.has_key("height"):
             self.height = self._newInstance("height", kargs["height"])
+        
+        if kargs.has_key("is_area_sale"):
+            self.is_area_sale = self._newInstance("is_area_sale", kargs["is_area_sale"])
         
         if kargs.has_key("is_costly"):
             self.is_costly = self._newInstance("is_costly", kargs["is_costly"])

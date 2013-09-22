@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 增量获取会员列表，接口返回符合查询条件的所有会员。任何状态更改都会返回
+## @brief 增量获取会员列表，接口返回符合查询条件的所有会员。任何状态更改都会返回,最大允许100
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:56
+# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os
@@ -23,7 +23,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">增量获取会员列表，接口返回符合查询条件的所有会员。任何状态更改都会返回</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">增量获取会员列表，接口返回符合查询条件的所有会员。任何状态更改都会返回,最大允许100</SPAN>
 # <UL>
 # </UL>
 class CrmMembersIncrementGetRequest(object):
@@ -58,7 +58,7 @@ class CrmMembersIncrementGetRequest(object):
         # </UL>
         self.current_page = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">对应买家 最后一次 确认收货或者关闭交易的时间，如果不填写此字段，默认为当前时间</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">对应买家 最后一次 修改交易订单的时间，如果不填写此字段，默认为当前时间</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Date</SPAN>
@@ -69,7 +69,7 @@ class CrmMembersIncrementGetRequest(object):
         # </UL>
         self.end_modify = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">会员等级，1：普通客户，2：高级会员，3：VIP会员， 4：至尊VIP会员</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">会员等级，0：店铺客户，1：普通会员，2：高级会员，3：VIP会员， 4：至尊VIP会员</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -91,7 +91,7 @@ class CrmMembersIncrementGetRequest(object):
         # </UL>
         self.page_size = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">对应买家 最后一次 确认收货或者关闭交易的时间</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">对应买家 最后一次 修改交易订单的时间</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Date</SPAN>

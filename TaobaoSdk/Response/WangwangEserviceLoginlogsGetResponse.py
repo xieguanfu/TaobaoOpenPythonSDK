@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 通过用户id查询用户自己或者子账户的登录日志： 主账号可以查询自己和店铺子账户的登录日志（查询时需要输入子账号，多个用，隔开） 组管理员可以查询自己和组内子账号的登录日志（查询时需要输入子账号，多个用，隔开） 非组管理员的子账户只能查询自己的登录日志
+## @brief 通过用户id查询用户自己或者子账户的登录日志： 主账号可以查询自己和店铺子账户的登录日志（查询时需要输入子账号，多个用，隔开） 组管理员可以查询自己和组内子账号的登录日志（查询时需要输入子账号，多个用，隔开） 非组管理员的子账户只能查询自己的登录日志 注：目前sdk只能支持到body内容的返回，body内数据结构的解析需要开发者自己写代码
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:47
+# @date 2013-09-22 16:52:47
 # @version: 0.0.0
 
 from datetime import datetime
@@ -43,7 +43,7 @@ from Domain.LoginLog import LoginLog
 
     
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 通过用户id查询用户自己或者子账户的登录日志： 主账号可以查询自己和店铺子账户的登录日志（查询时需要输入子账号，多个用，隔开） 组管理员可以查询自己和组内子账号的登录日志（查询时需要输入子账号，多个用，隔开） 非组管理员的子账户只能查询自己的登录日志</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 通过用户id查询用户自己或者子账户的登录日志： 主账号可以查询自己和店铺子账户的登录日志（查询时需要输入子账号，多个用，隔开） 组管理员可以查询自己和组内子账号的登录日志（查询时需要输入子账号，多个用，隔开） 非组管理员的子账户只能查询自己的登录日志 注：目前sdk只能支持到body内容的返回，body内数据结构的解析需要开发者自己写代码</SPAN>
 # <UL>
 # </UL>
 class WangwangEserviceLoginlogsGetResponse(object):

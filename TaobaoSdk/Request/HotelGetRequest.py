@@ -5,7 +5,7 @@
 
 ## @brief 此接口用于查询一个酒店，根据传入的酒店hid查询酒店信息。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:15
+# @date 2013-09-22 16:52:38
 # @version: 0.0.0
 
 import os
@@ -46,6 +46,17 @@ class HotelGetRequest(object):
         # </UL>
         self.timestamp = int(time.time())
 
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">true表示查询酒店审核状态，false表示查询已审核通过酒店详细信息</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.check_audit = None
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">要查询的酒店id。必须为数字</SPAN>
         # <UL>

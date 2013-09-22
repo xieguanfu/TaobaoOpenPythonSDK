@@ -5,7 +5,7 @@
 
 ## @brief RoomType（房型）结构。各字段详细说明可参考接口定义，如：房型发布接口。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:00
+# @date 2013-09-22 16:52:28
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                        
+                                                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">RoomType（房型）结构。各字段详细说明可参考接口定义，如：房型发布接口。</SPAN>
 class RoomType(object):
     def __init__(self, kargs=dict()):
@@ -48,7 +48,7 @@ class RoomType(object):
         self.__kargs = deepcopy(kargs)
         
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">某卖家提供的房型别名</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">某卖家提供的房型别名(注：该字段将被废弃)</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -58,6 +58,17 @@ class RoomType(object):
         # </LI>
         # </UL>
         self.alias_name = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">房型审核被否决的原因</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.audit_deny_reason = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">创建时间</SPAN>
         # <UL>
@@ -183,6 +194,8 @@ class RoomType(object):
             
             "alias_name": "String",
             
+            "audit_deny_reason": "String",
+            
             "created": "Date",
             
             "hid": "Number",
@@ -198,6 +211,8 @@ class RoomType(object):
         levels = {
             
             "alias_name": "Basic",
+            
+            "audit_deny_reason": "Basic",
             
             "created": "Basic",
             
@@ -244,6 +259,9 @@ class RoomType(object):
         
         if kargs.has_key("alias_name"):
             self.alias_name = self._newInstance("alias_name", kargs["alias_name"])
+        
+        if kargs.has_key("audit_deny_reason"):
+            self.audit_deny_reason = self._newInstance("audit_deny_reason", kargs["audit_deny_reason"])
         
         if kargs.has_key("created"):
             self.created = self._newInstance("created", kargs["created"])

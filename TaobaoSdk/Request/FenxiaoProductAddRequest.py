@@ -5,7 +5,7 @@
 
 ## @brief 添加分销平台产品数据。业务逻辑与分销系统前台页面一致。      * 产品图片默认为空     * 产品发布后默认为下架状态
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:35
+# @date 2013-09-22 16:52:33
 # @version: 0.0.0
 
 import os
@@ -421,7 +421,7 @@ class FenxiaoProductAddRequest(object):
         # </UL>
         self.sku_standard_prices = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">标准价格，单位：元。例：“10.56”。必须在0.01元到10000000元之间。</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">采购基准价格，单位：元。例：“10.56”。必须在0.01元到10000000元之间。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -431,6 +431,17 @@ class FenxiaoProductAddRequest(object):
         # </LI>
         # </UL>
         self.standard_price = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">零售基准价，单位：元。例：“10.56”。必须在0.01元到10000000元之间。</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.standard_retail_price = None
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分销方式：AGENT（只做代销，默认值）、DEALER（只做经销）、ALL（代销和经销都做）</SPAN>
         # <UL>

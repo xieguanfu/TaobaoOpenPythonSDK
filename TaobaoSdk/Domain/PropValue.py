@@ -5,7 +5,7 @@
 
 ## @brief 属性值
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:27
+# @date 2013-09-22 16:52:26
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,10 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                        
+                
+from Feature import Feature
+
+                                                                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">属性值</SPAN>
 class PropValue(object):
     def __init__(self, kargs=dict()):
@@ -58,6 +61,17 @@ class PropValue(object):
         # </LI>
         # </UL>
         self.cid = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">属性值feature</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Feature</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object Array</SPAN>
+        # </LI>
+        # </UL>
+        self.features = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是否为父类目属性</SPAN>
         # <UL>
@@ -227,6 +241,8 @@ class PropValue(object):
             
             "cid": "Number",
             
+            "features": "Feature",
+            
             "is_parent": "Boolean",
             
             "modified_time": "Date",
@@ -250,6 +266,8 @@ class PropValue(object):
         levels = {
             
             "cid": "Basic",
+            
+            "features": "Object Array",
             
             "is_parent": "Basic",
             
@@ -304,6 +322,9 @@ class PropValue(object):
         
         if kargs.has_key("cid"):
             self.cid = self._newInstance("cid", kargs["cid"])
+        
+        if kargs.has_key("features"):
+            self.features = self._newInstance("features", kargs["features"])
         
         if kargs.has_key("is_parent"):
             self.is_parent = self._newInstance("is_parent", kargs["is_parent"])

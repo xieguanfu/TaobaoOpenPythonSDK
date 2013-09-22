@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 物流数据结构
+## @brief 获取的物流订单详情列表 返回的Shipping包含的具体信息为入参fields请求的字段信息
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:28
+# @date 2013-09-22 16:52:27
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,11 +39,11 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                
+                                                                                        
 from Location import Location
 
-                                                                                        
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">物流数据结构</SPAN>
+                                                                                                
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">获取的物流订单详情列表 返回的Shipping包含的具体信息为入参fields请求的字段信息</SPAN>
 class Shipping(object):
     def __init__(self, kargs=dict()):
         super(self.__class__, self).__init__()
@@ -127,6 +127,17 @@ class Shipping(object):
         # </LI>
         # </UL>
         self.is_quick_cod_order = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">表明是否是拆单，默认值0，1表示拆单</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.is_spilt = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">返回发货是否成功。</SPAN>
         # <UL>
@@ -249,7 +260,7 @@ class Shipping(object):
         # </UL>
         self.seller_nick = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">物流订单状态,可选值:CREATED(订单已创建) RECREATED(订单重新创建) CANCELLED(订单已取消) CLOSED(订单关闭) SENDING(等候发送给物流公司) ACCEPTING(已发送给物流公司,等待接单) ACCEPTED(物流公司已接单) REJECTED(物流公司不接单) PICK_UP(物流公司揽收成功) PICK_UP_FAILED(物流公司揽收失败) LOST(物流公司丢单) REJECTED_BY_RECEIVER(对方拒签) ACCEPTED_BY_RECEIVER(发货方式在线下单：对方已签收；自己联系：卖家已发货)</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">物流订单状态,可选值: CREATED(订单已创建)  RECREATED(订单重新创建)  CANCELLED(订单已取消)  CLOSED(订单关闭)  SENDING(等候发送给物流公司)  ACCEPTING(已发送给物流公司,等待接单)  ACCEPTED(物流公司已接单)  REJECTED(物流公司不接单)  PICK_UP(物流公司揽收成功)  PICK_UP_FAILED(物流公司揽收失败)  LOST(物流公司丢单)  REJECTED_BY_RECEIVER(对方拒签)  ACCEPTED_BY_RECEIVER(发货方式在线下单：对方已签收；自己联系：卖家已发货)</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -259,6 +270,17 @@ class Shipping(object):
         # </LI>
         # </UL>
         self.status = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">拆单子订单列表，对应的数据是：该物流订单下的全部子订单</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic Array</SPAN>
+        # </LI>
+        # </UL>
+        self.sub_tids = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">交易ID</SPAN>
         # <UL>
@@ -352,6 +374,8 @@ class Shipping(object):
             
             "is_quick_cod_order": "Boolean",
             
+            "is_spilt": "Number",
+            
             "is_success": "Boolean",
             
             "item_title": "String",
@@ -376,6 +400,8 @@ class Shipping(object):
             
             "status": "String",
             
+            "sub_tids": "Number",
+            
             "tid": "Number",
             
             "type": "String",
@@ -395,6 +421,8 @@ class Shipping(object):
             "freight_payer": "Basic",
             
             "is_quick_cod_order": "Basic",
+            
+            "is_spilt": "Basic",
             
             "is_success": "Basic",
             
@@ -419,6 +447,8 @@ class Shipping(object):
             "seller_nick": "Basic",
             
             "status": "Basic",
+            
+            "sub_tids": "Basic Array",
             
             "tid": "Basic",
             
@@ -476,6 +506,9 @@ class Shipping(object):
         if kargs.has_key("is_quick_cod_order"):
             self.is_quick_cod_order = self._newInstance("is_quick_cod_order", kargs["is_quick_cod_order"])
         
+        if kargs.has_key("is_spilt"):
+            self.is_spilt = self._newInstance("is_spilt", kargs["is_spilt"])
+        
         if kargs.has_key("is_success"):
             self.is_success = self._newInstance("is_success", kargs["is_success"])
         
@@ -511,6 +544,9 @@ class Shipping(object):
         
         if kargs.has_key("status"):
             self.status = self._newInstance("status", kargs["status"])
+        
+        if kargs.has_key("sub_tids"):
+            self.sub_tids = self._newInstance("sub_tids", kargs["sub_tids"])
         
         if kargs.has_key("tid"):
             self.tid = self._newInstance("tid", kargs["tid"])

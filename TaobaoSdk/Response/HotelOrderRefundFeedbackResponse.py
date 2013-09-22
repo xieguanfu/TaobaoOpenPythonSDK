@@ -5,7 +5,7 @@
 
 ## @brief 退订处理结果回传
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:34
+# @date 2013-09-22 16:52:52
 # @version: 0.0.0
 
 from datetime import datetime

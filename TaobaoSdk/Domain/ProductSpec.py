@@ -5,7 +5,7 @@
 
 ## @brief ProductSpec(产品规格)结构。
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:28
+# @date 2013-09-22 16:52:29
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,10 +39,13 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                
+                        
 from CertPicInfo import CertPicInfo
 
-                                                        
+        
+from CertTxtInfo import CertTxtInfo
+
+                                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">ProductSpec(产品规格)结构。</SPAN>
 class ProductSpec(object):
     def __init__(self, kargs=dict()):
@@ -62,6 +65,17 @@ class ProductSpec(object):
         # </UL>
         self.barcode = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品品牌id</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.brand_id = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">认证图片列表</SPAN>
         # <UL>
         # <LI>
@@ -72,6 +86,28 @@ class ProductSpec(object):
         # </LI>
         # </UL>
         self.certified_pics = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">认证文本列表</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">CertTxtInfo</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object Array</SPAN>
+        # </LI>
+        # </UL>
+        self.certified_txts = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">基础色数据</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.change_prop = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">用户输入的属性值存放位置，例如可输入的销售属性，当用户获取pid vid后，应该先从spec_props_alias中获取，然后通过类目属性获取，获取不到，可以通过这个字段获取。</SPAN>
         # <UL>
@@ -84,6 +120,28 @@ class ProductSpec(object):
         # </UL>
         self.custome_props_name = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品规格吊牌价，以分为单位的整数，非负,无默认值，上限999999999</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.label_price = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">上市时间</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Date</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.market_time = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品的主图片地址。绝对地址，格式：http://host/image_path。</SPAN>
         # <UL>
         # <LI>
@@ -94,6 +152,17 @@ class ProductSpec(object):
         # </LI>
         # </UL>
         self.pic_url = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品货号</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.product_code = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品ID。</SPAN>
         # <UL>
@@ -139,7 +208,7 @@ class ProductSpec(object):
         # </UL>
         self.spec_props_alias = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">1:表示可以使用的数据，也就是审核通过的。 3：表示等待小儿审核的产品规格，这个数据暂时还不能使用，要等待审核通过后，才能使用。</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">1:表示可以使用的数据，也就是审核通过的。 3：表示等待小二审核的产品规格，这个数据暂时还不能使用，要等待审核通过后，才能使用。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -208,11 +277,23 @@ class ProductSpec(object):
             
             "barcode": "String",
             
+            "brand_id": "Number",
+            
             "certified_pics": "CertPicInfo",
+            
+            "certified_txts": "CertTxtInfo",
+            
+            "change_prop": "String",
             
             "custome_props_name": "String",
             
+            "label_price": "Number",
+            
+            "market_time": "Date",
+            
             "pic_url": "String",
+            
+            "product_code": "String",
             
             "product_id": "Number",
             
@@ -228,11 +309,23 @@ class ProductSpec(object):
             
             "barcode": "Basic",
             
+            "brand_id": "Basic",
+            
             "certified_pics": "Object Array",
+            
+            "certified_txts": "Object Array",
+            
+            "change_prop": "Basic",
             
             "custome_props_name": "Basic",
             
+            "label_price": "Basic",
+            
+            "market_time": "Basic",
+            
             "pic_url": "Basic",
+            
+            "product_code": "Basic",
             
             "product_id": "Basic",
             
@@ -278,14 +371,32 @@ class ProductSpec(object):
         if kargs.has_key("barcode"):
             self.barcode = self._newInstance("barcode", kargs["barcode"])
         
+        if kargs.has_key("brand_id"):
+            self.brand_id = self._newInstance("brand_id", kargs["brand_id"])
+        
         if kargs.has_key("certified_pics"):
             self.certified_pics = self._newInstance("certified_pics", kargs["certified_pics"])
+        
+        if kargs.has_key("certified_txts"):
+            self.certified_txts = self._newInstance("certified_txts", kargs["certified_txts"])
+        
+        if kargs.has_key("change_prop"):
+            self.change_prop = self._newInstance("change_prop", kargs["change_prop"])
         
         if kargs.has_key("custome_props_name"):
             self.custome_props_name = self._newInstance("custome_props_name", kargs["custome_props_name"])
         
+        if kargs.has_key("label_price"):
+            self.label_price = self._newInstance("label_price", kargs["label_price"])
+        
+        if kargs.has_key("market_time"):
+            self.market_time = self._newInstance("market_time", kargs["market_time"])
+        
         if kargs.has_key("pic_url"):
             self.pic_url = self._newInstance("pic_url", kargs["pic_url"])
+        
+        if kargs.has_key("product_code"):
+            self.product_code = self._newInstance("product_code", kargs["product_code"])
         
         if kargs.has_key("product_id"):
             self.product_id = self._newInstance("product_id", kargs["product_id"])

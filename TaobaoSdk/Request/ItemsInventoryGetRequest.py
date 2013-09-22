@@ -5,7 +5,7 @@
 
 ## @brief 获取当前用户作为卖家的仓库中的商品列表，并能根据传入的搜索条件对仓库中的商品列表进行过滤  只能获得商品的部分信息，商品的详细信息请通过taobao.item.get获取
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:33
+# @date 2013-09-22 16:52:32
 # @version: 0.0.0
 
 import os
@@ -47,7 +47,7 @@ class ItemsInventoryGetRequest(object):
         self.timestamp = int(time.time())
 
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分类字段。可选值:regular_shelved(定时上架)<br>never_on_shelf(从未上架)<br>sold_out(全部卖完)<br>off_shelf(我下架的)<br>for_shelved(等待所有上架)<br>violation_off_shelf(违规下架的)<br>默认查询的是for_shelved(等待所有上架)这个状态的商品<br><font color='red'>注：for_shelved(等待所有上架)=regular_shelved(定时上架)+never_on_shelf(从未上架)+off_shelf(我下架的)</font></SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">分类字段。可选值:regular_shelved(定时上架)<br>never_on_shelf(从未上架)<br>off_shelf(我下架的)<br>for_shelved(等待所有上架)<br>sold_out(全部卖完)<br>violation_off_shelf(违规下架的)<br>默认查询的是for_shelved(等待所有上架)这个状态的商品<br><font color='red'>注：for_shelved(等待所有上架)=regular_shelved(定时上架)+never_on_shelf(从未上架)+off_shelf(我下架的)</font></SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

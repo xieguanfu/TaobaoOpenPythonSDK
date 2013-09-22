@@ -5,7 +5,7 @@
 
 ## @brief 更新分销平台产品数据，不传更新数据返回失败<br> 1. 对sku进行增、删操作时，原有的sku_ids字段会被忽略，请使用sku_properties和sku_properties_del。<br>
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:35
+# @date 2013-09-22 16:52:34
 # @version: 0.0.0
 
 import os
@@ -442,6 +442,17 @@ class FenxiaoProductUpdateRequest(object):
         # </LI>
         # </UL>
         self.standard_price = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">零售基准价，单位：元。例：“10.56”。必须在0.01元到10000000元之间。</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.standard_retail_price = None
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">发布状态，可选值：up（上架）、down（下架）、delete（删除），输入非法字符则忽略。</SPAN>
         # <UL>

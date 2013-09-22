@@ -5,7 +5,7 @@
 
 ## @brief 根据库存授权结果码移除该授权下的用户库存授权
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:36
+# @date 2013-09-22 16:52:34
 # @version: 0.0.0
 
 import os
@@ -57,6 +57,17 @@ class InventoryAuthorizeRemoveRequest(object):
         # </LI>
         # </UL>
         self.authorize_code = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">后端商品id</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">required</SPAN>
+        # </LI>
+        # </UL>
+        self.sc_item_id = None
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">移除授权的目标用户昵称列表，用”,”隔开</SPAN>
         # <UL>

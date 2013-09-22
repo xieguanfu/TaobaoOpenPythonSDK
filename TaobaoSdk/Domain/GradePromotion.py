@@ -5,7 +5,7 @@
 
 ## @brief 卖家设置的等级优惠信息
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:34
+# @date 2013-09-22 16:52:27
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                        
+                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">卖家设置的等级优惠信息</SPAN>
 class GradePromotion(object):
     def __init__(self, kargs=dict()):
@@ -48,7 +48,7 @@ class GradePromotion(object):
         self.__kargs = deepcopy(kargs)
         
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">买家会员级别    1：普通会员 2：高级会员 3：VIP会员 4：至尊VIP</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">买家会员级别  0:店铺客户  1：普通会员 2：高级会员 3：VIP会员 4：至尊VIP</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -59,7 +59,7 @@ class GradePromotion(object):
         # </UL>
         self.cur_grade = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">普通会员 、高级会员、VIP会员、至尊VIP</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">店铺客户、普通会员 、高级会员、VIP会员、至尊VIP</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -80,6 +80,28 @@ class GradePromotion(object):
         # </LI>
         # </UL>
         self.discount = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">普通会员、高级会员、VIP会员、至尊VIP。空的时候代表后续等级未启用或没有下一等级</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.next_grade = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">该等级对应的下一等级1:普通会员  2：高级会员 3：VIP会员 4：至尊VIP 0：后续等级都未启用或没有下一等级</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.next_grade_name = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">升级到下一个级别的需要的交易额，单位：分</SPAN>
         # <UL>
@@ -165,6 +187,10 @@ class GradePromotion(object):
             
             "discount": "Number",
             
+            "next_grade": "String",
+            
+            "next_grade_name": "String",
+            
             "next_upgrade_amount": "Number",
             
             "next_upgrade_count": "Number",
@@ -176,6 +202,10 @@ class GradePromotion(object):
             "cur_grade_name": "Basic",
             
             "discount": "Basic",
+            
+            "next_grade": "Basic",
+            
+            "next_grade_name": "Basic",
             
             "next_upgrade_amount": "Basic",
             
@@ -220,6 +250,12 @@ class GradePromotion(object):
         
         if kargs.has_key("discount"):
             self.discount = self._newInstance("discount", kargs["discount"])
+        
+        if kargs.has_key("next_grade"):
+            self.next_grade = self._newInstance("next_grade", kargs["next_grade"])
+        
+        if kargs.has_key("next_grade_name"):
+            self.next_grade_name = self._newInstance("next_grade_name", kargs["next_grade_name"])
         
         if kargs.has_key("next_upgrade_amount"):
             self.next_upgrade_amount = self._newInstance("next_upgrade_amount", kargs["next_upgrade_amount"])

@@ -5,7 +5,7 @@
 
 ## @brief 分销API返回数据结构
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:29
+# @date 2013-09-22 16:52:27
 # @version: 0.0.0
 
 from copy import deepcopy

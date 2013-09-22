@@ -5,7 +5,7 @@
 
 ## @brief 查询卖家的会员，进行基本的查询，返回符合条件的会员列表
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:56
+# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os
@@ -58,7 +58,7 @@ class CrmMembersGetRequest(object):
         # </UL>
         self.buyer_nick = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">显示第几页的会员，如果输入的页码大于总共的页码数，例如总共10页，但是current_page的值为11，则返回空白页，最小页数为1</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">显示第几页的会员，如果输入的页码大于总共的页码数，例如总共10页，但是current_page的值为11，则返回空白页，最小页数为1，最大页数为1000</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -69,7 +69,7 @@ class CrmMembersGetRequest(object):
         # </UL>
         self.current_page = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">会员等级，0：返回所有会员1：普通客户，2：高级会员，3：VIP会员， 4：至尊VIP会员 (如果要查交易关闭的会员  请选择taobao.crm.members.search接口的 relation_source=2)</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">会员等级，0：店铺客户，1：普通会员，2：高级会员，3：VIP会员， 4：至尊VIP会员。如果不传入值则默认为全部等级。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>

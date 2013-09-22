@@ -5,7 +5,7 @@
 
 ## @brief Sku结构
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:27
+# @date 2013-09-22 16:52:25
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                
+                                                                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Sku结构</SPAN>
 class Sku(object):
     def __init__(self, kargs=dict()):
@@ -47,6 +47,17 @@ class Sku(object):
 
         self.__kargs = deepcopy(kargs)
         
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">基础色数据</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.change_prop = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">sku创建日期 时间格式：yyyy-MM-dd HH:mm:ss</SPAN>
         # <UL>
@@ -92,7 +103,7 @@ class Sku(object):
         # </UL>
         self.num_iid = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商家设置的外部id</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商家设置的外部id。天猫和集市的卖家，需要登录才能获取到自己的商家编码，不能获取到他人的商家编码。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -258,6 +269,8 @@ class Sku(object):
     def _getPropertyType(self, name):
         properties = {
             
+            "change_prop": "String",
+            
             "created": "String",
             
             "iid": "String",
@@ -287,6 +300,8 @@ class Sku(object):
             "with_hold_quantity": "Number",
         }
         levels = {
+            
+            "change_prop": "Basic",
             
             "created": "Basic",
             
@@ -346,6 +361,9 @@ class Sku(object):
             return (pythonType, False)
         
     def __init(self, kargs):
+        
+        if kargs.has_key("change_prop"):
+            self.change_prop = self._newInstance("change_prop", kargs["change_prop"])
         
         if kargs.has_key("created"):
             self.created = self._newInstance("created", kargs["created"])

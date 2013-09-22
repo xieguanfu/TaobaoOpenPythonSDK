@@ -5,7 +5,7 @@
 
 ## @brief 获取供应商的合作关系信息
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:35
+# @date 2013-09-22 16:52:33
 # @version: 0.0.0
 
 import os
@@ -47,7 +47,7 @@ class FenxiaoCooperationGetRequest(object):
         self.timestamp = int(time.time())
 
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">合作结束时间yyyy-MM-dd</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">合作结束时间yyyy-MM-dd HH:mm:ss</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Date</SPAN>
@@ -80,7 +80,7 @@ class FenxiaoCooperationGetRequest(object):
         # </UL>
         self.page_size = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">合作开始时间yyyy-MM-dd</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">合作开始时间yyyy-MM-dd HH:mm:ss</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Date</SPAN>

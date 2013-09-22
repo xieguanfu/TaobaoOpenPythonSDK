@@ -5,7 +5,7 @@
 
 ## @brief 用某个组管理员账号查询，返回该组组名、和该组所有组成员ID（E客服的分流设置）。  用旺旺主帐号查询，返回所有组的组名和该组所有组成员ID。  返回的组成员ID可以是多个，用 "," 隔开。  被查者ID只能传入一个。  组成员中排名最靠前的ID是组管理员ID
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:36
+# @date 2013-09-22 16:52:34
 # @version: 0.0.0
 
 import os
@@ -47,7 +47,7 @@ class WangwangEserviceGroupmemberGetRequest(object):
         self.timestamp = int(time.time())
 
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">被查询用户组管理员ID：cntaobao+淘宝nick，例如cntaobaotest</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">主帐号ID：cntaobao+淘宝nick，例如cntaobaotest</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

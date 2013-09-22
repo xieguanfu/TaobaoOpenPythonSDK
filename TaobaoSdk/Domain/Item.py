@@ -5,7 +5,7 @@
 
 ## @brief Item(商品)结构
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:27
+# @date 2013-09-22 16:52:26
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,16 +39,16 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                
+                                                                                        
 from DeliveryTime import DeliveryTime
 
                 
 from DescModuleInfo import DescModuleInfo
 
-                                        
+                                                
 from FoodSecurity import FoodSecurity
 
-                                                                                                                                                                
+                                                                                                                                                                        
 from ItemImg import ItemImg
 
                                 
@@ -63,13 +63,13 @@ from PaimaiInfo import PaimaiInfo
                                                         
 from PropImg import PropImg
 
-                                                                
+                                                                        
 from Sku import Sku
 
                                                         
 from Video import Video
 
-                                                
+                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Item(商品)结构</SPAN>
 class Item(object):
     def __init__(self, kargs=dict()):
@@ -100,7 +100,7 @@ class Item(object):
         # </UL>
         self.approve_status = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商城返点比例，为5的倍数，最低0.5%</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">天猫订单抽佣比例，为5的倍数，最低0.5%。跟淘客佣金没有关系。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -111,7 +111,7 @@ class Item(object):
         # </UL>
         self.auction_point = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">代充商品类型。只有少数类目下的商品可以标记上此字段，具体哪些类目可以上传可以通过taobao.itemcat.features.get获得。在代充商品的类目下，不传表示不标记商品类型（交易搜索中就不能通过标记搜到相关的交易了）。可选类型： time_card(点卡软件代充) fee_card(话费软件代充)</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">代充商品类型。在代充商品的类目下，不传表示不标记商品类型（交易搜索中就不能通过标记搜到相关的交易了）。可选类型： no_mark(不做类型标记) time_card(点卡软件代充) fee_card(话费软件代充)</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -166,6 +166,17 @@ class Item(object):
         # </UL>
         self.created = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">定制工具Id</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.custom_made_type_id = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">下架时间（格式：yyyy-MM-dd HH:mm:ss）</SPAN>
         # <UL>
         # <LI>
@@ -209,6 +220,17 @@ class Item(object):
         # </LI>
         # </UL>
         self.desc_module_info = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品描述模块化，模块列表，由List转化成jsonArray存入，后端逻辑验证通过，拼装成模块内容+锚点导航后存入desc中。数据结构具体参见Item_Desc_Module</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.desc_modules = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品url</SPAN>
         # <UL>
@@ -276,7 +298,18 @@ class Item(object):
         # </UL>
         self.freight_payer = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">针对全球购卖家的库存类型业务，有两种库存类型：现货和代购; 参数值为1时代表现货，值为2时代表代购</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">全球购商品采购地信息（地区/国家），代表全球购商品的产地信息。</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.global_stock_country = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">全球购商品采购地信息（库存类型），有两种库存类型：现货和代购; 参数值为1时代表现货，值为2时代表代购</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -595,7 +628,7 @@ class Item(object):
         # </UL>
         self.one_station = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商家外部编码(可与商家外部系统对接)</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商家外部编码(可与商家外部系统对接)。需要授权才能获取。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -760,6 +793,17 @@ class Item(object):
         # </UL>
         self.second_kill = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品卖点信息，天猫商家使用字段，最长15个字符。</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.sell_point = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是否承诺退换货服务!</SPAN>
         # <UL>
         # <LI>
@@ -848,7 +892,7 @@ class Item(object):
         # </UL>
         self.type = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">有效期,7或者14（默认是14天）</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">有效期,7或者14（默认是7天）</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -880,17 +924,6 @@ class Item(object):
         # </LI>
         # </UL>
         self.violation = None
-        
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">对应搜索商品列表页的最近成交量,只有调用商品搜索:taobao.items.get和taobao.items.search的时候才能返回</SPAN>
-        # <UL>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
-        # </LI>
-        # </UL>
-        self.volume = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">不带html标签的desc文本信息，该字段只在taobao.item.get接口中返回</SPAN>
         # <UL>
@@ -1008,6 +1041,8 @@ class Item(object):
             
             "created": "Date",
             
+            "custom_made_type_id": "String",
+            
             "delist_time": "Date",
             
             "delivery_time": "DeliveryTime",
@@ -1015,6 +1050,8 @@ class Item(object):
             "desc": "String",
             
             "desc_module_info": "DescModuleInfo",
+            
+            "desc_modules": "String",
             
             "detail_url": "String",
             
@@ -1027,6 +1064,8 @@ class Item(object):
             "food_security": "FoodSecurity",
             
             "freight_payer": "String",
+            
+            "global_stock_country": "String",
             
             "global_stock_type": "String",
             
@@ -1116,6 +1155,8 @@ class Item(object):
             
             "second_kill": "String",
             
+            "sell_point": "String",
+            
             "sell_promise": "Boolean",
             
             "seller_cids": "String",
@@ -1137,8 +1178,6 @@ class Item(object):
             "videos": "Video",
             
             "violation": "Boolean",
-            
-            "volume": "Number",
             
             "wap_desc": "String",
             
@@ -1166,6 +1205,8 @@ class Item(object):
             
             "created": "Basic",
             
+            "custom_made_type_id": "Basic",
+            
             "delist_time": "Basic",
             
             "delivery_time": "Object",
@@ -1173,6 +1214,8 @@ class Item(object):
             "desc": "Basic",
             
             "desc_module_info": "Object",
+            
+            "desc_modules": "Basic",
             
             "detail_url": "Basic",
             
@@ -1185,6 +1228,8 @@ class Item(object):
             "food_security": "Object",
             
             "freight_payer": "Basic",
+            
+            "global_stock_country": "Basic",
             
             "global_stock_type": "Basic",
             
@@ -1274,6 +1319,8 @@ class Item(object):
             
             "second_kill": "Basic",
             
+            "sell_point": "Basic",
+            
             "sell_promise": "Basic",
             
             "seller_cids": "Basic",
@@ -1295,8 +1342,6 @@ class Item(object):
             "videos": "Object Array",
             
             "violation": "Basic",
-            
-            "volume": "Basic",
             
             "wap_desc": "Basic",
             
@@ -1361,6 +1406,9 @@ class Item(object):
         if kargs.has_key("created"):
             self.created = self._newInstance("created", kargs["created"])
         
+        if kargs.has_key("custom_made_type_id"):
+            self.custom_made_type_id = self._newInstance("custom_made_type_id", kargs["custom_made_type_id"])
+        
         if kargs.has_key("delist_time"):
             self.delist_time = self._newInstance("delist_time", kargs["delist_time"])
         
@@ -1372,6 +1420,9 @@ class Item(object):
         
         if kargs.has_key("desc_module_info"):
             self.desc_module_info = self._newInstance("desc_module_info", kargs["desc_module_info"])
+        
+        if kargs.has_key("desc_modules"):
+            self.desc_modules = self._newInstance("desc_modules", kargs["desc_modules"])
         
         if kargs.has_key("detail_url"):
             self.detail_url = self._newInstance("detail_url", kargs["detail_url"])
@@ -1390,6 +1441,9 @@ class Item(object):
         
         if kargs.has_key("freight_payer"):
             self.freight_payer = self._newInstance("freight_payer", kargs["freight_payer"])
+        
+        if kargs.has_key("global_stock_country"):
+            self.global_stock_country = self._newInstance("global_stock_country", kargs["global_stock_country"])
         
         if kargs.has_key("global_stock_type"):
             self.global_stock_type = self._newInstance("global_stock_type", kargs["global_stock_type"])
@@ -1523,6 +1577,9 @@ class Item(object):
         if kargs.has_key("second_kill"):
             self.second_kill = self._newInstance("second_kill", kargs["second_kill"])
         
+        if kargs.has_key("sell_point"):
+            self.sell_point = self._newInstance("sell_point", kargs["sell_point"])
+        
         if kargs.has_key("sell_promise"):
             self.sell_promise = self._newInstance("sell_promise", kargs["sell_promise"])
         
@@ -1555,9 +1612,6 @@ class Item(object):
         
         if kargs.has_key("violation"):
             self.violation = self._newInstance("violation", kargs["violation"])
-        
-        if kargs.has_key("volume"):
-            self.volume = self._newInstance("volume", kargs["volume"])
         
         if kargs.has_key("wap_desc"):
             self.wap_desc = self._newInstance("wap_desc", kargs["wap_desc"])

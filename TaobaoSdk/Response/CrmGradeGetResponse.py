@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 卖家查询等级规则，包括普通会员、高级会员、VIP会员、至尊VIP会员四个等级的信息
+## @brief 卖家查询等级规则，包括店铺客户、普通会员、高级会员、VIP会员、至尊VIP会员四个等级的信息
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:37:17
+# @date 2013-09-22 16:52:52
 # @version: 0.0.0
 
 from datetime import datetime
@@ -43,7 +43,7 @@ from Domain.GradePromotion import GradePromotion
 
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 卖家查询等级规则，包括普通会员、高级会员、VIP会员、至尊VIP会员四个等级的信息</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 卖家查询等级规则，包括店铺客户、普通会员、高级会员、VIP会员、至尊VIP会员四个等级的信息</SPAN>
 # <UL>
 # </UL>
 class CrmGradeGetResponse(object):

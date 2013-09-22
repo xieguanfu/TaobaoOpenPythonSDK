@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 增量获取会员列表，接口返回符合查询条件的所有会员。任何状态更改都会返回
+## @brief 增量获取会员列表，接口返回符合查询条件的所有会员。任何状态更改都会返回,最大允许100
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:37:18
+# @date 2013-09-22 16:52:53
 # @version: 0.0.0
 
 from datetime import datetime
@@ -43,7 +43,7 @@ from Domain.BasicMember import BasicMember
 
     
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 增量获取会员列表，接口返回符合查询条件的所有会员。任何状态更改都会返回</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 增量获取会员列表，接口返回符合查询条件的所有会员。任何状态更改都会返回,最大允许100</SPAN>
 # <UL>
 # </UL>
 class CrmMembersIncrementGetResponse(object):

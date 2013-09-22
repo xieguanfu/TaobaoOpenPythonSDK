@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 搜索评价信息，只能获取距今180天内的评价记录(只支持查询卖家给出或得到的评价)。 需要买卖家双方都评价，才能获取到。
+## @brief 搜索评价信息，只能获取距今180天内的评价记录(只支持查询卖家给出或得到的评价)。
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:34
+# @date 2013-09-22 16:52:32
 # @version: 0.0.0
 
 import os
@@ -23,7 +23,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">搜索评价信息，只能获取距今180天内的评价记录(只支持查询卖家给出或得到的评价)。 需要买卖家双方都评价，才能获取到。</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">搜索评价信息，只能获取距今180天内的评价记录(只支持查询卖家给出或得到的评价)。</SPAN>
 # <UL>
 # </UL>
 class TraderatesGetRequest(object):
@@ -80,7 +80,7 @@ class TraderatesGetRequest(object):
         # </UL>
         self.num_iid = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">页码。取值范围:大于零的整数; 默认值:1</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">页码。取值范围:大于零的整数最大限制为200; 默认值:1</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>

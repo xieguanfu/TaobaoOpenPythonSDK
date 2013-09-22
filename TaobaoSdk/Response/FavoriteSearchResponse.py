@@ -3,16 +3,32 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-
 ## @brief 查询淘宝用户收藏的商品或店铺信息
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:56:04
-# @version: 0.0.16
+# @date 2013-09-22 16:52:50
+# @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -22,25 +38,18 @@ if __parentPath not in sys.path:
     sys.path.insert(0, __parentPath)
 
 
-        
+    
 from Domain.CollectItem import CollectItem
 
-
+    
 
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 查询淘宝用户收藏的商品或店铺信息</SPAN>
 # <UL>
-# <LI>
-# <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">CName</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">查询</SPAN>
-# </LI>
-# <LI>
-# <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Authorize</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">可选用户授权</SPAN>
-# </LI>
 # </UL>
 class FavoriteSearchResponse(object):
     def __init__(self, kargs=dict()):
         super(self.__class__, self).__init__()
-        
-        
+
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">请求的返回信息,包含状态等</SPAN>
         # <UL>
         # <LI>
@@ -57,28 +66,14 @@ class FavoriteSearchResponse(object):
         # </UL>        
         self.responseBody = None
 
-        
-        
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">查询到的宝贝的收藏总数</SPAN>
-        # <UL>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">false</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Sample</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">55</SPAN>
-        # </LI>
-        # </UL>
-        self.total_results = None
-        ''' 
-        @ivar total_results: 查询到的宝贝的收藏总数; B{Level}: C{Basic}; B{Required}: C{false}; B{Sample}: C{55};
-        @type total_results: Number
-        '''
+        self.code = None
+
+        self.msg = None
+
+        self.sub_code = None
+
+        self.sub_msg = None
+
         
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">返回查询到的商品或店铺的数字id列表</SPAN>
@@ -89,20 +84,25 @@ class FavoriteSearchResponse(object):
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object Array</SPAN>
         # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">true</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Sample</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;"></SPAN>
-        # </LI>
         # </UL>
         self.collect_items = None
-        ''' 
-        @ivar collect_items: 返回查询到的商品或店铺的数字id列表; B{Level}: C{Object Array}; B{Required}: C{true}; B{Sample}: C{};
-        @type collect_items: CollectItem
-        '''
+        
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">查询到的宝贝的收藏总数</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.total_results = None
     
         self.__init(kargs)
+
+    def isSuccess(self):
+        return self.code == None and self.sub_code == None
     
     def _newInstance(self, name, value):
         types = self._getPropertyType(name)
@@ -110,22 +110,34 @@ class FavoriteSearchResponse(object):
         isArray = types[1]
         if propertyType == bool:
             if isArray:
+                if not value:
+                    return []
                 return [x for x in value[value.keys()[0]]]
             else:
                 return value
         elif propertyType == datetime:
             format = "%Y-%m-%d %H:%M:%S"
             if isArray:
+                if not value:
+                    return []
                 return [datetime.strptime(x, format) for x in value[value.keys()[0]]]
             else:
                 return datetime.strptime(value, format)
         elif propertyType == str:
             if isArray:
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                if not value:
+                    return []
+                return [x for x in value[value.keys()[0]]]
             else:
-                return value.encode("utf-8")
+                #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
+                if not isinstance(value, basestring):
+                    #the value should be a json string 
+                    return _jsonEnode(value)
+                return value
         else:
             if isArray:
+                if not value:
+                    return []
                 return [propertyType(x) for x in value[value.keys()[0]]]
             else:
                 return propertyType(value)
@@ -133,15 +145,15 @@ class FavoriteSearchResponse(object):
     def _getPropertyType(self, name):
         properties = {
             
-            "total_results": "Number",
-            
             "collect_items": "CollectItem",
+            
+            "total_results": "Number",
         }
         levels = {
             
-            "total_results": "Basic",
-            
             "collect_items": "Object Array",
+            
+            "total_results": "Basic",
         }
         
         nameType = properties[name]
@@ -172,9 +184,16 @@ class FavoriteSearchResponse(object):
 
     def __init(self, kargs):
         
-        if kargs.has_key("total_results"):
-            self.total_results = self._newInstance("total_results", kargs["total_results"])
-        
         if kargs.has_key("collect_items"):
             self.collect_items = self._newInstance("collect_items", kargs["collect_items"])
-        pass
+        
+        if kargs.has_key("total_results"):
+            self.total_results = self._newInstance("total_results", kargs["total_results"])
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

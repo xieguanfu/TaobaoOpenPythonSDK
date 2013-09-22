@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 获取当前登录用户自己的店铺内的分流权重设置
+## @brief 获取当前登录用户自己的店铺内的分流权重设置，只支持xml 返回。
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:36
+# @date 2013-09-22 16:52:34
 # @version: 0.0.0
 
 import os
@@ -23,7 +23,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">获取当前登录用户自己的店铺内的分流权重设置</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">获取当前登录用户自己的店铺内的分流权重设置，只支持xml 返回。</SPAN>
 # <UL>
 # </UL>
 class WangwangEserviceStreamweigthsGetRequest(object):

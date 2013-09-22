@@ -5,7 +5,7 @@
 
 ## @brief 商品属性
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:28
+# @date 2013-09-22 16:52:26
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,10 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                                
+                        
+from Feature import Feature
+
+                                                                                                                                
 from PropValue import PropValue
 
                                 
@@ -72,6 +75,17 @@ class ItemProp(object):
         # </LI>
         # </UL>
         self.cid = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">属性的feature列表</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Feature</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object Array</SPAN>
+        # </LI>
+        # </UL>
+        self.features = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是否允许别名。可选值：true（是），false（否）</SPAN>
         # <UL>
@@ -353,6 +367,8 @@ class ItemProp(object):
             
             "cid": "Number",
             
+            "features": "Feature",
+            
             "is_allow_alias": "Boolean",
             
             "is_color_prop": "Boolean",
@@ -398,6 +414,8 @@ class ItemProp(object):
             "child_template": "Basic",
             
             "cid": "Basic",
+            
+            "features": "Object Array",
             
             "is_allow_alias": "Basic",
             
@@ -475,6 +493,9 @@ class ItemProp(object):
         
         if kargs.has_key("cid"):
             self.cid = self._newInstance("cid", kargs["cid"])
+        
+        if kargs.has_key("features"):
+            self.features = self._newInstance("features", kargs["features"])
         
         if kargs.has_key("is_allow_alias"):
             self.is_allow_alias = self._newInstance("is_allow_alias", kargs["is_allow_alias"])

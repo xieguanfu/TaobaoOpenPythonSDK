@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 分页获取修改过的关键词ID和修改时间
+## @brief 分页获取修改过的关键词ID、宝贝id、修改时间
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:49
+# @date 2013-09-22 16:52:50
 # @version: 0.0.0
 
 from datetime import datetime
@@ -43,7 +43,7 @@ from Domain.KeywordPage import KeywordPage
 
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 分页获取修改过的关键词ID和修改时间</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 分页获取修改过的关键词ID、宝贝id、修改时间</SPAN>
 # <UL>
 # </UL>
 class SimbaKeywordsChangedGetResponse(object):

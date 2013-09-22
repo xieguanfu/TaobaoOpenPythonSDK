@@ -5,7 +5,7 @@
 
 ## @brief 此接口用于查询多个酒店商品，根据传入的参数查询商品信息。卖家只能查询自己的商品。
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:15
+# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os
@@ -69,7 +69,7 @@ class HotelRoomsSearchRequest(object):
         # </UL>
         self.hids = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">酒店房间商品item_id列表，多个item_id用英文逗号隔开，一次不超过20个。gids，item_ids , hids，rids四项必须传一项，同时传递的情况下，作为查询条件的优先级由高到低依次为gids，item_ids , hids，rids。</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">酒店房间商品item_id列表，多个item_id用英文逗号隔开，一次不超过20个。gids，item_ids , hids，rids四项必须传一项，同时传递的情况下，作为查询条件的优先级由高到低依次为gids，item_ids , hids，rids。当item_ids参数值为-1，gids项不传值时，会返回卖家所有商品列表</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

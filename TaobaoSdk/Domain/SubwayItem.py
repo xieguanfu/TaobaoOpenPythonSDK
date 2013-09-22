@@ -5,7 +5,7 @@
 
 ## @brief 主站商品对象
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:31
+# @date 2013-09-22 16:52:29
 # @version: 0.0.0
 
 from copy import deepcopy

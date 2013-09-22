@@ -3,9 +3,9 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 获取当前登录用户自己的店铺内的分流权重设置
+## @brief 获取当前登录用户自己的店铺内的分流权重设置，只支持xml 返回。
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:47
+# @date 2013-09-22 16:52:47
 # @version: 0.0.0
 
 from datetime import datetime
@@ -43,7 +43,7 @@ from Domain.StreamWeight import StreamWeight
 
     
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 获取当前登录用户自己的店铺内的分流权重设置</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 获取当前登录用户自己的店铺内的分流权重设置，只支持xml 返回。</SPAN>
 # <UL>
 # </UL>
 class WangwangEserviceStreamweigthsGetResponse(object):

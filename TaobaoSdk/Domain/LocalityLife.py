@@ -5,7 +5,7 @@
 
 ## @brief 本地生活垂直市场数据结构，修改宝贝时在参数empty_fields里设置locality_life可删除所有电子凭证信息
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:28
+# @date 2013-09-22 16:52:29
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                        
+                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">本地生活垂直市场数据结构，修改宝贝时在参数empty_fields里设置locality_life可删除所有电子凭证信息</SPAN>
 class LocalityLife(object):
     def __init__(self, kargs=dict()):
@@ -58,6 +58,17 @@ class LocalityLife(object):
         # </LI>
         # </UL>
         self.choose_logis = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">电子凭证业务属性</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.eticket = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">电子交易凭证有效期，有三种格式： 如果有效期为起止日期类型，此值为2012-08-06,2012-08-16  如果有效期为【购买成功日 至】类型则格式为2012-08-16 如果有效期为天数类型则格式为15</SPAN>
         # <UL>
@@ -113,6 +124,17 @@ class LocalityLife(object):
         # </LI>
         # </UL>
         self.refund_ratio = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">退款码费承担方。发布电子凭证宝贝的时候会增加“退款码费承担方”配置项，可选填：(1)s（卖家承担） (2)b(买家承担)</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.refundmafee = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">核销打款:1代表核销打款,0代表非核销打款; 在参数empty_fields里设置locality_life.verification可删除核销打款</SPAN>
         # <UL>
@@ -183,6 +205,8 @@ class LocalityLife(object):
             
             "choose_logis": "String",
             
+            "eticket": "String",
+            
             "expirydate": "String",
             
             "merchant": "String",
@@ -193,11 +217,15 @@ class LocalityLife(object):
             
             "refund_ratio": "Number",
             
+            "refundmafee": "String",
+            
             "verification": "String",
         }
         levels = {
             
             "choose_logis": "Basic",
+            
+            "eticket": "Basic",
             
             "expirydate": "Basic",
             
@@ -208,6 +236,8 @@ class LocalityLife(object):
             "onsale_auto_refund_ratio": "Basic",
             
             "refund_ratio": "Basic",
+            
+            "refundmafee": "Basic",
             
             "verification": "Basic",
 
@@ -245,6 +275,9 @@ class LocalityLife(object):
         if kargs.has_key("choose_logis"):
             self.choose_logis = self._newInstance("choose_logis", kargs["choose_logis"])
         
+        if kargs.has_key("eticket"):
+            self.eticket = self._newInstance("eticket", kargs["eticket"])
+        
         if kargs.has_key("expirydate"):
             self.expirydate = self._newInstance("expirydate", kargs["expirydate"])
         
@@ -259,6 +292,9 @@ class LocalityLife(object):
         
         if kargs.has_key("refund_ratio"):
             self.refund_ratio = self._newInstance("refund_ratio", kargs["refund_ratio"])
+        
+        if kargs.has_key("refundmafee"):
+            self.refundmafee = self._newInstance("refundmafee", kargs["refundmafee"])
         
         if kargs.has_key("verification"):
             self.verification = self._newInstance("verification", kargs["verification"])

@@ -5,7 +5,7 @@
 
 ## @brief 产品资质认证图片信息，包括认证类型以及图片url
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:28
+# @date 2013-09-22 16:52:29
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -48,7 +48,7 @@ class CertPicInfo(object):
         self.__kargs = deepcopy(kargs)
         
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">认证图片类型的数值id</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">认证类型的数值id</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>

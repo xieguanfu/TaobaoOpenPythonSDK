@@ -5,7 +5,7 @@
 
 ## @brief 直通车可推广的地域
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:31
+# @date 2013-09-22 16:52:28
 # @version: 0.0.0
 
 from copy import deepcopy

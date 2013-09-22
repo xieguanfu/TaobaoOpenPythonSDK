@@ -5,7 +5,7 @@
 
 ## @brief 直通车商品对象属性（Map）
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:31
+# @date 2013-09-22 16:52:29
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -115,12 +115,7 @@ class ExtraAttributes(object):
                     return []
                 return [datetime.strptime(x, format) for x in value[value.keys()[0]]]
             else:
-                try: 
-                    the_date = datetime.strptime(value,format)
-                    return the_date
-                except ValueError,e:
-                    return datetime(2004,12,20)
-
+                return datetime.strptime(value, format)
         elif propertyType == str:
             if isArray:
                 if not value:

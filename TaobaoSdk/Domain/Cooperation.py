@@ -5,7 +5,7 @@
 
 ## @brief 合作分销关系
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:30
+# @date 2013-09-22 16:52:28
 # @version: 0.0.0
 
 from copy import deepcopy
@@ -39,7 +39,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                
+                                                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">合作分销关系</SPAN>
 class Cooperation(object):
     def __init__(self, kargs=dict()):
@@ -125,6 +125,17 @@ class Cooperation(object):
         # </UL>
         self.product_line = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">授权产品线名称，和product_line中的值按序对应</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic Array</SPAN>
+        # </LI>
+        # </UL>
+        self.product_line_name = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">合作起始时间</SPAN>
         # <UL>
         # <LI>
@@ -136,7 +147,7 @@ class Cooperation(object):
         # </UL>
         self.start_date = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">NORMAL END ENDING</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">合作状态： NORMAL(合作中)、 ENDING(终止中) 、END (终止)</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -250,6 +261,8 @@ class Cooperation(object):
             
             "product_line": "String",
             
+            "product_line_name": "String",
+            
             "start_date": "Date",
             
             "status": "String",
@@ -275,6 +288,8 @@ class Cooperation(object):
             "grade_id": "Basic",
             
             "product_line": "Basic",
+            
+            "product_line_name": "Basic Array",
             
             "start_date": "Basic",
             
@@ -337,6 +352,9 @@ class Cooperation(object):
         
         if kargs.has_key("product_line"):
             self.product_line = self._newInstance("product_line", kargs["product_line"])
+        
+        if kargs.has_key("product_line_name"):
+            self.product_line_name = self._newInstance("product_line_name", kargs["product_line_name"])
         
         if kargs.has_key("start_date"):
             self.start_date = self._newInstance("start_date", kargs["start_date"])

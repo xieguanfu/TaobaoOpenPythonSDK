@@ -5,7 +5,7 @@
 
 ## @brief 货主根据多个商品列表获取每个商品的授权明细
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:46
+# @date 2013-09-22 16:52:46
 # @version: 0.0.0
 
 from datetime import datetime
