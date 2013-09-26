@@ -14,6 +14,9 @@
 
 import sys
 reload(sys)
+sys.path.append('../../Webpage/zhangzb')
+from db_models.shop_info_db import ShopInfoDB
+
 sys.setdefaultencoding("utf-8")
 
 from Common import *
@@ -70,6 +73,14 @@ class TaobaoClient(object):
            "Cache-Control": "no-cache",
            "Connection": "Keep-Alive",
         }
+        #判断是否需要添加header
+        #import pdb;pdb.set_trace()
+        if not parameters['method'] in ['taobao.shop.get','taobao.simba.login.authsign.get','taobao.vas.subscribe.get'] and not ShopInfoDB.is_open_access_token_exists(session):
+            header = ShopInfoDB.get_header_by_access_token(session)
+            if not header:
+                raise Exception('cannot find header form db')
+            headers['header'] = header
+        
         responseStatus, rawContent = client.request(uri=self.serverUrl, method="POST", 
             body=urllib.urlencode(parameters), headers=headers)
         if responseStatus["status"] != '200':
