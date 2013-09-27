@@ -3,7 +3,7 @@
 # vim: set ts=4 sts=4 sw=4 et:
 """
 @author: Wu Liang
-@authors: 
+@authors:
 @date: 8:31:46 PM Jun 6, 2012
 @contact: wuliang@maimiaotech.com
 @version: 0.0.0
@@ -15,7 +15,12 @@
 import sys
 reload(sys)
 sys.path.append('../../Webpage/zhangzb')
-from db_models.shop_info_db import ShopInfoDB
+
+try:
+    from db_models.shop_info_db import ShopInfoDB
+except Exception:
+    print 'cannot open shop_info_db'
+    ShopInfoDB = None
 
 sys.setdefaultencoding("utf-8")
 
@@ -39,7 +44,7 @@ class TaobaoClient(object):
         self.format = 'json'
         self.signMethod = "md5"
         self.timeout = timeout
-        
+
     def execute(self, request, session=None):
         '''
         执行请求
@@ -75,13 +80,17 @@ class TaobaoClient(object):
         }
         #判断是否需要添加header
         #import pdb;pdb.set_trace()
-        if not parameters['method'] in ['taobao.shop.get','taobao.simba.login.authsign.get','taobao.vas.subscribe.get'] and not ShopInfoDB.is_open_access_token_exists(session):
+
+        if ShopInfoDB and not ShopInfoDB.is_open_access_token_exists(session):
             header = ShopInfoDB.get_header_by_access_token(session)
-            if not header:
-                raise Exception('cannot find header form db')
-            headers['header'] = header
-        
-        responseStatus, rawContent = client.request(uri=self.serverUrl, method="POST", 
+            # if not header:
+            #     raise Exception('cannot find header form db')
+            # headers['header'] = header
+            if header:
+                for key in header:
+                    headers[key] = header[key]
+
+        responseStatus, rawContent = client.request(uri=self.serverUrl, method="POST",
             body=urllib.urlencode(parameters), headers=headers)
         if responseStatus["status"] != '200':
             print >> sys.stderr, rawContent
@@ -110,11 +119,11 @@ class TaobaoClient(object):
             file_object.write('parameters:%s\nrawContent:%s\nEXCEPTION:%s\n--------->>>>>>>>>'%(parameters,rawContent,e))
             file_object.close()
             raise e
-    
+
     def buildSign(self, request, session=None):
         '''
-        对传入的request进行sign的计算. 
-        sign的计算需要format, app_key, sign_method, v, partner_id, 
+        对传入的request进行sign的计算.
+        sign的计算需要format, app_key, sign_method, v, partner_id,
         appSecret以及request的参数共同拼装成一个字符串,然后
         '''
         parameters = {
@@ -130,11 +139,11 @@ class TaobaoClient(object):
         keys = parameters.keys()
         keys.sort()
         query = "%s%s%s" % (self.appSecret,
-            str().join('%s%s' % (key, parameters[key]) for key in keys), 
+            str().join('%s%s' % (key, parameters[key]) for key in keys),
             self.appSecret)
         hash = hashlib.md5(query)
         return hash.hexdigest()
-        
+
     def getRequestParameters(self, request):
         '''
         得到request中所需要进行
@@ -148,4 +157,4 @@ class TaobaoClient(object):
                 continue
             parameters[key] = unicode(value)
         return parameters
-            
+
