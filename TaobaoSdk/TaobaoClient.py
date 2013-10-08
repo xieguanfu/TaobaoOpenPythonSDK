@@ -30,6 +30,18 @@ def __getCurrentPath():
 if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
+ 
+def normalize_rawconent(rawContent):
+    key_info = """./app/common/common.lua"""
+    if key_info in rawContent:
+        start = rawContent.find(key_info)
+        end = rawContent[start:].find("error") + len("error")
+        print end 
+        sick_info = rawContent[start:start+end]
+        norm_info = '''"msg":"null","sub_code":"isp.service-unavailable","sub_msg":"maimiao defined"'''
+        rawContent = rawContent.replace(sick_info, norm_info)
+    return rawContent
+
 class TaobaoClient(object):
     def __init__(self, serverUrl, appKey, appSecret, timeout=180):
         self.serverUrl = serverUrl
@@ -89,6 +101,9 @@ class TaobaoClient(object):
         try:
             if ",," in rawContent:
                 rawContent=rawContent.replace(",,",",")
+            if """./app/common/common.lua""" in rawContent:
+                rawContent=normalize_rawconent(rawContent)
+                      
             content = JSONLib.decode(rawContent)
         except Exception,e:
             file_object = open('/home/ops/TaobaoOpenPythonSDK/TaobaoSdk/error_api.txt','a')
