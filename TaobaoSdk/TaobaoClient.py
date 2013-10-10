@@ -13,6 +13,7 @@
 """
 
 import sys
+import re
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
@@ -109,6 +110,25 @@ class TaobaoClient(object):
                 response.responseBody = rawContent
                 responses.append(response)
             return tuple(responses)
+        except ValueError,e:
+            if "does not match format '%Y-%m-%d %H:%M:%S'" in str(e):
+                #时间转换
+                while(re.search('[a-zA-Z\x80-\xff]+\d{3}\-\d{2}\-\d{2} \d{2}:\d{2}:\d{2}',rawContent)):
+                    match_obj = re.search('[a-zA-Z\x80-\xff]+\d{3}\-\d{2}\-\d{2} \d{2}:\d{2}:\d{2}',rawContent)
+                    match_obj2 = re.search('\D\d{3}\-\d{2}\-\d{2} \d{2}:\d{2}:\d{2}',rawContent)
+                    begin = match_obj.start()
+                    end = match_obj2.start()+1
+                    rawContent = rawContent[:begin] + '2'+ rawContent[end:]
+                #重新生成response
+                for key, value in content.iteritems():
+                    key = str().join([x.capitalize() for x in key.split("_")])
+                    ResponseClass = getattr(sys.modules["TaobaoSdk.Response.%s" % key], key)
+                    response = ResponseClass(value)
+                    response.responseStatus = responseStatus
+                    response.responseBody = rawContent
+                    responses.append(response)
+                return tuple(responses)
+            
         except Exception,e:
             file_object = open('/home/ops/TaobaoOpenPythonSDK/TaobaoSdk/error_api.txt','a')
             file_object.write('parameters:%s\nrawContent:%s\nEXCEPTION:%s\n--------->>>>>>>>>'%(parameters,rawContent,e))
