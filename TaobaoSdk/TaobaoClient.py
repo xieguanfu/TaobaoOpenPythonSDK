@@ -28,15 +28,16 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
  
+#{"simba_rpt_custbase_get_response":{"rpt_cust_base_list":{"code":15,./app/actions/rpt_service/rpt_cust_base_v2.lua:19: error}}}                                                 
 def normalize_rawconent(rawContent):
-    key_info = """./app/common/common.lua"""
-    if key_info in rawContent:
-        start = rawContent.find(key_info)
-        end = rawContent[start:].find("error") + len("error")
-        print end 
-        sick_info = rawContent[start:start+end]
-        norm_info = '''"msg":"null","sub_code":"isp.service-unavailable","sub_msg":"maimiao defined"'''
-        rawContent = rawContent.replace(sick_info, norm_info)
+    key_infos = ["""./app/common/common.lua""", """./app/actions/rpt_service/rpt_cust_base_v2.lua"""]
+    for key_info in key_infos:
+        if key_info in rawContent:
+            start = rawContent.find(key_info)
+            end = rawContent[start:].find("error") + len("error")
+            sick_info = rawContent[start:start+end]
+            norm_info = '''"msg":"null","sub_code":"isp.service-unavailable","sub_msg":"maimiao defined"'''
+            rawContent = rawContent.replace(sick_info, norm_info)
     return rawContent
 
 class TaobaoClient(object):
