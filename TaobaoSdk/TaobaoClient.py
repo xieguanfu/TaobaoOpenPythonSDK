@@ -20,6 +20,7 @@ sys.setdefaultencoding("utf-8")
 from Common import *
 from Response import *
 from SdkCommon import *
+from decorator import sdk_exception
 import logging
 logger = logging.getLogger(__name__)
 def __getCurrentPath():
@@ -51,6 +52,7 @@ class TaobaoClient(object):
         self.signMethod = "md5"
         self.timeout = timeout
         
+    @sdk_exception(20)
     def execute(self, request, session=None):
         '''
         执行请求
@@ -94,7 +96,6 @@ class TaobaoClient(object):
                 rawContent=rawContent.replace(",,",",")
             if """./app/common/common.lua""" in rawContent:
                 rawContent=normalize_rawconent(rawContent)
-                      
             content = JSONLib.decode(rawContent)
         except Exception,e:
             file_object = open('/home/ops/TaobaoOpenPythonSDK/TaobaoSdk/error_api.txt','a')
