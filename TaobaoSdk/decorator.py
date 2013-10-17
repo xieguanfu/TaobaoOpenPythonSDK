@@ -25,7 +25,7 @@ def sdk_exception(MAX_RETRY_TIMES = 20):
             while True:
                 try:
                     res =  func(*args, **kwargs)
-                except ImportError,e:
+                except (ImportError,ValueError),e:
                     if retry_times == MAX_RETRY_TIMES:
                         logger.error('SDK ERROR,retry %s times,but still failed'%MAX_RETRY_TIMES)
                         raise SDKRetryException
