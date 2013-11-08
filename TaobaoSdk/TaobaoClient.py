@@ -14,6 +14,7 @@
 
 import sys
 import re
+import simplejson
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
@@ -86,6 +87,7 @@ class TaobaoClient(object):
            "Cache-Control": "no-cache",
            "Connection": "Keep-Alive",
         }
+        print 'API CALL:',parameters
         responseStatus, rawContent = client.request(uri=self.serverUrl, method="POST", 
             body=urllib.urlencode(parameters), headers=headers)
         if responseStatus["status"] != '200':
@@ -96,7 +98,7 @@ class TaobaoClient(object):
                 rawContent=rawContent.replace(",,",",")
             if """./app/common/common.lua""" in rawContent:
                 rawContent=normalize_rawconent(rawContent)
-            content = JSONLib.decode(rawContent)
+            content = simplejson.loads(rawContent)
         except Exception,e:
             file_object = open('/home/ops/TaobaoOpenPythonSDK/TaobaoSdk/error_api.txt','a')
             file_object.write('parameters:%s\nrawContent:%s\nEXCEPTION:%s\n---------'%(parameters,rawContent,e))
