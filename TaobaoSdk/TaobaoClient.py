@@ -87,7 +87,7 @@ class TaobaoClient(object):
            "Cache-Control": "no-cache",
            "Connection": "Keep-Alive",
         }
-        print 'API CALL:',parameters
+        #print 'API CALL:',parameters
         responseStatus, rawContent = client.request(uri=self.serverUrl, method="POST", 
             body=urllib.urlencode(parameters), headers=headers)
         if responseStatus["status"] != '200':
