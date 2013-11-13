@@ -90,6 +90,7 @@ class TaobaoClient(object):
         #print 'API CALL:',parameters
         responseStatus, rawContent = client.request(uri=self.serverUrl, method="POST", 
             body=urllib.urlencode(parameters), headers=headers)
+        #print 'API RETURN:',rawContent
         if responseStatus["status"] != '200':
             print >> sys.stderr, rawContent
             return None
