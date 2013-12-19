@@ -13,6 +13,8 @@
 """
 
 import sys
+import re
+import simplejson
 reload(sys)
 sys.path.append('../../Webpage/zhangzb')
 
@@ -27,6 +29,7 @@ sys.setdefaultencoding("utf-8")
 from Common import *
 from Response import *
 from SdkCommon import *
+from decorator import sdk_exception
 import logging
 logger = logging.getLogger(__name__)
 def __getCurrentPath():
@@ -36,15 +39,16 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
  
+#{"simba_rpt_custbase_get_response":{"rpt_cust_base_list":{"code":15,./app/actions/rpt_service/rpt_cust_base_v2.lua:19: error}}}                                                 
 def normalize_rawconent(rawContent):
-    key_info = """./app/common/common.lua"""
-    if key_info in rawContent:
-        start = rawContent.find(key_info)
-        end = rawContent[start:].find("error") + len("error")
-        print end 
-        sick_info = rawContent[start:start+end]
-        norm_info = '''"msg":"null","sub_code":"isp.service-unavailable","sub_msg":"maimiao defined"'''
-        rawContent = rawContent.replace(sick_info, norm_info)
+    key_infos = ["""./app/common/common.lua""", """./app/actions/rpt_service/rpt_cust_base_v2.lua"""]
+    for key_info in key_infos:
+        if key_info in rawContent:
+            start = rawContent.find(key_info)
+            end = rawContent[start:].find("error") + len("error")
+            sick_info = rawContent[start:start+end]
+            norm_info = '''"msg":"null","sub_code":"isp.service-unavailable","sub_msg":"maimiao defined"'''
+            rawContent = rawContent.replace(sick_info, norm_info)
     return rawContent
 
 class TaobaoClient(object):
@@ -57,6 +61,7 @@ class TaobaoClient(object):
         self.signMethod = "md5"
         self.timeout = timeout
 
+    @sdk_exception(20)
     def execute(self, request, session=None):
         '''
         执行请求
@@ -91,8 +96,6 @@ class TaobaoClient(object):
            "Connection": "Keep-Alive",
         }
         #判断是否需要添加header
-        #import pdb;pdb.set_trace()
-
         if ShopInfoDB and not ShopInfoDB.is_open_access_token_exists(session):
             header = ShopInfoDB.get_header_by_access_token(session)
             # if not header:
@@ -102,8 +105,9 @@ class TaobaoClient(object):
                 for key in header:
                     headers[key] = header[key]
 
-        responseStatus, rawContent = client.request(uri=self.serverUrl, method="POST",
-            body=urllib.urlencode(parameters), headers=headers)
+        print 'API CALL:',parameters
+        responseStatus, rawContent = client.request(uri=self.serverUrl, method="POST",body=urllib.urlencode(parameters), headers=headers)
+        #print 'API RETURN:',rawContent
         if responseStatus["status"] != '200':
             print >> sys.stderr, rawContent
             return None
@@ -112,8 +116,7 @@ class TaobaoClient(object):
                 rawContent=rawContent.replace(",,",",")
             if """./app/common/common.lua""" in rawContent:
                 rawContent=normalize_rawconent(rawContent)
-                      
-            content = JSONLib.decode(rawContent)
+            content = simplejson.loads(rawContent)
         except Exception,e:
             file_object = open('/home/ops/TaobaoOpenPythonSDK/TaobaoSdk/error_api.txt','a')
             file_object.write('parameters:%s\nrawContent:%s\nEXCEPTION:%s\n---------'%(parameters,rawContent,e))
@@ -129,6 +132,25 @@ class TaobaoClient(object):
                 response.responseBody = rawContent
                 responses.append(response)
             return tuple(responses)
+        except ValueError,e:
+            if "does not match format '%Y-%m-%d %H:%M:%S'" in str(e):
+                #时间转换
+                while(re.search('[a-zA-Z\x80-\xff]+\d{3}\-\d{2}\-\d{2} \d{2}:\d{2}:\d{2}',rawContent)):
+                    match_obj = re.search('[a-zA-Z\x80-\xff]+\d{3}\-\d{2}\-\d{2} \d{2}:\d{2}:\d{2}',rawContent)
+                    match_obj2 = re.search('\D\d{3}\-\d{2}\-\d{2} \d{2}:\d{2}:\d{2}',rawContent)
+                    begin = match_obj.start()
+                    end = match_obj2.start()+1
+                    rawContent = rawContent[:begin] + '2'+ rawContent[end:]
+                #重新生成response
+                for key, value in content.iteritems():
+                    key = str().join([x.capitalize() for x in key.split("_")])
+                    ResponseClass = getattr(sys.modules["TaobaoSdk.Response.%s" % key], key)
+                    response = ResponseClass(value)
+                    response.responseStatus = responseStatus
+                    response.responseBody = rawContent
+                    responses.append(response)
+                return tuple(responses)
+            
         except Exception,e:
             file_object = open('/home/ops/TaobaoOpenPythonSDK/TaobaoSdk/error_api.txt','a')
             file_object.write('parameters:%s\nrawContent:%s\nEXCEPTION:%s\n--------->>>>>>>>>'%(parameters,rawContent,e))

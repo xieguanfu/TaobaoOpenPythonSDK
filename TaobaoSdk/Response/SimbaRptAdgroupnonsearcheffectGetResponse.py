@@ -82,7 +82,7 @@ class SimbaRptAdgroupnonsearcheffectGetResponse(object):
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
         # </LI>
         # </UL>
-        self.rpt_adgroup_nonsearch_effect = None
+        self.rpt_nonsearch_effect_list = None
     
         self.__init(kargs)
 
@@ -130,11 +130,11 @@ class SimbaRptAdgroupnonsearcheffectGetResponse(object):
     def _getPropertyType(self, name):
         properties = {
             
-            "rpt_adgroup_nonsearch_effect": "String",
+            "rpt_nonsearch_effect_list": "String",
         }
         levels = {
             
-            "rpt_adgroup_nonsearch_effect": "Basic",
+            "rpt_nonsearch_effect_list": "Basic",
         }
         
         nameType = properties[name]
@@ -165,8 +165,8 @@ class SimbaRptAdgroupnonsearcheffectGetResponse(object):
 
     def __init(self, kargs):
         
-        if kargs.has_key("rpt_adgroup_nonsearch_effect"):
-            self.rpt_adgroup_nonsearch_effect = self._newInstance("rpt_adgroup_nonsearch_effect", kargs["rpt_adgroup_nonsearch_effect"])
+        if kargs.has_key("rpt_nonsearch_effect_list"):
+            self.rpt_nonsearch_effect_list = self._newInstance("rpt_nonsearch_effect_list", kargs["rpt_nonsearch_effect_list"])
         if kargs.has_key("code"):
             self.code = kargs["code"]
         if kargs.has_key("msg"):
