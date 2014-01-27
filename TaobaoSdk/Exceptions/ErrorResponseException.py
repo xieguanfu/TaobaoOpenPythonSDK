@@ -25,6 +25,10 @@ class ErrorResponseException(Exception):
 
         self.sub_msg = None
 
+        self.params = None
+
+        self.rsp = None
+
         if kargs.has_key("code"):
             self.code = kargs["code"]
         if kargs.has_key("msg"):
@@ -33,6 +37,15 @@ class ErrorResponseException(Exception):
             self.sub_code = kargs["sub_code"]
         if kargs.has_key("sub_msg"):
             self.sub_msg = kargs["sub_msg"]
+        if kargs.has_key("params"):
+            self.params = kargs["params"]
+        if kargs.has_key("rsp"):
+            self.rsp = kargs["rsp"]
 
     def __str__(self):
-        return "%s, ErrorCode: %s; SubMsg: %s, SubCode: %s" % (self.msg, self.code, self.sub_msg, self.sub_code)
+        if self.rsp is None:
+            responseBody = None
+        else:
+            responseBody = self.rsp.responseBody
+        return "%s, ErrorCode: %s; SubMsg: %s, SubCode: %s,params:%s,responseBody:%s" % (self.msg, self.code, self.sub_msg, self.sub_code,self.params,responseBody)
+

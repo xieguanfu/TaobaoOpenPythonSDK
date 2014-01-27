@@ -44,6 +44,7 @@ def normalize_rawconent(rawContent):
     return rawContent
 
 class TaobaoClient(object):
+
     def __init__(self, serverUrl, appKey, appSecret, timeout=180):
         self.serverUrl = serverUrl
         self.appKey = appKey
@@ -52,9 +53,9 @@ class TaobaoClient(object):
         self.format = 'json'
         self.signMethod = "md5"
         self.timeout = timeout
-        
+
     @sdk_exception(20)
-    def execute(self, request, session=None):
+    def execute(self, params, session=None):
         '''
         执行请求
         @param request: 需要发送的请求,必须是Request下的对象
@@ -62,7 +63,7 @@ class TaobaoClient(object):
         @return: 得到的响应,必然是Reponse下的对象;除非访问时出错了
         @rtype: tuple(response1, response2, ...)
         '''
-        sign = self.buildSign(request, session)
+        sign = self.buildSign(params, session)
         sign = sign.upper()
         # 参数
         # TODO 和原始的Java SDK相比，这里缺少session的传入
@@ -74,7 +75,7 @@ class TaobaoClient(object):
             'v': '2.0',
             'partner_id': 'top-sdk-java-%s' % SdkVersion,
         }
-        parameters.update(self.getRequestParameters(request))
+        parameters.update(params)
         if session != None:
             parameters["session"] = session
         #print self.serverUrl + "?" + '&'.join("%s=%s" % (x, urllib2.quote(parameters[x])) for x in parameters.keys())
@@ -92,7 +93,7 @@ class TaobaoClient(object):
             body=urllib.urlencode(parameters), headers=headers)
         #print 'API RETURN:',rawContent
         if responseStatus["status"] != '200':
-            print >> sys.stderr, rawContent
+            print 'error:',rawContent
             return None
         try:
             if ",," in rawContent:
@@ -100,47 +101,14 @@ class TaobaoClient(object):
             if """./app/common/common.lua""" in rawContent:
                 rawContent=normalize_rawconent(rawContent)
             content = simplejson.loads(rawContent)
+            return content
         except Exception,e:
             file_object = open('/home/ops/TaobaoOpenPythonSDK/TaobaoSdk/error_api.txt','a')
             file_object.write('parameters:%s\nrawContent:%s\nEXCEPTION:%s\n---------'%(parameters,rawContent,e))
             file_object.close()
             raise e
-        responses = list()
-        try:
-            for key, value in content.iteritems():
-                key = str().join([x.capitalize() for x in key.split("_")])
-                ResponseClass = getattr(sys.modules["TaobaoSdk.Response.%s" % key], key)
-                response = ResponseClass(value)
-                response.responseStatus = responseStatus
-                response.responseBody = rawContent
-                responses.append(response)
-            return tuple(responses)
-        except ValueError,e:
-            if "does not match format '%Y-%m-%d %H:%M:%S'" in str(e):
-                #时间转换
-                while(re.search('[a-zA-Z\x80-\xff]+\d{3}\-\d{2}\-\d{2} \d{2}:\d{2}:\d{2}',rawContent)):
-                    match_obj = re.search('[a-zA-Z\x80-\xff]+\d{3}\-\d{2}\-\d{2} \d{2}:\d{2}:\d{2}',rawContent)
-                    match_obj2 = re.search('\D\d{3}\-\d{2}\-\d{2} \d{2}:\d{2}:\d{2}',rawContent)
-                    begin = match_obj.start()
-                    end = match_obj2.start()+1
-                    rawContent = rawContent[:begin] + '2'+ rawContent[end:]
-                #重新生成response
-                for key, value in content.iteritems():
-                    key = str().join([x.capitalize() for x in key.split("_")])
-                    ResponseClass = getattr(sys.modules["TaobaoSdk.Response.%s" % key], key)
-                    response = ResponseClass(value)
-                    response.responseStatus = responseStatus
-                    response.responseBody = rawContent
-                    responses.append(response)
-                return tuple(responses)
-            
-        except Exception,e:
-            file_object = open('/home/ops/TaobaoOpenPythonSDK/TaobaoSdk/error_api.txt','a')
-            file_object.write('parameters:%s\nrawContent:%s\nEXCEPTION:%s\n--------->>>>>>>>>'%(parameters,rawContent,e))
-            file_object.close()
-            raise e
     
-    def buildSign(self, request, session=None):
+    def buildSign(self, params, session=None):
         '''
         对传入的request进行sign的计算. 
         sign的计算需要format, app_key, sign_method, v, partner_id, 
@@ -153,7 +121,7 @@ class TaobaoClient(object):
             'v': '2.0',
             'partner_id': 'top-sdk-java-%s' % SdkVersion,
         }
-        parameters.update(self.getRequestParameters(request))
+        parameters.update(params)
         if session != None:
             parameters["session"] = session
         keys = parameters.keys()
