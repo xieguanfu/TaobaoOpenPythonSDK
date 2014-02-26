@@ -16,13 +16,9 @@ import sys
 import re
 import simplejson
 reload(sys)
-sys.path.append('../../Webpage/zhangzb')
 
-try:
-    from db_models.shop_info_db import ShopInfoDB
-except Exception:
-    print 'cannot open shop_info_db'
-    ShopInfoDB = None
+sys.path.append('../../Webpage')
+from zhangzb.db_models.shop_info_db import ShopInfoDB
 
 sys.setdefaultencoding("utf-8")
 
@@ -96,7 +92,7 @@ class TaobaoClient(object):
            "Connection": "Keep-Alive",
         }
         #判断是否需要添加header
-        if ShopInfoDB and not ShopInfoDB.is_open_access_token_exists(session):
+        if self.appKey == '21402298' and ShopInfoDB and not ShopInfoDB.is_open_access_token_exists(session):
             header = ShopInfoDB.get_header_by_access_token(session)
             # if not header:
             #     raise Exception('cannot find header form db')
