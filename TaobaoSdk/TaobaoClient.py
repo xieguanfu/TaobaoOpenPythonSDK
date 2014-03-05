@@ -3,7 +3,7 @@
 # vim: set ts=4 sts=4 sw=4 et:
 """
 @author: Wu Liang
-@authors: 
+@authors:
 @date: 8:31:46 PM Jun 6, 2012
 @contact: wuliang@maimiaotech.com
 @version: 0.0.0
@@ -17,6 +17,10 @@ import re
 import simplejson
 reload(sys)
 sys.setdefaultencoding("utf-8")
+
+sys.path.append('../../Webpage')
+from zhangzb.db_models.shop_info_db import ShopInfoDB
+
 
 from Common import *
 from Response import *
@@ -88,9 +92,18 @@ class TaobaoClient(object):
            "Cache-Control": "no-cache",
            "Connection": "Keep-Alive",
         }
-        #print 'API CALL:',parameters
-        responseStatus, rawContent = client.request(uri=self.serverUrl, method="POST", 
-            body=urllib.urlencode(parameters), headers=headers)
+        #判断是否需要添加header
+        if self.appKey == '21402298' and ShopInfoDB and not ShopInfoDB.is_open_access_token_exists(session):
+            header = ShopInfoDB.get_header_by_access_token(session)
+            # if not header:
+            #     raise Exception('cannot find header form db')
+            # headers['header'] = header
+            if header:
+                for key in header:
+                    headers[key] = header[key]
+
+        print 'API CALL:',parameters
+        responseStatus, rawContent = client.request(uri=self.serverUrl, method="POST",body=urllib.urlencode(parameters), headers=headers)
         #print 'API RETURN:',rawContent
         if responseStatus["status"] != '200':
             print 'error:',rawContent
@@ -110,8 +123,8 @@ class TaobaoClient(object):
     
     def buildSign(self, params, session=None):
         '''
-        对传入的request进行sign的计算. 
-        sign的计算需要format, app_key, sign_method, v, partner_id, 
+        对传入的request进行sign的计算.
+        sign的计算需要format, app_key, sign_method, v, partner_id,
         appSecret以及request的参数共同拼装成一个字符串,然后
         '''
         parameters = {
@@ -127,11 +140,11 @@ class TaobaoClient(object):
         keys = parameters.keys()
         keys.sort()
         query = "%s%s%s" % (self.appSecret,
-            str().join('%s%s' % (key, parameters[key]) for key in keys), 
+            str().join('%s%s' % (key, parameters[key]) for key in keys),
             self.appSecret)
         hash = hashlib.md5(query)
         return hash.hexdigest()
-        
+
     def getRequestParameters(self, request):
         '''
         得到request中所需要进行
@@ -145,4 +158,4 @@ class TaobaoClient(object):
                 continue
             parameters[key] = unicode(value)
         return parameters
-            
+
