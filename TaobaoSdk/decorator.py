@@ -32,7 +32,7 @@ def sdk_exception(MAX_RETRY_TIMES = 20):
                     retry_times += 1
                     continue
                 except Exception,e:
-                    logger.error('sdk error:%s'%e)
+                    logger.exception('sdk error:%s'%e)
                     raise e
                 else:
                     if retry_times:
