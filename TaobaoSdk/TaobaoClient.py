@@ -17,8 +17,11 @@ import re
 import simplejson
 reload(sys)
 
-sys.path.append('../../Webpage')
-from zhangzb.db_models.shop_info_db import ShopInfoDB
+try:
+    sys.path.append('../../Webpage')
+    from zhangzb.db_models.shop_info_db import ShopInfoDB
+except Exception,e:
+    pass
 
 sys.setdefaultencoding("utf-8")
 
@@ -101,7 +104,7 @@ class TaobaoClient(object):
                 for key in header:
                     headers[key] = header[key]
 
-        print 'API CALL:',parameters
+        #print 'API CALL:',parameters
         responseStatus, rawContent = client.request(uri=self.serverUrl, method="POST",body=urllib.urlencode(parameters), headers=headers)
         #print 'API RETURN:',rawContent
         if responseStatus["status"] != '200':
