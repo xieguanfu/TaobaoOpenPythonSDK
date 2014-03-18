@@ -78,7 +78,6 @@ class TaobaoClient(object):
         parameters.update(params)
         if session != None:
             parameters["session"] = session
-        #print self.serverUrl + "?" + '&'.join("%s=%s" % (x, urllib2.quote(parameters[x])) for x in parameters.keys())
         client = httplib2.Http(timeout=self.timeout)
         headers = {
            'Content-type': 'application/x-www-form-urlencoded',
