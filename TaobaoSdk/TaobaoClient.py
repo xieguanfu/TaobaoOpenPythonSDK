@@ -18,10 +18,6 @@ import simplejson
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
-sys.path.append('../../Webpage')
-from zhangzb.db_models.shop_info_db import ShopInfoDB
-
-
 from Common import *
 from Response import *
 from SdkCommon import *
@@ -92,15 +88,6 @@ class TaobaoClient(object):
            "Cache-Control": "no-cache",
            "Connection": "Keep-Alive",
         }
-        #判断是否需要添加header
-        if self.appKey == '21402298' and ShopInfoDB and not ShopInfoDB.is_open_access_token_exists(session):
-            header = ShopInfoDB.get_header_by_access_token(session)
-            # if not header:
-            #     raise Exception('cannot find header form db')
-            # headers['header'] = header
-            if header:
-                for key in header:
-                    headers[key] = header[key]
 
         print 'API CALL:',parameters
         responseStatus, rawContent = client.request(uri=self.serverUrl, method="POST",body=urllib.urlencode(parameters), headers=headers)
