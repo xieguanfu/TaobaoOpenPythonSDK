@@ -95,16 +95,19 @@ class TaobaoClient(object):
            "Connection": "Keep-Alive",
         }
         #判断是否需要添加header
-        if self.appKey == '21402298' and ShopInfoDB and not ShopInfoDB.is_open_access_token_exists(session):
-            header = ShopInfoDB.get_header_by_access_token(session)
-            # if not header:
-            #     raise Exception('cannot find header form db')
-            # headers['header'] = header
-            if header:
-                for key in header:
-                    headers[key] = header[key]
+        try:
+            if self.appKey == '21402298' and ShopInfoDB and not ShopInfoDB.is_open_access_token_exists(session):
+                header = ShopInfoDB.get_header_by_access_token(session)
+                # if not header:
+                #     raise Exception('cannot find header form db')
+                # headers['header'] = header
+                if header:
+                    for key in header:
+                        headers[key] = header[key]
+        except Exception,e:
+            pass
 
-        #print 'API CALL:',parameters
+        print 'API CALL:',parameters
         responseStatus, rawContent = client.request(uri=self.serverUrl, method="POST",body=urllib.urlencode(parameters), headers=headers)
         #print 'API RETURN:',rawContent
         if responseStatus["status"] != '200':
