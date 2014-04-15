@@ -55,7 +55,7 @@ class TaobaoClient(object):
         self.timeout = timeout
 
     @sdk_exception(20)
-    def execute(self, params, session=None):
+    def execute(self, params, session=None,header={}):
         '''
         执行请求
         @param request: 需要发送的请求,必须是Request下的对象
@@ -87,6 +87,7 @@ class TaobaoClient(object):
            "Cache-Control": "no-cache",
            "Connection": "Keep-Alive",
         }
+        headers.update(header)
 
         print 'API CALL:',parameters
         responseStatus, rawContent = client.request(uri=self.serverUrl, method="POST",body=urllib.urlencode(parameters), headers=headers)
