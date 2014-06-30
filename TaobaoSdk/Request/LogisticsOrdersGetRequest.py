@@ -101,7 +101,7 @@ class LogisticsOrdersGetRequest(object):
         # </UL>
         self.page_no = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">每页条数.该字段没传 或 值<1 ,则默认page_size为40</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">每页条数.该字段没传 或 值<1 ,则默认page_size为40<br /> 支持最大值为：100</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>

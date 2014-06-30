@@ -38,7 +38,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                        
+                                                                                                                                                                
 from ProductExtraInfo import ProductExtraInfo
 
                 
@@ -47,7 +47,7 @@ from ProductImg import ProductImg
         
 from ProductPropImg import ProductPropImg
 
-                                                                                                        
+                                                                                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品结构</SPAN>
 class Product(object):
     def __init__(self, kargs=dict()):
@@ -55,6 +55,17 @@ class Product(object):
 
         self.__kargs = deepcopy(kargs)
         
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品条码信息，仅在taobao.products.search接口且商城可用</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.barcode_str = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品的非关键属性列表.格式:pid:vid;pid:vid.</SPAN>
         # <UL>
@@ -111,6 +122,17 @@ class Product(object):
         # </UL>
         self.collect_num = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">品类ID</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.commodity_id = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">创建时间.格式:yyyy-mm-dd hh:mm:ss</SPAN>
         # <UL>
         # <LI>
@@ -154,6 +176,17 @@ class Product(object):
         # </LI>
         # </UL>
         self.desc = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">标识套装产品是否有效，无效的套装产品需要重新发布</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.is_suite_effective = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品的级别level</SPAN>
         # <UL>
@@ -397,6 +430,28 @@ class Product(object):
         # </UL>
         self.status = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">套装产品关联的子规格,同时该字段不为空标识该产品是套装产品</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.suite_items_str = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">模板ID</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.template_id = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">淘宝标准产品编码</SPAN>
         # <UL>
         # <LI>
@@ -475,6 +530,8 @@ class Product(object):
     def _getPropertyType(self, name):
         properties = {
             
+            "barcode_str": "String",
+            
             "binds": "String",
             
             "binds_str": "String",
@@ -485,6 +542,8 @@ class Product(object):
             
             "collect_num": "Number",
             
+            "commodity_id": "Number",
+            
             "created": "Date",
             
             "cspu_feature": "String",
@@ -492,6 +551,8 @@ class Product(object):
             "customer_props": "String",
             
             "desc": "String",
+            
+            "is_suite_effective": "Boolean",
             
             "level": "Number",
             
@@ -537,11 +598,17 @@ class Product(object):
             
             "status": "Number",
             
+            "suite_items_str": "String",
+            
+            "template_id": "Number",
+            
             "tsc": "String",
             
             "vertical_market": "Number",
         }
         levels = {
+            
+            "barcode_str": "Basic",
             
             "binds": "Basic",
             
@@ -553,6 +620,8 @@ class Product(object):
             
             "collect_num": "Basic",
             
+            "commodity_id": "Basic",
+            
             "created": "Basic",
             
             "cspu_feature": "Basic",
@@ -560,6 +629,8 @@ class Product(object):
             "customer_props": "Basic",
             
             "desc": "Basic",
+            
+            "is_suite_effective": "Basic",
             
             "level": "Basic",
             
@@ -605,6 +676,10 @@ class Product(object):
             
             "status": "Basic",
             
+            "suite_items_str": "Basic",
+            
+            "template_id": "Basic",
+            
             "tsc": "Basic",
             
             "vertical_market": "Basic",
@@ -640,6 +715,9 @@ class Product(object):
         
     def __init(self, kargs):
         
+        if kargs.has_key("barcode_str"):
+            self.barcode_str = self._newInstance("barcode_str", kargs["barcode_str"])
+        
         if kargs.has_key("binds"):
             self.binds = self._newInstance("binds", kargs["binds"])
         
@@ -655,6 +733,9 @@ class Product(object):
         if kargs.has_key("collect_num"):
             self.collect_num = self._newInstance("collect_num", kargs["collect_num"])
         
+        if kargs.has_key("commodity_id"):
+            self.commodity_id = self._newInstance("commodity_id", kargs["commodity_id"])
+        
         if kargs.has_key("created"):
             self.created = self._newInstance("created", kargs["created"])
         
@@ -666,6 +747,9 @@ class Product(object):
         
         if kargs.has_key("desc"):
             self.desc = self._newInstance("desc", kargs["desc"])
+        
+        if kargs.has_key("is_suite_effective"):
+            self.is_suite_effective = self._newInstance("is_suite_effective", kargs["is_suite_effective"])
         
         if kargs.has_key("level"):
             self.level = self._newInstance("level", kargs["level"])
@@ -732,6 +816,12 @@ class Product(object):
         
         if kargs.has_key("status"):
             self.status = self._newInstance("status", kargs["status"])
+        
+        if kargs.has_key("suite_items_str"):
+            self.suite_items_str = self._newInstance("suite_items_str", kargs["suite_items_str"])
+        
+        if kargs.has_key("template_id"):
+            self.template_id = self._newInstance("template_id", kargs["template_id"])
         
         if kargs.has_key("tsc"):
             self.tsc = self._newInstance("tsc", kargs["tsc"])

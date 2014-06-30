@@ -68,7 +68,7 @@ class SimbaCampaignPlatformUpdateRequest(object):
         # </UL>
         self.nick = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">非搜索投放频道代码数组，频道代码必须是直通车非搜索类频道列表中的值。</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">非搜索投放频道代码数组，频道代码必须是直通车非搜索类频道列表中的值。<br /> 支持最大值为：128<br /> 支持最小值为：0</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -79,7 +79,7 @@ class SimbaCampaignPlatformUpdateRequest(object):
         # </UL>
         self.nonsearch_channels = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">溢价的百分比，必须是大于等于 1小于等于200的整数</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">溢价的百分比，必须是大于等于 1小于等于200的整数<br /> 支持最大值为：200<br /> 支持最小值为：1</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -90,7 +90,7 @@ class SimbaCampaignPlatformUpdateRequest(object):
         # </UL>
         self.outside_discount = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">搜索投放频道代码数组，频道代码必须是直通车搜索类频道列表中的值，必须包含淘宝内网。</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">搜索投放频道代码数组，频道代码必须是直通车搜索类频道列表中的值，必须包含淘宝内网。<br /> 支持最大值为：128<br /> 支持最小值为：0</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>

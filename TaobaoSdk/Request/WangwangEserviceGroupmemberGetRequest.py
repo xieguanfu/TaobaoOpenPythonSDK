@@ -46,7 +46,7 @@ class WangwangEserviceGroupmemberGetRequest(object):
         self.timestamp = int(time.time())
 
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">主帐号ID：cntaobao+淘宝nick，例如cntaobaotest</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">主帐号ID：cntaobao+淘宝nick，例如cntaobaotest<br /> 支持最大长度为：128<br /> 支持的最大列表长度为：128</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

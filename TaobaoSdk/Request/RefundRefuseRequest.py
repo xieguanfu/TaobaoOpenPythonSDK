@@ -3,7 +3,7 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 卖家拒绝单笔退款交易，要求如下： 1. 传入的refund_id和相应的tid, oid必须匹配 2. 如果一笔订单只有一笔子订单，则tid必须与oid相同 3. 只有卖家才能执行拒绝退款操作 4. 以下三种情况不能退款：卖家未发货；7天无理由退换货；网游订单
+## @brief 卖家拒绝单笔退款（包含退款和退款退货）交易，要求如下： 1. 传入的refund_id和相应的tid, oid必须匹配 2. 如果一笔订单只有一笔子订单，则tid必须与oid相同 3. 只有卖家才能执行拒绝退款操作 4. 以下三种情况不能退款：卖家未发货；7天无理由退换货；网游订单
 # @author wuliang@maimiaotech.com
 # @version: 0.0.0
 
@@ -22,7 +22,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">卖家拒绝单笔退款交易，要求如下： 1. 传入的refund_id和相应的tid, oid必须匹配 2. 如果一笔订单只有一笔子订单，则tid必须与oid相同 3. 只有卖家才能执行拒绝退款操作 4. 以下三种情况不能退款：卖家未发货；7天无理由退换货；网游订单</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">卖家拒绝单笔退款（包含退款和退款退货）交易，要求如下： 1. 传入的refund_id和相应的tid, oid必须匹配 2. 如果一笔订单只有一笔子订单，则tid必须与oid相同 3. 只有卖家才能执行拒绝退款操作 4. 以下三种情况不能退款：卖家未发货；7天无理由退换货；网游订单</SPAN>
 # <UL>
 # </UL>
 class RefundRefuseRequest(object):
@@ -68,7 +68,7 @@ class RefundRefuseRequest(object):
         # </UL>
         self.refund_id = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">拒绝退款时的说明信息，长度2-200</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">拒绝退款时的说明信息，长度2-200<br /> 支持最大长度为：200<br /> 支持的最大列表长度为：200</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -79,7 +79,7 @@ class RefundRefuseRequest(object):
         # </UL>
         self.refuse_message = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">拒绝退款时的退款凭证，一般是卖家拒绝退款时使用的发货凭证，最大长度130000字节，支持的图片格式：GIF, JPG, PNG</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">拒绝退款时的退款凭证，一般是卖家拒绝退款时使用的发货凭证，最大长度130000字节，支持的图片格式：GIF, JPG, PNG<br /> 支持的文件类型为：gif,jpg,png<br /> 支持的最大列表长度为：130000</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">byte[]</SPAN>

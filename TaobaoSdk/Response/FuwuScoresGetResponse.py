@@ -3,7 +3,7 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 根据日期、appkey查询服务评价，每次调用只能查询某一天服务，可设置分页查询，页大小最大为100，非实时接口，延迟时间为30分钟
+## @brief 根据日期、查询appkey对应服务评价，每次调用只能查询某一天服务评价信息，可设置分页查询，页大小最大为100，非实时接口，延迟时间为30分钟
 # @author wuliang@maimiaotech.com
 # @version: 0.0.0
 
@@ -42,7 +42,7 @@ from Domain.ScoreResult import ScoreResult
 
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 根据日期、appkey查询服务评价，每次调用只能查询某一天服务，可设置分页查询，页大小最大为100，非实时接口，延迟时间为30分钟</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 根据日期、查询appkey对应服务评价，每次调用只能查询某一天服务评价信息，可设置分页查询，页大小最大为100，非实时接口，延迟时间为30分钟</SPAN>
 # <UL>
 # </UL>
 class FuwuScoresGetResponse(object):

@@ -38,7 +38,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                
+                                                                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">关键词质量得分</SPAN>
 class KeywordQscore(object):
     def __init__(self, kargs=dict()):
@@ -69,6 +69,39 @@ class KeywordQscore(object):
         # </UL>
         self.campaign_id = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">创意得分</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.creative_score = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">基础分</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.cust_score = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">买家体验分</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.cvr_score = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">关键词id</SPAN>
         # <UL>
         # <LI>
@@ -91,7 +124,7 @@ class KeywordQscore(object):
         # </UL>
         self.nick = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">质量得分</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">质量总分</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -101,6 +134,17 @@ class KeywordQscore(object):
         # </LI>
         # </UL>
         self.qscore = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">相关性</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.rele_score = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">关键词</SPAN>
         # <UL>
@@ -173,11 +217,19 @@ class KeywordQscore(object):
             
             "campaign_id": "Number",
             
+            "creative_score": "String",
+            
+            "cust_score": "String",
+            
+            "cvr_score": "String",
+            
             "keyword_id": "Number",
             
             "nick": "String",
             
             "qscore": "String",
+            
+            "rele_score": "String",
             
             "word": "String",
         }
@@ -187,11 +239,19 @@ class KeywordQscore(object):
             
             "campaign_id": "Basic",
             
+            "creative_score": "Basic",
+            
+            "cust_score": "Basic",
+            
+            "cvr_score": "Basic",
+            
             "keyword_id": "Basic",
             
             "nick": "Basic",
             
             "qscore": "Basic",
+            
+            "rele_score": "Basic",
             
             "word": "Basic",
 
@@ -232,6 +292,15 @@ class KeywordQscore(object):
         if kargs.has_key("campaign_id"):
             self.campaign_id = self._newInstance("campaign_id", kargs["campaign_id"])
         
+        if kargs.has_key("creative_score"):
+            self.creative_score = self._newInstance("creative_score", kargs["creative_score"])
+        
+        if kargs.has_key("cust_score"):
+            self.cust_score = self._newInstance("cust_score", kargs["cust_score"])
+        
+        if kargs.has_key("cvr_score"):
+            self.cvr_score = self._newInstance("cvr_score", kargs["cvr_score"])
+        
         if kargs.has_key("keyword_id"):
             self.keyword_id = self._newInstance("keyword_id", kargs["keyword_id"])
         
@@ -240,6 +309,9 @@ class KeywordQscore(object):
         
         if kargs.has_key("qscore"):
             self.qscore = self._newInstance("qscore", kargs["qscore"])
+        
+        if kargs.has_key("rele_score"):
+            self.rele_score = self._newInstance("rele_score", kargs["rele_score"])
         
         if kargs.has_key("word"):
             self.word = self._newInstance("word", kargs["word"])

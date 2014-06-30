@@ -3,7 +3,7 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 搜索当前会话用户作为卖家已卖出的增量交易数据（只能获取到三个月以内的交易信息） <br/>1. 一次请求只能查询时间跨度为一天的增量交易记录，即end_modified - start_modified <= 1天。 <br/>2. 返回的数据结果是以订单的修改时间倒序排列的，通过从后往前翻页的方式可以避免漏单问题。 <br/>3. 返回的数据结果只包含了订单的部分数据，可通过taobao.trade.fullinfo.get获取订单详情。 <br/>4. <span style="color:red">使用<a href="http://open.taobao.com/doc/category_list.htm?id=87">主动通知</a>监听订单变更事件，可以实时获取订单更新数据。</span>
+## @brief 搜索当前会话用户作为卖家已卖出的增量交易数据（只能获取到三个月以内的交易信息） <br/>1. 一次请求只能查询时间跨度为一天的增量交易记录，即end_modified - start_modified <= 1天。 <br/>2. 返回的数据结果是以订单的修改时间倒序排列的，通过从后往前翻页的方式可以避免漏单问题。 <br/>3. 返回的数据结果只包含了订单的部分数据，可通过taobao.trade.fullinfo.get获取订单详情。 <br/>4. <span style="color:red">使用<a href="http://open.taobao.com/doc/detail.htm?spm=0.0.0.0.F9TTxy&id=101744">消息服务</a>监听订单变更事件，可以实时获取订单更新数据。</span> <br/>注意：type字段的说明，如果该字段不传，接口默认只查4种类型订单，非默认查询的订单是不返回。遇到订单查不到的情况的，通常都是这个原因造成。解决办法就是type加上订单类型就可正常返回了。用taobao.trade.fullinfo.get 查订单fields返回type 很容易的能知道订单的类型（type）
 # @author wuliang@maimiaotech.com
 # @version: 0.0.0
 
@@ -42,7 +42,7 @@ from Domain.Trade import Trade
 
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 搜索当前会话用户作为卖家已卖出的增量交易数据（只能获取到三个月以内的交易信息） <br/>1. 一次请求只能查询时间跨度为一天的增量交易记录，即end_modified - start_modified <= 1天。 <br/>2. 返回的数据结果是以订单的修改时间倒序排列的，通过从后往前翻页的方式可以避免漏单问题。 <br/>3. 返回的数据结果只包含了订单的部分数据，可通过taobao.trade.fullinfo.get获取订单详情。 <br/>4. <span style="color:red">使用<a href="http://open.taobao.com/doc/category_list.htm?id=87">主动通知</a>监听订单变更事件，可以实时获取订单更新数据。</span></SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 搜索当前会话用户作为卖家已卖出的增量交易数据（只能获取到三个月以内的交易信息） <br/>1. 一次请求只能查询时间跨度为一天的增量交易记录，即end_modified - start_modified <= 1天。 <br/>2. 返回的数据结果是以订单的修改时间倒序排列的，通过从后往前翻页的方式可以避免漏单问题。 <br/>3. 返回的数据结果只包含了订单的部分数据，可通过taobao.trade.fullinfo.get获取订单详情。 <br/>4. <span style="color:red">使用<a href="http://open.taobao.com/doc/detail.htm?spm=0.0.0.0.F9TTxy&id=101744">消息服务</a>监听订单变更事件，可以实时获取订单更新数据。</span> <br/>注意：type字段的说明，如果该字段不传，接口默认只查4种类型订单，非默认查询的订单是不返回。遇到订单查不到的情况的，通常都是这个原因造成。解决办法就是type加上订单类型就可正常返回了。用taobao.trade.fullinfo.get 查订单fields返回type 很容易的能知道订单的类型（type）</SPAN>
 # <UL>
 # </UL>
 class TradesSoldIncrementGetResponse(object):

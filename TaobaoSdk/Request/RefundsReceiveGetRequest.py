@@ -79,7 +79,7 @@ class RefundsReceiveGetRequest(object):
         # </UL>
         self.fields = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">页码。取值范围:大于零的整数; 默认值:1</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">页码。取值范围:大于零的整数; 默认值:1<br /> 支持最小值为：1</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -90,7 +90,7 @@ class RefundsReceiveGetRequest(object):
         # </UL>
         self.page_no = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">每页条数。取值范围:大于零的整数; 默认值:40;最大值:100</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">每页条数。取值范围:大于零的整数; 默认值:40;最大值:100<br /> 支持最大值为：100<br /> 支持最小值为：1</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>

@@ -46,7 +46,7 @@ class VideoUpdateRequest(object):
         self.timestamp = int(time.time())
 
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">视频封面url,不能超过512个英文字母</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">视频封面url,不能超过512个英文字母<br /> 支持最大长度为：512<br /> 支持的最大列表长度为：512</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -57,7 +57,7 @@ class VideoUpdateRequest(object):
         # </UL>
         self.cover_url = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">视频描述信息，不能超过256个汉字</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">视频描述信息，不能超过256个汉字<br /> 支持最大长度为：512<br /> 支持的最大列表长度为：512</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -68,7 +68,7 @@ class VideoUpdateRequest(object):
         # </UL>
         self.description = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">视频标签，以','隔开，且总长度不超过128个汉字</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">视频标签，以','隔开，且总长度不超过128个汉字<br /> 支持最大长度为：256<br /> 支持的最大列表长度为：256</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -79,7 +79,7 @@ class VideoUpdateRequest(object):
         # </UL>
         self.tags = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">视频标题，不超过128个汉字。title, tags,cover_url和description至少必须传一个</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">视频标题，不超过128个汉字。title, tags,cover_url和description至少必须传一个<br /> 支持最大长度为：256<br /> 支持的最大列表长度为：256</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

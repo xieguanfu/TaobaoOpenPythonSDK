@@ -3,7 +3,7 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 支持卖家发货后修改物流公司和运单号。支持订单类型支持在线下单和自己联系。 自己联系只能切换为自己联系的公司，在线下单也只能切换为在线下单的物流公司。  调用时订单状态是卖家已发货，自己联系在发货后24小时内在线下单未揽收成功才可使用
+## @brief 支持卖家发货后修改物流公司和运单号;支持在线下单和自己联系两种发货方式;使用条件：<br> 1、必须是已发货订单，自己联系发货的必须24小时内才可修改；在线下单的，必须下单后物流公司未揽收成功前才可修改； 2、自己联系只能切换为自己联系的公司，在线下单也只能切换为在线下单的物流公司。
 # @author wuliang@maimiaotech.com
 # @version: 0.0.0
 
@@ -22,7 +22,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">支持卖家发货后修改物流公司和运单号。支持订单类型支持在线下单和自己联系。 自己联系只能切换为自己联系的公司，在线下单也只能切换为在线下单的物流公司。  调用时订单状态是卖家已发货，自己联系在发货后24小时内在线下单未揽收成功才可使用</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">支持卖家发货后修改物流公司和运单号;支持在线下单和自己联系两种发货方式;使用条件：<br> 1、必须是已发货订单，自己联系发货的必须24小时内才可修改；在线下单的，必须下单后物流公司未揽收成功前才可修改； 2、自己联系只能切换为自己联系的公司，在线下单也只能切换为在线下单的物流公司。</SPAN>
 # <UL>
 # </UL>
 class LogisticsConsignResendRequest(object):
@@ -112,7 +112,7 @@ class LogisticsConsignResendRequest(object):
         # </UL>
         self.sub_tid = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">淘宝交易ID</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">淘宝交易ID<br /> 支持最小值为：1000</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>

@@ -41,7 +41,7 @@ if __getCurrentPath() not in sys.path:
                 
 from ItemDescModule import ItemDescModule
 
-        
+                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品描述模块化信息，包含类目级别的模块信息以及用户自定义模块约束等其他信息</SPAN>
 class ModularDescInfo(object):
     def __init__(self, kargs=dict()):
@@ -71,6 +71,17 @@ class ModularDescInfo(object):
         # </LI>
         # </UL>
         self.itm_dsc_modules = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">默认值为false，如果此字段为true，则卖家上传的模块化的描述信息可以自定义排序。</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.user_order = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">用户自定义模块数量最大值限制。类目级别模块+用户级别模块必须小于<20</SPAN>
         # <UL>
@@ -143,6 +154,8 @@ class ModularDescInfo(object):
             
             "itm_dsc_modules": "ItemDescModule",
             
+            "user_order": "Boolean",
+            
             "usr_def_max_num": "Number",
         }
         levels = {
@@ -150,6 +163,8 @@ class ModularDescInfo(object):
             "dead_line": "Basic",
             
             "itm_dsc_modules": "Object Array",
+            
+            "user_order": "Basic",
             
             "usr_def_max_num": "Basic",
 
@@ -189,6 +204,9 @@ class ModularDescInfo(object):
         
         if kargs.has_key("itm_dsc_modules"):
             self.itm_dsc_modules = self._newInstance("itm_dsc_modules", kargs["itm_dsc_modules"])
+        
+        if kargs.has_key("user_order"):
+            self.user_order = self._newInstance("user_order", kargs["user_order"])
         
         if kargs.has_key("usr_def_max_num"):
             self.usr_def_max_num = self._newInstance("usr_def_max_num", kargs["usr_def_max_num"])

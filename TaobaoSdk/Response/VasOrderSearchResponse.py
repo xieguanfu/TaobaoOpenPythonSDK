@@ -3,7 +3,7 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 用于ISV查询自己名下的应用及收费项目的订单记录（已付款订单）。 建议用于查询前一日的历史记录，不适合用作实时数据查询。 该接口限制每分钟所有appkey调用总和只能有800次。
+## @brief 用于ISV查询自己名下的应用及收费项目的订单记录（已付款订单）。 建议用于查询前一日的历史记录，不适合用作实时数据查询。 现在只能查询90天以内的数据 该接口限制每分钟所有appkey调用总和只能有800次。
 # @author wuliang@maimiaotech.com
 # @version: 0.0.0
 
@@ -42,7 +42,7 @@ from Domain.ArticleBizOrder import ArticleBizOrder
 
     
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 用于ISV查询自己名下的应用及收费项目的订单记录（已付款订单）。 建议用于查询前一日的历史记录，不适合用作实时数据查询。 该接口限制每分钟所有appkey调用总和只能有800次。</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 用于ISV查询自己名下的应用及收费项目的订单记录（已付款订单）。 建议用于查询前一日的历史记录，不适合用作实时数据查询。 现在只能查询90天以内的数据 该接口限制每分钟所有appkey调用总和只能有800次。</SPAN>
 # <UL>
 # </UL>
 class VasOrderSearchResponse(object):

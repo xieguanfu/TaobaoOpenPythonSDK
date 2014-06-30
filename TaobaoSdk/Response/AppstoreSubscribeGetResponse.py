@@ -3,15 +3,31 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-
-## @brief 查询appstore应用订购关系
+## @brief 查询appstore应用订购关系(对于新上架的多版本应用，建议使用taobao.vas.subscribe.get)
 # @author wuliang@maimiaotech.com
-# @version: 0.0.16
+# @version: 0.0.0
 
 from datetime import datetime
 import os
 import sys
 import time
+
+_jsonEnode = None
+try:
+    import demjson
+    _jsonEnode = demjson.encode
+except Exception:
+    try:
+        import simplejson
+    except Exception:
+        try:
+            import json
+        except Exception:
+            raise Exception("Can not import any json library")
+        else:
+            _jsonEnode = json.dumps
+    else:
+        _jsonEnode = simplejson.dumps
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -26,20 +42,13 @@ from Domain.UserSubscribe import UserSubscribe
 
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 查询appstore应用订购关系</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 查询appstore应用订购关系(对于新上架的多版本应用，建议使用taobao.vas.subscribe.get)</SPAN>
 # <UL>
-# <LI>
-# <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">CName</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">查询appstore应用订购关系</SPAN>
-# </LI>
-# <LI>
-# <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Authorize</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">不需用户授权</SPAN>
-# </LI>
 # </UL>
 class AppstoreSubscribeGetResponse(object):
     def __init__(self, kargs=dict()):
         super(self.__class__, self).__init__()
-        
-        
+
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">请求的返回信息,包含状态等</SPAN>
         # <UL>
         # <LI>
@@ -56,6 +65,14 @@ class AppstoreSubscribeGetResponse(object):
         # </UL>        
         self.responseBody = None
 
+        self.code = None
+
+        self.msg = None
+
+        self.sub_code = None
+
+        self.sub_msg = None
+
         
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">用户订购信息</SPAN>
@@ -66,20 +83,13 @@ class AppstoreSubscribeGetResponse(object):
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object</SPAN>
         # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">true</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Sample</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;"></SPAN>
-        # </LI>
         # </UL>
         self.user_subscribe = None
-        ''' 
-        @ivar user_subscribe: 用户订购信息; B{Level}: C{Object}; B{Required}: C{true}; B{Sample}: C{};
-        @type user_subscribe: UserSubscribe
-        '''
     
         self.__init(kargs)
+
+    def isSuccess(self):
+        return self.code == None and self.sub_code == None
     
     def _newInstance(self, name, value):
         types = self._getPropertyType(name)
@@ -87,22 +97,34 @@ class AppstoreSubscribeGetResponse(object):
         isArray = types[1]
         if propertyType == bool:
             if isArray:
+                if not value:
+                    return []
                 return [x for x in value[value.keys()[0]]]
             else:
                 return value
         elif propertyType == datetime:
             format = "%Y-%m-%d %H:%M:%S"
             if isArray:
+                if not value:
+                    return []
                 return [datetime.strptime(x, format) for x in value[value.keys()[0]]]
             else:
                 return datetime.strptime(value, format)
         elif propertyType == str:
             if isArray:
-                return [x.encode("utf-8") for x in value[value.keys()[0]]]
+                if not value:
+                    return []
+                return [x for x in value[value.keys()[0]]]
             else:
-                return value.encode("utf-8")
+                #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
+                if not isinstance(value, basestring):
+                    #the value should be a json string 
+                    return _jsonEnode(value)
+                return value
         else:
             if isArray:
+                if not value:
+                    return []
                 return [propertyType(x) for x in value[value.keys()[0]]]
             else:
                 return propertyType(value)
@@ -147,4 +169,11 @@ class AppstoreSubscribeGetResponse(object):
         
         if kargs.has_key("user_subscribe"):
             self.user_subscribe = self._newInstance("user_subscribe", kargs["user_subscribe"])
-        pass
+        if kargs.has_key("code"):
+            self.code = kargs["code"]
+        if kargs.has_key("msg"):
+            self.msg = kargs["msg"]
+        if kargs.has_key("sub_code"):
+            self.sub_code = kargs["sub_code"]
+        if kargs.has_key("sub_msg"):
+            self.sub_msg = kargs["sub_msg"]

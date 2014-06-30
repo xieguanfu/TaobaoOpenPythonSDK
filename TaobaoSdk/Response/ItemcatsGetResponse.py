@@ -3,7 +3,7 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 获取后台供卖家发布商品的标准商品类目。 <br/>1. 增量获取类目数据可用<a href="http://api.taobao.com/apidoc/api.htm?path=cid:3-apiId:11072">taobao.itemcats.increment.get</a>接口。 <br/>2. 全量获取类目数据可用<a href="http://api.taobao.com/apidoc/api.htm?path=cid:3-apiId:11078">taobao.topats.itemcats.get</a>接口。
+## @brief 获取后台供卖家发布商品的标准商品类目。
 # @author wuliang@maimiaotech.com
 # @version: 0.0.0
 
@@ -42,7 +42,7 @@ from Domain.ItemCat import ItemCat
 
     
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 获取后台供卖家发布商品的标准商品类目。 <br/>1. 增量获取类目数据可用<a href="http://api.taobao.com/apidoc/api.htm?path=cid:3-apiId:11072">taobao.itemcats.increment.get</a>接口。 <br/>2. 全量获取类目数据可用<a href="http://api.taobao.com/apidoc/api.htm?path=cid:3-apiId:11078">taobao.topats.itemcats.get</a>接口。</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 获取后台供卖家发布商品的标准商品类目。</SPAN>
 # <UL>
 # </UL>
 class ItemcatsGetResponse(object):

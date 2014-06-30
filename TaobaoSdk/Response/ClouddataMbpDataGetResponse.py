@@ -3,7 +3,7 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 推广计划效果报表数据对象
+## @brief ISV通过该接口可以获取自己在MBP中开发的数据表中的数据
 # @author wuliang@maimiaotech.com
 # @version: 0.0.0
 
@@ -37,9 +37,12 @@ if __parentPath not in sys.path:
     sys.path.insert(0, __parentPath)
 
 
-    
+        
+from Domain.QueryRow import QueryRow
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 推广计划效果报表数据对象</SPAN>
+
+
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: ISV通过该接口可以获取自己在MBP中开发的数据表中的数据</SPAN>
 # <UL>
 # </UL>
 class ClouddataMbpDataGetResponse(object):
@@ -72,16 +75,27 @@ class ClouddataMbpDataGetResponse(object):
 
         
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">推广计划效果报表数据对象</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">SQL查询的返回结果头信息。 比如select结果的字段名字列表</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
         # </LI>
         # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic Array</SPAN>
         # </LI>
         # </UL>
         self.column_list = None
+        
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">各列结果。顺序与column_list中列名顺序相同</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">QueryRow</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object Array</SPAN>
+        # </LI>
+        # </UL>
         self.row_list = None
     
         self.__init(kargs)
@@ -131,12 +145,14 @@ class ClouddataMbpDataGetResponse(object):
         properties = {
             
             "column_list": "String",
-            "row_list":"String",
+            
+            "row_list": "QueryRow",
         }
         levels = {
             
-            "column_list": "Basic",
-            "row_list":"Basic",
+            "column_list": "Basic Array",
+            
+            "row_list": "Object Array",
         }
         
         nameType = properties[name]
@@ -169,6 +185,7 @@ class ClouddataMbpDataGetResponse(object):
         
         if kargs.has_key("column_list"):
             self.column_list = self._newInstance("column_list", kargs["column_list"])
+        
         if kargs.has_key("row_list"):
             self.row_list = self._newInstance("row_list", kargs["row_list"])
         if kargs.has_key("code"):
@@ -179,5 +196,3 @@ class ClouddataMbpDataGetResponse(object):
             self.sub_code = kargs["sub_code"]
         if kargs.has_key("sub_msg"):
             self.sub_msg = kargs["sub_msg"]
-
-

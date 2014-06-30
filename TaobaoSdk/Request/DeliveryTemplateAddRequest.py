@@ -68,7 +68,7 @@ class DeliveryTemplateAddRequest(object):
         # </UL>
         self.consign_area_id = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">运费模板的名称，长度不能超过50个字节</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">运费模板的名称，长度不能超过50个字节<br /> 支持最大长度为：50<br /> 支持的最大列表长度为：50</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

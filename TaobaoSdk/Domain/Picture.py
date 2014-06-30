@@ -38,7 +38,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                        
+                                                                                                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">图片</SPAN>
 class Picture(object):
     def __init__(self, kargs=dict()):
@@ -46,6 +46,17 @@ class Picture(object):
 
         self.__kargs = deepcopy(kargs)
         
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">图片上传的来源，有电脑版本宝贝发布，手机版本宝贝发布</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.client_type = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">图片的创建时间</SPAN>
         # <UL>
@@ -246,6 +257,8 @@ class Picture(object):
     def _getPropertyType(self, name):
         properties = {
             
+            "client_type": "String",
+            
             "created": "Date",
             
             "deleted": "String",
@@ -273,6 +286,8 @@ class Picture(object):
             "uid": "Number",
         }
         levels = {
+            
+            "client_type": "Basic",
             
             "created": "Basic",
             
@@ -330,6 +345,9 @@ class Picture(object):
             return (pythonType, False)
         
     def __init(self, kargs):
+        
+        if kargs.has_key("client_type"):
+            self.client_type = self._newInstance("client_type", kargs["client_type"])
         
         if kargs.has_key("created"):
             self.created = self._newInstance("created", kargs["created"])

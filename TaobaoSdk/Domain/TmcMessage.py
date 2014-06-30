@@ -38,7 +38,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                
+                                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">消息通道的通用消息结构</SPAN>
 class TmcMessage(object):
     def __init__(self, kargs=dict()):
@@ -101,6 +101,17 @@ class TmcMessage(object):
         # </LI>
         # </UL>
         self.topic = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">消息所属的用户编号</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.user_id = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">用户的昵称</SPAN>
         # <UL>
@@ -179,6 +190,8 @@ class TmcMessage(object):
             
             "topic": "String",
             
+            "user_id": "Number",
+            
             "user_nick": "String",
         }
         levels = {
@@ -192,6 +205,8 @@ class TmcMessage(object):
             "pub_time": "Basic",
             
             "topic": "Basic",
+            
+            "user_id": "Basic",
             
             "user_nick": "Basic",
 
@@ -240,6 +255,9 @@ class TmcMessage(object):
         
         if kargs.has_key("topic"):
             self.topic = self._newInstance("topic", kargs["topic"])
+        
+        if kargs.has_key("user_id"):
+            self.user_id = self._newInstance("user_id", kargs["user_id"])
         
         if kargs.has_key("user_nick"):
             self.user_nick = self._newInstance("user_nick", kargs["user_nick"])

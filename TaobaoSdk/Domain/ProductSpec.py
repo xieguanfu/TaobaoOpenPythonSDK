@@ -44,7 +44,7 @@ from CertPicInfo import CertPicInfo
         
 from CertTxtInfo import CertTxtInfo
 
-                                                                                        
+                                                                                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">ProductSpec(产品规格)结构。</SPAN>
 class ProductSpec(object):
     def __init__(self, kargs=dict()):
@@ -140,6 +140,17 @@ class ProductSpec(object):
         # </LI>
         # </UL>
         self.market_time = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">规格的数量，仅当通过组合产品获取时有值</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.number = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品的主图片地址。绝对地址，格式：http://host/image_path。</SPAN>
         # <UL>
@@ -290,6 +301,8 @@ class ProductSpec(object):
             
             "market_time": "Date",
             
+            "number": "Number",
+            
             "pic_url": "String",
             
             "product_code": "String",
@@ -321,6 +334,8 @@ class ProductSpec(object):
             "label_price": "Basic",
             
             "market_time": "Basic",
+            
+            "number": "Basic",
             
             "pic_url": "Basic",
             
@@ -390,6 +405,9 @@ class ProductSpec(object):
         
         if kargs.has_key("market_time"):
             self.market_time = self._newInstance("market_time", kargs["market_time"])
+        
+        if kargs.has_key("number"):
+            self.number = self._newInstance("number", kargs["number"])
         
         if kargs.has_key("pic_url"):
             self.pic_url = self._newInstance("pic_url", kargs["pic_url"])

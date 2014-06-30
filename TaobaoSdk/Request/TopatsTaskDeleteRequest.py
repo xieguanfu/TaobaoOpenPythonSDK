@@ -3,7 +3,7 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 可用于取消已经创建的ATS任务。</br> 条件限制：1)一次只可以取消一个任务</br>          2）只能取消自己创建的任务</br>
+## @brief 可用于取消已经创建的异步任务。</br> 条件限制：</br> 1)一次只可以取消一个任务</br> 2）只能取消自己创建的任务
 # @author wuliang@maimiaotech.com
 # @version: 0.0.0
 
@@ -22,7 +22,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">可用于取消已经创建的ATS任务。</br> 条件限制：1)一次只可以取消一个任务</br>          2）只能取消自己创建的任务</br></SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">可用于取消已经创建的异步任务。</br> 条件限制：</br> 1)一次只可以取消一个任务</br> 2）只能取消自己创建的任务</SPAN>
 # <UL>
 # </UL>
 class TopatsTaskDeleteRequest(object):

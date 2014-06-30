@@ -38,7 +38,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">订单结构</SPAN>
 class Order(object):
     def __init__(self, kargs=dict()):
@@ -113,7 +113,7 @@ class Order(object):
         # </UL>
         self.consign_time = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">订单优惠金额。精确到2位小数;单位:元。如:200.07，表示:200元7分</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子订单级订单优惠金额。精确到2位小数;单位:元。如:200.07，表示:200元7分</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -200,6 +200,17 @@ class Order(object):
         # </LI>
         # </UL>
         self.is_service_order = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子订单是否是www订单</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.is_www = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">套餐ID</SPAN>
         # <UL>
@@ -322,7 +333,7 @@ class Order(object):
         # </UL>
         self.part_mjz_discount = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子订单实付金额。精确到2位小数，单位:元。如:200.07，表示:200元7分。计算公式如下：payment = price * num + adjust_fee - discount_fee + post_fee(邮费，单笔子订单时子订单实付金额包含邮费，多笔子订单时不包含邮费)；对于退款成功的子订单，由于主订单的优惠分摊金额，会造成该字段可能不为0.00元。建议使用退款前的实付金额减去退款单中的实际退款金额计算。</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">子订单实付金额。精确到2位小数，单位:元。如:200.07，表示:200元7分。对于多子订单的交易，计算公式如下：payment = price * num + adjust_fee - discount_fee ；单子订单交易，payment与主订单的payment一致，对于退款成功的子订单，由于主订单的优惠分摊金额，会造成该字段可能不为0.00元。建议使用退款前的实付金额减去退款单中的实际退款金额计算。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -465,7 +476,7 @@ class Order(object):
         # </UL>
         self.snapshot_url = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">订单状态（请关注此状态，如果为TRADE_CLOSED_BY_TAOBAO状态，则不要对此订单进行发货，切记啊！）。可选值:  <ul> <li>TRADE_NO_CREATE_PAY(没有创建支付宝交易)  <li>WAIT_BUYER_PAY(等待买家付款)  <li>WAIT_SELLER_SEND_GOODS(等待卖家发货,即:买家已付款)  <li>WAIT_BUYER_CONFIRM_GOODS(等待买家确认收货,即:卖家已发货)  <li>TRADE_BUYER_SIGNED(买家已签收,货到付款专用)  <li>TRADE_FINISHED(交易成功)  <li>TRADE_CLOSED(付款以后用户退款成功，交易自动关闭)  <li>TRADE_CLOSED_BY_TAOBAO(付款以前，卖家或买家主动关闭交易)</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">订单状态（请关注此状态，如果为TRADE_CLOSED_BY_TAOBAO状态，则不要对此订单进行发货，切记啊！）。可选值:  <ul> <li>TRADE_NO_CREATE_PAY(没有创建支付宝交易)  <li>WAIT_BUYER_PAY(等待买家付款)  <li>WAIT_SELLER_SEND_GOODS(等待卖家发货,即:买家已付款)  <li>WAIT_BUYER_CONFIRM_GOODS(等待买家确认收货,即:卖家已发货)  <li>TRADE_BUYER_SIGNED(买家已签收,货到付款专用)  <li>TRADE_FINISHED(交易成功)  <li>TRADE_CLOSED(付款以后用户退款成功，交易自动关闭)  <li>TRADE_CLOSED_BY_TAOBAO(付款以前，卖家或买家主动关闭交易) <li>PAY_PENDING(国际信用卡支付付款确认中)</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -475,6 +486,39 @@ class Order(object):
         # </LI>
         # </UL>
         self.status = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">发货的仓库编码</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.store_code = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">门票有效期的key</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.ticket_expdate_key = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">对应门票有效期的外部id</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.ticket_outer_id = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">订单超时到期时间。格式:yyyy-MM-dd HH:mm:ss</SPAN>
         # <UL>
@@ -498,7 +542,7 @@ class Order(object):
         # </UL>
         self.title = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">应付金额（商品价格 * 商品数量 + 手工调整金额 - 订单优惠金额）。精确到2位小数;单位:元。如:200.07，表示:200元7分</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">应付金额（商品价格 * 商品数量 + 手工调整金额 - 子订单级订单优惠金额）。精确到2位小数;单位:元。如:200.07，表示:200元7分</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -593,6 +637,8 @@ class Order(object):
             
             "is_service_order": "Boolean",
             
+            "is_www": "Boolean",
+            
             "item_meal_id": "Number",
             
             "item_meal_name": "String",
@@ -643,6 +689,12 @@ class Order(object):
             
             "status": "String",
             
+            "store_code": "String",
+            
+            "ticket_expdate_key": "String",
+            
+            "ticket_outer_id": "String",
+            
             "timeout_action_time": "Date",
             
             "title": "String",
@@ -678,6 +730,8 @@ class Order(object):
             "is_oversold": "Basic",
             
             "is_service_order": "Basic",
+            
+            "is_www": "Basic",
             
             "item_meal_id": "Basic",
             
@@ -728,6 +782,12 @@ class Order(object):
             "snapshot_url": "Basic",
             
             "status": "Basic",
+            
+            "store_code": "Basic",
+            
+            "ticket_expdate_key": "Basic",
+            
+            "ticket_outer_id": "Basic",
             
             "timeout_action_time": "Basic",
             
@@ -808,6 +868,9 @@ class Order(object):
         if kargs.has_key("is_service_order"):
             self.is_service_order = self._newInstance("is_service_order", kargs["is_service_order"])
         
+        if kargs.has_key("is_www"):
+            self.is_www = self._newInstance("is_www", kargs["is_www"])
+        
         if kargs.has_key("item_meal_id"):
             self.item_meal_id = self._newInstance("item_meal_id", kargs["item_meal_id"])
         
@@ -882,6 +945,15 @@ class Order(object):
         
         if kargs.has_key("status"):
             self.status = self._newInstance("status", kargs["status"])
+        
+        if kargs.has_key("store_code"):
+            self.store_code = self._newInstance("store_code", kargs["store_code"])
+        
+        if kargs.has_key("ticket_expdate_key"):
+            self.ticket_expdate_key = self._newInstance("ticket_expdate_key", kargs["ticket_expdate_key"])
+        
+        if kargs.has_key("ticket_outer_id"):
+            self.ticket_outer_id = self._newInstance("ticket_outer_id", kargs["ticket_outer_id"])
         
         if kargs.has_key("timeout_action_time"):
             self.timeout_action_time = self._newInstance("timeout_action_time", kargs["timeout_action_time"])

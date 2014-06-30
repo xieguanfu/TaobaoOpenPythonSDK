@@ -3,7 +3,7 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 获取类目ID，必需是叶子类目ID；调用taobao.itemcats.get.v2获取  传入关键属性,结构:pid:vid;pid:vid.调用taobao.itemprops.get.v2获取pid, 调用taobao.itempropvalues.get获取vid;如果碰到用户自定义属性,请用customer_props.
+## @brief 获取类目ID，必需是叶子类目ID；调用taobao.itemcats.get.v2获取  传入关键属性,结构:pid:vid;pid:vid.调用taobao.itemprops.get.v2获取pid, 调用taobao.itempropvalues.get获取vid;如果碰到用户自定义属性,请用customer_props. 新增：套装产品发布，目前支持单件多个即 A*2 形式的套装
 # @author wuliang@maimiaotech.com
 # @version: 0.0.0
 
@@ -42,7 +42,7 @@ from Domain.Product import Product
 
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 获取类目ID，必需是叶子类目ID；调用taobao.itemcats.get.v2获取  传入关键属性,结构:pid:vid;pid:vid.调用taobao.itemprops.get.v2获取pid, 调用taobao.itempropvalues.get获取vid;如果碰到用户自定义属性,请用customer_props.</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 获取类目ID，必需是叶子类目ID；调用taobao.itemcats.get.v2获取  传入关键属性,结构:pid:vid;pid:vid.调用taobao.itemprops.get.v2获取pid, 调用taobao.itempropvalues.get获取vid;如果碰到用户自定义属性,请用customer_props. 新增：套装产品发布，目前支持单件多个即 A*2 形式的套装</SPAN>
 # <UL>
 # </UL>
 class ProductAddResponse(object):

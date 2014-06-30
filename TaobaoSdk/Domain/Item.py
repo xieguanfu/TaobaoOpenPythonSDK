@@ -38,7 +38,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                        
+                                                                                                
 from DeliveryTime import DeliveryTime
 
                 
@@ -47,7 +47,7 @@ from DescModuleInfo import DescModuleInfo
                                                 
 from FoodSecurity import FoodSecurity
 
-                                                                                                                                                                        
+                                                                                                                                                                                        
 from ItemImg import ItemImg
 
                                 
@@ -55,6 +55,9 @@ from LocalityLife import LocalityLife
 
         
 from Location import Location
+
+                
+from MpicVideo import MpicVideo
 
                                                                 
 from PaimaiInfo import PaimaiInfo
@@ -65,10 +68,10 @@ from PropImg import PropImg
                                                                         
 from Sku import Sku
 
-                                                        
+                                                                        
 from Video import Video
 
-                                        
+                                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Item(商品)结构</SPAN>
 class Item(object):
     def __init__(self, kargs=dict()):
@@ -120,6 +123,17 @@ class Item(object):
         # </LI>
         # </UL>
         self.auto_fill = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品级别的条形码</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.barcode = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">基础色数据</SPAN>
         # <UL>
@@ -418,6 +432,17 @@ class Item(object):
         # </UL>
         self.is_3D = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是否为达尔文挂接成功了的商品</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.is_cspu = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是否在外部网店显示</SPAN>
         # <UL>
         # <LI>
@@ -450,6 +475,17 @@ class Item(object):
         # </LI>
         # </UL>
         self.is_lightning_consignment = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是否是线下商品。 1：线上商品（默认值）； 2：线上或线下商品； 3：线下商品。</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.is_offline = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品是否为先行赔付 taobao.items.search和taobao.items.vip.search专用</SPAN>
         # <UL>
@@ -582,6 +618,28 @@ class Item(object):
         # </LI>
         # </UL>
         self.modified = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">宝贝主图视频的数据信息，包括：视频ID，视频缩略图URL，视频时长，视频状态等信息。</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">MpicVideo</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object</SPAN>
+        # </LI>
+        # </UL>
+        self.mpic_video = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是否为新消保法中的7天无理由退货</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.newprepay = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">卖家昵称</SPAN>
         # <UL>
@@ -792,7 +850,7 @@ class Item(object):
         # </UL>
         self.second_kill = None
         
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品卖点信息，天猫商家使用字段，最长15个字符。</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品卖点信息，天猫商家使用字段，最长150个字符。</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -858,6 +916,17 @@ class Item(object):
         # </UL>
         self.sub_stock = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品的子标题，给商品增加卖点等描述</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.sub_title = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">页面模板id</SPAN>
         # <UL>
         # <LI>
@@ -902,6 +971,17 @@ class Item(object):
         # </UL>
         self.valid_thru = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">该字段废弃，请勿使用。</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.video_id = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品视频列表(目前只支持单个视频关联)。fields中只设置video可以返回Video结构体中所有字段，如果设置为video.id、video.video_id、 video.url等形式就只会返回相应的字段</SPAN>
         # <UL>
         # <LI>
@@ -945,6 +1025,17 @@ class Item(object):
         # </LI>
         # </UL>
         self.wap_detail_url = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">无线的宝贝描述</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.wireless_desc = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">预扣库存，即付款减库存的商品现在有多少处于未付款状态的订单</SPAN>
         # <UL>
@@ -1032,6 +1123,8 @@ class Item(object):
             
             "auto_fill": "String",
             
+            "barcode": "String",
+            
             "change_prop": "String",
             
             "cid": "Number",
@@ -1086,11 +1179,15 @@ class Item(object):
             
             "is_3D": "Boolean",
             
+            "is_cspu": "Boolean",
+            
             "is_ex": "Boolean",
             
             "is_fenxiao": "Number",
             
             "is_lightning_consignment": "Boolean",
+            
+            "is_offline": "String",
             
             "is_prepay": "Boolean",
             
@@ -1115,6 +1212,10 @@ class Item(object):
             "location": "Location",
             
             "modified": "Date",
+            
+            "mpic_video": "MpicVideo",
+            
+            "newprepay": "String",
             
             "nick": "String",
             
@@ -1166,6 +1267,8 @@ class Item(object):
             
             "sub_stock": "Number",
             
+            "sub_title": "String",
+            
             "template_id": "String",
             
             "title": "String",
@@ -1174,6 +1277,8 @@ class Item(object):
             
             "valid_thru": "Number",
             
+            "video_id": "Number",
+            
             "videos": "Video",
             
             "violation": "Boolean",
@@ -1181,6 +1286,8 @@ class Item(object):
             "wap_desc": "String",
             
             "wap_detail_url": "String",
+            
+            "wireless_desc": "String",
             
             "with_hold_quantity": "Number",
             
@@ -1195,6 +1302,8 @@ class Item(object):
             "auction_point": "Basic",
             
             "auto_fill": "Basic",
+            
+            "barcode": "Basic",
             
             "change_prop": "Basic",
             
@@ -1250,11 +1359,15 @@ class Item(object):
             
             "is_3D": "Basic",
             
+            "is_cspu": "Basic",
+            
             "is_ex": "Basic",
             
             "is_fenxiao": "Basic",
             
             "is_lightning_consignment": "Basic",
+            
+            "is_offline": "Basic",
             
             "is_prepay": "Basic",
             
@@ -1279,6 +1392,10 @@ class Item(object):
             "location": "Object",
             
             "modified": "Basic",
+            
+            "mpic_video": "Object",
+            
+            "newprepay": "Basic",
             
             "nick": "Basic",
             
@@ -1330,6 +1447,8 @@ class Item(object):
             
             "sub_stock": "Basic",
             
+            "sub_title": "Basic",
+            
             "template_id": "Basic",
             
             "title": "Basic",
@@ -1338,6 +1457,8 @@ class Item(object):
             
             "valid_thru": "Basic",
             
+            "video_id": "Basic",
+            
             "videos": "Object Array",
             
             "violation": "Basic",
@@ -1345,6 +1466,8 @@ class Item(object):
             "wap_desc": "Basic",
             
             "wap_detail_url": "Basic",
+            
+            "wireless_desc": "Basic",
             
             "with_hold_quantity": "Basic",
             
@@ -1392,6 +1515,9 @@ class Item(object):
         
         if kargs.has_key("auto_fill"):
             self.auto_fill = self._newInstance("auto_fill", kargs["auto_fill"])
+        
+        if kargs.has_key("barcode"):
+            self.barcode = self._newInstance("barcode", kargs["barcode"])
         
         if kargs.has_key("change_prop"):
             self.change_prop = self._newInstance("change_prop", kargs["change_prop"])
@@ -1474,6 +1600,9 @@ class Item(object):
         if kargs.has_key("is_3D"):
             self.is_3D = self._newInstance("is_3D", kargs["is_3D"])
         
+        if kargs.has_key("is_cspu"):
+            self.is_cspu = self._newInstance("is_cspu", kargs["is_cspu"])
+        
         if kargs.has_key("is_ex"):
             self.is_ex = self._newInstance("is_ex", kargs["is_ex"])
         
@@ -1482,6 +1611,9 @@ class Item(object):
         
         if kargs.has_key("is_lightning_consignment"):
             self.is_lightning_consignment = self._newInstance("is_lightning_consignment", kargs["is_lightning_consignment"])
+        
+        if kargs.has_key("is_offline"):
+            self.is_offline = self._newInstance("is_offline", kargs["is_offline"])
         
         if kargs.has_key("is_prepay"):
             self.is_prepay = self._newInstance("is_prepay", kargs["is_prepay"])
@@ -1518,6 +1650,12 @@ class Item(object):
         
         if kargs.has_key("modified"):
             self.modified = self._newInstance("modified", kargs["modified"])
+        
+        if kargs.has_key("mpic_video"):
+            self.mpic_video = self._newInstance("mpic_video", kargs["mpic_video"])
+        
+        if kargs.has_key("newprepay"):
+            self.newprepay = self._newInstance("newprepay", kargs["newprepay"])
         
         if kargs.has_key("nick"):
             self.nick = self._newInstance("nick", kargs["nick"])
@@ -1594,6 +1732,9 @@ class Item(object):
         if kargs.has_key("sub_stock"):
             self.sub_stock = self._newInstance("sub_stock", kargs["sub_stock"])
         
+        if kargs.has_key("sub_title"):
+            self.sub_title = self._newInstance("sub_title", kargs["sub_title"])
+        
         if kargs.has_key("template_id"):
             self.template_id = self._newInstance("template_id", kargs["template_id"])
         
@@ -1606,6 +1747,9 @@ class Item(object):
         if kargs.has_key("valid_thru"):
             self.valid_thru = self._newInstance("valid_thru", kargs["valid_thru"])
         
+        if kargs.has_key("video_id"):
+            self.video_id = self._newInstance("video_id", kargs["video_id"])
+        
         if kargs.has_key("videos"):
             self.videos = self._newInstance("videos", kargs["videos"])
         
@@ -1617,6 +1761,9 @@ class Item(object):
         
         if kargs.has_key("wap_detail_url"):
             self.wap_detail_url = self._newInstance("wap_detail_url", kargs["wap_detail_url"])
+        
+        if kargs.has_key("wireless_desc"):
+            self.wireless_desc = self._newInstance("wireless_desc", kargs["wireless_desc"])
         
         if kargs.has_key("with_hold_quantity"):
             self.with_hold_quantity = self._newInstance("with_hold_quantity", kargs["with_hold_quantity"])

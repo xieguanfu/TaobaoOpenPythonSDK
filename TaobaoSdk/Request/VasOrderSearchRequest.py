@@ -3,7 +3,7 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 用于ISV查询自己名下的应用及收费项目的订单记录（已付款订单）。 建议用于查询前一日的历史记录，不适合用作实时数据查询。 该接口限制每分钟所有appkey调用总和只能有800次。
+## @brief 用于ISV查询自己名下的应用及收费项目的订单记录（已付款订单）。 建议用于查询前一日的历史记录，不适合用作实时数据查询。 现在只能查询90天以内的数据 该接口限制每分钟所有appkey调用总和只能有800次。
 # @author wuliang@maimiaotech.com
 # @version: 0.0.0
 
@@ -22,7 +22,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">用于ISV查询自己名下的应用及收费项目的订单记录（已付款订单）。 建议用于查询前一日的历史记录，不适合用作实时数据查询。 该接口限制每分钟所有appkey调用总和只能有800次。</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">用于ISV查询自己名下的应用及收费项目的订单记录（已付款订单）。 建议用于查询前一日的历史记录，不适合用作实时数据查询。 现在只能查询90天以内的数据 该接口限制每分钟所有appkey调用总和只能有800次。</SPAN>
 # <UL>
 # </UL>
 class VasOrderSearchRequest(object):
@@ -134,7 +134,7 @@ class VasOrderSearchRequest(object):
         # </UL>
         self.page_no = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">一页包含的记录数</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">一页包含的记录数<br /> 支持最大值为：200</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>

@@ -3,7 +3,7 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 按productID下载或品牌下载产品规格，返回一组的产品规格信息。
+## @brief 按product_id或品牌下载产品规格，返回一组的产品规格信息。
 # @author wuliang@maimiaotech.com
 # @version: 0.0.0
 
@@ -22,7 +22,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">按productID下载或品牌下载产品规格，返回一组的产品规格信息。</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">按product_id或品牌下载产品规格，返回一组的产品规格信息。</SPAN>
 # <UL>
 # </UL>
 class MallProductSpecsGetRequest(object):

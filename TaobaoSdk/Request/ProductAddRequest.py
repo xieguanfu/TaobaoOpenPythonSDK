@@ -3,7 +3,7 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 获取类目ID，必需是叶子类目ID；调用taobao.itemcats.get.v2获取  传入关键属性,结构:pid:vid;pid:vid.调用taobao.itemprops.get.v2获取pid, 调用taobao.itempropvalues.get获取vid;如果碰到用户自定义属性,请用customer_props.
+## @brief 获取类目ID，必需是叶子类目ID；调用taobao.itemcats.get.v2获取  传入关键属性,结构:pid:vid;pid:vid.调用taobao.itemprops.get.v2获取pid, 调用taobao.itempropvalues.get获取vid;如果碰到用户自定义属性,请用customer_props. 新增：套装产品发布，目前支持单件多个即 A*2 形式的套装
 # @author wuliang@maimiaotech.com
 # @version: 0.0.0
 
@@ -22,7 +22,7 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">获取类目ID，必需是叶子类目ID；调用taobao.itemcats.get.v2获取  传入关键属性,结构:pid:vid;pid:vid.调用taobao.itemprops.get.v2获取pid, 调用taobao.itempropvalues.get获取vid;如果碰到用户自定义属性,请用customer_props.</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">获取类目ID，必需是叶子类目ID；调用taobao.itemcats.get.v2获取  传入关键属性,结构:pid:vid;pid:vid.调用taobao.itemprops.get.v2获取pid, 调用taobao.itempropvalues.get获取vid;如果碰到用户自定义属性,请用customer_props. 新增：套装产品发布，目前支持单件多个即 A*2 形式的套装</SPAN>
 # <UL>
 # </UL>
 class ProductAddRequest(object):
@@ -46,7 +46,7 @@ class ProductAddRequest(object):
         self.timestamp = int(time.time())
 
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">非关键属性结构:pid:vid;pid:vid.<br>非关键属性<font color=red>不包含</font>关键属性、销售属性、用户自定义属性、商品属性;<br>调用taobao.itemprops.get获取pid,调用taobao.itempropvalues.get获取vid.<br><font color=red>注:支持最大长度为512字节</font></SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">非关键属性结构:pid:vid;pid:vid.<br>非关键属性<font color=red>不包含</font>关键属性、销售属性、用户自定义属性、商品属性;<br>调用taobao.itemprops.get获取pid,调用taobao.itempropvalues.get获取vid.<br><font color=red>注:支持最大长度为512字节</font><br /> 支持最大长度为：512<br /> 支持的最大列表长度为：512</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -79,7 +79,7 @@ class ProductAddRequest(object):
         # </UL>
         self.customer_props = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品描述.最大25000个字节</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品描述.最大不超过25000个字符</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -90,7 +90,7 @@ class ProductAddRequest(object):
         # </UL>
         self.desc = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">存放产品扩展信息，由List(ProductExtraInfo)转化成jsonArray存入.</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">存放产品扩展信息，由List(ProductExtraInfo)转化成jsonArray存入.<br /> 支持最大长度为：25000<br /> 支持的最大列表长度为：25000</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -101,7 +101,7 @@ class ProductAddRequest(object):
         # </UL>
         self.extra_info = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品主图片.最大1M,目前仅支持GIF,JPG.</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品主图片.最大1M,目前仅支持GIF,JPG.<br /> 支持的文件类型为：gif,jpg,png,jpeg<br /> 支持的最大列表长度为：1048576</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">byte[]</SPAN>
@@ -111,6 +111,17 @@ class ProductAddRequest(object):
         # </LI>
         # </UL>
         self.image = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是否发布套装产品，和suite_items_str配合使用，is_pub_suite=true走套装SPU发布逻辑，达尔文体系下不需要再走tmall.product.spec.add发布产品规格</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">special</SPAN>
+        # </LI>
+        # </UL>
+        self.is_pub_suite = None
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">是不是主图</SPAN>
         # <UL>
@@ -145,7 +156,7 @@ class ProductAddRequest(object):
         # </UL>
         self.market_time = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品名称,最大60个字节.</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">产品名称,最大30个字符.</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -232,3 +243,25 @@ class ProductAddRequest(object):
         # </LI>
         # </UL>
         self.sell_pt = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">发布套装产品时，套装关联的产品规格+数量的字符串，格式：specsId:number。</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">special</SPAN>
+        # </LI>
+        # </UL>
+        self.suite_items_str = None
+        
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">在天猫，无关键属性发布产品，必须指定模板ID,模板ID通过tmall.product.template.get获取</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">optional</SPAN>
+        # </LI>
+        # </UL>
+        self.template_id = None

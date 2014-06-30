@@ -41,7 +41,7 @@ if __getCurrentPath() not in sys.path:
                 
 from Feature import Feature
 
-                                                        
+                                        
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品类目结构</SPAN>
 class ItemCat(object):
     def __init__(self, kargs=dict()):
@@ -82,28 +82,6 @@ class ItemCat(object):
         # </LI>
         # </UL>
         self.is_parent = None
-        
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">增量类目：修改时间</SPAN>
-        # <UL>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Date</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
-        # </LI>
-        # </UL>
-        self.modified_time = None
-        
-        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">三种枚举类型：modify，add，delete（增量类目api使用）</SPAN>
-        # <UL>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
-        # </LI>
-        # </UL>
-        self.modified_type = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">类目名称</SPAN>
         # <UL>
@@ -211,10 +189,6 @@ class ItemCat(object):
             
             "is_parent": "Boolean",
             
-            "modified_time": "Date",
-            
-            "modified_type": "String",
-            
             "name": "String",
             
             "parent_cid": "Number",
@@ -230,10 +204,6 @@ class ItemCat(object):
             "features": "Object Array",
             
             "is_parent": "Basic",
-            
-            "modified_time": "Basic",
-            
-            "modified_type": "Basic",
             
             "name": "Basic",
             
@@ -282,12 +252,6 @@ class ItemCat(object):
         
         if kargs.has_key("is_parent"):
             self.is_parent = self._newInstance("is_parent", kargs["is_parent"])
-        
-        if kargs.has_key("modified_time"):
-            self.modified_time = self._newInstance("modified_time", kargs["modified_time"])
-        
-        if kargs.has_key("modified_type"):
-            self.modified_type = self._newInstance("modified_type", kargs["modified_type"])
         
         if kargs.has_key("name"):
             self.name = self._newInstance("name", kargs["name"])
