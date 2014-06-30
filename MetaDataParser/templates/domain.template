@@ -14,7 +14,6 @@ except Exception:
 
 \#\# @brief ${struct.getElementsByTagName("desc")[0].firstChild.data.replace(os.linesep, str())}
 # @author wuliang@maimiaotech.com
-# @date ${time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())}
 # @version: 0.0.${version}
 
 from copy import deepcopy

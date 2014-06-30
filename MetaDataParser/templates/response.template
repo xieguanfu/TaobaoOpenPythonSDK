@@ -19,7 +19,6 @@ except Exception:
 
 \#\# @brief ${description.replace(os.linesep, str())}
 # @author wuliang@maimiaotech.com
-# @date ${time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())}
 # @version: 0.0.${version}
 
 from datetime import datetime

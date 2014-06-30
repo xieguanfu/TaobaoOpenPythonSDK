@@ -5,7 +5,7 @@
 @author: Wu Liang
 @authors: 
 @date: Jun 12, 2012 7:11:40 PM
-@contact: wuliang@maimiaotech.com
+@contact: 2btech@maimiaotech.com
 @version: 0.0.0
 @deprecated:
 @license:
