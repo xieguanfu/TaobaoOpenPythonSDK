@@ -5,7 +5,6 @@
 
 ## @brief 子账号详细信息，其中包括账号基本信息、员工信息和部门职务信息
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:29
 # @version: 0.0.0
 
 from copy import deepcopy

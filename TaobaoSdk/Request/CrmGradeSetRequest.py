@@ -5,7 +5,6 @@
 
 ## @brief 设置等级信息，可以设置层级等级，也可以单独设置一个等级。出于安全原因，折扣现最低只能设置到700即7折。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os

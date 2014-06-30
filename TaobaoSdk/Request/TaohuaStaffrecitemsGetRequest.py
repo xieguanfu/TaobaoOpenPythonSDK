@@ -6,7 +6,6 @@
 
 ## @brief 获取小二推荐的商品
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:55:55
 # @version: 0.0.16
 
 import os

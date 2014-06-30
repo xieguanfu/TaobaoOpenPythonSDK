@@ -5,7 +5,6 @@
 
 ## @brief 创建店铺优惠券。有效期内的店铺优惠券总数量不超过200张
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:38
 # @version: 0.0.0
 
 import os

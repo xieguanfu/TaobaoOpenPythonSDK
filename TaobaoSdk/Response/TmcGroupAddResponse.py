@@ -5,7 +5,6 @@
 
 ## @brief 为已开通用户添加用户分组
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:57
 # @version: 0.0.0
 
 from datetime import datetime

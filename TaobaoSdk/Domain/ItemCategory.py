@@ -5,7 +5,6 @@
 
 ## @brief 商品查询分类结果
 # @author wuliang@maimiaotech.com
-# @date 2012-08-01 17:13:21
 # @version: 0.0.0
 
 from copy import deepcopy

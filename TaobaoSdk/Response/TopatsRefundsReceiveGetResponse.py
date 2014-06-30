@@ -5,7 +5,6 @@
 
 ## @brief 提供异步获取三个月内买家收到的退款详情信息接口。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:55
 # @version: 0.0.0
 
 from datetime import datetime

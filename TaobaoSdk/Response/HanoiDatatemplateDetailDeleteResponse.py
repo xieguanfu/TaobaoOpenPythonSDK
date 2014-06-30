@@ -5,7 +5,6 @@
 
 ## @brief 批量删除某个DT下面的关联指标关系。 Opened必填，dataTemplateId必填。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:53
 # @version: 0.0.0
 
 from datetime import datetime

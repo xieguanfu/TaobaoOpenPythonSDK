@@ -5,7 +5,6 @@
 
 ## @brief 查询无条件单品优惠活动列表
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:51
 # @version: 0.0.0
 
 from datetime import datetime

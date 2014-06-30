@@ -5,7 +5,6 @@
 
 ## @brief 只能根据ID或者名称查询类型  <b>不会返回类型下面关联的属性列表</b>，如果需要得到类型下面的属性列表，需要调用queryAttribute方法<br>
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:54
 # @version: 0.0.0
 
 from datetime import datetime

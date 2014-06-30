@@ -6,7 +6,6 @@
 
 ## @brief 搜索当前会话用户作为买家达成的交易记录(目前只能查询三个月以内的订单)
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:55:50
 # @version: 0.0.16
 
 import os

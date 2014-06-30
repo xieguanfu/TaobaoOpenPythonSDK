@@ -5,7 +5,6 @@
 
 ## @brief 目前只支持标题、公告和描述的更新
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:33
 # @version: 0.0.0
 
 import os

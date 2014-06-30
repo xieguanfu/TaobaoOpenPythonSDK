@@ -5,7 +5,6 @@
 
 ## @brief 根据条件检索function。current_page:最大100页 page_size:10-30
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os

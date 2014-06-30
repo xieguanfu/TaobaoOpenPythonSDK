@@ -5,7 +5,6 @@
 
 ## @brief 按照营销活动id的列表ids，查询对应的营销活动列表。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:38
 # @version: 0.0.0
 
 import os

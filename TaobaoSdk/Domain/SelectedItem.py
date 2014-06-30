@@ -5,7 +5,6 @@
 
 ## @brief 天猫精选商品列表
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:31
 # @version: 0.0.0
 
 from copy import deepcopy

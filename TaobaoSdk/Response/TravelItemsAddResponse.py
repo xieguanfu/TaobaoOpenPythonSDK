@@ -5,7 +5,6 @@
 
 ## @brief 增加一个旅游商品，目前支持的类目包括：国内跟团游、国内自由行、国内一日游、出境自由行、出境跟团游、境外跟团游、境外自由行、境外一日游。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:56
 # @version: 0.0.0
 
 from datetime import datetime

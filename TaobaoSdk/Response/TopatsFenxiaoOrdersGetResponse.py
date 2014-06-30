@@ -5,7 +5,6 @@
 
 ## @brief 异步获取历史分销订单, 查询从昨天到3个月内的分销订单数据。所有数据根据gmt_create 降序排序
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:46
 # @version: 0.0.0
 
 from datetime import datetime

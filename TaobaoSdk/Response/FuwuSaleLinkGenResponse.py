@@ -5,7 +5,6 @@
 
 ## @brief 服务商通过使用该接口来产生营销链接，通过把这种链接发送给商家来做自定义人群的服务营销<br> 注：session是param_str这个参数串创建者生成的session，这个创建者与入参中的nick是不一致的。例如：A开发者创建了一个param_str的字符串，要为B商家生成一个营销链接，session必须是A开发者创建的session。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:55
 # @version: 0.0.0
 
 from datetime import datetime

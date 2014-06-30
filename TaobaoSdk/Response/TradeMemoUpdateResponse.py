@@ -5,7 +5,6 @@
 
 ## @brief 需要商家或以上权限才可调用此接口，可重复调用本接口更新交易备注，本接口同时具有添加备注的功能
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:44
 # @version: 0.0.0
 
 from datetime import datetime

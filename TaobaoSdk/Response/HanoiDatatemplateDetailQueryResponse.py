@@ -5,7 +5,6 @@
 
 ## @brief 查询Detail详情, 根据DataTemplateDetailCriteriaVO信息查询<br/> justQueryParamNotInput 为true时， 则查询出来的Detail详情,只是参数没有填入的列表(（Detail中的Attribute中的ParamKey是调用其他匹配接口必填的值，按照其他接口的规范填入即可）)<br/> 默认分页查询，每页10条记录。如果查询总条数，needRetPage = true<br/> DataTemplateDetailCriteriaVO <ul> <li>attrId(Long):AttributeVO的唯一标识</li> <li>templateId(Long 必填参数):数据模板的唯一标识</li> <li>name(String):数据模板详情的名称</li> <li>id(Long):根据模板唯一标识去查询</li> <li>pageSize:分页大小（最大值30）</li> <li>currentPage:当前页码</li> <li>needRetPage(Boolean 默认False):是否返回总条数</li> <li>justQueryParamNotInput（Boolean 默认False）:是否只查询每天如PK的详情列表</li> </ul>
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:53
 # @version: 0.0.0
 
 from datetime import datetime

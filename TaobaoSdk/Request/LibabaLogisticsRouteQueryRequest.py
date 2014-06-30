@@ -5,7 +5,6 @@
 
 ## @brief 根据始发地，目的地等条件查询线路的分页列表
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:34
 # @version: 0.0.0
 
 import os

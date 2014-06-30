@@ -5,7 +5,6 @@
 
 ## @brief 1. 搜索当前会话用户作为卖家已卖出的增量交易数据  2. 只能查询时间跨度为一天的增量交易记录：start_modified：2011-7-1 16:00:00 end_modified： 2011-7-2 15:59:59（注意不能写成16:00:00）  3. 返回数据结果为创建订单时间的倒序
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:52
 # @version: 0.0.0
 
 from datetime import datetime

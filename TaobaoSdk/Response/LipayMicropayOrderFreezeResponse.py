@@ -5,7 +5,6 @@
 
 ## @brief 该接口是支付宝提成冻结支付宝资金的操作
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:55
 # @version: 0.0.0
 
 from datetime import datetime

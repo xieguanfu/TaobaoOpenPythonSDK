@@ -5,7 +5,6 @@
 
 ## @brief 用户调用该接口可实现无需物流（虚拟）发货,使用该接口发货，交易订单状态会直接变成卖家已发货
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:44
 # @version: 0.0.0
 
 from datetime import datetime

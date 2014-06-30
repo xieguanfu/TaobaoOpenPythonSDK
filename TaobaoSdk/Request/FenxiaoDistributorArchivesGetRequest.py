@@ -5,7 +5,6 @@
 
 ## @brief 获取当前供应商授权分销商的产品的下载率，计算逻辑同后台页面。downLoadRatio 获取当前供应商授权分销商的产品的上架率，计算逻辑同后台页面。获取upSelfRatio 获取当前供应商在分销商店铺中的上架商品占比。upShopRatio 获取当前供应商在分销商店铺中的成交（已付款）订单笔数占比。 orderShopRatio 获取当前供应商在分销商店铺中铺货商品UV占店铺商品总UV的比。uvShopRatio
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:33
 # @version: 0.0.0
 
 import os

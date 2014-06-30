@@ -5,7 +5,6 @@
 
 ## @brief 查询指标模板 默认不返回详情（detail）列表。 如果想要返回detail，只查询正常的detail <br /> 必填参数：opened参数必填（opened表示开放策略：0：只根据sellerId开放，1：全网开放 2：只根据ISV开放） <br /> 选填参数：isNeedDetail(如果needDetail为true时会返回attr列表，效率低)<br /> 此接口分页处理。默认分页 每页10条，返回总条数 请设置快关：needRetPage=true,参数为true是critera对象中totalAmount为符合条件的总条数,否则，不返回总条数。<br />  {"currentPage":1,"id":123,"isNeedDetail":false,"needRetPage":false,"opened":1,"pageSize":10,"templateName":"xxx"}
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 更新一个旅游度假线路商品，目前仅支持8个类目：国内跟团游、国内自由行、国内一日游、出境自由行、出境跟团游、境外跟团游、境外自由行、境外一日游商品的更新。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:56
 # @version: 0.0.0
 
 from datetime import datetime

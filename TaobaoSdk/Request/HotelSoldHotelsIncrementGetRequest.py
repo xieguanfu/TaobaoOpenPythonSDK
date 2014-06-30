@@ -5,7 +5,6 @@
 
 ## @brief 1. 此接口用于查询该会话用户作为酒店发布者发布的酒店被审核通过的增量酒店信息。 2. 查询提交的起始时间至今的增量酒店记录：start_modified：2011-7-1 16:00:00 3. 返回数据结果为发布酒店时间的正序排列
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os

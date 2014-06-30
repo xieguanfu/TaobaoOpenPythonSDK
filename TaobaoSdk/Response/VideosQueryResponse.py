@@ -5,7 +5,6 @@
 
 ## @brief 此api用于批量查询指定视频，不返回已经被用户删除掉的视频，全部查询成功返回成功，不支持部分查询
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:54
 # @version: 0.0.0
 
 from datetime import datetime

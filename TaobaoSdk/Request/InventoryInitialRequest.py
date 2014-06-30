@@ -5,7 +5,6 @@
 
 ## @brief 商家仓库存初始化接口，直接按照商家指定的商品库存数进行填充，没有单据核对，不参与库存对账
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:34
 # @version: 0.0.0
 
 import os

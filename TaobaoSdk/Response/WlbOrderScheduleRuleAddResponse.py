@@ -5,7 +5,6 @@
 
 ## @brief 为订单的自动流转设置订单调度规则。规则设定之后，可以根据发货地区，精确路由订单至指定仓库处理。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:48
 # @version: 0.0.0
 
 from datetime import datetime

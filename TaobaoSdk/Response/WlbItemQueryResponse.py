@@ -5,7 +5,6 @@
 
 ## @brief 根据状态、卖家、SKU等信息查询商品列表
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:48
 # @version: 0.0.0
 
 from datetime import datetime

@@ -5,7 +5,6 @@
 
 ## @brief 增加一个数据模板.只增加基本信息，不会增加Detail详情 必填字段：name,owner,opened 增加数据模板后，数据模板状态:未审核 <br/> 	   名词解释：<br/> <ul> <li> 数据模板：将一系列的指标（AttributeVO）组合在一起，当做指标集合使用。数据模板包含多个数据模板详情，数据模板详情和指标一一对应。  数据模板主要应用在，标签匹配以及数据服务时使用。标明此次调用时，我需要哪些指标。</li> <li>数据模板详情：1个数据模板包含多个详情，一个详情和指标一一对应，用户对模板添加详情即指明此模板需要哪些指标。指标（AttributeVO）中如果包含参数（ParamKeyVO）时，用户可以选择性的添加参数的Value属性（AttributeVO通过其他服务接口获得，如果ParamKeyVO的value在创建DT时不赋值，后续调用其他服务接口时，也可以动态添加）</li> </ul> 使用方法：<br/> {"name":"TESTS__","opened":0,"owner":"TEST"}
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 产品批量添加,传入文件大小限制在1M(一般1w条记录不会超过1M),每五分钟只允许调用一次
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:50
 # @version: 0.0.0
 
 from datetime import datetime

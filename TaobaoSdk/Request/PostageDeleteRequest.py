@@ -6,7 +6,6 @@
 
 ## @brief 删除单个邮费模板  postage_id对应的邮费模板要属于当前会话用户
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:55:49
 # @version: 0.0.16
 
 import os

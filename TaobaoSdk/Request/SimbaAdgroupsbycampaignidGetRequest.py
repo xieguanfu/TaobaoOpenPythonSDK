@@ -5,7 +5,6 @@
 
 ## @brief 批量得到推广计划下的推广组
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:36
 # @version: 0.0.0
 
 import os

@@ -6,7 +6,6 @@
 
 ## @brief 查询appstore应用订购关系
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:55:55
 # @version: 0.0.16
 
 from datetime import datetime

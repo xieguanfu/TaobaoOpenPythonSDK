@@ -5,7 +5,6 @@
 
 ## @brief 向某个DT批量添加指标关系 注意 不会校验指标关系是否重复 返回的是添加数量 必填字段： <br /> DataTemplateVO: <br /> id <br/> opened<br/> DataTemplateDetailVO:<br /> name--用户可以根据这个name来创建模板<br/> Attr--需要把查询出来的AttributeVO对象放入到Detail中,如果Attr对应有ParamKey，paramKey的value可填入也可不填入，填入后，查询出来的Detail中ParamMap就会包含此信息<br />  用法<br/> DataTemplateVO  {"id":1,"opened":1} <br/> DataTemplateDetailVO  [{"attr":{"code":"SEX","description":"按男、女、男+女、无四个维度","documentId":1219,"id":35666,"params":[{"documentId":null,,"id":7757,"key":"buyerID","name":"buyerID","required":0,"sort":0,"type":3,"value":123}],"title":"性别","typeId":23157,"unit":"","valueType":1},"name":"d0c24612-b0f5-4814-9cf8-8eccb20f2017"}]
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:53
 # @version: 0.0.0
 
 from datetime import datetime

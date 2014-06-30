@@ -5,7 +5,6 @@
 
 ## @brief 根据工具id获取一个工具对象
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:52
 # @version: 0.0.0
 
 from datetime import datetime

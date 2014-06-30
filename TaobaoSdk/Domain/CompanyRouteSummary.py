@@ -5,7 +5,6 @@
 
 ## @brief 公司的线路统计
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:30
 # @version: 0.0.0
 
 from copy import deepcopy

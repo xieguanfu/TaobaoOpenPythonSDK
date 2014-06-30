@@ -6,7 +6,6 @@
 
 ## @brief 用户调用该接口可实现cod发货
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:55:50
 # @version: 0.0.16
 
 import os

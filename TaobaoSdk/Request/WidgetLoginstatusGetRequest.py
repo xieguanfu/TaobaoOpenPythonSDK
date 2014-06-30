@@ -5,7 +5,6 @@
 
 ## @brief 获取当前浏览器用户在淘宝登陆状态。如果传了session并且此用户已在淘宝登陆，返回nick和userId。仅支持widget入口调用。调用入口为/widget。签名方法简化为Hmac-md5,hmac(secret+‘app_key' ＋app_key +'timestamp' + timestamp+secret, secret)。timestamp为60分钟内有效
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:41
 # @version: 0.0.0
 
 import os

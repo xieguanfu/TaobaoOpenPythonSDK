@@ -5,7 +5,6 @@
 
 ## @brief 分销商查询供应商产品信息
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:33
 # @version: 0.0.0
 
 import os

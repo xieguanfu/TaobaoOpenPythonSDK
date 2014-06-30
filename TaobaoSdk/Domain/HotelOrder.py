@@ -5,7 +5,6 @@
 
 ## @brief HotelOrder（酒店订单）结构。各字段详细说明可参考接口定义。注意：trade_status，refund_status，logistics_status不是严格准确的，请以交易API，物流API等得到的订单状态、物流状态为准确依据。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:28
 # @version: 0.0.0
 
 from copy import deepcopy

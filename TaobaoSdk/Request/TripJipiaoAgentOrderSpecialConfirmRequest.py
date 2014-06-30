@@ -5,7 +5,6 @@
 
 ## @brief 国内机票订单接口，确认特殊产品能否支付
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:37
 # @version: 0.0.0
 
 import os

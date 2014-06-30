@@ -5,7 +5,6 @@
 
 ## @brief 删除授权关系.若有建立代销关系，会将其代销关系冻结即将状态置为失效(代销关系)。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:35
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 创建IC商品或分销商品与后端商品的映射关系
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:46
 # @version: 0.0.0
 
 from datetime import datetime

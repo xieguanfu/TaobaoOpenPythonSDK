@@ -5,7 +5,6 @@
 
 ## @brief 限时打折详情查询。查询出指定限时打折的对应商品记录信息。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:51
 # @version: 0.0.0
 
 from datetime import datetime

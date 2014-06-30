@@ -6,7 +6,6 @@
 
 ## @brief 
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:56:03
 # @version: 0.0.16
 
 from datetime import datetime

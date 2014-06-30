@@ -5,7 +5,6 @@
 
 ## @brief 根据条件大批量更新产品，目前只支持删除,每十分钟只允许调用一次,更新记录数不能超过10W个
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:37
 # @version: 0.0.0
 
 import os

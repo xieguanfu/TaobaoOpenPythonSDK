@@ -5,7 +5,6 @@
 
 ## @brief 根据日期、appkey查询服务评价，每次调用只能查询某一天服务，可设置分页查询，页大小最大为100，非实时接口，延迟时间为30分钟
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:55
 # @version: 0.0.0
 
 from datetime import datetime

@@ -5,7 +5,6 @@
 
 ## @brief 卖家给买家赠送电子书。赠送成功，返回true；以下情况返回false，例如：参数不符合要求、卖家或买家不存在、卖家未签署支付宝代扣协议等等。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:57
 # @version: 0.0.0
 
 from datetime import datetime

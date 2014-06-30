@@ -6,7 +6,6 @@
 
 ## @brief 获得当前会话用户的所有邮费模板
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:55:49
 # @version: 0.0.16
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 获取用户指定运费模板信息
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:44
 # @version: 0.0.0
 
 from datetime import datetime

@@ -5,7 +5,6 @@
 
 ## @brief 国内机票代理商确认订单接口
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:37
 # @version: 0.0.0
 
 import os

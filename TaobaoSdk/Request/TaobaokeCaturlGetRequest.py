@@ -5,7 +5,6 @@
 
 ## @brief 淘宝客类目推广URL. <p>由于受到<a href="http://club.alimama.com/read-htm-tid-3133847.html">淘宝联盟pid升级规则</a>影响，该接口后续可能会下线。建议直接使用拼链接的方式（塞入完整的pid）来获取搜索结果，而不是调用该接口来获取结果</p>
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:34
 # @version: 0.0.0
 
 import os

@@ -6,7 +6,6 @@
 
 ## @brief 取某个卖家的客户信息。只有购买了会员关系管理软件的用户才能使用。
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:55:55
 # @version: 0.0.16
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 1.	创建并支付一笔冻结金后，调用此接口 2.	这个接口调用的前提是创建冻结金的参数信息pay_confirm=NO_CONFIRM
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:55
 # @version: 0.0.0
 
 from datetime import datetime

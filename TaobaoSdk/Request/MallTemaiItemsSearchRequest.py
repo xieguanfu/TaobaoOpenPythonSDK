@@ -5,7 +5,6 @@
 
 ## @brief 根据品牌特卖（temai.tmall.com）类目返回品牌特卖商品列表。在得到商品ID列表后，再调用taobao.item.get获取商品详情，再调用taobao.taobaoke.items.convert 获取有佣金的淘客推广链接
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:41
 # @version: 0.0.0
 
 import os

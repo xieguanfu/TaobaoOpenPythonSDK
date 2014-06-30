@@ -5,7 +5,6 @@
 
 ## @brief 获取聊天对象列表，只能获取最近1个月内的数据且查询时间段<=7天,只支持xml返回 。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:46
 # @version: 0.0.0
 
 from datetime import datetime

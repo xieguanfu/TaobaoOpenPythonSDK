@@ -5,7 +5,6 @@
 
 ## @brief 查询卖家指定时间范围内的赠送订单列表, 只查询3个月以内的数据
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:41
 # @version: 0.0.0
 
 import os

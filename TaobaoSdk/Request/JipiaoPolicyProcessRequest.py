@@ -5,7 +5,6 @@
 
 ## @brief 添加/修改一条机票政策
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:37
 # @version: 0.0.0
 
 import os

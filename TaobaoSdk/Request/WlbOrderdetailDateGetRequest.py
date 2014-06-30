@@ -5,7 +5,6 @@
 
 ## @brief 外部ERP可通过该接口查询一段时间内的物流宝订单，以及订单详情
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:36
 # @version: 0.0.0
 
 import os

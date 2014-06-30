@@ -5,7 +5,6 @@
 
 ## @brief 退款单审核结果回写，标记前端批量可退款
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:56
 # @version: 0.0.0
 
 from datetime import datetime

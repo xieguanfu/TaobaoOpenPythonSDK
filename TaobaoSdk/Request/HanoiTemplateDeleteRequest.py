@@ -5,7 +5,6 @@
 
 ## @brief 删除一个模板，只能删除未审核的
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:40
 # @version: 0.0.0
 
 import os

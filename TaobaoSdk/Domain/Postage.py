@@ -5,7 +5,6 @@
 
 ## @brief 商品API
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:55:43
 # @version: 0.0.16
 
 

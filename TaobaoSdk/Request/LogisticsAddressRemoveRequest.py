@@ -5,7 +5,6 @@
 
 ## @brief 用此接口删除卖家地址库
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:33
 # @version: 0.0.0
 
 import os

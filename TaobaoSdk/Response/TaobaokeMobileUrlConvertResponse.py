@@ -5,7 +5,6 @@
 
 ## @brief 描述：无线淘客活动推广URL仅支持无线天猫网、无线淘宝旅行、无线聚划算等平台的活动URL转换为淘宝客推广链接。特别注意：无线天猫店铺和无线天猫商品页面不能使用此API转换，可能造成无法跟踪到订单。 <p>淘宝客应用、网站接入的过程中，难免会遇到问题，这里对从接入到线上运营的各个环节最常碰到的问题，做了汇总，帮助开发者提高接入的效率。 </p> <p>一、淘宝客网站应用创建流程：<a href="http://open.taobao.com/doc/detail.htm?spm=0.0.0.34.b1f9de&id=1028">http://open.taobao.com/doc/detail.htm?spm=0.0.0.34.b1f9de&id=1028</a></p> <p>二、淘宝客API结合实际使用场景的介绍：<a href="http://open.taobao.com/doc/detail.htm?id=1014">http://open.taobao.com/doc/detail.htm?id=1014</a></p> <p>三、淘宝客网站官方推荐的架构：<a href="http://open.taobao.com/doc/detail.htm?id=1011">http://open.taobao.com/doc/detail.htm?id=1011</a></p> <p>四、淘宝客最常见的几个问题以及解决方案汇总：<a href="http://open.taobao.com/doc/detail.htm?id=1005">http://open.taobao.com/doc/detail.htm?id=1005</a></p><p>五、此API为组件API，组件调用与正常方式有何不同：<a href="http://open.taobao.com/doc/detail.htm?id=1004">组件调用指南</a></p>
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:47
 # @version: 0.0.0
 
 from datetime import datetime

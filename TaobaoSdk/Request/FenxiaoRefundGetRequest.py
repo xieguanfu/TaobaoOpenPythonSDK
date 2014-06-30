@@ -5,7 +5,6 @@
 
 ## @brief 分销商或供应商可以查询某子单的退款信息，以及下游订单的退款信息
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:34
 # @version: 0.0.0
 
 import os

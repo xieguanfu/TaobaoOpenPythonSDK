@@ -5,7 +5,6 @@
 
 ## @brief 淘宝机票代理商成功/解冻订单
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:37
 # @version: 0.0.0
 
 import os

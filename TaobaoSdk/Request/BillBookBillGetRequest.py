@@ -5,7 +5,6 @@
 
 ## @brief 查询单笔虚拟账户明细
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:42
 # @version: 0.0.0
 
 import os

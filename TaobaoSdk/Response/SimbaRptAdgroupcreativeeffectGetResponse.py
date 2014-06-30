@@ -5,7 +5,6 @@
 
 ## @brief 推广组下的创意报表效果数据查询(汇总数据，不分类型)
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:50
 # @version: 0.0.0
 
 from datetime import datetime

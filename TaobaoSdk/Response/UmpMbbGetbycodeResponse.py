@@ -5,7 +5,6 @@
 
 ## @brief 根据营销积木块代码获取积木块。接口返回该代码最新版本的积木块。如果要查询某个非最新版本的积木块，可以使用积木块id查询接口。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:52
 # @version: 0.0.0
 
 from datetime import datetime

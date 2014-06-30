@@ -5,7 +5,6 @@
 
 ## @brief 通过ItemId,UserId来删除单个商品
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:48
 # @version: 0.0.0
 
 from datetime import datetime

@@ -5,7 +5,6 @@
 
 ## @brief 根据外部实体类型和实体id查询映射的物流宝商品id
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:35
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 物流宝提供的消息通知查询接口，消息内容包括;出入库单不一致消息，取消订单成功消息，盘点单消息
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:36
 # @version: 0.0.0
 
 import os

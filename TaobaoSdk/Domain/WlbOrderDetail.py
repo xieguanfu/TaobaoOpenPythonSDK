@@ -5,7 +5,6 @@
 
 ## @brief 物流宝订单，并且包含订单详情
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:30
 # @version: 0.0.0
 
 from copy import deepcopy

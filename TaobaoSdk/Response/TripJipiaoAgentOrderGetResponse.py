@@ -5,7 +5,6 @@
 
 ## @brief 根据淘宝系统订单号获取订单详情信息
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:51
 # @version: 0.0.0
 
 from datetime import datetime

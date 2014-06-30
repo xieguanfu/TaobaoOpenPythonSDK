@@ -5,7 +5,6 @@
 
 ## @brief 查询满就送活动列表。注意，该接口的返回值中，只包含活动的主要信息，如activity_id，name，description，start_time，end_time，type，participate_range。优惠的详细信息，请通过taobao.promotionmisc.mjs.activity.get获取。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:51
 # @version: 0.0.0
 
 from datetime import datetime

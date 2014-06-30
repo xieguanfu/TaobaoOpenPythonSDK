@@ -5,7 +5,6 @@
 
 ## @brief 文档目录
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:24:58
 # @version: 0.0.0
 
 from copy import deepcopy

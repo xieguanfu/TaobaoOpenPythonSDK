@@ -5,7 +5,6 @@
 
 ## @brief 全量、增量的添加政策压缩包的json对应对象
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:27
 # @version: 0.0.0
 
 from copy import deepcopy

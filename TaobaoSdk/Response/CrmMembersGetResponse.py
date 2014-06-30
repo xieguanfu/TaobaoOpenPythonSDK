@@ -5,7 +5,6 @@
 
 ## @brief 查询卖家的会员，进行基本的查询，返回符合条件的会员列表
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:53
 # @version: 0.0.0
 
 from datetime import datetime

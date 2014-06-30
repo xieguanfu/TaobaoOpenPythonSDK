@@ -5,7 +5,6 @@
 
 ## @brief 拥有自有仓的企业物流用户通过该接口把自有仓的库存通知到物流宝，由物流宝维护该库存，控制前台显示库存的准确性。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:36
 # @version: 0.0.0
 
 import os

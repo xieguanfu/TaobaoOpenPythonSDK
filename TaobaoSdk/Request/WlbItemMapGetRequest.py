@@ -5,7 +5,6 @@
 
 ## @brief 根据物流宝商品ID查询商品映射关系
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:35
 # @version: 0.0.0
 
 import os

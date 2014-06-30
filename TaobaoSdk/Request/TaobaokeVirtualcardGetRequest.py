@@ -6,7 +6,6 @@
 
 ## @brief 虚拟点卡充值卡电话卡等查询
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:55:53
 # @version: 0.0.16
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 商品描述模块信息获取，包括运营设定的类目级别的模块信息以及用户自定义模块数量约束。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:43
 # @version: 0.0.0
 
 from datetime import datetime

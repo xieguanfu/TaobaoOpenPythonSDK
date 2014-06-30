@@ -5,7 +5,6 @@
 
 ## @brief 修改指定账户子账号的基本信息（通过主账号登陆只能修改属于该主账号的子账号基本信息）
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:40
 # @version: 0.0.0
 
 import os

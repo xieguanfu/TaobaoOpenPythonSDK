@@ -5,7 +5,6 @@
 
 ## @brief 去指先前指定在某项活动中，某些类型的物品参加或者不参加活动的设置
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:38
 # @version: 0.0.0
 
 import os

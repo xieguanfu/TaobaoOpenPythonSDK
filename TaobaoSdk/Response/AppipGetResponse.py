@@ -5,7 +5,6 @@
 
 ## @brief 获取ISV发起请求服务器IP
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:47
 # @version: 0.0.0
 
 from datetime import datetime

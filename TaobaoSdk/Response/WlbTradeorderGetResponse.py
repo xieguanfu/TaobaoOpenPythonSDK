@@ -5,7 +5,6 @@
 
 ## @brief 根据交易类型和交易id查询物流宝订单详情
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:48
 # @version: 0.0.0
 
 from datetime import datetime

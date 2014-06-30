@@ -5,7 +5,6 @@
 
 ## @brief 用户创建一笔支付订单之后,使用此接口获取支付冻结金的url来支付冻结金
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:41
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 对生活账单进行支付接口
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:41
 # @version: 0.0.0
 
 import os

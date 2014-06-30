@@ -5,7 +5,6 @@
 
 ## @brief 通过当个的spec_id获取到这个产品规格的信息，主要是因为产品规格是要经过审核的，所以通过这个接口可以获取到是否通过审核 通过参看这个ProductSpec的status判断： 1:表示审核通过 3:表示等待审核。 如果你的id找不到数据，那么就是审核被拒绝。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:32
 # @version: 0.0.0
 
 import os

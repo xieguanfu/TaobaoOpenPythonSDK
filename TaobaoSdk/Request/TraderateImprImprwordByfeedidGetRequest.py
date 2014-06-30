@@ -5,7 +5,6 @@
 
 ## @brief 根据卖家nick和交易id（如果是子订单，输入子订单id），查询到该条评价的大家印象标签
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:32
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 获取最新更新信息
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:15
 # @version: 0.0.0
 
 import os

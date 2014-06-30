@@ -6,7 +6,6 @@
 
 ## @brief 对买家已付款状态的交易进行发货操作。(注：该API不支持货到付款订单发货)
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:56:00
 # @version: 0.0.16
 
 from datetime import datetime

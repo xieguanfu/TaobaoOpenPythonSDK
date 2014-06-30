@@ -6,7 +6,6 @@
 
 ## @brief taobao.increment.authorizemessages.get
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:55:54
 # @version: 0.0.16
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 分销商线下付款
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:35
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 获取支付宝用户订购信息。在不确认用户对应用是否订购的时候，可以调用此API查询。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:56
 # @version: 0.0.0
 
 from datetime import datetime

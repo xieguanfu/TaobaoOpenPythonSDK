@@ -5,7 +5,6 @@
 
 ## @brief 获取分销商品流量，以天为单位统计分销商品的PV，UV
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:33
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 获取天猫卖家设置的等级权益
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:40
 # @version: 0.0.0
 
 import os

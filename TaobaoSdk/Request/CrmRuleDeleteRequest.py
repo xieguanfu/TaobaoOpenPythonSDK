@@ -5,7 +5,6 @@
 
 ## @brief 分组规则删除
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:56
 # @version: 0.0.0
 
 import os

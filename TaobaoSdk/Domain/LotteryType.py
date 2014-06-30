@@ -5,7 +5,6 @@
 
 ## @brief 淘宝彩票彩种信息描述
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:30
 # @version: 0.0.0
 
 from copy import deepcopy

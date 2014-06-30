@@ -5,7 +5,6 @@
 
 ## @brief 修改指定账户子账号的员工信息（通过主账号登陆只能修改属于该主账号下的员工信息）
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:55
 # @version: 0.0.0
 
 from datetime import datetime

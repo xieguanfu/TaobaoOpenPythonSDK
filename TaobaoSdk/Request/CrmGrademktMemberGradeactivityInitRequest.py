@@ -5,7 +5,6 @@
 
 ## @brief 商家通过该接口设置等级活动
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 根据政策id或者政策外部id查询政策信息
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:51
 # @version: 0.0.0
 
 from datetime import datetime

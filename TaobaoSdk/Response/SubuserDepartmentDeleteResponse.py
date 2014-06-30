@@ -5,7 +5,6 @@
 
 ## @brief 根据主账号Nick和部门ID删除该主账号下的该部门信息，如果待删除部门下有子账号则无法删除该部门（通过主账号登陆只能删除属于该主账号下的部门信息）
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:55
 # @version: 0.0.0
 
 from datetime import datetime

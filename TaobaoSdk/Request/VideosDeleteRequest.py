@@ -5,7 +5,6 @@
 
 ## @brief 此api用于批量删除视频，删除后的视频无法被搜索，全部删除成功返回成功，不支持部分删除
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:40
 # @version: 0.0.0
 
 import os

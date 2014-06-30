@@ -5,7 +5,6 @@
 
 ## @brief 删除分销和供应链商品映射关系。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:34
 # @version: 0.0.0
 
 import os

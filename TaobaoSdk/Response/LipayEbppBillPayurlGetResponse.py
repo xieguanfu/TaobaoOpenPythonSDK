@@ -5,7 +5,6 @@
 
 ## @brief 创建账单之后，调用此API返回一个用户自己去收银台付款的URL，用户去收银台页面完成付款操作。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:55
 # @version: 0.0.0
 
 from datetime import datetime

@@ -5,7 +5,6 @@
 
 ## @brief 提供异步获取三个月内的所有（出售中和仓库中）商品详情信息接口。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:43
 # @version: 0.0.0
 
 from datetime import datetime

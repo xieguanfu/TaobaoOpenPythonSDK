@@ -5,7 +5,6 @@
 
 ## @brief 删除营销活动。对应的活动详情等将会被全部删除。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:51
 # @version: 0.0.0
 
 from datetime import datetime

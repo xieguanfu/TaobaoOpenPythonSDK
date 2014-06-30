@@ -5,7 +5,6 @@
 
 ## @brief 根据物流宝订单号查询物流宝订单至目前为止的流转状态列表
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:48
 # @version: 0.0.0
 
 from datetime import datetime

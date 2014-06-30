@@ -5,7 +5,6 @@
 
 ## @brief 用于对分销的子采购单创建退款
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:34
 # @version: 0.0.0
 
 import os

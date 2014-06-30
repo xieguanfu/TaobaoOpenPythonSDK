@@ -5,7 +5,6 @@
 
 ## @brief 带分页的淘宝商品
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:27
 # @version: 0.0.0
 
 from copy import deepcopy

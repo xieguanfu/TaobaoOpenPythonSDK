@@ -5,7 +5,6 @@
 
 ## @brief 保存卖家创建的活动信息。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:57
 # @version: 0.0.0
 
 from datetime import datetime

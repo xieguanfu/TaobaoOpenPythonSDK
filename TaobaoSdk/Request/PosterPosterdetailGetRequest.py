@@ -5,7 +5,6 @@
 
 ## @brief 通过画报ID取得画报信息，上一张，下一张，图片列表等信息
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:10
 # @version: 0.0.0
 
 import os

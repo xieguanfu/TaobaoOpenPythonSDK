@@ -5,7 +5,6 @@
 
 ## @brief 通过物流宝商品ID和IC商品ID删除映射关系。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:48
 # @version: 0.0.0
 
 from datetime import datetime

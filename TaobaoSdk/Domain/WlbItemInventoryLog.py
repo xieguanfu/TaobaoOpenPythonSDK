@@ -5,7 +5,6 @@
 
 ## @brief 库存变更记录
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:28
 # @version: 0.0.0
 
 from copy import deepcopy

@@ -5,7 +5,6 @@
 
 ## @brief 通过主账号ID和职务ID来修改该职务信息中的职务名称及职务级别信息（通过主账号登陆只能修改属于该主账号下的职务信息）
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:55
 # @version: 0.0.0
 
 from datetime import datetime

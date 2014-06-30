@@ -5,7 +5,6 @@
 
 ## @brief 根据商品id获取这个商品id对应的大家印象
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:32
 # @version: 0.0.0
 
 import os

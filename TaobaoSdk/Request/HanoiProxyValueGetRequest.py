@@ -5,7 +5,6 @@
 
 ## @brief 通过代理方法获取属性数据，主要是结构化评价和dsr。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:40
 # @version: 0.0.0
 
 import os

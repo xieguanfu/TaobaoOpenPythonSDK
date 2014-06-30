@@ -5,7 +5,6 @@
 
 ## @brief 推广计划下的人群基础数据查询
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:37
 # @version: 0.0.0
 
 import os

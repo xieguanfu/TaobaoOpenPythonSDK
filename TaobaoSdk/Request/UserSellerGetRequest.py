@@ -5,7 +5,6 @@
 
 ## @brief 查询卖家用户信息（只能查询有店铺的用户） 只能卖家类应用调用。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:31
 # @version: 0.0.0
 
 import os

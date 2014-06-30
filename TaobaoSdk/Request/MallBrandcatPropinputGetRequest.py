@@ -5,7 +5,6 @@
 
 ## @brief 针对监管类目品牌关键属性可输入判断逻辑比较复杂，提供简化属性可输入判断的接口，该接口兼容非关键属性和非监管类目品牌
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:32
 # @version: 0.0.0
 
 import os

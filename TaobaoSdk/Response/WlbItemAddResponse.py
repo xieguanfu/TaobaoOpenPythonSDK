@@ -5,7 +5,6 @@
 
 ## @brief 添加物流宝商品，支持物流宝子商品和属性添加
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:48
 # @version: 0.0.0
 
 from datetime import datetime

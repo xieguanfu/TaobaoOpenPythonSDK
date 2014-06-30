@@ -5,7 +5,6 @@
 
 ## @brief 获取到所有的类目，品牌的控制信息，达尔文类目是会以品牌和类目作为控制的力度来管理商品，所有的控制信息可以通过这个接口获取到信息。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:32
 # @version: 0.0.0
 
 import os

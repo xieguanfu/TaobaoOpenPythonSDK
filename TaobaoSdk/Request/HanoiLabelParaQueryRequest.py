@@ -5,7 +5,6 @@
 
 ## @brief 查询指定标签的参数信息
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:40
 # @version: 0.0.0
 
 import os

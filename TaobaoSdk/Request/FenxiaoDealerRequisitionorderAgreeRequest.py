@@ -5,7 +5,6 @@
 
 ## @brief 供应商或分销商通过采购申请/经销采购单审核
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:33
 # @version: 0.0.0
 
 import os

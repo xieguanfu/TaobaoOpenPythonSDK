@@ -5,7 +5,6 @@
 
 ## @brief 分组简单定义
 # @author wuliang@maimiaotech.com
-# @date 2012-08-09 12:36:34
 # @version: 0.0.0
 
 from copy import deepcopy

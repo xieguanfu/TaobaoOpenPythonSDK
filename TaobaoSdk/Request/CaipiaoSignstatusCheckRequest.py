@@ -5,7 +5,6 @@
 
 ## @brief 检查用户是否签署了支付宝代扣协议。如果签署了，返回true; 如果没签署，返回false, 同时返回签署代扣协议的Url。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:42
 # @version: 0.0.0
 
 import os

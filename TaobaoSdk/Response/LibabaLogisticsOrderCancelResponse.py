@@ -5,7 +5,6 @@
 
 ## @brief 运单发货后，客户或者系统需要撤销运单时，调用撤销接口。
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:43
 # @version: 0.0.0
 
 from datetime import datetime

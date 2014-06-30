@@ -5,7 +5,6 @@
 
 ## @brief 订单价格计算
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:34
 # @version: 0.0.0
 
 import os

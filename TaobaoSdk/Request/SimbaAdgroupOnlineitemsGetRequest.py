@@ -5,7 +5,6 @@
 
 ## @brief 获取用户上架在线销售的全部宝贝
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:37
 # @version: 0.0.0
 
 import os

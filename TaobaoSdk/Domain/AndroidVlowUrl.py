@@ -5,7 +5,6 @@
 
 ## @brief android  phone和pad播放的mp4文件类。适用2.3版本的Android。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:27
 # @version: 0.0.0
 
 from copy import deepcopy

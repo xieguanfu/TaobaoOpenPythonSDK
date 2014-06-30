@@ -5,7 +5,6 @@
 
 ## @brief 获取频道ID对应的画报列表
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:27
 # @version: 0.0.0
 
 from datetime import datetime

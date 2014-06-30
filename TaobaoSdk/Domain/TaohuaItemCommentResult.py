@@ -5,7 +5,6 @@
 
 ## @brief 淘花商品评论
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:03
 # @version: 0.0.0
 
 from copy import deepcopy

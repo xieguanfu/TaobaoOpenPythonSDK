@@ -5,7 +5,6 @@
 
 ## @brief 同步仓储商品与前台商品，建立仓储商品与前台商品的关系,并更新IC中的信息到仓储商品Item中
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:35
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 查找IC商品或分销商品与后端商品的关联信息。skuId如果不传就查找该itemId下所有的sku
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:46
 # @version: 0.0.0
 
 from datetime import datetime

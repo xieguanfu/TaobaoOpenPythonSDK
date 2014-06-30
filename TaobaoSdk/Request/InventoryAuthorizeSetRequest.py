@@ -5,7 +5,6 @@
 
 ## @brief 商家向其他用户设置配额库存的共享或者独享，支持到渠道，商家自定义库存类别
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:34
 # @version: 0.0.0
 
 import os

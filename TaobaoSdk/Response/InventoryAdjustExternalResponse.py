@@ -5,7 +5,6 @@
 
 ## @brief 商家非交易调整库存，调拨出库、盘点等时调用
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:46
 # @version: 0.0.0
 
 from datetime import datetime

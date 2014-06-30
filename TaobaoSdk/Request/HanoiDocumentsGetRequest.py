@@ -5,7 +5,6 @@
 
 ## @brief 这里只是简单的查询档案的信息，<b>不会返回档案下面的值域信息</b> <br>
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os

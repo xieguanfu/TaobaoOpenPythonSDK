@@ -5,7 +5,6 @@
 
 ## @brief 供应商可以针对产品不同的sku，指定对应交易类型（代销or经销）方式下，设定折扣方式（按等级or指定分销商）以及对应优惠后的采购价格
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:45
 # @version: 0.0.0
 
 from datetime import datetime

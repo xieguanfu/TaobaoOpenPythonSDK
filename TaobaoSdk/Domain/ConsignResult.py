@@ -5,7 +5,6 @@
 
 ## @brief 发货返回结果
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:28
 # @version: 0.0.0
 
 from copy import deepcopy

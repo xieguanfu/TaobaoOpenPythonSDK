@@ -5,7 +5,6 @@
 
 ## @brief 此接口用于新增一个酒店，酒店的发布者是当前会话的用户。 该接口发出的是一个酒店申请，需要淘宝小二审核。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:52
 # @version: 0.0.0
 
 from datetime import datetime

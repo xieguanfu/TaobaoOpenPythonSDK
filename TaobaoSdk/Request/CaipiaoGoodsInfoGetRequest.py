@@ -5,7 +5,6 @@
 
 ## @brief 根据卖家id与appkey获取商品信息。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:41
 # @version: 0.0.0
 
 import os

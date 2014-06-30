@@ -5,7 +5,6 @@
 
 ## @brief 根据输入开始时间，时间跨度，查询90天以内订单成功且支持返利淘宝客报表
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:35
 # @version: 0.0.0
 
 import os

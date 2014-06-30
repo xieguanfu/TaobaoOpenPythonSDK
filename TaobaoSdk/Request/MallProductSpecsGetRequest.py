@@ -5,7 +5,6 @@
 
 ## @brief 按productID下载或品牌下载产品规格，返回一组的产品规格信息。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:32
 # @version: 0.0.0
 
 import os

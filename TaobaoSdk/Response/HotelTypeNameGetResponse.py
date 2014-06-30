@@ -5,7 +5,6 @@
 
 ## @brief 此接口用于查询一个房型，根据传入的酒店hid，房型名称/别名查询房型信息。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:52
 # @version: 0.0.0
 
 from datetime import datetime

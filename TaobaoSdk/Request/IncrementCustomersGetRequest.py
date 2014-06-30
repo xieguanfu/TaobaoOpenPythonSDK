@@ -5,7 +5,6 @@
 
 ## @brief 提供查询应用为自身用户所开通的增量消息服务信息。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:35
 # @version: 0.0.0
 
 import os

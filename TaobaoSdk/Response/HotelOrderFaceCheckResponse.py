@@ -5,7 +5,6 @@
 
 ## @brief 此接口用户到店支付（前台面付）卖家处理订单的入住情况，包括核实买家已入住和核实买家未入住
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:52
 # @version: 0.0.0
 
 from datetime import datetime

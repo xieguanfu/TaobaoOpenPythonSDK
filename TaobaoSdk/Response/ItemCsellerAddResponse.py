@@ -5,7 +5,6 @@
 
 ## @brief 提供的发布集市商品接口，接口参数除了包括taobao.item.vip.add的参数外，新增一个sub_pic_paths参数，为图片空间的url，本方法会在发布商品同时，将这些图片作为副图关联到新商品。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:42
 # @version: 0.0.0
 
 from datetime import datetime

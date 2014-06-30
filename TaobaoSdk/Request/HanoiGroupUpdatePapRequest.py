@@ -5,7 +5,6 @@
 
 ## @brief 更新一个标签分组，自动审核
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:40
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 查询卖家一段时间内按天统计的彩票赠送数据，只支持查询90天以内的数据.
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:56
 # @version: 0.0.0
 
 from datetime import datetime

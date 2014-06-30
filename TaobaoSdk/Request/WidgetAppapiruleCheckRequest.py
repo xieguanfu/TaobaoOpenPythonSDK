@@ -5,7 +5,6 @@
 
 ## @brief app指定api名称获取此api的http调用方法、app是否有请求权限、是否需要授权等信息。仅支持widget入口调用。调用入口为/widget。签名方法简化为Hmac-md5,hmac(secret+‘app_key' ＋app_key +'timestamp' + timestamp+secret,secret)。timestamp为60分钟内有效
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:41
 # @version: 0.0.0
 
 import os

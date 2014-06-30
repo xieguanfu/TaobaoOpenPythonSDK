@@ -5,7 +5,6 @@
 
 ## @brief 支付宝用户冻结明细信息
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:31
 # @version: 0.0.0
 
 from copy import deepcopy

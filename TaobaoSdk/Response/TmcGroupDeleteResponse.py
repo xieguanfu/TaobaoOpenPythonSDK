@@ -5,7 +5,6 @@
 
 ## @brief 删除指定的分组或分组下的用户
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:57
 # @version: 0.0.0
 
 from datetime import datetime

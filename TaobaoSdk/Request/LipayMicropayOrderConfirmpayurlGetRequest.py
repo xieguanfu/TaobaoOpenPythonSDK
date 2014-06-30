@@ -5,7 +5,6 @@
 
 ## @brief 创建并支付冻结单之后，使用此接口获取有密支付的url 这个接口调用的前提是创建冻结金的参数信息pay_confirm=PAY_PASSWORD
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:41
 # @version: 0.0.0
 
 import os

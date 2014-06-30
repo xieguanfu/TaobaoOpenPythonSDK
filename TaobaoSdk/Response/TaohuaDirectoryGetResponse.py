@@ -5,7 +5,6 @@
 
 ## @brief 根据文档商品的ID获取文档目录
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:33
 # @version: 0.0.0
 
 from datetime import datetime

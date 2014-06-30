@@ -5,7 +5,6 @@
 
 ## @brief 档案ID必填字段 1、查询值域信息，根据值域ID查询，最多返回一条记录，不会返回分页信息。<br> 	 * 2、根据档案ID查询，默认返回10条记录<br> 	 * 3、值域Key只能配合档案ID来唯一确定一条记录，不会返回分页信息。<br>
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:40
 # @version: 0.0.0
 
 import os

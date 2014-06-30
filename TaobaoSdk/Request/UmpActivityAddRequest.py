@@ -5,7 +5,6 @@
 
 ## @brief 新增优惠活动。设置优惠活动的基本信息，比如活动时间，活动针对的对象（可以是满足某些条件的买家）
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:38
 # @version: 0.0.0
 
 import os

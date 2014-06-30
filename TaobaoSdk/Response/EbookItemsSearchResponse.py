@@ -5,7 +5,6 @@
 
 ## @brief 根据活动书库ID分页查询书库的商品信息。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:57
 # @version: 0.0.0
 
 from datetime import datetime

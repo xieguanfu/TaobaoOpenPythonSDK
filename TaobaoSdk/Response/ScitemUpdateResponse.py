@@ -5,7 +5,6 @@
 
 ## @brief 根据商品ID或商家编码修改后端商品
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:46
 # @version: 0.0.0
 
 from datetime import datetime

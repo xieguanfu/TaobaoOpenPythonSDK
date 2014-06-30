@@ -5,7 +5,6 @@
 
 ## @brief 保存卖家选择的活动赠送商品的信息。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:42
 # @version: 0.0.0
 
 import os

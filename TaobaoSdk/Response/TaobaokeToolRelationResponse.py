@@ -6,7 +6,6 @@
 
 ## @brief 判断用户pid是否是appkey关联的注册用户
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:56:04
 # @version: 0.0.16
 
 from datetime import datetime

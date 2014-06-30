@@ -5,7 +5,6 @@
 
 ## @brief 此接口用于获取卖家发布旅游度假线路商品时目的地地区级联信息。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:41
 # @version: 0.0.0
 
 import os

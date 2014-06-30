@@ -5,7 +5,6 @@
 
 ## @brief 商家交易调整库存，淘宝交易、B2B经销等
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:34
 # @version: 0.0.0
 
 import os

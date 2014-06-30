@@ -5,7 +5,6 @@
 
 ## @brief 查询库存详情，通过商品ID获取发送请求的卖家的库存详情
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:35
 # @version: 0.0.0
 
 import os

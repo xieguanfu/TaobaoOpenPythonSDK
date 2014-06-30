@@ -5,7 +5,6 @@
 
 ## @brief 通过营销积木id列表来获取营销积木块列表。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:38
 # @version: 0.0.0
 
 import os

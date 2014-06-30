@@ -5,7 +5,6 @@
 
 ## @brief 创建某个卖家的店铺优惠券领取活动。返回，优惠券领取活动ID，优惠券领取链接。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:38
 # @version: 0.0.0
 
 import os

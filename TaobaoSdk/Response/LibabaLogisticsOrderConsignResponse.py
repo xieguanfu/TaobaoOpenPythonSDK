@@ -5,7 +5,6 @@
 
 ## @brief 货运发货接口。通过该接口可以在通过淘宝对物流公司下单，并且可以享有部分折扣优惠。
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:43
 # @version: 0.0.0
 
 from datetime import datetime

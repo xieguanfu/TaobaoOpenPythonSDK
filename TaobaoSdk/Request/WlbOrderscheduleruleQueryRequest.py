@@ -5,7 +5,6 @@
 
 ## @brief 查询某个卖家的所有订单调度规则，提供分页查询。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:36
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 发放成功的优惠券的信息，包括couponNumber和buyerNick
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:27
 # @version: 0.0.0
 
 from copy import deepcopy

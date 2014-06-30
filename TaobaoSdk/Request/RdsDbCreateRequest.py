@@ -5,7 +5,6 @@
 
 ## @brief 在rds实例里创建数据库
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:41
 # @version: 0.0.0
 
 import os

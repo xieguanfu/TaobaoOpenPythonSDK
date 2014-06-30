@@ -5,7 +5,6 @@
 
 ## @brief 推广计划下的推广组报表效果数据查询(只有汇总数据，无分类类型)
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:50
 # @version: 0.0.0
 
 from datetime import datetime

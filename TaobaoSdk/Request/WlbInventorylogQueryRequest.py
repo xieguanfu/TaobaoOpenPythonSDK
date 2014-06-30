@@ -5,7 +5,6 @@
 
 ## @brief 通过商品ID等几个条件来分页查询库存变更记录
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:35
 # @version: 0.0.0
 
 import os

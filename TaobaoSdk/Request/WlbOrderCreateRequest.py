@@ -5,7 +5,6 @@
 
 ## @brief 创建物流宝订单，由外部ISV或者ERP，Elink，淘宝交易产生
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:36
 # @version: 0.0.0
 
 import os

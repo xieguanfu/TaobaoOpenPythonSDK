@@ -5,7 +5,6 @@
 
 ## @brief rds创建、查询、删除返回结果数据结构
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:31
 # @version: 0.0.0
 
 from copy import deepcopy

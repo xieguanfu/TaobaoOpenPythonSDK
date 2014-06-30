@@ -5,7 +5,6 @@
 
 ## @brief 买家可以将自己“未使用”状态下的优惠券转发给任意淘宝用户。 只能转发“未使用”状态下的优惠券
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:51
 # @version: 0.0.0
 
 from datetime import datetime

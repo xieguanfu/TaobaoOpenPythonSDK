@@ -5,7 +5,6 @@
 
 ## @brief 此api用于更新一个视频的基本信息，包括视频标题，标签，描述，封面等，不包括是否允许他人观看，更新是否允许他人观看详见taobao.videos.open
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:54
 # @version: 0.0.0
 
 from datetime import datetime

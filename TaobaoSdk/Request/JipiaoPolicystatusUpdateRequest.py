@@ -5,7 +5,6 @@
 
 ## @brief 根据外部产品id，进行政策状态更新，挂起/解挂/删除
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:37
 # @version: 0.0.0
 
 import os

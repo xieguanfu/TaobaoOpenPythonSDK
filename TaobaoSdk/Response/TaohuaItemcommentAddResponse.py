@@ -5,7 +5,6 @@
 
 ## @brief 对指定商品发表评论
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:33
 # @version: 0.0.0
 
 from datetime import datetime

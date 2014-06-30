@@ -5,7 +5,6 @@
 
 ## @brief 商家通过该接口查询等级营销活动
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:53
 # @version: 0.0.0
 
 from datetime import datetime

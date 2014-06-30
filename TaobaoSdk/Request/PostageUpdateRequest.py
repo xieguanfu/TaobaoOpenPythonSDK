@@ -6,7 +6,6 @@
 
 ## @brief * 修改邮费模板     * 修改的邮费模板属于当前会话用户     * 修改的邮费子模板要传入子模板id，否则作为添加子模板处理。postage_mode_types、 postage_mode_dests、postage_mode_prices、postage_mode_increases四个字段的处理逻辑见 taobao.postage.add中的描述
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:55:49
 # @version: 0.0.16
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 供应用关闭其用户的增量消息服务功能，这样可以节省ISV的流量。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:35
 # @version: 0.0.0
 
 import os

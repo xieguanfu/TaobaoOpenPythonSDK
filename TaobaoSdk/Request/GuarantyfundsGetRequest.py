@@ -6,7 +6,6 @@
 
 ## @brief B商家保证金查询
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:55:51
 # @version: 0.0.16
 
 import os

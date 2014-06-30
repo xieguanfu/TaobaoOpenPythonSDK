@@ -5,7 +5,6 @@
 
 ## @brief 根据用户id，item id list和store code来查询商品库存信息和批次信息
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:35
 # @version: 0.0.0
 
 import os

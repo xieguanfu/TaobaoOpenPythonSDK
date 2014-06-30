@@ -5,7 +5,6 @@
 
 ## @brief 判断在一个推广计划中是否已经推广了一个商品
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:36
 # @version: 0.0.0
 
 import os

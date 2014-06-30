@@ -5,7 +5,6 @@
 
 ## @brief 新增优惠工具。通过ump sdk来完成将积木块拼装成为工具的操作，再使用本接口上传优惠工具。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:38
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 查询商家定购的所有服务,可通过入参状态来筛选
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:36
 # @version: 0.0.0
 
 import os

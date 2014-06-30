@@ -5,7 +5,6 @@
 
 ## @brief 根据主账号ID以及部门名称、父部门ID创建新的部门信息（通过主账号登陆只能新建属于该主账号的部门信息）
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:40
 # @version: 0.0.0
 
 import os

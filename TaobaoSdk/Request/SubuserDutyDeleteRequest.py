@@ -5,7 +5,6 @@
 
 ## @brief 通过主账号ID和职务ID来删除主账号下的该职务信息。使用此职务的员工中职务一栏将变为空（通过主账号登陆只能删除属于该主账号下的职务信息）
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:40
 # @version: 0.0.0
 
 import os

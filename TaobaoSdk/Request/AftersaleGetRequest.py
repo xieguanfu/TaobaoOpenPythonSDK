@@ -5,7 +5,6 @@
 
 ## @brief 查询用户设置的售后服务模板，仅返回标题和id
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:31
 # @version: 0.0.0
 
 import os

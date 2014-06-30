@@ -5,7 +5,6 @@
 
 ## @brief 旺旺API
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:55:44
 # @version: 0.0.16
 
 

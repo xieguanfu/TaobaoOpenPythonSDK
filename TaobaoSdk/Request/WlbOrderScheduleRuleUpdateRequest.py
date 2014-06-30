@@ -5,7 +5,6 @@
 
 ## @brief 修改物流宝订单调度规则
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:36
 # @version: 0.0.0
 
 import os

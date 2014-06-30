@@ -5,7 +5,6 @@
 
 ## @brief 导购效果SPM报表查询，可查询某天某站点某频道某页面为淘宝带来的流量及成交情况（对于page和module最多返回10000条数据，请正确使用spm数据） 只能查询距离今天3个月内的数据
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:56
 # @version: 0.0.0
 
 from datetime import datetime

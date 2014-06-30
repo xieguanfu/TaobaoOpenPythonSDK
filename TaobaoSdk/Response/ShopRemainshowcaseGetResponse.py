@@ -5,7 +5,6 @@
 
 ## @brief 获取卖家店铺剩余橱窗数量，已用橱窗数量，总橱窗数量
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:44
 # @version: 0.0.0
 
 from datetime import datetime

@@ -5,7 +5,6 @@
 
 ## @brief 开通主动通知业务的APP可以通过该接口获取商品变更通知信息 <font color="red">建议获取增量消息的时间间隔是：半个小时</font>
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:47
 # @version: 0.0.0
 
 from datetime import datetime

@@ -6,7 +6,6 @@
 
 ## @brief 淘宝客店铺转换
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:56:04
 # @version: 0.0.16
 
 from datetime import datetime

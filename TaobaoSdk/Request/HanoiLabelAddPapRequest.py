@@ -5,7 +5,6 @@
 
 ## @brief 和创建标签类似，区别在于自动审核，可立即使用
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:40
 # @version: 0.0.0
 
 import os

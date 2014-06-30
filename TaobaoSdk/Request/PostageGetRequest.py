@@ -6,7 +6,6 @@
 
 ## @brief * 获取单个邮费模板 * postage_id对应的邮费模板要属于nick所对应的用户  Q：是否必须是模板所有者才能够使用这个接口? A： 不是的,只要给出了邮费模板id和创建者的昵称就可以使用
 # @author wuliang@maimiaotech.com
-# @date 2012-06-09 16:55:49
 # @version: 0.0.16
 
 import os

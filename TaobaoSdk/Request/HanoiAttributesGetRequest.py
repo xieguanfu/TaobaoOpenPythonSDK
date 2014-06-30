@@ -5,7 +5,6 @@
 
 ## @brief * 1、查询属性时，<b>只能查询Attribute的简单信息</b>，不会级联任何表结构从而得到其他对象，如果需要用到其他对象，请从其他接口获得 	 * 2、属性的必填参数分两种，一种是随模板一起传入，这种必填参数创建模板时必须赋值Value
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief OAuth2.0 授权的第二步，换取访问令牌。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:41
 # @version: 0.0.0
 
 import os

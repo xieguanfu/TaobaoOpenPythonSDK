@@ -5,7 +5,6 @@
 
 ## @brief 根据用户ID获取用户下所有模板
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:33
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 淘花搜索商品对象数据结构
 # @author wuliang@maimiaotech.com
-# @date 2012-07-03 10:25:01
 # @version: 0.0.0
 
 from copy import deepcopy

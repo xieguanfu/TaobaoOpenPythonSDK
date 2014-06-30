@@ -5,7 +5,6 @@
 
 ## @brief 店铺会员数据读取。一次可读取一个用户的多个属性值，但所有属性值的主键必须一致。主键不一致的属性值，请分多次读取。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os

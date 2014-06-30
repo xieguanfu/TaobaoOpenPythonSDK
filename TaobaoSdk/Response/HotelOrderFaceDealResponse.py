@@ -5,7 +5,6 @@
 
 ## @brief 该接口用于卖家确认到店支付订单或者取消订单。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:52
 # @version: 0.0.0
 
 from datetime import datetime

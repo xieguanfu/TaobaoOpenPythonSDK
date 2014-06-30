@@ -5,7 +5,6 @@
 
 ## @brief 取消当前用户指定商品的橱窗推荐状态 这个Item所属卖家从传入的session中获取，需要session绑定
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:43
 # @version: 0.0.0
 
 from datetime import datetime

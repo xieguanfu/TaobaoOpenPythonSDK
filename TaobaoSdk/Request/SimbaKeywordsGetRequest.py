@@ -5,7 +5,6 @@
 
 ## @brief 取得一个推广组的所有关键词或者根据一个关键词Id列表取得一组关键词； 如果同时提供了推广组Id和关键词id列表，则优先使用推广组Id；
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:38
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 采购单自定义字段
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:33
 # @version: 0.0.0
 
 import os

@@ -5,7 +5,6 @@
 
 ## @brief 评价大印象返回的印象词接口
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:26
 # @version: 0.0.0
 
 from copy import deepcopy

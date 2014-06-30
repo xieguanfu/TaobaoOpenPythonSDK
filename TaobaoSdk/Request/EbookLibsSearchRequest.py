@@ -5,7 +5,6 @@
 
 ## @brief 分页查询参加活动的电子书的书库信息。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:42
 # @version: 0.0.0
 
 import os

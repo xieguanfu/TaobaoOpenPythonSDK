@@ -5,7 +5,6 @@
 
 ## @brief 新增产品线
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:34
 # @version: 0.0.0
 
 import os

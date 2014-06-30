@@ -5,7 +5,6 @@
 
 ## @brief 商品描述模块化信息，包含类目级别的模块信息以及用户自定义模块约束等其他信息
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:27
 # @version: 0.0.0
 
 from copy import deepcopy

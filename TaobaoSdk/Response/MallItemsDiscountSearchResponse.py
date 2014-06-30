@@ -5,7 +5,6 @@
 
 ## @brief 获取天猫折扣商品的精选结果。在得到商品ID列表后，再调用 taobao.taobaoke.widget.items.convert 获取有佣金的淘客推广链接。auction_tag不再支持天猫精品库。如有需要调用精选商品，请改为调用：tmall.selected.items.search
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:56
 # @version: 0.0.0
 
 from datetime import datetime

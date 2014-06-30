@@ -5,7 +5,6 @@
 
 ## @brief 删除营销工具。当工具正在被使用的时候，是不能被删除的。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:38
 # @version: 0.0.0
 
 import os

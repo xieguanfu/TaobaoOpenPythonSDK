@@ -5,7 +5,6 @@
 
 ## @brief 按编号查询采购申请/经销采购单，目前支持供应商和分销商查询。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:33
 # @version: 0.0.0
 
 import os

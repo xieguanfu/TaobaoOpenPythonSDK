@@ -5,7 +5,6 @@
 
 ## @brief ID必填， Opened必填。<br/> 现阶段只根据ID删除,只能删除未审核的数据模板，数据模板审核后,不能删除。 用法：<br/>  {"id":888888,"opened":0}
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:53
 # @version: 0.0.0
 
 from datetime import datetime

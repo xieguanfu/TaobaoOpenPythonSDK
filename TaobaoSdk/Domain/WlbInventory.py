@@ -5,7 +5,6 @@
 
 ## @brief 库存详情对象。其中包括货主ID，仓库编码，库存，库存类型等属性
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:28
 # @version: 0.0.0
 
 from copy import deepcopy

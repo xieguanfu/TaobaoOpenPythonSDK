@@ -5,7 +5,6 @@
 
 ## @brief 查询图片被引用的详情，包括引用者，引用者名字，引用者地址
 # @author wuliang@maimiaotech.com
-# @date 2013-03-07 19:54:51
 # @version: 0.0.0
 
 from datetime import datetime

@@ -5,7 +5,6 @@
 
 ## @brief 政策全量增加,会删除政策中字段source值为TOP的记录，并且把新增的记录插入，传入文件大小限制在5M(一般10w条记录不会超过5M),每半小时只允许调用一次
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:50
 # @version: 0.0.0
 
 from datetime import datetime

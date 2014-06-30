@@ -5,7 +5,6 @@
 
 ## @brief 根据淘宝机票政策id搜索订单
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:37
 # @version: 0.0.0
 
 import os

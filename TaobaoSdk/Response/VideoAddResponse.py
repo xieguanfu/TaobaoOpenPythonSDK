@@ -5,7 +5,6 @@
 
 ## @brief 此api添加一个视频，视频发布后需要转码，审核等操作步骤，表示添加完成之后并不是立马能播放该视频，需要等后台转码成功，审核通过之后。线上视频转码审核过程比较快
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:54
 # @version: 0.0.0
 
 from datetime import datetime

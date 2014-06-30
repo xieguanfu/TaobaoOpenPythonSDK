@@ -5,7 +5,6 @@
 
 ## @brief 此接口用于查询多个酒店，根据传入的参数查询酒店信息。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:39
 # @version: 0.0.0
 
 import os

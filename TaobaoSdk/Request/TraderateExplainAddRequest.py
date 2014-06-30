@@ -5,7 +5,6 @@
 
 ## @brief 商城卖家给评价做出解释（买家追加评论后、评价超过30天的，都不能再做评价解释）
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:32
 # @version: 0.0.0
 
 import os

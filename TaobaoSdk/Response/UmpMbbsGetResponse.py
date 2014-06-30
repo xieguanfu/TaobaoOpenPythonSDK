@@ -5,7 +5,6 @@
 
 ## @brief 获取营销积木块列表，可以根据类型获取，也可以将该字段设为空，获取所有的
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:52
 # @version: 0.0.0
 
 from datetime import datetime

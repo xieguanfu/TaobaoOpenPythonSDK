@@ -5,7 +5,6 @@
 
 ## @brief 获取卖家最新的赠送订单列表(90天以内的)，支持按列表数量查询中奖订单，或按每天的日期分页查询中奖或所有订单。注意num与date只要传入一个即可，如果两个参数都传以date方式查询为准。
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:41
 # @version: 0.0.0
 
 import os

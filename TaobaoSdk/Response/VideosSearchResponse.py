@@ -5,7 +5,6 @@
 
 ## @brief 此api用于搜索应用上传的所有视频，应用由appKey 唯一识别，搜索条件包含视频标题，标签，状态，关键字（标题or标签，不能同时设置），上传者数字id
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:54
 # @version: 0.0.0
 
 from datetime import datetime

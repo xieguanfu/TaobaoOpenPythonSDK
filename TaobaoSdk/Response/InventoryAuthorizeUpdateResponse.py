@@ -5,7 +5,6 @@
 
 ## @brief 对已经授权的配额账户进行配额数量的更改；
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:46
 # @version: 0.0.0
 
 from datetime import datetime

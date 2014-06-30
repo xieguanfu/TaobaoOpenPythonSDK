@@ -5,7 +5,6 @@
 
 ## @brief 通过指定主账号ID和部门ID来修改该部门的名称或该部门的父部门ID。（通过主账号登陆只能修改属于该主账号的部门信息）
 # @author wuliang@maimiaotech.com
-# @date 2013-09-22 16:52:40
 # @version: 0.0.0
 
 import os
