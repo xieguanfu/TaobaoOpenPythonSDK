@@ -24,6 +24,7 @@ from SdkCommon import *
 from decorator import sdk_exception
 from Exceptions.HttpStatusException import HttpStatusException
 import logging
+import xmltodict
 logger = logging.getLogger(__name__)
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
@@ -43,6 +44,27 @@ def normalize_rawconent(rawContent):
             norm_info = '''"msg":"null","sub_code":"isp.service-unavailable","sub_msg":"maimiao defined"'''
             rawContent = rawContent.replace(sick_info, norm_info)
     return rawContent
+
+def change_xml_to_dict_deeply(obj):
+    result_dict = {}
+    if type(obj) == type([]):
+        #列表转换
+        return [change_xml_to_dict_deeply(sub_obj) for sub_obj in obj]
+    elif isinstance(obj,object) and obj.__class__.__module__.startswith('ordereddict'):
+        result_dict = dict(obj) 
+    elif type(obj) == type({}):
+        result_dict = obj
+    else:
+        #基本类型，无需转换
+        return obj
+    keys = obj.keys()
+    for key in keys:
+        #迭代转换
+        if isinstance(result_dict[key],object) and result_dict[key].__class__.__module__.startswith('ordereddict'):
+            result_dict[key] = change_xml_to_dict_deeply(result_dict[key])
+        elif type(result_dict[key]) == type([]):
+            result_dict[key] = [change_xml_to_dict_deeply(obj) for obj in result_dict[key]]
+    return result_dict
 
 class TaobaoClient(object):
 
@@ -101,7 +123,12 @@ class TaobaoClient(object):
                 rawContent=rawContent.replace(",,",",")
             if """./app/common/common.lua""" in rawContent:
                 rawContent=normalize_rawconent(rawContent)
-            content = simplejson.loads(rawContent)
+
+            if params.get('method')  in ['taobao.wangwang.eservice.groupmember.get','taobao.wangwang.eservice.receivenum.get']:
+                xml_dict = xmltodict.parse(rawContent)
+                content = change_xml_to_dict_deeply(xml_dict)
+            else:
+                content = simplejson.loads(rawContent)
             return content
         except Exception,e:
             file_object = open('/home/ops/TaobaoOpenPythonSDK/TaobaoSdk/error_api.txt','a')
