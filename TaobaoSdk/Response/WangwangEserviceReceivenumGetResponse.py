@@ -125,7 +125,16 @@ class WangwangEserviceReceivenumGetResponse(object):
             if isArray:
                 if not value:
                     return []
-                return [propertyType(x) for x in value[value.keys()[0]]]
+                d_list = []
+                for x in value[value.keys()[0]]:
+                    #data = propertyType(value)
+                    try:
+                        data = propertyType(x)
+                    except Exception:
+                        data = propertyType(value)
+                    d_list.append(data)
+                return d_list
+                #return [propertyType(x) for x in value[value.keys()[0]]]
             else:
                 return propertyType(value)
         
