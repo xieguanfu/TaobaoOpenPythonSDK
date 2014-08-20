@@ -3,7 +3,7 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 获取后台供卖家发布商品的标准商品类目。
+## @brief 通过店铺id取得短链
 # @author wuliang@maimiaotech.com
 # @version: 0.0.0
 
@@ -38,14 +38,11 @@ if __parentPath not in sys.path:
 
 
     
-from Domain.ItemCat import ItemCat
 
-    
-
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 获取后台供卖家发布商品的标准商品类目。</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 通过店铺id取得短链</SPAN>
 # <UL>
 # </UL>
-class ItemcatsGetResponse(object):
+class WirelessBuntingShopShorturlCreateResponse(object):
     def __init__(self, kargs=dict()):
         super(self.__class__, self).__init__()
 
@@ -75,28 +72,16 @@ class ItemcatsGetResponse(object):
 
         
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">增量类目信息,根据fields传入的参数返回相应的结果；增量类目信息,根据fields传入的参数返回相应的结果。 features字段： 1、如果存在attr_key=freeze表示该类目被冻结了，attr_value=0,5，value可能存在2个值（也可能只有1个），用逗号分割，0表示禁编辑，5表示禁止发布</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">短链</SPAN>
         # <UL>
         # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">ItemCat</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object Array</SPAN>
-        # </LI>
-        # </UL>
-        self.item_cats = None
-        
-        
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">最近修改时间(如果取增量，会返回该字段)。格式:yyyy-MM-dd HH:mm:ss</SPAN>
-        # <UL>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Date</SPAN>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
         # </LI>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
         # </LI>
         # </UL>
-        self.last_modified = None
+        self.shorturl = None
     
         self.__init(kargs)
 
@@ -144,15 +129,11 @@ class ItemcatsGetResponse(object):
     def _getPropertyType(self, name):
         properties = {
             
-            "item_cats": "ItemCat",
-            
-            "last_modified": "Date",
+            "shorturl": "String",
         }
         levels = {
             
-            "item_cats": "Object Array",
-            
-            "last_modified": "Basic",
+            "shorturl": "Basic",
         }
         
         nameType = properties[name]
@@ -183,11 +164,8 @@ class ItemcatsGetResponse(object):
 
     def __init(self, kargs):
         
-        if kargs.has_key("item_cats"):
-            self.item_cats = self._newInstance("item_cats", kargs["item_cats"])
-        
-        if kargs.has_key("last_modified"):
-            self.last_modified = self._newInstance("last_modified", kargs["last_modified"])
+        if kargs.has_key("shorturl"):
+            self.shorturl = self._newInstance("shorturl", kargs["shorturl"])
         if kargs.has_key("code"):
             self.code = kargs["code"]
         if kargs.has_key("msg"):

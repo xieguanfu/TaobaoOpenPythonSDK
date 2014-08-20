@@ -158,6 +158,7 @@ from LogisticsPartner import LogisticsPartner
 from ItemCat import ItemCat
 from ItemImg import ItemImg
 from TOPSearchResult import TOPSearchResult
+from AccountInfo import AccountInfo
 from MjsPromotion import MjsPromotion
 from RefundMessage import RefundMessage
 from ChannelOption import ChannelOption
@@ -178,6 +179,7 @@ from PropValue import PropValue
 from CampaignBudget import CampaignBudget
 from Meal import Meal
 from Order import Order
+from Rankingforecast import Rankingforecast
 from NonReplyStatOnDay import NonReplyStatOnDay
 from ScoreResult import ScoreResult
 from INRecordBase import INRecordBase

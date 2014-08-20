@@ -3,14 +3,16 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 查询E客服账号的操作记录。如：登录，下线，挂起等。
+## @brief E客服账号操作信息
 # @author wuliang@maimiaotech.com
 # @version: 0.0.0
 
+from copy import deepcopy
 from datetime import datetime
 import os
 import sys
 import time
+import types
 
 _jsonEnode = None
 try:
@@ -31,63 +33,46 @@ except Exception:
 
 def __getCurrentPath():
     return os.path.normpath(os.path.join(os.path.realpath(__file__), os.path.pardir))
-    
-__parentPath = os.path.normpath(os.path.join(__getCurrentPath(), os.path.pardir))
-if __parentPath not in sys.path:
-    sys.path.insert(0, __parentPath)
+
+if __getCurrentPath() not in sys.path:
+    sys.path.insert(0, __getCurrentPath())
 
 
-    
-from Domain.AccountInfo import AccountInfo
+                
+from AccountStat import AccountStat
 
-    
-
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 查询E客服账号的操作记录。如：登录，下线，挂起等。</SPAN>
-# <UL>
-# </UL>
-class WangwangEserviceAccountstatusGetResponse(object):
+        
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">E客服账号操作信息</SPAN>
+class AccountInfo(object):
     def __init__(self, kargs=dict()):
         super(self.__class__, self).__init__()
 
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">请求的返回信息,包含状态等</SPAN>
+        self.__kargs = deepcopy(kargs)
+        
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">账号</SPAN>
         # <UL>
         # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">dict</SPAN>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
         # </LI>
         # </UL>
-        self.responseStatus = None
-
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">请求的响应内容</SPAN>
+        self.account = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">操作列表</SPAN>
         # <UL>
         # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">str</SPAN>
-        # </LI>
-        # </UL>        
-        self.responseBody = None
-
-        self.code = None
-
-        self.msg = None
-
-        self.sub_code = None
-
-        self.sub_msg = None
-
-        
-        
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">账号操作记录列表。</SPAN>
-        # <UL>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">AccountInfo</SPAN>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">AccountStat</SPAN>
         # </LI>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Object Array</SPAN>
         # </LI>
         # </UL>
-        self.account_infos = None
+        self.account_stats = None
         
-        
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">接口调用返回码。 0：成功。100：部分成功。</SPAN>
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">account_stats列表的长度</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
@@ -96,13 +81,24 @@ class WangwangEserviceAccountstatusGetResponse(object):
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
         # </LI>
         # </UL>
-        self.ret_code = None
-    
+        self.count = None
+        
         self.__init(kargs)
 
-    def isSuccess(self):
-        return self.code == None and self.sub_code == None
-    
+    def toDict(self, **kargs):
+        result = deepcopy(self.__kargs)
+        for key, value in self.__dict__.iteritems():
+            if key.endswith("__kargs"):
+                continue
+            if value == None:
+                if kargs.has_key("includeNone") and kargs["includeNone"]:
+                    result[key] = value
+                else:
+                    continue
+            else:
+                result[key] = value
+        return result
+        
     def _newInstance(self, name, value):
         types = self._getPropertyType(name)
         propertyType = types[0]
@@ -128,11 +124,10 @@ class WangwangEserviceAccountstatusGetResponse(object):
                     return []
                 return [x for x in value[value.keys()[0]]]
             else:
-                #like taobao.simba.rpt.adgroupbase.get, response.rpt_adgroup_base_list is a json string,but will be decode into a list via python json lib 
                 if not isinstance(value, basestring):
-                    #the value should be a json string 
                     return _jsonEnode(value)
-                return value
+                else:
+                    return value
         else:
             if isArray:
                 if not value:
@@ -144,17 +139,21 @@ class WangwangEserviceAccountstatusGetResponse(object):
     def _getPropertyType(self, name):
         properties = {
             
-            "account_infos": "AccountInfo",
+            "account": "String",
             
-            "ret_code": "Number",
+            "account_stats": "AccountStat",
+            
+            "count": "Number",
         }
         levels = {
             
-            "account_infos": "Object Array",
+            "account": "Basic",
             
-            "ret_code": "Basic",
+            "account_stats": "Object Array",
+            
+            "count": "Basic",
+
         }
-        
         nameType = properties[name]
         pythonType = None
         if nameType == "Number":
@@ -172,27 +171,24 @@ class WangwangEserviceAccountstatusGetResponse(object):
         elif nameType == 'byte[]':
             pythonType = str
         else:
-            pythonType = getattr(sys.modules["Domain.%s" % nameType], nameType)
-        
-        # 是单个元素还是一个对象
+            pythonType = getattr(
+                sys.modules[os.path.basename(
+                os.path.dirname(os.path.realpath(__file__))) + "." + nameType], 
+                nameType)
+
         level = levels[name]
         if "Array" in level:
             return (pythonType, True)
         else:
             return (pythonType, False)
-
+        
     def __init(self, kargs):
         
-        if kargs.has_key("account_infos"):
-            self.account_infos = self._newInstance("account_infos", kargs["account_infos"])
+        if kargs.has_key("account"):
+            self.account = self._newInstance("account", kargs["account"])
         
-        if kargs.has_key("ret_code"):
-            self.ret_code = self._newInstance("ret_code", kargs["ret_code"])
-        if kargs.has_key("code"):
-            self.code = kargs["code"]
-        if kargs.has_key("msg"):
-            self.msg = kargs["msg"]
-        if kargs.has_key("sub_code"):
-            self.sub_code = kargs["sub_code"]
-        if kargs.has_key("sub_msg"):
-            self.sub_msg = kargs["sub_msg"]
+        if kargs.has_key("account_stats"):
+            self.account_stats = self._newInstance("account_stats", kargs["account_stats"])
+        
+        if kargs.has_key("count"):
+            self.count = self._newInstance("count", kargs["count"])

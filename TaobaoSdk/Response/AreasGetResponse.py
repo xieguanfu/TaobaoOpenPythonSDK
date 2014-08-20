@@ -3,7 +3,7 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 查询标准地址区域代码信息 参考：http://www.stats.gov.cn/tjbz/xzqhdm/t20100623_402652267.htm
+## @brief 查询标准地址区域代码信息。参考：http://www.stats.gov.cn/tjsj/tjbz/xzqhdm/201401/t20140116_501070.html
 # @author wuliang@maimiaotech.com
 # @version: 0.0.0
 
@@ -42,7 +42,7 @@ from Domain.Area import Area
 
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 查询标准地址区域代码信息 参考：http://www.stats.gov.cn/tjbz/xzqhdm/t20100623_402652267.htm</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">Response: 查询标准地址区域代码信息。参考：http://www.stats.gov.cn/tjsj/tjbz/xzqhdm/201401/t20140116_501070.html</SPAN>
 # <UL>
 # </UL>
 class AreasGetResponse(object):

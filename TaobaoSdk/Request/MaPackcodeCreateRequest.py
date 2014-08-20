@@ -3,7 +3,7 @@
 # vim: set ts=4 sts=4 sw=4 et:
 
 
-## @brief 查询标准地址区域代码信息。参考：http://www.stats.gov.cn/tjsj/tjbz/xzqhdm/201401/t20140116_501070.html
+## @brief 生成包裹码二维码图片链接
 # @author wuliang@maimiaotech.com
 # @version: 0.0.0
 
@@ -22,10 +22,10 @@ if __modulePath not in sys.path:
     sys.path.insert(0, __modulePath)
 
 
-## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">查询标准地址区域代码信息。参考：http://www.stats.gov.cn/tjsj/tjbz/xzqhdm/201401/t20140116_501070.html</SPAN>
+## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">生成包裹码二维码图片链接</SPAN>
 # <UL>
 # </UL>
-class AreasGetRequest(object):
+class MaPackcodeCreateRequest(object):
     def __init__(self):
         super(self.__class__, self).__init__()
         
@@ -35,7 +35,7 @@ class AreasGetRequest(object):
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">str</SPAN>
         # </LI>
         # </UL>
-        self.method = "taobao.areas.get"
+        self.method = "taobao.ma.packcode.create"
         
         ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">时间戳，如果不设置,发送请求时将使用当时的时间</SPAN>
         # <UL>
@@ -45,14 +45,3 @@ class AreasGetRequest(object):
         # </UL>
         self.timestamp = int(time.time())
 
-        
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">需返回的字段列表.可选值:Area 结构中的所有字段;多个字段之间用","分隔.如:id,type,name,parent_id,zip.</SPAN>
-        # <UL>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Field List</SPAN>
-        # </LI>
-        # <LI>
-        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Required</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">required</SPAN>
-        # </LI>
-        # </UL>
-        self.fields = None

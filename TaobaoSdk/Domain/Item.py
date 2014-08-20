@@ -65,10 +65,10 @@ from PaimaiInfo import PaimaiInfo
                                                         
 from PropImg import PropImg
 
-                                                                        
+                                                                                
 from Sku import Sku
 
-                                                                        
+                                                                                
 from Video import Video
 
                                                 
@@ -850,6 +850,17 @@ class Item(object):
         # </UL>
         self.second_kill = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">达尔文数据挂接，第二步保存结果</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Boolean</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.second_result = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品卖点信息，天猫商家使用字段，最长150个字符。</SPAN>
         # <UL>
         # <LI>
@@ -893,6 +904,17 @@ class Item(object):
         # </LI>
         # </UL>
         self.skus = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品销量</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.sold_quantity = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品新旧程度(全新:new，闲置:unused，二手：second)</SPAN>
         # <UL>
@@ -1255,6 +1277,8 @@ class Item(object):
             
             "second_kill": "String",
             
+            "second_result": "Boolean",
+            
             "sell_point": "String",
             
             "sell_promise": "Boolean",
@@ -1262,6 +1286,8 @@ class Item(object):
             "seller_cids": "String",
             
             "skus": "Sku",
+            
+            "sold_quantity": "Number",
             
             "stuff_status": "String",
             
@@ -1435,6 +1461,8 @@ class Item(object):
             
             "second_kill": "Basic",
             
+            "second_result": "Basic",
+            
             "sell_point": "Basic",
             
             "sell_promise": "Basic",
@@ -1442,6 +1470,8 @@ class Item(object):
             "seller_cids": "Basic",
             
             "skus": "Object Array",
+            
+            "sold_quantity": "Basic",
             
             "stuff_status": "Basic",
             
@@ -1714,6 +1744,9 @@ class Item(object):
         if kargs.has_key("second_kill"):
             self.second_kill = self._newInstance("second_kill", kargs["second_kill"])
         
+        if kargs.has_key("second_result"):
+            self.second_result = self._newInstance("second_result", kargs["second_result"])
+        
         if kargs.has_key("sell_point"):
             self.sell_point = self._newInstance("sell_point", kargs["sell_point"])
         
@@ -1725,6 +1758,9 @@ class Item(object):
         
         if kargs.has_key("skus"):
             self.skus = self._newInstance("skus", kargs["skus"])
+        
+        if kargs.has_key("sold_quantity"):
+            self.sold_quantity = self._newInstance("sold_quantity", kargs["sold_quantity"])
         
         if kargs.has_key("stuff_status"):
             self.stuff_status = self._newInstance("stuff_status", kargs["stuff_status"])

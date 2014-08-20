@@ -46,7 +46,7 @@ class WangwangEserviceAccountstatusGetRequest(object):
         self.timestamp = int(time.time())
 
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">查询操作记录的起始时间。</br> 格式为： YYYY-mm-dd_HH:MM:SS </br> 注：</br> 查询时间必须在30天之内。<br /> 支持最大长度为：19<br /> 支持的最大列表长度为：19</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">的起始时间。</br> 格式为： YYYY-mm-dd_HH:MM:SS </br> 注：</br> 1. 查询时间必须在30天之内。 2. 起始时间和结束时间间隔不超过7天。<br /> 支持最大长度为：19<br /> 支持的最大列表长度为：19</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -57,7 +57,7 @@ class WangwangEserviceAccountstatusGetRequest(object):
         # </UL>
         self.btime = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">查询操作记录的结束时间 。 </br> 格式为：YYYY-mm-dd_HH:MM:SS </br> 注：</br> 查询时间必须在30天之内。<br /> 支持最大长度为：19<br /> 支持的最大列表长度为：19</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">结束时间 。 </br> 格式为：YYYY-mm-dd_HH:MM:SS </br> 注：</br> 1. 查询时间必须在30天之内。 2. 起始时间和结束时间间隔不超过7天。<br /> 支持最大长度为：19<br /> 支持的最大列表长度为：19</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
@@ -68,7 +68,7 @@ class WangwangEserviceAccountstatusGetRequest(object):
         # </UL>
         self.etime = None
         
-        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">查询账号。 需要带前缀（如cntaobao）。</br>  注： </br> uid必须为授权店铺的店铺内账号。<br /> 支持最大长度为：64<br /> 支持的最大列表长度为：64</SPAN>
+        ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">查询账号（序列）。 需要带前缀（如cntaobao）。</br>  注： </br> 1. uid中所有账号必须为授权店铺的店铺内账号。</br> 2. 如果传入多个账号，账号与账号之间以","分割。最多30个账号。每个账号的最大长度是64。</br> 3. 由于后端依然是顺序请求，所以该接口的响应时长是会随uid的数量线性增长，即uid数量越多，调用时间越长。请合理使用<br /> 支持最大长度为：1920<br /> 支持的最大列表长度为：1920</SPAN>
         # <UL>
         # <LI>
         # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>

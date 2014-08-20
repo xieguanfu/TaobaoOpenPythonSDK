@@ -38,10 +38,10 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 from Order import Order
 
-                                                                
+                                                                        
 from PromotionDetail import PromotionDetail
 
                                                                                                                                                                                         
@@ -91,6 +91,17 @@ class Trade(object):
         # </LI>
         # </UL>
         self.alipay_no = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">付款时使用的支付宝积分的额度,单位分，比如返回1，则为1分钱</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.alipay_point = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">创建交易接口成功后，返回的支付url</SPAN>
         # <UL>
@@ -675,6 +686,17 @@ class Trade(object):
         # </UL>
         self.o2o_guide_name = None
         
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">外部订单号</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">String</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.o2o_out_trade_id = None
+        
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">导购员门店id</SPAN>
         # <UL>
         # <LI>
@@ -729,6 +751,17 @@ class Trade(object):
         # </LI>
         # </UL>
         self.payment = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">天猫点券卡实付款金额,单位分</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.pcc_af = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">商品图片绝对途径</SPAN>
         # <UL>
@@ -1320,6 +1353,8 @@ class Trade(object):
             
             "alipay_no": "String",
             
+            "alipay_point": "Number",
+            
             "alipay_url": "String",
             
             "alipay_warn_msg": "String",
@@ -1426,6 +1461,8 @@ class Trade(object):
             
             "o2o_guide_name": "String",
             
+            "o2o_out_trade_id": "String",
+            
             "o2o_shop_id": "String",
             
             "o2o_shop_name": "String",
@@ -1435,6 +1472,8 @@ class Trade(object):
             "pay_time": "Date",
             
             "payment": "String",
+            
+            "pcc_af": "Number",
             
             "pic_path": "String",
             
@@ -1539,6 +1578,8 @@ class Trade(object):
             "alipay_id": "Basic",
             
             "alipay_no": "Basic",
+            
+            "alipay_point": "Basic",
             
             "alipay_url": "Basic",
             
@@ -1646,6 +1687,8 @@ class Trade(object):
             
             "o2o_guide_name": "Basic",
             
+            "o2o_out_trade_id": "Basic",
+            
             "o2o_shop_id": "Basic",
             
             "o2o_shop_name": "Basic",
@@ -1655,6 +1698,8 @@ class Trade(object):
             "pay_time": "Basic",
             
             "payment": "Basic",
+            
+            "pcc_af": "Basic",
             
             "pic_path": "Basic",
             
@@ -1791,6 +1836,9 @@ class Trade(object):
         
         if kargs.has_key("alipay_no"):
             self.alipay_no = self._newInstance("alipay_no", kargs["alipay_no"])
+        
+        if kargs.has_key("alipay_point"):
+            self.alipay_point = self._newInstance("alipay_point", kargs["alipay_point"])
         
         if kargs.has_key("alipay_url"):
             self.alipay_url = self._newInstance("alipay_url", kargs["alipay_url"])
@@ -1951,6 +1999,9 @@ class Trade(object):
         if kargs.has_key("o2o_guide_name"):
             self.o2o_guide_name = self._newInstance("o2o_guide_name", kargs["o2o_guide_name"])
         
+        if kargs.has_key("o2o_out_trade_id"):
+            self.o2o_out_trade_id = self._newInstance("o2o_out_trade_id", kargs["o2o_out_trade_id"])
+        
         if kargs.has_key("o2o_shop_id"):
             self.o2o_shop_id = self._newInstance("o2o_shop_id", kargs["o2o_shop_id"])
         
@@ -1965,6 +2016,9 @@ class Trade(object):
         
         if kargs.has_key("payment"):
             self.payment = self._newInstance("payment", kargs["payment"])
+        
+        if kargs.has_key("pcc_af"):
+            self.pcc_af = self._newInstance("pcc_af", kargs["pcc_af"])
         
         if kargs.has_key("pic_path"):
             self.pic_path = self._newInstance("pic_path", kargs["pic_path"])
