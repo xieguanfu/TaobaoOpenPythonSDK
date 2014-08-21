@@ -38,7 +38,7 @@ if __getCurrentPath() not in sys.path:
     sys.path.insert(0, __getCurrentPath())
 
 
-                                                        
+                                                                
 ## @brief <SPAN style="font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">推广计划的投放平台</SPAN>
 class CampaignPlatform(object):
     def __init__(self, kargs=dict()):
@@ -68,6 +68,17 @@ class CampaignPlatform(object):
         # </LI>
         # </UL>
         self.create_time = None
+        
+        ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">无线折扣百分比。必须大于等于1，小于等于200的整数</SPAN>
+        # <UL>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Type</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Number</SPAN>
+        # </LI>
+        # <LI>
+        # <SPAN style="color:DarkRed; font-size:18px; font-family:'Times New Roman',Georgia,Serif;">Level</SPAN>: <SPAN style="color:DarkMagenta; font-size:16px; font-family:'Times New Roman','宋体',Georgia,Serif;">Basic</SPAN>
+        # </LI>
+        # </UL>
+        self.mobile_discount = None
         
         ## @brief <SPAN style="color:Blue3; font-size:16px; font-family:'宋体','Times New Roman',Georgia,Serif;">最后修改时间</SPAN>
         # <UL>
@@ -184,6 +195,8 @@ class CampaignPlatform(object):
             
             "create_time": "Date",
             
+            "mobile_discount": "Number",
+            
             "modified_time": "Date",
             
             "nick": "String",
@@ -199,6 +212,8 @@ class CampaignPlatform(object):
             "campaign_id": "Basic",
             
             "create_time": "Basic",
+            
+            "mobile_discount": "Basic",
             
             "modified_time": "Basic",
             
@@ -246,6 +261,9 @@ class CampaignPlatform(object):
         
         if kargs.has_key("create_time"):
             self.create_time = self._newInstance("create_time", kargs["create_time"])
+        
+        if kargs.has_key("mobile_discount"):
+            self.mobile_discount = self._newInstance("mobile_discount", kargs["mobile_discount"])
         
         if kargs.has_key("modified_time"):
             self.modified_time = self._newInstance("modified_time", kargs["modified_time"])
