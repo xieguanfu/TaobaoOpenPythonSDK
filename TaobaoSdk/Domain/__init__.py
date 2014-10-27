@@ -329,3 +329,4 @@ from TravelItemsCombo import TravelItemsCombo
 from TradeMonitor import TradeMonitor
 from CouponResult import CouponResult
 from Evaluation import Evaluation
+from InsightWordDataDTO import InsightWordDataDTO 
